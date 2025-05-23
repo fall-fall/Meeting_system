@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}编辑会议 - 会议管理系统{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>编辑会议</h1>
+    </div>
+    <div class="card-body">
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+        <form method="post" action="{{ url_for('edit_conference', conference_id=conference.id) }}">
+            <div class="form-group">
+                <label for="title">标题</label>
+                <input type="text" id="title" name="title" class="form-control" value="{{ conference.title }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date">日期和时间</label>
+                <input type="datetime-local" id="date" name="date" class="form-control" value="{{ conference.date.strftime('%Y-%m-%dT%H:%M') }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">地点</label>
+                <input type="text" id="location" name="location" class="form-control" value="{{ conference.location }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">描述</label>
+                <textarea id="description" name="description" class="form-control" rows="5" required>{{ conference.description }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">更新会议</button>
+        </form>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <h2>会议议程</h2>
+    </div>
+    <div class="card-body">
+        {% if agenda_items %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>标题</th>
+                        <th>演讲者</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in agenda_items %}
+                        <tr>
+                            <td>{{ item.start_time }} - {{ item.end_time }}</td>
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.speaker }}</td>
+                            <td>
+                                <a href="{{ url_for('delete_agenda_item', conference_id=conference.id, agenda_item_id=item.id) }}" class="btn btn-sm btn-danger delete-btn" data-confirm-message="确定要删除此议程项目吗？">删除</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>此会议暂无议程项目。</p>
+        {% endif %}
+
+        <h3 class="mt-4">添加议程项目</h3>
+        <form method="post" action="{{ url_for('add_agenda_item', conference_id=conference.id) }}">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="start_time">开始时间</label>
+                        <input type="text" id="start_time" name="start_time" class="form-control" placeholder="例如: 09:00" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="end_time">结束时间</label>
+                        <input type="text" id="end_time" name="end_time" class="form-control" placeholder="例如: 10:00" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title">标题</label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="议程项目标题" required>
+            </div>
+            <div class="form-group">
+                <label for="speaker">演讲者</label>
+                <input type="text" id="speaker" name="speaker" class="form-control" placeholder="演讲者姓名" required>
+            </div>
+            <button type="submit" class="btn btn-success">添加议程项目</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

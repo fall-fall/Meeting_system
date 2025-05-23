@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>接受会议邀请 - 会议管理系统</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .card {
+            margin-top: 50px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .btn-lg {
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="mb-0">接受会议邀请</h2>
+                    </div>
+                    <div class="card-body">
+                        <h4>您收到了参加以下会议的邀请：</h4>
+                        <div class="alert alert-info mt-3">
+                            <h5>{{ conference.title }}</h5>
+                            <p>{{ conference.description }}</p>
+                            <p><strong>日期：</strong> {{ conference.date.strftime('%Y-%m-%d %H:%M') }}</p>
+                            <p><strong>地点：</strong> {{ conference.location }}</p>
+                            <p><strong>创建者：</strong> {{ conference.creator.username }}</p>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <a href="/api/registrations/accept-invitation/{{ conference.id }}" class="btn btn-success btn-lg">
+                                接受邀请并参加会议
+                            </a>
+                            <a href="/api/conferences/{{ conference.id }}" class="btn btn-info btn-lg ml-2">
+                                查看会议详情
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/api/notifications" class="btn btn-secondary">返回通知列表</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}我的会议 - 会议管理系统{% endblock %}
+
+{% block content %}
+<div class="page-transition">
+    <h1 class="mb-4">我的会议</h1>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2>我参与的会议</h2>
+        </div>
+        <div class="card-body">
+            {% if registered_conferences %}
+                <div class="row">
+                    {% for conference in registered_conferences %}
+                        <div class="col-md-4 mb-4">
+                            <div class="card conference-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ conference.title }}</h5>
+                                    <div class="card-text">
+                                        <div class="conference-meta">
+                                            <div class="conference-meta-item">
+                                                <i class="fa fa-calendar"></i>
+                                                {{ conference.date.strftime('%Y-%m-%d %H:%M') }}
+                                            </div>
+                                            <div class="conference-meta-item">
+                                                <i class="fa fa-map-marker"></i>
+                                                {{ conference.location }}
+                                            </div>
+                                        </div>
+                                        <p>{{ conference.description[:100] }}{% if conference.description|length > 100 %}...{% endif %}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="/api/conferences/{{ conference.id }}" class="btn btn-primary">查看详情</a>
+                                        <a href="/api/registrations/unregister/{{ conference.id }}" class="btn btn-danger btn-sm delete-btn" data-confirm-message="确定要退出此会议吗？">
+                                            <i class="fa fa-times"></i> 退出会议
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    您尚未参加任何会议。<a href="/api/conferences/">浏览会议列表</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if current_user.is_admin %}
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h2>我创建的会议</h2>
+                <a href="/api/conferences/create" class="btn btn-success">
+                    <i class="fa fa-plus"></i> 创建新会议
+                </a>
+            </div>
+            <div class="card-body">
+                {% if created_conferences %}
+                    <div class="row">
+                        {% for conference in created_conferences %}
+                            <div class="col-md-4 mb-4">
+                                <div class="card conference-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ conference.title }}</h5>
+                                        <div class="card-text">
+                                            <div class="conference-meta">
+                                                <div class="conference-meta-item">
+                                                    <i class="fa fa-calendar"></i>
+                                                    {{ conference.date.strftime('%Y-%m-%d %H:%M') }}
+                                                </div>
+                                                <div class="conference-meta-item">
+                                                    <i class="fa fa-map-marker"></i>
+                                                    {{ conference.location }}
+                                                </div>
+                                                <div class="conference-meta-item">
+                                                    <i class="fa fa-users"></i>
+                                                    {{ conference.registrations|length }} 人已参加
+                                                </div>
+                                            </div>
+                                            <p>{{ conference.description[:100] }}{% if conference.description|length > 100 %}...{% endif %}</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <a href="/api/conferences/{{ conference.id }}" class="btn btn-primary">查看详情</a>
+                                            <div>
+                                                <a href="/api/conferences/{{ conference.id }}/edit" class="btn btn-info btn-sm">
+                                                    <i class="fa fa-edit"></i> 编辑
+                                                </a>
+                                                <a href="/api/registrations/attendees/{{ conference.id }}" class="btn btn-secondary btn-sm">
+                                                    <i class="fa fa-users"></i> 参会者
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        您尚未创建任何会议。<a href="/api/conferences/create">创建第一个会议</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Simulate font awesome icons
+        const iconElements = document.querySelectorAll('.fa');
+        iconElements.forEach(icon => {
+            if (icon.classList.contains('fa-calendar')) {
+                icon.textContent = '📅 ';
+            } else if (icon.classList.contains('fa-map-marker')) {
+                icon.textContent = '📍 ';
+            } else if (icon.classList.contains('fa-users')) {
+                icon.textContent = '👥 ';
+            } else if (icon.classList.contains('fa-edit')) {
+                icon.textContent = '✏️ ';
+            } else if (icon.classList.contains('fa-plus')) {
+                icon.textContent = '➕ ';
+            } else if (icon.classList.contains('fa-times')) {
+                icon.textContent = '❌ ';
+            }
+        });
+    });
+</script>
+{% endblock %}

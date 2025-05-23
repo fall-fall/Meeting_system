@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}参会者 - {{ conference.title }} - 会议管理系统{% endblock %}
+
+{% block content %}
+<div class="page-transition">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">首页</a></li>
+            <li class="breadcrumb-item"><a href="/api/conferences/">会议列表</a></li>
+            <li class="breadcrumb-item"><a href="/api/conferences/{{ conference.id }}">{{ conference.title }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">参会者</li>
+        </ol>
+    </nav>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h1>{{ conference.title }} 的参会者</h1>
+        </div>
+        <div class="card-body">
+            {% if registrations %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>用户名</th>
+                            <th>电子邮箱</th>
+                            <th>参加时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for registration in registrations %}
+                            <tr>
+                                <td>{{ registration.user.username }}</td>
+                                <td>{{ registration.user.email }}</td>
+                                <td>{{ registration.registered_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="alert alert-info">暂无参会者参加此会议。</div>
+            {% endif %}
+
+            <a href="/api/conferences/{{ conference.id }}" class="btn btn-primary">返回会议详情</a>
+        </div>
+    </div>
+
+    {% if available_friends %}
+        <div class="card">
+            <div class="card-header">
+                <h2>邀请好友参加会议</h2>
+            </div>
+            <div class="card-body">
+                <form method="post" action="/api/registrations/invite">
+                    <input type="hidden" name="conference_id" value="{{ conference.id }}">
+                    <div class="form-group">
+                        <label for="friend_id">选择好友</label>
+                        <select id="friend_id" name="friend_id" class="form-control" required>
+                            <option value="">-- 请选择 --</option>
+                            {% for friend in available_friends %}
+                                <option value="{{ friend.id }}">{{ friend.username }} ({{ friend.email }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">发送邀请</button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

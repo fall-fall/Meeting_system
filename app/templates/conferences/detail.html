@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}{{ conference.title }} - 会议管理系统{% endblock %}
+
+{% block content %}
+<div class="page-transition">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">首页</a></li>
+            <li class="breadcrumb-item"><a href="/api/conferences/">会议列表</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ conference.title }}</li>
+        </ol>
+    </nav>
+
+    <div class="card">
+        <div class="card-header">
+            <h1>{{ conference.title }}</h1>
+        </div>
+        <div class="card-body conference-details">
+            <div class="conference-meta">
+                <div class="conference-meta-item">
+                    <i class="fa fa-calendar"></i>
+                    <strong>日期:</strong> {{ conference.date.strftime('%Y-%m-%d %H:%M') }}
+                </div>
+                <div class="conference-meta-item">
+                    <i class="fa fa-map-marker"></i>
+                    <strong>地点:</strong> {{ conference.location }}
+                </div>
+                <div class="conference-meta-item">
+                    <i class="fa fa-user"></i>
+                    <strong>组织者:</strong> {{ conference.creator.username }}
+                </div>
+                {% if is_registered %}
+                    <div class="conference-meta-item">
+                        <span class="badge badge-success">已参加</span>
+                    </div>
+                {% endif %}
+            </div>
+
+            <h3>会议描述</h3>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <p>{{ conference.description }}</p>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                {% if current_user %}
+                    {% if is_registered %}
+                        <a href="/api/registrations/unregister/{{ conference.id }}" class="btn btn-danger delete-btn" data-confirm-message="确定要退出此会议吗？">
+                            <i class="fa fa-times"></i> 退出会议
+                        </a>
+                    {% else %}
+                        <a href="/api/registrations/register/{{ conference.id }}" class="btn btn-success">
+                            <i class="fa fa-check"></i> 参加此会议
+                        </a>
+                    {% endif %}
+                {% else %}
+                    <div class="alert alert-info">
+                        请<a href="/api/auth/login">登录</a>后参加此会议。
+                    </div>
+                {% endif %}
+
+                {% if current_user and current_user.id == conference.creator_id %}
+                    <div class="mt-3 admin-actions">
+                        <a href="/api/conferences/{{ conference.id }}/edit" class="btn btn-primary">
+                            <i class="fa fa-edit"></i> 编辑会议
+                        </a>
+                        <a href="/api/registrations/attendees/{{ conference.id }}" class="btn btn-info">
+                            <i class="fa fa-users"></i> 查看参会者
+                        </a>
+                        <a href="/api/conferences/{{ conference.id }}/delete" class="btn btn-danger delete-btn" data-confirm-message="确定要删除此会议吗？">
+                            <i class="fa fa-trash"></i> 删除会议
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4 page-transition" style="animation-delay: 0.2s;">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h2>会议议程</h2>
+        <span class="badge badge-primary">{{ agenda_items|length }} 个议程项目</span>
+    </div>
+    <div class="card-body">
+        {% if agenda_items %}
+            <div class="agenda-timeline">
+                {% for item in agenda_items %}
+                    <div class="agenda-item-timeline">
+                        <div class="agenda-time">{{ item.start_time }} - {{ item.end_time }}</div>
+                        <h4>{{ item.title }}</h4>
+                        <div class="speaker">
+                            <i class="fa fa-user"></i> {{ item.speaker }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-4">
+                <p>此会议暂无议程项目。</p>
+                {% if current_user and current_user.id == conference.creator_id %}
+                    <a href="/api/conferences/{{ conference.id }}/edit" class="btn btn-primary">
+                        添加议程项目
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Add font awesome icons
+    document.addEventListener('DOMContentLoaded', function() {
+        // Simulate font awesome icons since we don't have the actual library
+        const iconElements = document.querySelectorAll('.fa');
+        iconElements.forEach(icon => {
+            if (icon.classList.contains('fa-calendar')) {
+                icon.textContent = '📅 ';
+            } else if (icon.classList.contains('fa-map-marker')) {
+                icon.textContent = '📍 ';
+            } else if (icon.classList.contains('fa-user')) {
+                icon.textContent = '👤 ';
+            } else if (icon.classList.contains('fa-users')) {
+                icon.textContent = '👥 ';
+            } else if (icon.classList.contains('fa-edit')) {
+                icon.textContent = '✏️ ';
+            } else if (icon.classList.contains('fa-trash')) {
+                icon.textContent = '🗑️ ';
+            } else if (icon.classList.contains('fa-check')) {
+                icon.textContent = '✅ ';
+            } else if (icon.classList.contains('fa-times')) {
+                icon.textContent = '❌ ';
+            }
+        });
+
+        // Add breadcrumb styles
+        const breadcrumb = document.querySelector('.breadcrumb');
+        if (breadcrumb) {
+            breadcrumb.style.display = 'flex';
+            breadcrumb.style.listStyle = 'none';
+            breadcrumb.style.padding = '0.75rem 1rem';
+            breadcrumb.style.backgroundColor = '#f8f9fa';
+            breadcrumb.style.borderRadius = '0.25rem';
+            breadcrumb.style.marginBottom = '1rem';
+
+            const items = breadcrumb.querySelectorAll('.breadcrumb-item');
+            items.forEach(item => {
+                item.style.marginRight = '0.5rem';
+
+                if (item.classList.contains('active')) {
+                    item.style.color = '#6c757d';
+                }
+            });
+
+            const links = breadcrumb.querySelectorAll('a');
+            links.forEach(link => {
+                link.style.color = '#007bff';
+                link.style.textDecoration = 'none';
+            });
+        }
+    });
+</script>
+{% endblock %}

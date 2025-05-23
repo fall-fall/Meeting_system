@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}首页 - 会议管理系统{% endblock %}
+
+{% block content %}
+<div class="jumbotron page-transition">
+    <h1>欢迎使用会议管理系统</h1>
+    <p>一个简单高效的会议发布、浏览和报名平台</p>
+    {% if not current_user %}
+        <p>
+            <a href="/api/auth/login" class="btn btn-primary">登录</a>
+            <a href="/api/auth/register" class="btn btn-success">注册</a>
+        </p>
+    {% else %}
+        <p>
+            <span class="badge badge-primary">{{ current_user.username }}</span>
+            {% if current_user.is_admin %}
+                <span class="badge badge-info">管理员</span>
+            {% endif %}
+            欢迎回来！
+        </p>
+    {% endif %}
+</div>
+
+<div class="page-transition" style="animation-delay: 0.2s;">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>即将举行的会议</h2>
+        {% if current_user and current_user.is_admin %}
+            <a href="{{ url_for('create_conference_page') }}" class="btn btn-success">创建新会议</a>
+        {% endif %}
+    </div>
+
+    {% if conferences %}
+        <div class="row">
+            {% for conference in conferences %}
+                <div class="col-md-4 mb-4">
+                    <div class="card conference-card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ conference.title }}</h5>
+                            <div class="card-text">
+                                <div class="conference-meta">
+                                    <div class="conference-meta-item">
+                                        <i class="fa fa-calendar"></i>
+                                        {{ conference.date.strftime('%Y-%m-%d %H:%M') }}
+                                    </div>
+                                    <div class="conference-meta-item">
+                                        <i class="fa fa-map-marker"></i>
+                                        {{ conference.location }}
+                                    </div>
+                                </div>
+                                <p>{{ conference.description[:100] }}{% if conference.description|length > 100 %}...{% endif %}</p>
+                            </div>
+                            <a href="/api/conferences/{{ conference.id }}" class="btn btn-primary">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="card">
+            <div class="card-body text-center">
+                <p class="mb-0">暂无即将举行的会议。</p>
+                {% if current_user and current_user.is_admin %}
+                    <p class="mt-3">
+                        <a href="{{ url_for('create_conference_page') }}" class="btn btn-primary">创建第一个会议</a>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<div class="page-transition" style="animation-delay: 0.4s;">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h3>会议管理系统功能</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h4><i class="fa fa-calendar"></i> 会议管理</h4>
+                    <p>创建和管理会议，设置会议时间、地点和详细信息</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h4><i class="fa fa-list"></i> 议程安排</h4>
+                    <p>为会议添加详细的议程项目，包括时间、主题和演讲者</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h4><i class="fa fa-users"></i> 参会管理</h4>
+                    <p>轻松注册参加会议，查看已注册的会议列表</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Add font awesome icons
+    document.addEventListener('DOMContentLoaded', function() {
+        // Simulate font awesome icons since we don't have the actual library
+        const iconElements = document.querySelectorAll('.fa');
+        iconElements.forEach(icon => {
+            if (icon.classList.contains('fa-calendar')) {
+                icon.textContent = '📅 ';
+            } else if (icon.classList.contains('fa-map-marker')) {
+                icon.textContent = '📍 ';
+            } else if (icon.classList.contains('fa-list')) {
+                icon.textContent = '📋 ';
+            } else if (icon.classList.contains('fa-users')) {
+                icon.textContent = '👥 ';
+            }
+        });
+    });
+</script>
+{% endblock %}

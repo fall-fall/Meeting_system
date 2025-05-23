@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}注册 - 会议管理系统{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card page-transition">
+            <div class="card-header">
+                <h2 class="text-center">用户注册</h2>
+            </div>
+            <div class="card-body">
+                {% if error %}
+                    <div class="alert alert-danger">
+                        <i class="fa fa-exclamation-circle"></i> {{ error }}
+                    </div>
+                {% endif %}
+
+                <form method="post" action="/api/auth/register" id="register-form">
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" id="username" name="username" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input type="password" id="password" name="password" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm_password">确认密码</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="is_admin" value="true"> 注册为管理员
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">注册</button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-3">
+                    <p>已有账号？<a href="/api/auth/login">点此登录</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Simulate font awesome icons
+        const iconElements = document.querySelectorAll('.fa');
+        iconElements.forEach(icon => {
+            if (icon.classList.contains('fa-user')) {
+                icon.textContent = '👤';
+            } else if (icon.classList.contains('fa-envelope')) {
+                icon.textContent = '📧';
+            } else if (icon.classList.contains('fa-lock')) {
+                icon.textContent = '🔒';
+            } else if (icon.classList.contains('fa-exclamation-circle')) {
+                icon.textContent = '⚠️';
+            }
+        });
+
+        // Style input groups
+        const inputGroups = document.querySelectorAll('.input-group');
+        inputGroups.forEach(group => {
+            group.style.display = 'flex';
+            group.style.flexWrap = 'nowrap';
+
+            const prepend = group.querySelector('.input-group-prepend');
+            if (prepend) {
+                prepend.style.display = 'flex';
+            }
+
+            const spans = group.querySelectorAll('.input-group-text');
+            spans.forEach(span => {
+                span.style.display = 'flex';
+                span.style.alignItems = 'center';
+                span.style.padding = '0.375rem 0.75rem';
+                span.style.marginBottom = '0';
+                span.style.fontSize = '1rem';
+                span.style.fontWeight = '400';
+                span.style.lineHeight = '1.5';
+                span.style.color = '#495057';
+                span.style.textAlign = 'center';
+                span.style.whiteSpace = 'nowrap';
+                span.style.backgroundColor = '#e9ecef';
+                span.style.border = '1px solid #ced4da';
+                span.style.borderRadius = '0.25rem';
+            });
+        });
+
+        // Add animation to form
+        const form = document.getElementById('register-form');
+        if (form) {
+            const formElements = form.querySelectorAll('input, button');
+            formElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 100 * (index + 1));
+            });
+        }
+    });
+</script>
+{% endblock %}

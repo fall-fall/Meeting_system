@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}我的注册 - 会议管理系统{% endblock %}
+
+{% block content %}
+<h1>我注册的会议</h1>
+
+{% if registrations %}
+    <div class="row">
+        {% for registration in registrations %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ registration.conference.title }}</h5>
+                        <p class="card-text">
+                            <strong>日期:</strong> {{ registration.conference.date.strftime('%Y-%m-%d %H:%M') }}<br>
+                            <strong>地点:</strong> {{ registration.conference.location }}<br>
+                            <strong>注册时间:</strong> {{ registration.registered_at.strftime('%Y-%m-%d %H:%M') }}
+                        </p>
+                        <a href="{{ url_for('conference_detail', conference_id=registration.conference.id) }}" class="btn btn-primary">查看详情</a>
+                        <a href="{{ url_for('unregister_from_conference', conference_id=registration.conference.id) }}" class="btn btn-danger delete-btn" data-confirm-message="确定要取消注册这个会议吗?">取消注册</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>您还没有注册任何会议。</p>
+    <p><a href="{{ url_for('list_conferences') }}" class="btn btn-primary">浏览可用会议</a></p>
+{% endif %}
+{% endblock %}

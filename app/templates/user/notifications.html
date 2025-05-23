@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}我的通知 - 会议管理系统{% endblock %}
+
+{% block content %}
+<div class="page-transition">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>我的通知</h1>
+        <div>
+            <a href="/api/notifications/mark-all-read" class="btn btn-primary">
+                <i class="fa fa-check-double"></i> 全部标记为已读
+            </a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            {% if notifications %}
+                <div class="list-group">
+                    {% for notification in notifications %}
+                        <div class="list-group-item list-group-item-action {% if not notification.is_read %}list-group-item-primary{% endif %}">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">
+                                    {% if notification.type == 'friend_request' %}
+                                        <i class="fa fa-user-plus"></i> 好友请求
+                                    {% elif notification.type == 'friend_accepted' %}
+                                        <i class="fa fa-handshake"></i> 好友接受
+                                    {% elif notification.type == 'meeting_invitation' %}
+                                        <i class="fa fa-envelope-open"></i> 会议邀请
+                                    {% elif notification.type == 'meeting_joined' %}
+                                        <i class="fa fa-sign-in-alt"></i> 加入会议
+                                    {% elif notification.type == 'meeting_left' %}
+                                        <i class="fa fa-sign-out-alt"></i> 退出会议
+                                    {% endif %}
+                                </h5>
+                                <small>{{ notification.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                            </div>
+                            <p class="mb-1">{{ notification.content }}</p>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <div>
+                                    {% if notification.sender %}
+                                        <small>发送者: {{ notification.sender.username }}</small>
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    <!-- 检查通知内容是否包含"邀请您参加会议"，如果是则显示按钮 -->
+                                    {% if "邀请您参加会议" in notification.content and notification.related_id %}
+                                        <a href="/api/conferences/{{ notification.related_id }}" class="btn btn-info btn-sm">
+                                            <i class="fa fa-eye"></i> 查看会议
+                                        </a>
+                                        <a href="/api/registrations/accept-invitation/{{ notification.related_id }}?direct_accept=true" class="btn btn-success btn-sm">
+                                            <i class="fa fa-check-circle"></i> 接受邀请
+                                        </a>
+                                    {% endif %}
+
+                                    {% if not notification.is_read %}
+                                        <a href="/api/notifications/mark-read/{{ notification.id }}" class="btn btn-success btn-sm">
+                                            <i class="fa fa-check"></i> 标记为已读
+                                        </a>
+                                    {% endif %}
+
+                                    <a href="/api/notifications/delete/{{ notification.id }}" class="btn btn-danger btn-sm delete-btn" data-confirm-message="确定要删除此通知吗？">
+                                        <i class="fa fa-trash"></i> 删除
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    您没有任何通知。
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Simulate font awesome icons
+        const iconElements = document.querySelectorAll('.fa');
+        iconElements.forEach(icon => {
+            if (icon.classList.contains('fa-user-plus')) {
+                icon.textContent = '👥+ ';
+            } else if (icon.classList.contains('fa-handshake')) {
+                icon.textContent = '🤝 ';
+            } else if (icon.classList.contains('fa-envelope-open')) {
+                icon.textContent = '📩 ';
+            } else if (icon.classList.contains('fa-sign-in-alt')) {
+                icon.textContent = '➡️ ';
+            } else if (icon.classList.contains('fa-sign-out-alt')) {
+                icon.textContent = '⬅️ ';
+            } else if (icon.classList.contains('fa-check')) {
+                icon.textContent = '✅ ';
+            } else if (icon.classList.contains('fa-check-double')) {
+                icon.textContent = '✅✅ ';
+            } else if (icon.classList.contains('fa-trash')) {
+                icon.textContent = '🗑️ ';
+            } else if (icon.classList.contains('fa-eye')) {
+                icon.textContent = '👁️ ';
+            } else if (icon.classList.contains('fa-check-circle')) {
+                icon.textContent = '✓ ';
+            }
+        });
+
+        // Style list group items
+        document.querySelectorAll('.list-group-item-primary').forEach(item => {
+            item.style.backgroundColor = 'rgba(74, 107, 175, 0.1)';
+            item.style.borderColor = 'rgba(74, 107, 175, 0.2)';
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}我的会议 - 会议管理系统{% endblock %}
+
+{% block content %}
+<h1>我的会议</h1>
+
+<p>
+    <a href="{{ url_for('create_conference_page') }}" class="btn btn-primary">创建新会议</a>
+</p>
+
+{% if conferences %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>日期</th>
+                <th>地点</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for conference in conferences %}
+                <tr>
+                    <td>{{ conference.title }}</td>
+                    <td>{{ conference.date.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>{{ conference.location }}</td>
+                    <td>
+                        <a href="{{ url_for('conference_detail', conference_id=conference.id) }}" class="btn btn-sm btn-info">查看</a>
+                        <a href="{{ url_for('edit_conference_page', conference_id=conference.id) }}" class="btn btn-sm btn-primary">编辑</a>
+                        <a href="{{ url_for('conference_attendees', conference_id=conference.id) }}" class="btn btn-sm btn-success">参会者</a>
+                        <a href="{{ url_for('delete_conference', conference_id=conference.id) }}" class="btn btn-sm btn-danger delete-btn" data-confirm-message="确定要删除此会议吗？">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>您还没有创建任何会议。</p>
+{% endif %}
+{% endblock %}

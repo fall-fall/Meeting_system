@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}我的好友 - 会议管理系统{% endblock %}
+
+{% block content %}
+<div class="page-transition">
+    <h1 class="mb-4">我的好友</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2>好友列表</h2>
+                </div>
+                <div class="card-body">
+                    {% if friends %}
+                        <div class="row">
+                            {% for friend in friends %}
+                                <div class="col-md-6 mb-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ friend.username }}</h5>
+                                            <p class="card-text">
+                                                <i class="fa fa-envelope"></i> {{ friend.email }}<br>
+                                                {% if friend.is_admin %}
+                                                    <span class="badge badge-info">管理员</span>
+                                                {% endif %}
+                                            </p>
+                                            <a href="/api/friends/delete/{{ friend.id }}" class="btn btn-danger btn-sm delete-btn" data-confirm-message="确定要删除此好友吗？">
+                                                <i class="fa fa-trash"></i> 删除好友
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-info">
+                            您还没有好友。请在右侧添加好友。
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if pending_requests %}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2>待处理的好友请求</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            {% for request in pending_requests %}
+                                <div class="col-md-6 mb-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ request.user.username }}</h5>
+                                            <p class="card-text">
+                                                <i class="fa fa-envelope"></i> {{ request.user.email }}<br>
+                                                {% if request.user.is_admin %}
+                                                    <span class="badge badge-info">管理员</span>
+                                                {% endif %}
+                                            </p>
+                                            <div class="d-flex">
+                                                <a href="/api/friends/accept/{{ request.id }}" class="btn btn-success btn-sm mr-2">
+                                                    <i class="fa fa-check"></i> 接受
+                                                </a>
+                                                <a href="/api/friends/reject/{{ request.id }}" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-times"></i> 拒绝
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2>添加好友</h2>
+                </div>
+                <div class="card-body">
+                    {% if available_users %}
+                        <form method="post" action="/api/friends/add">
+                            <div class="form-group">
+                                <label for="friend_id">选择用户</label>
+                                <select id="friend_id" name="friend_id" class="form-control" required>
+                                    <option value="">-- 请选择 --</option>
+                                    {% for user in available_users %}
+                                        <option value="{{ user.id }}">{{ user.username }} ({{ user.email }})</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">发送好友请求</button>
+                        </form>
+                    {% else %}
+                        <div class="alert alert-info">
+                            没有可添加的用户。
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Simulate font awesome icons
+        const iconElements = document.querySelectorAll('.fa');
+        iconElements.forEach(icon => {
+            if (icon.classList.contains('fa-envelope')) {
+                icon.textContent = '📧 ';
+            } else if (icon.classList.contains('fa-trash')) {
+                icon.textContent = '🗑️ ';
+            } else if (icon.classList.contains('fa-check')) {
+                icon.textContent = '✅ ';
+            } else if (icon.classList.contains('fa-times')) {
+                icon.textContent = '❌ ';
+            }
+        });
+        
+        // Add margin to buttons
+        document.querySelectorAll('.mr-2').forEach(el => {
+            el.style.marginRight = '0.5rem';
+        });
+    });
+</script>
+{% endblock %}
