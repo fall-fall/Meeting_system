@@ -14,7 +14,7 @@
 ## 技术栈
 
 - **后端**: Python 3.x + FastAPI
-- **数据库**: SQLite 
+- **数据库**: SQLite
 - **前端**: Jinja2模板 + 自定义CSS
 - **认证**: JWT令牌
 
@@ -33,10 +33,11 @@
    ```
 
    或者
+
    ```
    uvicorn app.main:app --reload
    ```
-4. 打开浏览器并访问 `http://localhost:8000`
+4. 打开浏览器并访问 `http://localhost:8010`
 
 ## 项目结构
 
@@ -69,7 +70,3 @@ meeting/
 
 - 用户名: admin
 - 密码: admin123
-
-## 许可证
-
-本项目采用MIT许可证。
