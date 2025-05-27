@@ -1,0 +1,148 @@
+\doxysection{app.\+routers.\+auth 命名空间参考}
+\hypertarget{namespaceapp_1_1routers_1_1auth}{}\label{namespaceapp_1_1routers_1_1auth}\index{app.routers.auth@{app.routers.auth}}
+
+
+认证相关的路由处理模块  
+
+
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1auth_ac894e794f149ef8279d31da276125353}{register\+\_\+page}} (Request request)
+\begin{DoxyCompactList}\small\item\em 渲染注册页面 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1auth_a742bca4b190f822d5d48d2417c6ab6a9}{register}} (Request request, str username=Form(...), str email=Form(...), str password=Form(...), str confirm\+\_\+password=Form(...), bool is\+\_\+admin=Form(False), Session db=Depends(get\+\_\+db))
+\begin{DoxyCompactList}\small\item\em 注册新用户 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1auth_a74157d17dda3dbf04c1c6b0abc5f532f}{login\+\_\+page}} (Request request)
+\begin{DoxyCompactList}\small\item\em 渲染登录页面 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1auth_ae70c05cf4568b2b3397ccbd8c565d242}{login}} (Request request, str username=Form(...), str password=Form(...), Session db=Depends(get\+\_\+db))
+\begin{DoxyCompactList}\small\item\em 用户登录 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1auth_aaed036e1d746e7cd6e44aa28ac771d49}{logout}} ()
+\begin{DoxyCompactList}\small\item\em 用户登出 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1auth_abae6ff81781ab2037df7034581616820}{login\+\_\+for\+\_\+access\+\_\+token}} (OAuth2\+Password\+Request\+Form form\+\_\+data=Depends(), Session db=Depends(get\+\_\+db))
+\begin{DoxyCompactList}\small\item\em 获取访问令牌（用于\+API认证） \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1auth_a597c021df1116baca9bebc8157ba9adc}{router}} = APIRouter(prefix="{}/auth"{}, tags=\mbox{[}"{}auth"{}\mbox{]})
+\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1auth_aec7ed87b51686618a178849c7cfeabb0}{templates}} = Jinja2\+Templates(directory="{}app/templates"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+认证相关的路由处理模块 
+
+包含用户注册、登录、登出和令牌获取等功能 
+
+\label{doc-func-members}
+\Hypertarget{namespaceapp_1_1routers_1_1auth_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{namespaceapp_1_1routers_1_1auth_ae70c05cf4568b2b3397ccbd8c565d242}\index{app.routers.auth@{app.routers.auth}!login@{login}}
+\index{login@{login}!app.routers.auth@{app.routers.auth}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1auth_ae70c05cf4568b2b3397ccbd8c565d242} 
+app.\+routers.\+auth.\+login (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{str }]{username}{ = {\ttfamily Form(...)}, }\item[{str }]{password}{ = {\ttfamily Form(...)}, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}}\end{DoxyParamCaption})}
+
+
+
+用户登录 
+
+
+
+在文件 \mbox{\hyperlink{auth_8py_source}{auth.\+py}} 第 \mbox{\hyperlink{auth_8py_source_l00089}{89}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1auth_abae6ff81781ab2037df7034581616820}\index{app.routers.auth@{app.routers.auth}!login\_for\_access\_token@{login\_for\_access\_token}}
+\index{login\_for\_access\_token@{login\_for\_access\_token}!app.routers.auth@{app.routers.auth}}
+\doxysubsubsection{\texorpdfstring{login\_for\_access\_token()}{login\_for\_access\_token()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1auth_abae6ff81781ab2037df7034581616820} 
+app.\+routers.\+auth.\+login\+\_\+for\+\_\+access\+\_\+token (\begin{DoxyParamCaption}\item[{OAuth2\+Password\+Request\+Form }]{form\+\_\+data}{ = {\ttfamily Depends()}, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}}\end{DoxyParamCaption})}
+
+
+
+获取访问令牌（用于\+API认证） 
+
+
+
+在文件 \mbox{\hyperlink{auth_8py_source}{auth.\+py}} 第 \mbox{\hyperlink{auth_8py_source_l00126}{126}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1auth_a74157d17dda3dbf04c1c6b0abc5f532f}\index{app.routers.auth@{app.routers.auth}!login\_page@{login\_page}}
+\index{login\_page@{login\_page}!app.routers.auth@{app.routers.auth}}
+\doxysubsubsection{\texorpdfstring{login\_page()}{login\_page()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1auth_a74157d17dda3dbf04c1c6b0abc5f532f} 
+app.\+routers.\+auth.\+login\+\_\+page (\begin{DoxyParamCaption}\item[{Request}]{request}{}\end{DoxyParamCaption})}
+
+
+
+渲染登录页面 
+
+
+
+在文件 \mbox{\hyperlink{auth_8py_source}{auth.\+py}} 第 \mbox{\hyperlink{auth_8py_source_l00083}{83}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1auth_aaed036e1d746e7cd6e44aa28ac771d49}\index{app.routers.auth@{app.routers.auth}!logout@{logout}}
+\index{logout@{logout}!app.routers.auth@{app.routers.auth}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1auth_aaed036e1d746e7cd6e44aa28ac771d49} 
+app.\+routers.\+auth.\+logout (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+用户登出 
+
+
+
+在文件 \mbox{\hyperlink{auth_8py_source}{auth.\+py}} 第 \mbox{\hyperlink{auth_8py_source_l00116}{116}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1auth_a742bca4b190f822d5d48d2417c6ab6a9}\index{app.routers.auth@{app.routers.auth}!register@{register}}
+\index{register@{register}!app.routers.auth@{app.routers.auth}}
+\doxysubsubsection{\texorpdfstring{register()}{register()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1auth_a742bca4b190f822d5d48d2417c6ab6a9} 
+app.\+routers.\+auth.\+register (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{str }]{username}{ = {\ttfamily Form(...)}, }\item[{str }]{email}{ = {\ttfamily Form(...)}, }\item[{str }]{password}{ = {\ttfamily Form(...)}, }\item[{str }]{confirm\+\_\+password}{ = {\ttfamily Form(...)}, }\item[{bool }]{is\+\_\+admin}{ = {\ttfamily Form(False)}, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}}\end{DoxyParamCaption})}
+
+
+
+注册新用户 
+
+
+
+在文件 \mbox{\hyperlink{auth_8py_source}{auth.\+py}} 第 \mbox{\hyperlink{auth_8py_source_l00034}{34}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1auth_ac894e794f149ef8279d31da276125353}\index{app.routers.auth@{app.routers.auth}!register\_page@{register\_page}}
+\index{register\_page@{register\_page}!app.routers.auth@{app.routers.auth}}
+\doxysubsubsection{\texorpdfstring{register\_page()}{register\_page()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1auth_ac894e794f149ef8279d31da276125353} 
+app.\+routers.\+auth.\+register\+\_\+page (\begin{DoxyParamCaption}\item[{Request}]{request}{}\end{DoxyParamCaption})}
+
+
+
+渲染注册页面 
+
+
+
+在文件 \mbox{\hyperlink{auth_8py_source}{auth.\+py}} 第 \mbox{\hyperlink{auth_8py_source_l00028}{28}} 行定义.
+
+
+
+\label{doc-var-members}
+\Hypertarget{namespaceapp_1_1routers_1_1auth_doc-var-members}
+\doxysubsection{变量说明}
+\Hypertarget{namespaceapp_1_1routers_1_1auth_a597c021df1116baca9bebc8157ba9adc}\index{app.routers.auth@{app.routers.auth}!router@{router}}
+\index{router@{router}!app.routers.auth@{app.routers.auth}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1auth_a597c021df1116baca9bebc8157ba9adc} 
+app.\+routers.\+auth.\+router = APIRouter(prefix="{}/auth"{}, tags=\mbox{[}"{}auth"{}\mbox{]})}
+
+
+
+在文件 \mbox{\hyperlink{auth_8py_source}{auth.\+py}} 第 \mbox{\hyperlink{auth_8py_source_l00022}{22}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1auth_aec7ed87b51686618a178849c7cfeabb0}\index{app.routers.auth@{app.routers.auth}!templates@{templates}}
+\index{templates@{templates}!app.routers.auth@{app.routers.auth}}
+\doxysubsubsection{\texorpdfstring{templates}{templates}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1auth_aec7ed87b51686618a178849c7cfeabb0} 
+app.\+routers.\+auth.\+templates = Jinja2\+Templates(directory="{}app/templates"{})}
+
+
+
+在文件 \mbox{\hyperlink{auth_8py_source}{auth.\+py}} 第 \mbox{\hyperlink{auth_8py_source_l00024}{24}} 行定义.
+

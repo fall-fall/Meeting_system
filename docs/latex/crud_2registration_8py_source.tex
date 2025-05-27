@@ -1,0 +1,121 @@
+\doxysection{registration.\+py}
+\hypertarget{crud_2registration_8py_source}{}\label{crud_2registration_8py_source}\index{app/crud/registration.py@{app/crud/registration.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00001}\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration}{00001}}\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00002}00002\ \textcolor{stringliteral}{会议注册数据库操作模块}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00003}00003\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00004}00004\ \textcolor{stringliteral}{本模块提供会议注册相关的数据库CRUD操作函数}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00005}00005\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00007}00007\ \textcolor{keyword}{from}\ sqlalchemy.orm\ \textcolor{keyword}{import}\ Session}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00009}00009\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1database}{app.database}}\ \textcolor{keyword}{import}\ Registration}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00010}00010\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1models_1_1registration}{app.models.registration}}\ \textcolor{keyword}{import}\ RegistrationCreate}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00013}\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_a16f43f64b5220bd81ff7df2d3fe73b7a}{00013}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_a16f43f64b5220bd81ff7df2d3fe73b7a}{get\_registration}}(db:\ Session,\ registration\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00014}00014\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}根据ID获取注册记录}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00015}00015\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00018}00018\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ registration\_id:\ 注册记录ID}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00019}00019\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00020}00020\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00021}00021\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Registration:\ 注册记录对象，如果不存在则返回None}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00022}00022\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{return}\ db.query(Registration).filter(Registration.id\ ==\ registration\_id).first()}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00026}\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_ab63e8855114d554c10ec29e10cf73f4e}{00026}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_ab63e8855114d554c10ec29e10cf73f4e}{get\_registration\_by\_user\_and\_conference}}(db:\ Session,\ user\_id:\ int,\ conference\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00027}00027\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}根据用户ID和会议ID获取注册记录}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00028}00028\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00029}00029\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00030}00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00031}00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ user\_id:\ 用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00032}00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ conference\_id:\ 会议ID}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00033}00033\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00034}00034\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00035}00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Registration:\ 注册记录对象，如果不存在则返回None}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00036}00036\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ db.query(Registration).filter(}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ Registration.user\_id\ ==\ user\_id,}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ Registration.conference\_id\ ==\ conference\_id}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00040}00040\ \ \ \ \ ).first()}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00043}\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_a9c4071c19b46210a3ff0b48c9c3b30f0}{00043}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_a9c4071c19b46210a3ff0b48c9c3b30f0}{get\_registrations\_by\_user}}(db:\ Session,\ user\_id:\ int,\ skip:\ int\ =\ 0,\ limit:\ int\ =\ 100):}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00044}00044\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}根据用户ID获取注册记录列表}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00045}00045\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00046}00046\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00047}00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00048}00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ user\_id:\ 用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00049}00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ skip:\ 跳过的记录数}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00050}00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ limit:\ 返回的最大记录数}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00051}00051\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00052}00052\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00053}00053\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ List[Registration]:\ 注册记录对象列表}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00054}00054\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ db.query(Registration).filter(Registration.user\_id\ ==\ user\_id).offset(skip).limit(limit).all()}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00058}\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_adeb0bb7dcdfa79f3aa34d6ac56e6a98c}{00058}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_adeb0bb7dcdfa79f3aa34d6ac56e6a98c}{get\_registrations\_by\_conference}}(db:\ Session,\ conference\_id:\ int,\ skip:\ int\ =\ 0,\ limit:\ int\ =\ 100):}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00059}00059\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}根据会议ID获取注册记录列表}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00060}00060\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00061}00061\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00062}00062\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00063}00063\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ conference\_id:\ 会议ID}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00064}00064\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ skip:\ 跳过的记录数}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00065}00065\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ limit:\ 返回的最大记录数}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00066}00066\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00067}00067\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00068}00068\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ List[Registration]:\ 注册记录对象列表}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00069}00069\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{return}\ db.query(Registration).filter(Registration.conference\_id\ ==\ conference\_id).offset(skip).limit(limit).all()}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00073}\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_a20733d661f9a082b648c0c6d881ebcbd}{00073}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_a20733d661f9a082b648c0c6d881ebcbd}{create\_registration}}(db:\ Session,\ registration:\ RegistrationCreate,\ user\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00074}00074\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}创建新的注册记录}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00075}00075\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00076}00076\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00077}00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00078}00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ registration:\ 注册记录创建模型}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00079}00079\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ user\_id:\ 用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00080}00080\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00081}00081\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00082}00082\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Registration:\ 创建的注册记录对象}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00083}00083\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00084}00084\ \ \ \ \ \textcolor{comment}{\#\ 创建注册记录对象}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00085}00085\ \ \ \ \ db\_registration\ =\ \mbox{\hyperlink{classapp_1_1database_1_1_registration}{Registration}}(}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ user\_id=user\_id,\ \ \textcolor{comment}{\#\ 用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ conference\_id=registration.conference\_id,\ \ \textcolor{comment}{\#\ 会议ID}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00088}00088\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00090}00090\ \ \ \ \ \textcolor{comment}{\#\ 添加到数据库并提交}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00091}00091\ \ \ \ \ db.add(db\_registration)}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00092}00092\ \ \ \ \ db.commit()}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00093}00093\ \ \ \ \ db.refresh(db\_registration)}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{return}\ db\_registration}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00098}\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_ab93378fa05b214f93587d122761be3eb}{00098}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_ab93378fa05b214f93587d122761be3eb}{delete\_registration}}(db:\ Session,\ registration\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00099}00099\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}删除注册记录}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00100}00100\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00101}00101\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00102}00102\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00103}00103\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ registration\_id:\ 注册记录ID}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00104}00104\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00105}00105\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00106}00106\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Registration:\ 被删除的注册记录对象，如果不存在则返回None}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00107}00107\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00108}00108\ \ \ \ \ \textcolor{comment}{\#\ 获取注册记录对象}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00109}00109\ \ \ \ \ db\_registration\ =\ \mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_a16f43f64b5220bd81ff7df2d3fe73b7a}{get\_registration}}(db,\ registration\_id)}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{if}\ db\_registration:}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 删除注册记录}}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ db.delete(db\_registration)}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ db.commit()}
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{crud_2registration_8py_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{return}\ db\_registration}
+
+\end{DoxyCode}

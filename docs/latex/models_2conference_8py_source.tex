@@ -1,0 +1,64 @@
+\doxysection{conference.\+py}
+\hypertarget{models_2conference_8py_source}{}\label{models_2conference_8py_source}\index{app/models/conference.py@{app/models/conference.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00001}\mbox{\hyperlink{namespaceapp_1_1models_1_1conference}{00001}}\ \textcolor{stringliteral}{"{}"{}"{}会议和议程项相关的数据模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00003}00003\ \textcolor{keyword}{from}\ datetime\ \textcolor{keyword}{import}\ datetime}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00004}00004\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ List}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00006}00006\ \textcolor{keyword}{from}\ pydantic\ \textcolor{keyword}{import}\ BaseModel}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00009}\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_agenda_item_base}{00009}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_agenda_item_base}{AgendaItemBase}}(BaseModel):}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00010}00010\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}议程项基础模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00011}00011\ \ \ \ \ start\_time:\ str\ \ \textcolor{comment}{\#\ 开始时间}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00012}00012\ \ \ \ \ end\_time:\ str\ \ \textcolor{comment}{\#\ 结束时间}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00013}00013\ \ \ \ \ title:\ str\ \ \textcolor{comment}{\#\ 标题}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00014}00014\ \ \ \ \ speaker:\ str\ \ \textcolor{comment}{\#\ 演讲者}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00017}\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_agenda_item_create}{00017}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_agenda_item_create}{AgendaItemCreate}}(\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_agenda_item_base}{AgendaItemBase}}):}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00018}00018\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}议程项创建模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00022}\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_agenda_item_response}{00022}}\ \textcolor{keyword}{class\ }AgendaItemResponse(AgendaItemBase):}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00023}00023\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}议程项响应模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00024}00024\ \ \ \ \ id:\ int\ \ \textcolor{comment}{\#\ 议程项ID}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00025}00025\ \ \ \ \ conference\_id:\ int\ \ \textcolor{comment}{\#\ 所属会议ID}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00026}00026\ \ \ \ \ created\_at:\ datetime\ \ \textcolor{comment}{\#\ 创建时间}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00028}\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_agenda_item_response_1_1_config}{00028}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_agenda_item_response_1_1_config}{Config}}:}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ orm\_mode\ =\ \textcolor{keyword}{True}\ \ \textcolor{comment}{\#\ 启用ORM模式}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00032}\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_base}{00032}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_base}{ConferenceBase}}(BaseModel):}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00033}00033\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}会议基础模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00034}00034\ \ \ \ \ title:\ str\ \ \textcolor{comment}{\#\ 会议标题}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00035}00035\ \ \ \ \ description:\ str\ \ \textcolor{comment}{\#\ 会议描述}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00036}00036\ \ \ \ \ date:\ datetime\ \ \textcolor{comment}{\#\ 会议日期}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00037}00037\ \ \ \ \ location:\ str\ \ \textcolor{comment}{\#\ 会议地点}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00040}\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_create}{00040}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_create}{ConferenceCreate}}(\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_base}{ConferenceBase}}):}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00041}00041\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}会议创建模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00045}\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_update}{00045}}\ \textcolor{keyword}{class\ }ConferenceUpdate(ConferenceBase):}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00046}00046\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}会议更新模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00050}\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_response}{00050}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_response}{ConferenceResponse}}(\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_base}{ConferenceBase}}):}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00051}00051\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}会议响应模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00052}00052\ \ \ \ \ id:\ int\ \ \textcolor{comment}{\#\ 会议ID}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00053}00053\ \ \ \ \ creator\_id:\ int\ \ \textcolor{comment}{\#\ 创建者ID}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00054}00054\ \ \ \ \ created\_at:\ datetime\ \ \textcolor{comment}{\#\ 创建时间}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00055}00055\ \ \ \ \ agenda\_items:\ List[AgendaItemResponse]\ =\ []\ \ \textcolor{comment}{\#\ 议程项列表}}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00057}\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_response_1_1_config}{00057}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_response_1_1_config}{Config}}:}
+\DoxyCodeLine{\Hypertarget{models_2conference_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ orm\_mode\ =\ \textcolor{keyword}{True}\ \ \textcolor{comment}{\#\ 启用ORM模式}}
+
+\end{DoxyCode}

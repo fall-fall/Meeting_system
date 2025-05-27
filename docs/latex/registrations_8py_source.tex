@@ -1,0 +1,280 @@
+\doxysection{registrations.\+py}
+\hypertarget{registrations_8py_source}{}\label{registrations_8py_source}\index{app/routers/registrations.py@{app/routers/registrations.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00001}00001\ \textcolor{keyword}{from}\ fastapi\ \textcolor{keyword}{import}\ APIRouter,\ Depends,\ HTTPException,\ status,\ Request,\ Form}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00002}00002\ \textcolor{keyword}{from}\ fastapi.responses\ \textcolor{keyword}{import}\ HTMLResponse,\ RedirectResponse}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00003}00003\ \textcolor{keyword}{from}\ fastapi.templating\ \textcolor{keyword}{import}\ Jinja2Templates}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00004}00004\ \textcolor{keyword}{from}\ sqlalchemy.orm\ \textcolor{keyword}{import}\ Session}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00006}00006\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ registration\ \textcolor{keyword}{as}\ registration\_crud}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00007}00007\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ conference\ \textcolor{keyword}{as}\ conference\_crud}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00008}00008\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ friendship\ \textcolor{keyword}{as}\ friendship\_crud}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00009}00009\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ notification\ \textcolor{keyword}{as}\ notification\_crud}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00010}00010\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ user\ \textcolor{keyword}{as}\ user\_crud}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00011}00011\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1database}{app.database}}\ \textcolor{keyword}{import}\ get\_db,\ User,\ NotificationType,\ FriendshipStatus}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00012}00012\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_active\_user}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00013}00013\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1models_1_1registration}{app.models.registration}}\ \textcolor{keyword}{import}\ RegistrationCreate}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00015}00015\ router\ =\ APIRouter(prefix=\textcolor{stringliteral}{"{}/registrations"{}},\ tags=[\textcolor{stringliteral}{"{}registrations"{}}])}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00016}00016\ templates\ =\ Jinja2Templates(directory=\textcolor{stringliteral}{"{}app/templates"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00019}00019\ \textcolor{preprocessor}{@router.get("{}/"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00020}00020\ \textcolor{keyword}{async\ def\ }my\_registrations(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00021}00021\ \ \ \ \ request:\ Request,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00022}00022\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00023}00023\ ):}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00024}00024\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}List\ registrations\ for\ the\ current\ user."{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00025}00025\ \ \ \ \ \textcolor{comment}{\#\ 获取当前用户}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00026}00026\ \ \ \ \ current\_user\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00027}00027\ \ \ \ \ token\ =\ request.cookies.get(\textcolor{stringliteral}{"{}access\_token"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{if}\ token\ \textcolor{keywordflow}{and}\ token.startswith(\textcolor{stringliteral}{"{}Bearer\ "{}}):}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_user}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ current\_user\ =\ await\ get\_current\_user(token.replace(\textcolor{stringliteral}{"{}Bearer\ "{}},\ \textcolor{stringliteral}{"{}"{}}),\ db)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00039}00039\ \ \ \ \ registrations\ =\ registration\_crud.get\_registrations\_by\_user(db,\ user\_id=current\_user.id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{return}\ templates.TemplateResponse(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}user/registrations.html"{}},}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}request"{}}:\ request,\ \textcolor{stringliteral}{"{}registrations"{}}:\ registrations,\ \textcolor{stringliteral}{"{}current\_user"{}}:\ current\_user\},}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00043}00043\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00046}00046\ \textcolor{preprocessor}{@router.get("{}/register/\{conference\_id\}"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00047}00047\ \textcolor{keyword}{async\ def\ }register\_for\_conference(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00048}00048\ \ \ \ \ conference\_id:\ int,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00049}00049\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00050}00050\ \ \ \ \ current\_user:\ User\ =\ Depends(get\_current\_active\_user),}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00051}00051\ ):}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00052}00052\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Register\ for\ a\ conference."{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00053}00053\ \ \ \ \ \textcolor{comment}{\#\ Check\ if\ conference\ exists}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00054}00054\ \ \ \ \ conference\ =\ conference\_crud.get\_conference(db,\ conference\_id=conference\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ conference:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=404,\ detail=\textcolor{stringliteral}{"{}未找到会议"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00058}00058\ \ \ \ \ \textcolor{comment}{\#\ Check\ if\ already\ registered}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00059}00059\ \ \ \ \ existing\_registration\ =\ registration\_crud.get\_registration\_by\_user\_and\_conference(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ db,\ user\_id=current\_user.id,\ conference\_id=conference\_id}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00061}00061\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{if}\ existing\_registration:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=400,\ detail=\textcolor{stringliteral}{"{}您已经注册了此会议"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00065}00065\ \ \ \ \ \textcolor{comment}{\#\ Create\ registration}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00066}00066\ \ \ \ \ registration\ =\ RegistrationCreate(conference\_id=conference\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00067}00067\ \ \ \ \ registration\_crud.create\_registration(db=db,\ registration=registration,\ user\_id=current\_user.id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00069}00069\ \ \ \ \ \textcolor{comment}{\#\ Redirect\ to\ conference\ detail}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=f\textcolor{stringliteral}{"{}/api/conferences/\{conference\_id\}"{}},\ status\_code=status.HTTP\_303\_SEE\_OTHER)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00073}00073\ \textcolor{preprocessor}{@router.get("{}/unregister/\{conference\_id\}"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00074}00074\ \textcolor{keyword}{async\ def\ }unregister\_from\_conference(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00075}00075\ \ \ \ \ conference\_id:\ int,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00076}00076\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00077}00077\ \ \ \ \ current\_user:\ User\ =\ Depends(get\_current\_active\_user),}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00078}00078\ ):}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00079}00079\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Unregister\ from\ a\ conference."{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00080}00080\ \ \ \ \ \textcolor{comment}{\#\ Check\ if\ conference\ exists}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00081}00081\ \ \ \ \ conference\ =\ conference\_crud.get\_conference(db,\ conference\_id=conference\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ conference:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=404,\ detail=\textcolor{stringliteral}{"{}未找到会议"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00085}00085\ \ \ \ \ \textcolor{comment}{\#\ Check\ if\ registered}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00086}00086\ \ \ \ \ registration\ =\ registration\_crud.get\_registration\_by\_user\_and\_conference(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ db,\ user\_id=current\_user.id,\ conference\_id=conference\_id}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00088}00088\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ registration:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=400,\ detail=\textcolor{stringliteral}{"{}您尚未注册此会议"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00092}00092\ \ \ \ \ \textcolor{comment}{\#\ Delete\ registration}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00093}00093\ \ \ \ \ registration\_crud.delete\_registration(db=db,\ registration\_id=registration.id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00095}00095\ \ \ \ \ \textcolor{comment}{\#\ Redirect\ to\ conference\ detail}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=f\textcolor{stringliteral}{"{}/api/conferences/\{conference\_id\}"{}},\ status\_code=status.HTTP\_303\_SEE\_OTHER)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00099}00099\ \textcolor{preprocessor}{@router.get("{}/attendees/\{conference\_id\}"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00100}00100\ \textcolor{keyword}{async\ def\ }conference\_attendees(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00101}00101\ \ \ \ \ request:\ Request,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00102}00102\ \ \ \ \ conference\_id:\ int,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00103}00103\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00104}00104\ ):}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00105}00105\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}List\ attendees\ for\ a\ conference."{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00106}00106\ \ \ \ \ \textcolor{comment}{\#\ 获取当前用户}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00107}00107\ \ \ \ \ current\_user\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00108}00108\ \ \ \ \ token\ =\ request.cookies.get(\textcolor{stringliteral}{"{}access\_token"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{if}\ token\ \textcolor{keywordflow}{and}\ token.startswith(\textcolor{stringliteral}{"{}Bearer\ "{}}):}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_user}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ current\_user\ =\ await\ get\_current\_user(token.replace(\textcolor{stringliteral}{"{}Bearer\ "{}},\ \textcolor{stringliteral}{"{}"{}}),\ db)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00116}00116\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00120}00120\ \ \ \ \ \textcolor{comment}{\#\ Check\ if\ conference\ exists}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00121}00121\ \ \ \ \ conference\ =\ conference\_crud.get\_conference(db,\ conference\_id=conference\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ conference:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=404,\ detail=\textcolor{stringliteral}{"{}未找到会议"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00125}00125\ \ \ \ \ \textcolor{comment}{\#\ Check\ if\ user\ is\ the\ creator}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{if}\ conference.creator\_id\ !=\ current\_user.id:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=403,\ detail=\textcolor{stringliteral}{"{}您无权查看此会议的参会者"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00129}00129\ \ \ \ \ \textcolor{comment}{\#\ Get\ registrations}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00130}00130\ \ \ \ \ registrations\ =\ registration\_crud.get\_registrations\_by\_conference(db,\ conference\_id=conference\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00132}00132\ \ \ \ \ \textcolor{comment}{\#\ 获取用户的好友列表（用于邀请）}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00133}00133\ \ \ \ \ friends\ =\ friendship\_crud.get\_friends(db,\ user\_id=current\_user.id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00135}00135\ \ \ \ \ \textcolor{comment}{\#\ 如果是管理员但没有好友，添加所有非参会者用户作为可邀请对象}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{if}\ current\_user.is\_admin\ \textcolor{keywordflow}{and}\ \textcolor{keywordflow}{not}\ friends:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ all\_users\ =\ user\_crud.get\_users(db)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ registered\_user\_ids\ =\ [reg.user\_id\ \textcolor{keywordflow}{for}\ reg\ \textcolor{keywordflow}{in}\ registrations]}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 排除已参会用户和当前用户}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ available\_friends\ =\ [user\ \textcolor{keywordflow}{for}\ user\ \textcolor{keywordflow}{in}\ all\_users}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ user.id\ !=\ current\_user.id\ \textcolor{keywordflow}{and}\ user.id\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ registered\_user\_ids]}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00142}00142\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 过滤掉已经注册的好友}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00144}00144\ \ \ \ \ \ \ \ \ registered\_user\_ids\ =\ [reg.user\_id\ \textcolor{keywordflow}{for}\ reg\ \textcolor{keywordflow}{in}\ registrations]}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ available\_friends\ =\ [friend\ \textcolor{keywordflow}{for}\ friend\ \textcolor{keywordflow}{in}\ friends\ \textcolor{keywordflow}{if}\ friend.id\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ registered\_user\_ids]}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{return}\ templates.TemplateResponse(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}conferences/attendees.html"{}},}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00149}00149\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}request"{}}:\ request,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}conference"{}}:\ conference,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}registrations"{}}:\ registrations,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}current\_user"{}}:\ current\_user,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}available\_friends"{}}:\ available\_friends,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00155}00155\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00156}00156\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00159}00159\ \textcolor{preprocessor}{@router.post("{}/invite"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00160}00160\ \textcolor{keyword}{async\ def\ }invite\_friend(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00161}00161\ \ \ \ \ request:\ Request,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00162}00162\ \ \ \ \ conference\_id:\ int\ =\ Form(...),}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00163}00163\ \ \ \ \ friend\_id:\ int\ =\ Form(...),}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00164}00164\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00165}00165\ ):}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00166}00166\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}邀请好友参加会议。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00167}00167\ \ \ \ \ \textcolor{comment}{\#\ 获取当前用户}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00168}00168\ \ \ \ \ current\_user\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00169}00169\ \ \ \ \ token\ =\ request.cookies.get(\textcolor{stringliteral}{"{}access\_token"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{if}\ token\ \textcolor{keywordflow}{and}\ token.startswith(\textcolor{stringliteral}{"{}Bearer\ "{}}):}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_user}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ current\_user\ =\ await\ get\_current\_user(token.replace(\textcolor{stringliteral}{"{}Bearer\ "{}},\ \textcolor{stringliteral}{"{}"{}}),\ db)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00177}00177\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00181}00181\ \ \ \ \ \textcolor{comment}{\#\ 检查会议是否存在}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00182}00182\ \ \ \ \ conference\ =\ conference\_crud.get\_conference(db,\ conference\_id=conference\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00183}00183\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ conference:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=404,\ detail=\textcolor{stringliteral}{"{}未找到会议"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00186}00186\ \ \ \ \ \textcolor{comment}{\#\ 检查用户是否存在}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00187}00187\ \ \ \ \ friend\ =\ user\_crud.get\_user(db,\ user\_id=friend\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00188}00188\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ friend:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=404,\ detail=\textcolor{stringliteral}{"{}用户不存在"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00191}00191\ \ \ \ \ \textcolor{comment}{\#\ 如果不是管理员，检查是否是好友}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00192}00192\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ current\_user.is\_admin:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00193}00193\ \ \ \ \ \ \ \ \ friendship\ =\ friendship\_crud.get\_friendship\_by\_users(db,\ current\_user.id,\ friend\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ friendship\ \textcolor{keywordflow}{or}\ friendship.status\ !=\ FriendshipStatus.ACCEPTED:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=400,\ detail=\textcolor{stringliteral}{"{}该用户不是您的好友"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00197}00197\ \ \ \ \ \textcolor{comment}{\#\ 检查好友是否已经注册参加会议}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00198}00198\ \ \ \ \ registration\ =\ registration\_crud.get\_registration\_by\_user\_and\_conference(db,\ user\_id=friend\_id,\ conference\_id=conference\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00199}00199\ \ \ \ \ \textcolor{keywordflow}{if}\ registration:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=400,\ detail=\textcolor{stringliteral}{"{}该好友已经参加此会议"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00202}00202\ \ \ \ \ \textcolor{comment}{\#\ 创建通知}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00203}00203\ \ \ \ \ notification\_crud.create\_notification(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00204}00204\ \ \ \ \ \ \ \ \ db,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00205}00205\ \ \ \ \ \ \ \ \ user\_id=friend\_id,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00206}00206\ \ \ \ \ \ \ \ \ type=NotificationType.MEETING\_INVITATION,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00207}00207\ \ \ \ \ \ \ \ \ content=f\textcolor{stringliteral}{"{}\{current\_user.username\}\ 邀请您参加会议\ '\{conference.title\}'"{}},}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00208}00208\ \ \ \ \ \ \ \ \ sender\_id=current\_user.id,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00209}00209\ \ \ \ \ \ \ \ \ related\_id=conference\_id}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00210}00210\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00212}00212\ \ \ \ \ \textcolor{comment}{\#\ 重定向回参会者页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00213}00213\ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=f\textcolor{stringliteral}{"{}/api/registrations/attendees/\{conference\_id\}"{}},\ status\_code=status.HTTP\_303\_SEE\_OTHER)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00216}00216\ \textcolor{preprocessor}{@router.get("{}/accept-\/invitation/\{conference\_id\}"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00217}00217\ \textcolor{keyword}{async\ def\ }accept\_invitation(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00218}00218\ \ \ \ \ request:\ Request,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00219}00219\ \ \ \ \ conference\_id:\ int,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00220}00220\ \ \ \ \ direct\_accept:\ bool\ =\ \textcolor{keyword}{False},}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00221}00221\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00222}00222\ ):}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00223}00223\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}接受会议邀请。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00224}00224\ \ \ \ \ \textcolor{comment}{\#\ 获取当前用户}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00225}00225\ \ \ \ \ current\_user\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00226}00226\ \ \ \ \ token\ =\ request.cookies.get(\textcolor{stringliteral}{"{}access\_token"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00227}00227\ \ \ \ \ \textcolor{keywordflow}{if}\ token\ \textcolor{keywordflow}{and}\ token.startswith(\textcolor{stringliteral}{"{}Bearer\ "{}}):}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_user}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ current\_user\ =\ await\ get\_current\_user(token.replace(\textcolor{stringliteral}{"{}Bearer\ "{}},\ \textcolor{stringliteral}{"{}"{}}),\ db)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00231}00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00234}00234\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00238}00238\ \ \ \ \ \textcolor{comment}{\#\ 检查会议是否存在}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00239}00239\ \ \ \ \ conference\ =\ conference\_crud.get\_conference(db,\ conference\_id=conference\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00240}00240\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ conference:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=404,\ detail=\textcolor{stringliteral}{"{}未找到会议"{}})}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00243}00243\ \ \ \ \ \textcolor{comment}{\#\ 如果不是直接接受，显示确认页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00244}00244\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ direct\_accept:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00245}00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ templates.TemplateResponse(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}direct\_accept.html"{}},}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}request"{}}:\ request,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}current\_user"{}}:\ current\_user,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}conference"{}}:\ conference,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00252}00252\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00254}00254\ \ \ \ \ \textcolor{comment}{\#\ 检查用户是否已经注册参加会议}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00255}00255\ \ \ \ \ registration\ =\ registration\_crud.get\_registration\_by\_user\_and\_conference(db,\ user\_id=current\_user.id,\ conference\_id=conference\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00256}00256\ \ \ \ \ \textcolor{keywordflow}{if}\ registration:}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00257}00257\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 已经注册，直接重定向到会议详情页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=f\textcolor{stringliteral}{"{}/api/conferences/\{conference\_id\}"{}},\ status\_code=status.HTTP\_303\_SEE\_OTHER)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00260}00260\ \ \ \ \ \textcolor{comment}{\#\ 创建注册}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00261}00261\ \ \ \ \ registration\ =\ RegistrationCreate(conference\_id=conference\_id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00262}00262\ \ \ \ \ registration\_crud.create\_registration(db,\ registration=registration,\ user\_id=current\_user.id)}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00264}00264\ \ \ \ \ \textcolor{comment}{\#\ 创建通知}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00265}00265\ \ \ \ \ notification\_crud.create\_notification(}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00266}00266\ \ \ \ \ \ \ \ \ db,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00267}00267\ \ \ \ \ \ \ \ \ user\_id=current\_user.id,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00268}00268\ \ \ \ \ \ \ \ \ type=NotificationType.MEETING\_JOINED,}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00269}00269\ \ \ \ \ \ \ \ \ content=f\textcolor{stringliteral}{"{}您已成功加入会议\ '\{conference.title\}'"{}},}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00270}00270\ \ \ \ \ \ \ \ \ related\_id=conference\_id}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00271}00271\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00273}00273\ \ \ \ \ \textcolor{comment}{\#\ 重定向到会议详情页面}}
+\DoxyCodeLine{\Hypertarget{registrations_8py_source_l00274}00274\ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=f\textcolor{stringliteral}{"{}/api/conferences/\{conference\_id\}"{}},\ status\_code=status.HTTP\_303\_SEE\_OTHER)}
+
+\end{DoxyCode}

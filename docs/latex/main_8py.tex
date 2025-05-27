@@ -1,0 +1,182 @@
+\doxysection{app/main.py 文件参考}
+\hypertarget{main_8py}{}\label{main_8py}\index{app/main.py@{app/main.py}}
+
+
+会议管理系统主应用程序入口点  
+
+
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8py_aa4e8d0d7d92ffeccaa0eea530d7bd8e7}{app.\+main.\+home}} (Request request, Session db=Depends(get\+\_\+db))
+\begin{DoxyCompactList}\small\item\em 首页路由处理函数 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{main_8py_acf4df756006003ef120d105cc189549f}{app.\+main.\+health\+\_\+check}} ()
+\begin{DoxyCompactList}\small\item\em 健康检查接口 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8py_ad298a89244e9e4e8bd9e929313eecea2}{app.\+main.\+app}} = Fast\+API(title=settings.\+APP\+\_\+\+NAME)
+\begin{DoxyCompactList}\small\item\em 应用程序初始化 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{main_8py_a1b60115641be3b0964e0c3468dcc0855}{app.\+main.\+Session\+Middleware}}
+\item 
+\mbox{\hyperlink{main_8py_a1965bf2a886d05f7694cdcaef10624fe}{app.\+main.\+secret\+\_\+key}}
+\item 
+\mbox{\hyperlink{main_8py_a3f69fd43de9ab98ad62f7840581d3e03}{app.\+main.\+name}}
+\item 
+\mbox{\hyperlink{main_8py_acb41883fce75501f7f1b5dee881a3bc5}{app.\+main.\+router}}
+\item 
+\mbox{\hyperlink{main_8py_af67fbb30f6995fd993cb5a127e9591c9}{app.\+main.\+prefix}}
+\item 
+\mbox{\hyperlink{main_8py_ae8d55247311031c5e0977650effdbb8b}{app.\+main.\+templates}} = Jinja2\+Templates(directory="{}app/templates"{})
+\begin{DoxyCompactList}\small\item\em Jinja2模板引擎 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+会议管理系统主应用程序入口点 
+
+基于\+Fast\+API构建的会议管理系统，提供用户认证、会议管理、好友系统等功能 \begin{DoxyAuthor}{作者}
+Meeting System Team 
+\end{DoxyAuthor}
+\begin{DoxyDate}{日期}
+2024 
+\end{DoxyDate}
+\begin{DoxyVersion}{版本}
+1.\+0 
+\end{DoxyVersion}
+
+
+在文件 \mbox{\hyperlink{main_8py_source}{main.\+py}} 中定义.
+
+
+
+\label{doc-func-members}
+\Hypertarget{main_8py_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{main_8py_acf4df756006003ef120d105cc189549f}\index{main.py@{main.py}!health\_check@{health\_check}}
+\index{health\_check@{health\_check}!main.py@{main.py}}
+\doxysubsubsection{\texorpdfstring{health\_check()}{health\_check()}}
+{\footnotesize\ttfamily \label{main_8py_acf4df756006003ef120d105cc189549f} 
+app.\+main.\+health\+\_\+check (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+健康检查接口 
+
+用于监控系统是否正常运行，返回系统状态信息 \begin{DoxyReturn}{返回}
+dict 包含系统状态和消息的字典 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{main_8py_source}{main.\+py}} 第 \mbox{\hyperlink{main_8py_source_l00105}{105}} 行定义.
+
+\Hypertarget{main_8py_aa4e8d0d7d92ffeccaa0eea530d7bd8e7}\index{main.py@{main.py}!home@{home}}
+\index{home@{home}!main.py@{main.py}}
+\doxysubsubsection{\texorpdfstring{home()}{home()}}
+{\footnotesize\ttfamily \label{main_8py_aa4e8d0d7d92ffeccaa0eea530d7bd8e7} 
+app.\+main.\+home (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}}\end{DoxyParamCaption})}
+
+
+
+首页路由处理函数 
+
+处理首页请求，显示会议列表和用户信息 
+\begin{DoxyParams}{参数}
+{\em request} & HTTP请求对象 \\
+\hline
+{\em db} & 数据库会话对象 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+HTMLResponse 渲染后的首页\+HTML响应 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{main_8py_source}{main.\+py}} 第 \mbox{\hyperlink{main_8py_source_l00066}{66}} 行定义.
+
+
+
+\label{doc-var-members}
+\Hypertarget{main_8py_doc-var-members}
+\doxysubsection{变量说明}
+\Hypertarget{main_8py_ad298a89244e9e4e8bd9e929313eecea2}\index{main.py@{main.py}!app@{app}}
+\index{app@{app}!main.py@{main.py}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily \label{main_8py_ad298a89244e9e4e8bd9e929313eecea2} 
+app.\+main.\+app = Fast\+API(title=settings.\+APP\+\_\+\+NAME)}
+
+
+
+应用程序初始化 
+
+创建数据库表并初始化基础数据
+
+Fast\+API应用实例
+
+主应用程序对象，配置了中间件、静态文件和路由 
+
+在文件 \mbox{\hyperlink{main_8py_source}{main.\+py}} 第 \mbox{\hyperlink{main_8py_source_l00035}{35}} 行定义.
+
+\Hypertarget{main_8py_a3f69fd43de9ab98ad62f7840581d3e03}\index{main.py@{main.py}!name@{name}}
+\index{name@{name}!main.py@{main.py}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily \label{main_8py_a3f69fd43de9ab98ad62f7840581d3e03} 
+app.\+main.\+name}
+
+
+
+在文件 \mbox{\hyperlink{main_8py_source}{main.\+py}} 第 \mbox{\hyperlink{main_8py_source_l00041}{41}} 行定义.
+
+\Hypertarget{main_8py_af67fbb30f6995fd993cb5a127e9591c9}\index{main.py@{main.py}!prefix@{prefix}}
+\index{prefix@{prefix}!main.py@{main.py}}
+\doxysubsubsection{\texorpdfstring{prefix}{prefix}}
+{\footnotesize\ttfamily \label{main_8py_af67fbb30f6995fd993cb5a127e9591c9} 
+app.\+main.\+prefix}
+
+
+
+在文件 \mbox{\hyperlink{main_8py_source}{main.\+py}} 第 \mbox{\hyperlink{main_8py_source_l00044}{44}} 行定义.
+
+\Hypertarget{main_8py_acb41883fce75501f7f1b5dee881a3bc5}\index{main.py@{main.py}!router@{router}}
+\index{router@{router}!main.py@{main.py}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily \label{main_8py_acb41883fce75501f7f1b5dee881a3bc5} 
+app.\+main.\+router}
+
+
+
+在文件 \mbox{\hyperlink{main_8py_source}{main.\+py}} 第 \mbox{\hyperlink{main_8py_source_l00044}{44}} 行定义.
+
+\Hypertarget{main_8py_a1965bf2a886d05f7694cdcaef10624fe}\index{main.py@{main.py}!secret\_key@{secret\_key}}
+\index{secret\_key@{secret\_key}!main.py@{main.py}}
+\doxysubsubsection{\texorpdfstring{secret\_key}{secret\_key}}
+{\footnotesize\ttfamily \label{main_8py_a1965bf2a886d05f7694cdcaef10624fe} 
+app.\+main.\+secret\+\_\+key}
+
+
+
+在文件 \mbox{\hyperlink{main_8py_source}{main.\+py}} 第 \mbox{\hyperlink{main_8py_source_l00038}{38}} 行定义.
+
+\Hypertarget{main_8py_a1b60115641be3b0964e0c3468dcc0855}\index{main.py@{main.py}!SessionMiddleware@{SessionMiddleware}}
+\index{SessionMiddleware@{SessionMiddleware}!main.py@{main.py}}
+\doxysubsubsection{\texorpdfstring{SessionMiddleware}{SessionMiddleware}}
+{\footnotesize\ttfamily \label{main_8py_a1b60115641be3b0964e0c3468dcc0855} 
+app.\+main.\+Session\+Middleware}
+
+
+
+在文件 \mbox{\hyperlink{main_8py_source}{main.\+py}} 第 \mbox{\hyperlink{main_8py_source_l00038}{38}} 行定义.
+
+\Hypertarget{main_8py_ae8d55247311031c5e0977650effdbb8b}\index{main.py@{main.py}!templates@{templates}}
+\index{templates@{templates}!main.py@{main.py}}
+\doxysubsubsection{\texorpdfstring{templates}{templates}}
+{\footnotesize\ttfamily \label{main_8py_ae8d55247311031c5e0977650effdbb8b} 
+app.\+main.\+templates = Jinja2\+Templates(directory="{}app/templates"{})}
+
+
+
+Jinja2模板引擎 
+
+用于渲染\+HTML模板的模板引擎实例 
+
+在文件 \mbox{\hyperlink{main_8py_source}{main.\+py}} 第 \mbox{\hyperlink{main_8py_source_l00055}{55}} 行定义.
+

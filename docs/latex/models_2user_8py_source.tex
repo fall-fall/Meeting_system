@@ -1,0 +1,51 @@
+\doxysection{user.\+py}
+\hypertarget{models_2user_8py_source}{}\label{models_2user_8py_source}\index{app/models/user.py@{app/models/user.py}}
+\mbox{\hyperlink{models_2user_8py}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00010}00010\ \textcolor{keyword}{from}\ datetime\ \textcolor{keyword}{import}\ datetime}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00011}00011\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00013}00013\ \textcolor{keyword}{from}\ pydantic\ \textcolor{keyword}{import}\ BaseModel}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00021}\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_base}{00021}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_base}{UserBase}}(BaseModel):}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00022}00022\ \ \ \ \ username:\ str\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00023}00023\ \ \ \ \ email:\ str\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00031}\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_create}{00031}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_create}{UserCreate}}(\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_base}{UserBase}}):}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00032}00032\ \ \ \ \ password:\ str\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00033}\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_create_af12fcc9f337d4a292a02d0df483d4b66}{00033}}\ \ \ \ \ is\_admin:\ bool\ =\ \textcolor{keyword}{False}\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00041}\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_login}{00041}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_login}{UserLogin}}(BaseModel):}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00042}00042\ \ \ \ \ username:\ str\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00043}00043\ \ \ \ \ password:\ str\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00051}\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_response}{00051}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_response}{UserResponse}}(\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_base}{UserBase}}):}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00052}00052\ \ \ \ \ id:\ int\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00053}00053\ \ \ \ \ is\_admin:\ bool\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00054}00054\ \ \ \ \ created\_at:\ datetime\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00056}\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_response_1_1_config}{00056}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_response_1_1_config}{Config}}:}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00057}\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_response_1_1_config_aa0fdcbfb7f21d0fce2188b837151e18a}{00057}}\ \ \ \ \ \ \ \ \ orm\_mode\ =\ \textcolor{keyword}{True}\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00065}\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_token}{00065}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_token}{Token}}(BaseModel):}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00066}00066\ \ \ \ \ access\_token:\ str\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00067}00067\ \ \ \ \ token\_type:\ str\ \ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00075}\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_token_data}{00075}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_token_data}{TokenData}}(BaseModel):}
+\DoxyCodeLine{\Hypertarget{models_2user_8py_source_l00076}\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_token_data_a7cd618b298d8fdc8adf8e7e24f1edec4}{00076}}\ \ \ \ \ username:\ Optional[str]\ =\ \textcolor{keywordtype}{None}\ \ }
+
+\end{DoxyCode}

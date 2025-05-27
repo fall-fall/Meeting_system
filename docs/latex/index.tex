@@ -1,0 +1,85 @@
+\chapter{会议管理系统 }
+\hypertarget{index}{}\label{index}\index{会议管理系统@{会议管理系统}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+
+
+基于\+Python和\+Fast\+API构建的简单会议管理系统。\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{功能特点}{功能特点}}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item 用户注册和身份验证
+\item 基于角色的访问控制（管理员和普通用户）
+\item 会议创建和管理
+\item 会议议程管理
+\item 用户会议注册
+\item 使用\+Jinja2模板的响应式\+UI
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{技术栈}{技术栈}}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\bfseries{后端}}\+: Python 3.\+x + Fast\+API
+\item {\bfseries{数据库}}\+: SQLite
+\item {\bfseries{前端}}\+: Jinja2模板 + 自定义\+CSS
+\item {\bfseries{认证}}\+: JWT令牌
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{安装说明}{安装说明}}\label{index_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item 克隆仓库
+\item 安装依赖\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pip\ install\ -\/r\ requirements.txt}
+
+\end{DoxyCode}
+
+\item 运行应用程序\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{python\ run.py}
+
+\end{DoxyCode}
+
+
+或者
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uvicorn\ app.main:app\ -\/-\/reload}
+
+\end{DoxyCode}
+
+\item 打开浏览器并访问 {\ttfamily \href{http://localhost:8010}{\texttt{http\+://localhost\+:8010}}}
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{项目结构}{项目结构}}\label{index_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{meeting/}
+\DoxyCodeLine{├──\ app/}
+\DoxyCodeLine{│\ \ \ ├──\ main.py\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ FastAPI应用程序入口点}
+\DoxyCodeLine{│\ \ \ ├──\ config.py\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ 配置设置}
+\DoxyCodeLine{│\ \ \ ├──\ database.py\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ 数据库连接和模型}
+\DoxyCodeLine{│\ \ \ ├──\ dependencies.py\ \ \ \ \ \ \ \ \ \#\ 依赖注入}
+\DoxyCodeLine{│\ \ \ ├──\ routers/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ API路由}
+\DoxyCodeLine{│\ \ \ ├──\ models/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Pydantic模型}
+\DoxyCodeLine{│\ \ \ ├──\ crud/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ 数据库操作}
+\DoxyCodeLine{│\ \ \ ├──\ schemas/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ 数据库模式}
+\DoxyCodeLine{│\ \ \ ├──\ static/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ 静态文件(CSS,\ JS)}
+\DoxyCodeLine{│\ \ \ └──\ templates/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Jinja2模板}
+\DoxyCodeLine{├──\ requirements.txt\ \ \ \ \ \ \ \ \ \ \ \ \#\ 项目依赖}
+\DoxyCodeLine{├──\ run.py\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ 运行脚本}
+\DoxyCodeLine{└──\ README.md\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ 项目文档}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{API文档}{API文档}}\label{index_autotoc_md5}
+应用程序运行后，您可以在以下位置访问\+API文档\+:
+
+
+\begin{DoxyItemize}
+\item Swagger UI\+: {\ttfamily \href{http://localhost:8000/docs}{\texttt{http\+://localhost\+:8000/docs}}}
+\item Re\+Doc\+: {\ttfamily \href{http://localhost:8000/redoc}{\texttt{http\+://localhost\+:8000/redoc}}}
+\end{DoxyItemize}\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{默认管理员账户}{默认管理员账户}}\label{index_autotoc_md6}
+
+\begin{DoxyItemize}
+\item 用户名\+: admin
+\item 密码\+: admin123 
+\end{DoxyItemize}

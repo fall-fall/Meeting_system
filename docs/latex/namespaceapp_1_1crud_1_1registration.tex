@@ -1,0 +1,128 @@
+\doxysection{app.\+crud.\+registration 命名空间参考}
+\hypertarget{namespaceapp_1_1crud_1_1registration}{}\label{namespaceapp_1_1crud_1_1registration}\index{app.crud.registration@{app.crud.registration}}
+
+
+会议注册数据库操作模块  
+
+
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_a16f43f64b5220bd81ff7df2d3fe73b7a}{get\+\_\+registration}} (Session db, int registration\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 根据\+ID获取注册记录 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_ab63e8855114d554c10ec29e10cf73f4e}{get\+\_\+registration\+\_\+by\+\_\+user\+\_\+and\+\_\+conference}} (Session db, int user\+\_\+id, int conference\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 根据用户\+ID和会议\+ID获取注册记录 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_a9c4071c19b46210a3ff0b48c9c3b30f0}{get\+\_\+registrations\+\_\+by\+\_\+user}} (Session db, int user\+\_\+id, int skip=0, int limit=100)
+\begin{DoxyCompactList}\small\item\em 根据用户\+ID获取注册记录列表 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_adeb0bb7dcdfa79f3aa34d6ac56e6a98c}{get\+\_\+registrations\+\_\+by\+\_\+conference}} (Session db, int conference\+\_\+id, int skip=0, int limit=100)
+\begin{DoxyCompactList}\small\item\em 根据会议\+ID获取注册记录列表 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_a20733d661f9a082b648c0c6d881ebcbd}{create\+\_\+registration}} (Session db, \mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_create}{Registration\+Create}} registration, int user\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 创建新的注册记录 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1registration_ab93378fa05b214f93587d122761be3eb}{delete\+\_\+registration}} (Session db, int registration\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 删除注册记录 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+会议注册数据库操作模块 
+
+本模块提供会议注册相关的数据库\+CRUD操作函数 
+
+\label{doc-func-members}
+\Hypertarget{namespaceapp_1_1crud_1_1registration_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{namespaceapp_1_1crud_1_1registration_a20733d661f9a082b648c0c6d881ebcbd}\index{app.crud.registration@{app.crud.registration}!create\_registration@{create\_registration}}
+\index{create\_registration@{create\_registration}!app.crud.registration@{app.crud.registration}}
+\doxysubsubsection{\texorpdfstring{create\_registration()}{create\_registration()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1registration_a20733d661f9a082b648c0c6d881ebcbd} 
+app.\+crud.\+registration.\+create\+\_\+registration (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_create}{Registration\+Create}}}]{registration}{, }\item[{int}]{user\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+创建新的注册记录 
+
+Args\+: db\+: 数据库会话 registration\+: 注册记录创建模型 user\+\_\+id\+: 用户\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_registration}{Registration}\+: 创建的注册记录对象 
+
+在文件 \mbox{\hyperlink{crud_2registration_8py_source}{registration.\+py}} 第 \mbox{\hyperlink{crud_2registration_8py_source_l00073}{73}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1registration_ab93378fa05b214f93587d122761be3eb}\index{app.crud.registration@{app.crud.registration}!delete\_registration@{delete\_registration}}
+\index{delete\_registration@{delete\_registration}!app.crud.registration@{app.crud.registration}}
+\doxysubsubsection{\texorpdfstring{delete\_registration()}{delete\_registration()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1registration_ab93378fa05b214f93587d122761be3eb} 
+app.\+crud.\+registration.\+delete\+\_\+registration (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{registration\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+删除注册记录 
+
+Args\+: db\+: 数据库会话 registration\+\_\+id\+: 注册记录\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_registration}{Registration}\+: 被删除的注册记录对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2registration_8py_source}{registration.\+py}} 第 \mbox{\hyperlink{crud_2registration_8py_source_l00098}{98}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1registration_a16f43f64b5220bd81ff7df2d3fe73b7a}\index{app.crud.registration@{app.crud.registration}!get\_registration@{get\_registration}}
+\index{get\_registration@{get\_registration}!app.crud.registration@{app.crud.registration}}
+\doxysubsubsection{\texorpdfstring{get\_registration()}{get\_registration()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1registration_a16f43f64b5220bd81ff7df2d3fe73b7a} 
+app.\+crud.\+registration.\+get\+\_\+registration (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{registration\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+根据\+ID获取注册记录 
+
+Args\+: db\+: 数据库会话 registration\+\_\+id\+: 注册记录\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_registration}{Registration}\+: 注册记录对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2registration_8py_source}{registration.\+py}} 第 \mbox{\hyperlink{crud_2registration_8py_source_l00013}{13}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1registration_ab63e8855114d554c10ec29e10cf73f4e}\index{app.crud.registration@{app.crud.registration}!get\_registration\_by\_user\_and\_conference@{get\_registration\_by\_user\_and\_conference}}
+\index{get\_registration\_by\_user\_and\_conference@{get\_registration\_by\_user\_and\_conference}!app.crud.registration@{app.crud.registration}}
+\doxysubsubsection{\texorpdfstring{get\_registration\_by\_user\_and\_conference()}{get\_registration\_by\_user\_and\_conference()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1registration_ab63e8855114d554c10ec29e10cf73f4e} 
+app.\+crud.\+registration.\+get\+\_\+registration\+\_\+by\+\_\+user\+\_\+and\+\_\+conference (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{user\+\_\+id}{, }\item[{int}]{conference\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+根据用户\+ID和会议\+ID获取注册记录 
+
+Args\+: db\+: 数据库会话 user\+\_\+id\+: 用户\+ID conference\+\_\+id\+: 会议\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_registration}{Registration}\+: 注册记录对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2registration_8py_source}{registration.\+py}} 第 \mbox{\hyperlink{crud_2registration_8py_source_l00026}{26}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1registration_adeb0bb7dcdfa79f3aa34d6ac56e6a98c}\index{app.crud.registration@{app.crud.registration}!get\_registrations\_by\_conference@{get\_registrations\_by\_conference}}
+\index{get\_registrations\_by\_conference@{get\_registrations\_by\_conference}!app.crud.registration@{app.crud.registration}}
+\doxysubsubsection{\texorpdfstring{get\_registrations\_by\_conference()}{get\_registrations\_by\_conference()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1registration_adeb0bb7dcdfa79f3aa34d6ac56e6a98c} 
+app.\+crud.\+registration.\+get\+\_\+registrations\+\_\+by\+\_\+conference (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{conference\+\_\+id}{, }\item[{int }]{skip}{ = {\ttfamily 0}, }\item[{int }]{limit}{ = {\ttfamily 100}}\end{DoxyParamCaption})}
+
+
+
+根据会议\+ID获取注册记录列表 
+
+Args\+: db\+: 数据库会话 conference\+\_\+id\+: 会议\+ID skip\+: 跳过的记录数 limit\+: 返回的最大记录数
+
+Returns\+: List\mbox{[}\doxylink{classapp_1_1database_1_1_registration}{Registration}\mbox{]}\+: 注册记录对象列表 
+
+在文件 \mbox{\hyperlink{crud_2registration_8py_source}{registration.\+py}} 第 \mbox{\hyperlink{crud_2registration_8py_source_l00058}{58}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1registration_a9c4071c19b46210a3ff0b48c9c3b30f0}\index{app.crud.registration@{app.crud.registration}!get\_registrations\_by\_user@{get\_registrations\_by\_user}}
+\index{get\_registrations\_by\_user@{get\_registrations\_by\_user}!app.crud.registration@{app.crud.registration}}
+\doxysubsubsection{\texorpdfstring{get\_registrations\_by\_user()}{get\_registrations\_by\_user()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1registration_a9c4071c19b46210a3ff0b48c9c3b30f0} 
+app.\+crud.\+registration.\+get\+\_\+registrations\+\_\+by\+\_\+user (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{user\+\_\+id}{, }\item[{int }]{skip}{ = {\ttfamily 0}, }\item[{int }]{limit}{ = {\ttfamily 100}}\end{DoxyParamCaption})}
+
+
+
+根据用户\+ID获取注册记录列表 
+
+Args\+: db\+: 数据库会话 user\+\_\+id\+: 用户\+ID skip\+: 跳过的记录数 limit\+: 返回的最大记录数
+
+Returns\+: List\mbox{[}\doxylink{classapp_1_1database_1_1_registration}{Registration}\mbox{]}\+: 注册记录对象列表 
+
+在文件 \mbox{\hyperlink{crud_2registration_8py_source}{registration.\+py}} 第 \mbox{\hyperlink{crud_2registration_8py_source_l00043}{43}} 行定义.
+

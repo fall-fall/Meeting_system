@@ -1,0 +1,129 @@
+\doxysection{app.\+database.\+Friendship类 参考}
+\hypertarget{classapp_1_1database_1_1_friendship}{}\label{classapp_1_1database_1_1_friendship}\index{app.database.Friendship@{app.database.Friendship}}
+
+
+好友关系模型  
+
+
+类 app.\+database.\+Friendship 继承关系图\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classapp_1_1database_1_1_friendship}
+\end{center}
+\end{figure}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_friendship_a21810d0569f440c39929e1079087fe03}{id}} = Column(Integer, primary\+\_\+key=True, index=True)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_friendship_ab23c4fb48bd4f7cff7fae98e696c8476}{user\+\_\+id}} = Column(Integer, Foreign\+Key("{}users.\+id"{}))
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_friendship_a8c1f340e70e855ab3d90a275cecc81fa}{friend\+\_\+id}} = Column(Integer, Foreign\+Key("{}users.\+id"{}))
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_friendship_a95954d7888682a8b280f9d22afcc84c2}{status}} = Column(Enum(\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status}{Friendship\+Status}}), default=\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status_a87c627095e471324096a89595731426d}{Friendship\+Status.\+PENDING}})
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_friendship_aa1dd8124cabf10c59987ac7127cbdbe1}{created\+\_\+at}} = Column(Date\+Time, default=datetime.\+utcnow)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_friendship_ac69895c82fa4a5ff094b4fd0816a3e4d}{updated\+\_\+at}} = Column(Date\+Time, default=datetime.\+utcnow, onupdate=datetime.\+utcnow)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_friendship_a1146e6fcb00ab941c7b7bfd9370448c6}{user}} = relationship("{}User"{}, foreign\+\_\+keys=\mbox{[}user\+\_\+id\mbox{]}, back\+\_\+populates="{}sent\+\_\+friendships"{})
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_friendship_a2bb409f1d0054f37771e6961e40abda4}{friend}} = relationship("{}User"{}, foreign\+\_\+keys=\mbox{[}friend\+\_\+id\mbox{]}, back\+\_\+populates="{}received\+\_\+friendships"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+好友关系模型 
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00155}{155}} 行定义.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classapp_1_1database_1_1_friendship_doc-variable-members}
+\doxysubsection{类成员变量说明}
+\Hypertarget{classapp_1_1database_1_1_friendship_aa1dd8124cabf10c59987ac7127cbdbe1}\index{app.database.Friendship@{app.database.Friendship}!created\_at@{created\_at}}
+\index{created\_at@{created\_at}!app.database.Friendship@{app.database.Friendship}}
+\doxysubsubsection{\texorpdfstring{created\_at}{created\_at}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_friendship_aa1dd8124cabf10c59987ac7127cbdbe1} 
+app.\+database.\+Friendship.\+created\+\_\+at = Column(Date\+Time, default=datetime.\+utcnow)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00164}{164}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_friendship_a2bb409f1d0054f37771e6961e40abda4}\index{app.database.Friendship@{app.database.Friendship}!friend@{friend}}
+\index{friend@{friend}!app.database.Friendship@{app.database.Friendship}}
+\doxysubsubsection{\texorpdfstring{friend}{friend}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_friendship_a2bb409f1d0054f37771e6961e40abda4} 
+app.\+database.\+Friendship.\+friend = relationship("{}User"{}, foreign\+\_\+keys=\mbox{[}friend\+\_\+id\mbox{]}, back\+\_\+populates="{}received\+\_\+friendships"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00169}{169}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_friendship_a8c1f340e70e855ab3d90a275cecc81fa}\index{app.database.Friendship@{app.database.Friendship}!friend\_id@{friend\_id}}
+\index{friend\_id@{friend\_id}!app.database.Friendship@{app.database.Friendship}}
+\doxysubsubsection{\texorpdfstring{friend\_id}{friend\_id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_friendship_a8c1f340e70e855ab3d90a275cecc81fa} 
+app.\+database.\+Friendship.\+friend\+\_\+id = Column(Integer, Foreign\+Key("{}users.\+id"{}))\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00162}{162}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_friendship_a21810d0569f440c39929e1079087fe03}\index{app.database.Friendship@{app.database.Friendship}!id@{id}}
+\index{id@{id}!app.database.Friendship@{app.database.Friendship}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_friendship_a21810d0569f440c39929e1079087fe03} 
+app.\+database.\+Friendship.\+id = Column(Integer, primary\+\_\+key=True, index=True)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00160}{160}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_friendship_a95954d7888682a8b280f9d22afcc84c2}\index{app.database.Friendship@{app.database.Friendship}!status@{status}}
+\index{status@{status}!app.database.Friendship@{app.database.Friendship}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_friendship_a95954d7888682a8b280f9d22afcc84c2} 
+app.\+database.\+Friendship.\+status = Column(Enum(\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status}{Friendship\+Status}}), default=\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status_a87c627095e471324096a89595731426d}{Friendship\+Status.\+PENDING}})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00163}{163}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_friendship_ac69895c82fa4a5ff094b4fd0816a3e4d}\index{app.database.Friendship@{app.database.Friendship}!updated\_at@{updated\_at}}
+\index{updated\_at@{updated\_at}!app.database.Friendship@{app.database.Friendship}}
+\doxysubsubsection{\texorpdfstring{updated\_at}{updated\_at}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_friendship_ac69895c82fa4a5ff094b4fd0816a3e4d} 
+app.\+database.\+Friendship.\+updated\+\_\+at = Column(Date\+Time, default=datetime.\+utcnow, onupdate=datetime.\+utcnow)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00165}{165}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_friendship_a1146e6fcb00ab941c7b7bfd9370448c6}\index{app.database.Friendship@{app.database.Friendship}!user@{user}}
+\index{user@{user}!app.database.Friendship@{app.database.Friendship}}
+\doxysubsubsection{\texorpdfstring{user}{user}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_friendship_a1146e6fcb00ab941c7b7bfd9370448c6} 
+app.\+database.\+Friendship.\+user = relationship("{}User"{}, foreign\+\_\+keys=\mbox{[}user\+\_\+id\mbox{]}, back\+\_\+populates="{}sent\+\_\+friendships"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00168}{168}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_friendship_ab23c4fb48bd4f7cff7fae98e696c8476}\index{app.database.Friendship@{app.database.Friendship}!user\_id@{user\_id}}
+\index{user\_id@{user\_id}!app.database.Friendship@{app.database.Friendship}}
+\doxysubsubsection{\texorpdfstring{user\_id}{user\_id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_friendship_ab23c4fb48bd4f7cff7fae98e696c8476} 
+app.\+database.\+Friendship.\+user\+\_\+id = Column(Integer, Foreign\+Key("{}users.\+id"{}))\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00161}{161}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+app/\mbox{\hyperlink{database_8py}{database.\+py}}\end{DoxyCompactItemize}

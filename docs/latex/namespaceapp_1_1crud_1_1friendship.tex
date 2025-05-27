@@ -1,0 +1,166 @@
+\doxysection{app.\+crud.\+friendship 命名空间参考}
+\hypertarget{namespaceapp_1_1crud_1_1friendship}{}\label{namespaceapp_1_1crud_1_1friendship}\index{app.crud.friendship@{app.crud.friendship}}
+
+
+好友关系数据库操作模块  
+
+
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_acef68670d9425ca3afefff58d2dbff63}{get\+\_\+friendship}} (Session db, int friendship\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 根据\+ID获取好友关系 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a2b8cd4fb3bcd59ff88270c64e1507fc1}{get\+\_\+friendship\+\_\+by\+\_\+users}} (Session db, int user\+\_\+id, int friend\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 获取两个用户之间的好友关系 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a8cdf22a94668df2675d72be9170afa42}{get\+\_\+friendships\+\_\+by\+\_\+user}} (Session db, int user\+\_\+id, \mbox{\hyperlink{classapp_1_1database_1_1_friendship_status}{Friendship\+Status}} status=None)
+\begin{DoxyCompactList}\small\item\em 获取用户的所有好友关系 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a5702721bd79372a8cc7d2239ca542abc}{get\+\_\+friends}} (Session db, int user\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 获取用户的所有好友 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_aded65d272569b05221b0c0e953a5dcd7}{get\+\_\+pending\+\_\+friend\+\_\+requests}} (Session db, int user\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 获取用户收到的待处理好友请求 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_af9a1e1cc4050d08de99d2450ffaa52f4}{create\+\_\+friendship}} (Session db, int user\+\_\+id, int friend\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 创建好友关系 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a24da2bc223a62c78cd67018e2f687e88}{update\+\_\+friendship\+\_\+status}} (Session db, int friendship\+\_\+id, \mbox{\hyperlink{classapp_1_1database_1_1_friendship_status}{Friendship\+Status}} status)
+\begin{DoxyCompactList}\small\item\em 更新好友关系状态 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a0f72a1e212471d19cf6830c8a16e5cce}{delete\+\_\+friendship}} (Session db, int friendship\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 删除好友关系 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+好友关系数据库操作模块 
+
+本模块提供好友关系相关的数据库\+CRUD操作函数 
+
+\label{doc-func-members}
+\Hypertarget{namespaceapp_1_1crud_1_1friendship_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{namespaceapp_1_1crud_1_1friendship_af9a1e1cc4050d08de99d2450ffaa52f4}\index{app.crud.friendship@{app.crud.friendship}!create\_friendship@{create\_friendship}}
+\index{create\_friendship@{create\_friendship}!app.crud.friendship@{app.crud.friendship}}
+\doxysubsubsection{\texorpdfstring{create\_friendship()}{create\_friendship()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1friendship_af9a1e1cc4050d08de99d2450ffaa52f4} 
+app.\+crud.\+friendship.\+create\+\_\+friendship (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{user\+\_\+id}{, }\item[{int}]{friend\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+创建好友关系 
+
+Args\+: db\+: 数据库会话 user\+\_\+id\+: 发起者用户\+ID friend\+\_\+id\+: 接收者用户\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_friendship}{Friendship}\+: 创建或已存在的好友关系对象 
+
+在文件 \mbox{\hyperlink{crud_2friendship_8py_source}{friendship.\+py}} 第 \mbox{\hyperlink{crud_2friendship_8py_source_l00134}{134}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1friendship_a0f72a1e212471d19cf6830c8a16e5cce}\index{app.crud.friendship@{app.crud.friendship}!delete\_friendship@{delete\_friendship}}
+\index{delete\_friendship@{delete\_friendship}!app.crud.friendship@{app.crud.friendship}}
+\doxysubsubsection{\texorpdfstring{delete\_friendship()}{delete\_friendship()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1friendship_a0f72a1e212471d19cf6830c8a16e5cce} 
+app.\+crud.\+friendship.\+delete\+\_\+friendship (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{friendship\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+删除好友关系 
+
+Args\+: db\+: 数据库会话 friendship\+\_\+id\+: 好友关系\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_friendship}{Friendship}\+: 被删除的好友关系对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2friendship_8py_source}{friendship.\+py}} 第 \mbox{\hyperlink{crud_2friendship_8py_source_l00187}{187}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1friendship_a5702721bd79372a8cc7d2239ca542abc}\index{app.crud.friendship@{app.crud.friendship}!get\_friends@{get\_friends}}
+\index{get\_friends@{get\_friends}!app.crud.friendship@{app.crud.friendship}}
+\doxysubsubsection{\texorpdfstring{get\_friends()}{get\_friends()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1friendship_a5702721bd79372a8cc7d2239ca542abc} 
+app.\+crud.\+friendship.\+get\+\_\+friends (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{user\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+获取用户的所有好友 
+
+Args\+: db\+: 数据库会话 user\+\_\+id\+: 用户\+ID
+
+Returns\+: List\mbox{[}\doxylink{classapp_1_1database_1_1_user}{User}\mbox{]}\+: 好友用户对象列表 
+
+在文件 \mbox{\hyperlink{crud_2friendship_8py_source}{friendship.\+py}} 第 \mbox{\hyperlink{crud_2friendship_8py_source_l00077}{77}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1friendship_acef68670d9425ca3afefff58d2dbff63}\index{app.crud.friendship@{app.crud.friendship}!get\_friendship@{get\_friendship}}
+\index{get\_friendship@{get\_friendship}!app.crud.friendship@{app.crud.friendship}}
+\doxysubsubsection{\texorpdfstring{get\_friendship()}{get\_friendship()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1friendship_acef68670d9425ca3afefff58d2dbff63} 
+app.\+crud.\+friendship.\+get\+\_\+friendship (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{friendship\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+根据\+ID获取好友关系 
+
+Args\+: db\+: 数据库会话 friendship\+\_\+id\+: 好友关系\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_friendship}{Friendship}\+: 好友关系对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2friendship_8py_source}{friendship.\+py}} 第 \mbox{\hyperlink{crud_2friendship_8py_source_l00013}{13}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1friendship_a2b8cd4fb3bcd59ff88270c64e1507fc1}\index{app.crud.friendship@{app.crud.friendship}!get\_friendship\_by\_users@{get\_friendship\_by\_users}}
+\index{get\_friendship\_by\_users@{get\_friendship\_by\_users}!app.crud.friendship@{app.crud.friendship}}
+\doxysubsubsection{\texorpdfstring{get\_friendship\_by\_users()}{get\_friendship\_by\_users()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1friendship_a2b8cd4fb3bcd59ff88270c64e1507fc1} 
+app.\+crud.\+friendship.\+get\+\_\+friendship\+\_\+by\+\_\+users (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{user\+\_\+id}{, }\item[{int}]{friend\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+获取两个用户之间的好友关系 
+
+Args\+: db\+: 数据库会话 user\+\_\+id\+: 用户\+ID friend\+\_\+id\+: 好友\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_friendship}{Friendship}\+: 好友关系对象，如果不存在则返回\+None
+
+Note\+: 此函数会查找两个用户之间的好友关系，无论谁是发起者 
+
+在文件 \mbox{\hyperlink{crud_2friendship_8py_source}{friendship.\+py}} 第 \mbox{\hyperlink{crud_2friendship_8py_source_l00026}{26}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1friendship_a8cdf22a94668df2675d72be9170afa42}\index{app.crud.friendship@{app.crud.friendship}!get\_friendships\_by\_user@{get\_friendships\_by\_user}}
+\index{get\_friendships\_by\_user@{get\_friendships\_by\_user}!app.crud.friendship@{app.crud.friendship}}
+\doxysubsubsection{\texorpdfstring{get\_friendships\_by\_user()}{get\_friendships\_by\_user()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1friendship_a8cdf22a94668df2675d72be9170afa42} 
+app.\+crud.\+friendship.\+get\+\_\+friendships\+\_\+by\+\_\+user (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{user\+\_\+id}{, }\item[{\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status}{Friendship\+Status}} }]{status}{ = {\ttfamily None}}\end{DoxyParamCaption})}
+
+
+
+获取用户的所有好友关系 
+
+Args\+: db\+: 数据库会话 user\+\_\+id\+: 用户\+ID status\+: 好友关系状态（可选）
+
+Returns\+: List\mbox{[}\doxylink{classapp_1_1database_1_1_friendship}{Friendship}\mbox{]}\+: 好友关系对象列表 
+
+在文件 \mbox{\hyperlink{crud_2friendship_8py_source}{friendship.\+py}} 第 \mbox{\hyperlink{crud_2friendship_8py_source_l00054}{54}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1friendship_aded65d272569b05221b0c0e953a5dcd7}\index{app.crud.friendship@{app.crud.friendship}!get\_pending\_friend\_requests@{get\_pending\_friend\_requests}}
+\index{get\_pending\_friend\_requests@{get\_pending\_friend\_requests}!app.crud.friendship@{app.crud.friendship}}
+\doxysubsubsection{\texorpdfstring{get\_pending\_friend\_requests()}{get\_pending\_friend\_requests()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1friendship_aded65d272569b05221b0c0e953a5dcd7} 
+app.\+crud.\+friendship.\+get\+\_\+pending\+\_\+friend\+\_\+requests (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{user\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+获取用户收到的待处理好友请求 
+
+Args\+: db\+: 数据库会话 user\+\_\+id\+: 用户\+ID
+
+Returns\+: List\mbox{[}\doxylink{classapp_1_1database_1_1_friendship}{Friendship}\mbox{]}\+: 待处理好友请求列表 
+
+在文件 \mbox{\hyperlink{crud_2friendship_8py_source}{friendship.\+py}} 第 \mbox{\hyperlink{crud_2friendship_8py_source_l00114}{114}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1friendship_a24da2bc223a62c78cd67018e2f687e88}\index{app.crud.friendship@{app.crud.friendship}!update\_friendship\_status@{update\_friendship\_status}}
+\index{update\_friendship\_status@{update\_friendship\_status}!app.crud.friendship@{app.crud.friendship}}
+\doxysubsubsection{\texorpdfstring{update\_friendship\_status()}{update\_friendship\_status()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1friendship_a24da2bc223a62c78cd67018e2f687e88} 
+app.\+crud.\+friendship.\+update\+\_\+friendship\+\_\+status (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{friendship\+\_\+id}{, }\item[{\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status}{Friendship\+Status}}}]{status}{}\end{DoxyParamCaption})}
+
+
+
+更新好友关系状态 
+
+Args\+: db\+: 数据库会话 friendship\+\_\+id\+: 好友关系\+ID status\+: 新的状态
+
+Returns\+: \doxylink{classapp_1_1database_1_1_friendship}{Friendship}\+: 更新后的好友关系对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2friendship_8py_source}{friendship.\+py}} 第 \mbox{\hyperlink{crud_2friendship_8py_source_l00165}{165}} 行定义.
+

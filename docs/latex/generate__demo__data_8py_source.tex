@@ -1,0 +1,225 @@
+\doxysection{generate\+\_\+demo\+\_\+data.\+py}
+\hypertarget{generate__demo__data_8py_source}{}\label{generate__demo__data_8py_source}\index{app/scripts/generate\_demo\_data.py@{app/scripts/generate\_demo\_data.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00001}\mbox{\hyperlink{namespacegenerate__demo__data}{00001}}\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00002}00002\ \textcolor{stringliteral}{生成示例数据的脚本，包括会议、好友关系和通知。}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00003}00003\ \textcolor{stringliteral}{运行方式：python\ -\/m\ app.scripts.generate\_demo\_data}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00004}00004\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00006}00006\ \textcolor{keyword}{import}\ random}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00007}00007\ \textcolor{keyword}{from}\ datetime\ \textcolor{keyword}{import}\ datetime,\ timedelta}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00009}00009\ \textcolor{keyword}{from}\ sqlalchemy.orm\ \textcolor{keyword}{import}\ Session}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00011}00011\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1database}{app.database}}\ \textcolor{keyword}{import}\ SessionLocal,\ create\_tables,\ FriendshipStatus,\ NotificationType}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00012}00012\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ user\ \textcolor{keyword}{as}\ user\_crud}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00013}00013\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ conference\ \textcolor{keyword}{as}\ conference\_crud}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00014}00014\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ friendship\ \textcolor{keyword}{as}\ friendship\_crud}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00015}00015\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ notification\ \textcolor{keyword}{as}\ notification\_crud}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00016}00016\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ registration\ \textcolor{keyword}{as}\ registration\_crud}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00017}00017\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1models_1_1conference}{app.models.conference}}\ \textcolor{keyword}{import}\ ConferenceCreate}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00018}00018\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1models_1_1registration}{app.models.registration}}\ \textcolor{keyword}{import}\ RegistrationCreate}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00021}\mbox{\hyperlink{namespacegenerate__demo__data_a5e6f5619d772403ba84dddae238a106f}{00021}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegenerate__demo__data_a5e6f5619d772403ba84dddae238a106f}{generate\_demo\_data}}():}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00022}00022\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}生成示例数据。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00023}00023\ \ \ \ \ \textcolor{comment}{\#\ 创建数据库会话}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00024}00024\ \ \ \ \ db\ =\ SessionLocal()}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 获取所有用户}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ users\ =\ user\_crud.get\_users(db)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(users)\ <\ 5:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}请先运行\ generate\_demo\_users.py\ 创建示例用户"{}})}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 创建示例会议}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00034}00034\ \ \ \ \ \ \ \ \ conferences\ =\ \mbox{\hyperlink{namespacegenerate__demo__data_a229b37410cdac80e6953852f0ac2b804}{create\_demo\_conferences}}(db,\ users)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 创建示例好友关系}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegenerate__demo__data_af2381bad1e8169dd02f56879f57edbb3}{create\_demo\_friendships}}(db,\ users)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 创建示例会议注册}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegenerate__demo__data_ae0a02e20448c54c7f56b836228483d06}{create\_demo\_registrations}}(db,\ users,\ conferences)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 创建示例通知}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegenerate__demo__data_aceeab2a8fb6f9e95c6ed35020c352243}{create\_demo\_notifications}}(db,\ users,\ conferences)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}示例数据生成完成！"{}})}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{finally}:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ db.close()}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00051}\mbox{\hyperlink{namespacegenerate__demo__data_a229b37410cdac80e6953852f0ac2b804}{00051}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegenerate__demo__data_a229b37410cdac80e6953852f0ac2b804}{create\_demo\_conferences}}(db:\ Session,\ users):}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00052}00052\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}创建示例会议。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00053}00053\ \ \ \ \ \textcolor{comment}{\#\ 示例会议数据}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00054}00054\ \ \ \ \ conference\_data\ =\ [}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}title"{}}:\ \textcolor{stringliteral}{"{}Python\ 技术交流会"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}description"{}}:\ \textcolor{stringliteral}{"{}讨论\ Python\ 最新技术和应用，包括\ FastAPI、Django、Flask\ 等框架的使用经验。"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}date"{}}:\ datetime.now()\ +\ timedelta(days=7),}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}location"{}}:\ \textcolor{stringliteral}{"{}线上会议"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}title"{}}:\ \textcolor{stringliteral}{"{}人工智能与机器学习研讨会"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}description"{}}:\ \textcolor{stringliteral}{"{}探讨人工智能和机器学习的最新进展，包括深度学习、强化学习、自然语言处理等领域。"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}date"{}}:\ datetime.now()\ +\ timedelta(days=14),}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}location"{}}:\ \textcolor{stringliteral}{"{}北京市海淀区中关村科技园"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}title"{}}:\ \textcolor{stringliteral}{"{}Web\ 前端开发技术分享"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}description"{}}:\ \textcolor{stringliteral}{"{}分享\ Web\ 前端开发的最新技术和趋势，包括\ React、Vue、Angular\ 等框架的使用经验。"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}date"{}}:\ datetime.now()\ +\ timedelta(days=21),}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}location"{}}:\ \textcolor{stringliteral}{"{}上海市浦东新区张江高科技园区"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}title"{}}:\ \textcolor{stringliteral}{"{}数据库技术与应用"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}description"{}}:\ \textcolor{stringliteral}{"{}讨论各种数据库技术的应用和优化，包括关系型数据库和\ NoSQL\ 数据库。"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}date"{}}:\ datetime.now()\ +\ timedelta(days=28),}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}location"{}}:\ \textcolor{stringliteral}{"{}广州市天河区科技园"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}title"{}}:\ \textcolor{stringliteral}{"{}云计算与微服务架构"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}description"{}}:\ \textcolor{stringliteral}{"{}探讨云计算和微服务架构的最佳实践，包括\ Docker、Kubernetes、AWS、Azure\ 等技术。"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}date"{}}:\ datetime.now()\ +\ timedelta(days=35),}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}location"{}}:\ \textcolor{stringliteral}{"{}深圳市南山区科技园"{}},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00085}00085\ \ \ \ \ ]}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00087}00087\ \ \ \ \ \textcolor{comment}{\#\ 获取管理员用户}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00088}00088\ \ \ \ \ admin\_users\ =\ [user\ \textcolor{keywordflow}{for}\ user\ \textcolor{keywordflow}{in}\ users\ \textcolor{keywordflow}{if}\ user.is\_admin]}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ admin\_users:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ admin\_users\ =\ [users[0]]\ \ \textcolor{comment}{\#\ 如果没有管理员，使用第一个用户}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00092}00092\ \ \ \ \ \textcolor{comment}{\#\ 创建会议}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00093}00093\ \ \ \ \ conferences\ =\ []}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{for}\ data\ \textcolor{keywordflow}{in}\ conference\_data:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00095}00095\ \ \ \ \ \ \ \ \ creator\ =\ random.choice(admin\_users)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ conference\ =\ \mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_create}{ConferenceCreate}}(**data)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ db\_conference\ =\ conference\_crud.create\_conference(db,\ conference=conference,\ creator\_id=creator.id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ conferences.append(db\_conference)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00099}00099\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}已创建会议:\ \{data['title']\}"{}})}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{return}\ conferences}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00104}\mbox{\hyperlink{namespacegenerate__demo__data_af2381bad1e8169dd02f56879f57edbb3}{00104}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegenerate__demo__data_af2381bad1e8169dd02f56879f57edbb3}{create\_demo\_friendships}}(db:\ Session,\ users):}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00105}00105\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}创建示例好友关系。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00106}00106\ \ \ \ \ \textcolor{comment}{\#\ 为每个用户创建\ 2-\/4\ 个好友}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{for}\ user\ \textcolor{keywordflow}{in}\ users:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 随机选择\ 2-\/4\ 个其他用户作为好友}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ potential\_friends\ =\ [u\ \textcolor{keywordflow}{for}\ u\ \textcolor{keywordflow}{in}\ users\ \textcolor{keywordflow}{if}\ u.id\ !=\ user.id]}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ num\_friends\ =\ min(random.randint(2,\ 4),\ len(potential\_friends))}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ friends\ =\ random.sample(potential\_friends,\ num\_friends)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ friend\ \textcolor{keywordflow}{in}\ friends:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 检查是否已经是好友}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ existing\ =\ friendship\_crud.get\_friendship\_by\_users(db,\ user.id,\ friend.id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ existing:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 创建好友关系，50\%\ 概率为已接受状态}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ random.choice([FriendshipStatus.PENDING,\ FriendshipStatus.ACCEPTED])}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ friendship\ =\ friendship\_crud.create\_friendship(db,\ user.id,\ friend.id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ status\ ==\ FriendshipStatus.ACCEPTED:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ friendship\_crud.update\_friendship\_status(db,\ friendship.id,\ FriendshipStatus.ACCEPTED)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}已创建好友关系:\ \{user.username\}\ -\/>\ \{friend.username\}\ (\{status.value\})"{}})}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00125}\mbox{\hyperlink{namespacegenerate__demo__data_ae0a02e20448c54c7f56b836228483d06}{00125}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegenerate__demo__data_ae0a02e20448c54c7f56b836228483d06}{create\_demo\_registrations}}(db:\ Session,\ users,\ conferences):}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00126}00126\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}创建示例会议注册。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00127}00127\ \ \ \ \ \textcolor{comment}{\#\ 为每个会议随机注册\ 3-\/6\ 个用户}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{for}\ conference\ \textcolor{keywordflow}{in}\ conferences:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 排除创建者（因为创建者不需要注册）}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ potential\_attendees\ =\ [u\ \textcolor{keywordflow}{for}\ u\ \textcolor{keywordflow}{in}\ users\ \textcolor{keywordflow}{if}\ u.id\ !=\ conference.creator\_id]}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ num\_attendees\ =\ min(random.randint(3,\ 6),\ len(potential\_attendees))}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ attendees\ =\ random.sample(potential\_attendees,\ num\_attendees)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ attendee\ \textcolor{keywordflow}{in}\ attendees:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 检查是否已经注册}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ existing\ =\ registration\_crud.get\_registration\_by\_user\_and\_conference(db,\ user\_id=attendee.id,\ conference\_id=conference.id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ existing:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 创建注册}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ registration\ =\ \mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_create}{RegistrationCreate}}(conference\_id=conference.id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ registration\_crud.create\_registration(db,\ registration=registration,\ user\_id=attendee.id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}已创建会议注册:\ \{attendee.username\}\ -\/>\ \{conference.title\}"{}})}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00144}\mbox{\hyperlink{namespacegenerate__demo__data_aceeab2a8fb6f9e95c6ed35020c352243}{00144}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegenerate__demo__data_aceeab2a8fb6f9e95c6ed35020c352243}{create\_demo\_notifications}}(db:\ Session,\ users,\ conferences):}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00145}00145\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}创建示例通知。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00146}00146\ \ \ \ \ \textcolor{comment}{\#\ 为每个用户创建\ 3-\/5\ 个随机通知}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00147}00147\ \ \ \ \ notification\_types\ =\ list(NotificationType)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{for}\ user\ \textcolor{keywordflow}{in}\ users:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ num\_notifications\ =\ random.randint(3,\ 5)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ \_\ \textcolor{keywordflow}{in}\ range(num\_notifications):}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 随机选择通知类型}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ notification\_type\ =\ random.choice(notification\_types)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 随机选择发送者（可能为空）}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ sender\ =\ random.choice([\textcolor{keywordtype}{None}]\ +\ [u\ \textcolor{keywordflow}{for}\ u\ \textcolor{keywordflow}{in}\ users\ \textcolor{keywordflow}{if}\ u.id\ !=\ user.id])}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ sender\_id\ =\ sender.id\ \textcolor{keywordflow}{if}\ sender\ \textcolor{keywordflow}{else}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 根据通知类型生成内容和相关\ ID}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ content\ =\ \textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ related\_id\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ notification\_type\ ==\ NotificationType.FRIEND\_REQUEST:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ sender:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content\ =\ f\textcolor{stringliteral}{"{}\{sender.username\}\ 向您发送了好友请求"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 查找或创建一个好友关系作为相关\ ID}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ friendship\ =\ friendship\_crud.get\_friendship\_by\_users(db,\ sender\_id,\ user.id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ friendship:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ friendship\ =\ friendship\_crud.create\_friendship(db,\ sender\_id,\ user.id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ related\_id\ =\ friendship.id}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ notification\_type\ ==\ NotificationType.FRIEND\_ACCEPTED:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ sender:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content\ =\ f\textcolor{stringliteral}{"{}\{sender.username\}\ 接受了您的好友请求"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 查找或创建一个好友关系作为相关\ ID}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ friendship\ =\ friendship\_crud.get\_friendship\_by\_users(db,\ user.id,\ sender\_id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ friendship:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ friendship\ =\ friendship\_crud.create\_friendship(db,\ user.id,\ sender\_id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ friendship\_crud.update\_friendship\_status(db,\ friendship.id,\ FriendshipStatus.ACCEPTED)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ related\_id\ =\ friendship.id}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ notification\_type\ ==\ NotificationType.MEETING\_INVITATION:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ sender\ \textcolor{keywordflow}{and}\ conferences:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conference\ =\ random.choice(conferences)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content\ =\ f\textcolor{stringliteral}{"{}\{sender.username\}\ 邀请您参加会议\ '\{conference.title\}'"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ related\_id\ =\ conference.id}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ notification\_type\ ==\ NotificationType.MEETING\_JOINED:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ conferences:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conference\ =\ random.choice(conferences)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content\ =\ f\textcolor{stringliteral}{"{}您已成功加入会议\ '\{conference.title\}'"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ related\_id\ =\ conference.id}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ notification\_type\ ==\ NotificationType.MEETING\_LEFT:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ conferences:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conference\ =\ random.choice(conferences)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content\ =\ f\textcolor{stringliteral}{"{}您已退出会议\ '\{conference.title\}'"{}}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ related\_id\ =\ conference.id}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 创建通知}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ content:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 随机设置已读状态}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\_read\ =\ random.choice([\textcolor{keyword}{True},\ \textcolor{keyword}{False}])}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ notification\ =\ notification\_crud.create\_notification(}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ db,\ user\_id=user.id,\ type=notification\_type,\ content=content,}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sender\_id=sender\_id,\ related\_id=related\_id}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ is\_read:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ notification\_crud.mark\_notification\_as\_read(db,\ notification.id)}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}已创建通知:\ \{user.username\}\ <-\/\ \{notification\_type.value\}\ (\{content[:30]\}...)"{}})}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00214}00214\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00215}00215\ \ \ \ \ \textcolor{comment}{\#\ 确保数据库表已创建}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00216}00216\ \ \ \ \ create\_tables()}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00218}00218\ \ \ \ \ \textcolor{comment}{\#\ 生成示例数据}}
+\DoxyCodeLine{\Hypertarget{generate__demo__data_8py_source_l00219}00219\ \ \ \ \ \mbox{\hyperlink{namespacegenerate__demo__data}{generate\_demo\_data}}()}
+
+\end{DoxyCode}

@@ -1,0 +1,147 @@
+\doxysection{app.\+config.\+Settings类 参考}
+\hypertarget{classapp_1_1config_1_1_settings}{}\label{classapp_1_1config_1_1_settings}\index{app.config.Settings@{app.config.Settings}}
+
+
+应用程序设置类  
+
+
+类 app.\+config.\+Settings 继承关系图\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classapp_1_1config_1_1_settings}
+\end{center}
+\end{figure}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{classapp_1_1config_1_1_settings_af0967208e479204f4c8aec63e55d347e}{APP\+\_\+\+NAME}} = "{}会议管理系统"{}
+\begin{DoxyCompactList}\small\item\em 应用程序基本设置 \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{classapp_1_1config_1_1_settings_acca3aa9cf3b685bfa339121ceb135990}{API\+\_\+\+PREFIX}} = "{}/api"{}
+\begin{DoxyCompactList}\small\item\em API前缀 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classapp_1_1config_1_1_settings_acbec59ef8a7d10e28d19c669de62ce93}{DEBUG}} = True
+\begin{DoxyCompactList}\small\item\em 调试模式 \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{classapp_1_1config_1_1_settings_a9b748884aa9c58f45c42070556e0bc93}{SECRET\+\_\+\+KEY}} = "{}your-\/secret-\/key-\/for-\/jwt-\/token"{}
+\begin{DoxyCompactList}\small\item\em 认证相关设置 \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{classapp_1_1config_1_1_settings_a1c0909d583fc32b48baac038b0cabb5d}{ALGORITHM}} = "{}HS256"{}
+\begin{DoxyCompactList}\small\item\em 加密算法 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classapp_1_1config_1_1_settings_a53d6a422a800fa9ac288d820018a9592}{ACCESS\+\_\+\+TOKEN\+\_\+\+EXPIRE\+\_\+\+MINUTES}} = 60 \texorpdfstring{$\ast$}{*} 24
+\begin{DoxyCompactList}\small\item\em 访问令牌过期时间（1天） \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{classapp_1_1config_1_1_settings_a7592fb39333aecda6ed79ce1a7ca911a}{DATABASE\+\_\+\+URL}} = "{}sqlite\+:///./meeting\+\_\+management.\+db"{}
+\begin{DoxyCompactList}\small\item\em 数据库设置 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+应用程序设置类 
+
+使用\+Pydantic模型定义应用程序的所有配置参数 
+
+在文件 \mbox{\hyperlink{config_8py_source}{config.\+py}} 第 \mbox{\hyperlink{config_8py_source_l00018}{18}} 行定义.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classapp_1_1config_1_1_settings_doc-variable-members}
+\doxysubsection{类成员变量说明}
+\Hypertarget{classapp_1_1config_1_1_settings_a53d6a422a800fa9ac288d820018a9592}\index{app.config.Settings@{app.config.Settings}!ACCESS\_TOKEN\_EXPIRE\_MINUTES@{ACCESS\_TOKEN\_EXPIRE\_MINUTES}}
+\index{ACCESS\_TOKEN\_EXPIRE\_MINUTES@{ACCESS\_TOKEN\_EXPIRE\_MINUTES}!app.config.Settings@{app.config.Settings}}
+\doxysubsubsection{\texorpdfstring{ACCESS\_TOKEN\_EXPIRE\_MINUTES}{ACCESS\_TOKEN\_EXPIRE\_MINUTES}}
+{\footnotesize\ttfamily \label{classapp_1_1config_1_1_settings_a53d6a422a800fa9ac288d820018a9592} 
+int app.\+config.\+Settings.\+ACCESS\+\_\+\+TOKEN\+\_\+\+EXPIRE\+\_\+\+MINUTES = 60 \texorpdfstring{$\ast$}{*} 24\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+访问令牌过期时间（1天） 
+
+
+
+在文件 \mbox{\hyperlink{config_8py_source}{config.\+py}} 第 \mbox{\hyperlink{config_8py_source_l00032}{32}} 行定义.
+
+\Hypertarget{classapp_1_1config_1_1_settings_a1c0909d583fc32b48baac038b0cabb5d}\index{app.config.Settings@{app.config.Settings}!ALGORITHM@{ALGORITHM}}
+\index{ALGORITHM@{ALGORITHM}!app.config.Settings@{app.config.Settings}}
+\doxysubsubsection{\texorpdfstring{ALGORITHM}{ALGORITHM}}
+{\footnotesize\ttfamily \label{classapp_1_1config_1_1_settings_a1c0909d583fc32b48baac038b0cabb5d} 
+str app.\+config.\+Settings.\+ALGORITHM = "{}HS256"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+加密算法 
+
+
+
+在文件 \mbox{\hyperlink{config_8py_source}{config.\+py}} 第 \mbox{\hyperlink{config_8py_source_l00031}{31}} 行定义.
+
+\Hypertarget{classapp_1_1config_1_1_settings_acca3aa9cf3b685bfa339121ceb135990}\index{app.config.Settings@{app.config.Settings}!API\_PREFIX@{API\_PREFIX}}
+\index{API\_PREFIX@{API\_PREFIX}!app.config.Settings@{app.config.Settings}}
+\doxysubsubsection{\texorpdfstring{API\_PREFIX}{API\_PREFIX}}
+{\footnotesize\ttfamily \label{classapp_1_1config_1_1_settings_acca3aa9cf3b685bfa339121ceb135990} 
+str app.\+config.\+Settings.\+API\+\_\+\+PREFIX = "{}/api"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+API前缀 
+
+
+
+在文件 \mbox{\hyperlink{config_8py_source}{config.\+py}} 第 \mbox{\hyperlink{config_8py_source_l00024}{24}} 行定义.
+
+\Hypertarget{classapp_1_1config_1_1_settings_af0967208e479204f4c8aec63e55d347e}\index{app.config.Settings@{app.config.Settings}!APP\_NAME@{APP\_NAME}}
+\index{APP\_NAME@{APP\_NAME}!app.config.Settings@{app.config.Settings}}
+\doxysubsubsection{\texorpdfstring{APP\_NAME}{APP\_NAME}}
+{\footnotesize\ttfamily \label{classapp_1_1config_1_1_settings_af0967208e479204f4c8aec63e55d347e} 
+str app.\+config.\+Settings.\+APP\+\_\+\+NAME = "{}会议管理系统"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+应用程序基本设置 
+
+应用名称 
+
+在文件 \mbox{\hyperlink{config_8py_source}{config.\+py}} 第 \mbox{\hyperlink{config_8py_source_l00023}{23}} 行定义.
+
+\Hypertarget{classapp_1_1config_1_1_settings_a7592fb39333aecda6ed79ce1a7ca911a}\index{app.config.Settings@{app.config.Settings}!DATABASE\_URL@{DATABASE\_URL}}
+\index{DATABASE\_URL@{DATABASE\_URL}!app.config.Settings@{app.config.Settings}}
+\doxysubsubsection{\texorpdfstring{DATABASE\_URL}{DATABASE\_URL}}
+{\footnotesize\ttfamily \label{classapp_1_1config_1_1_settings_a7592fb39333aecda6ed79ce1a7ca911a} 
+str app.\+config.\+Settings.\+DATABASE\+\_\+\+URL = "{}sqlite\+:///./meeting\+\_\+management.\+db"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+数据库设置 
+
+数据库\+URL 
+
+在文件 \mbox{\hyperlink{config_8py_source}{config.\+py}} 第 \mbox{\hyperlink{config_8py_source_l00037}{37}} 行定义.
+
+\Hypertarget{classapp_1_1config_1_1_settings_acbec59ef8a7d10e28d19c669de62ce93}\index{app.config.Settings@{app.config.Settings}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!app.config.Settings@{app.config.Settings}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily \label{classapp_1_1config_1_1_settings_acbec59ef8a7d10e28d19c669de62ce93} 
+bool app.\+config.\+Settings.\+DEBUG = True\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+调试模式 
+
+
+
+在文件 \mbox{\hyperlink{config_8py_source}{config.\+py}} 第 \mbox{\hyperlink{config_8py_source_l00025}{25}} 行定义.
+
+\Hypertarget{classapp_1_1config_1_1_settings_a9b748884aa9c58f45c42070556e0bc93}\index{app.config.Settings@{app.config.Settings}!SECRET\_KEY@{SECRET\_KEY}}
+\index{SECRET\_KEY@{SECRET\_KEY}!app.config.Settings@{app.config.Settings}}
+\doxysubsubsection{\texorpdfstring{SECRET\_KEY}{SECRET\_KEY}}
+{\footnotesize\ttfamily \label{classapp_1_1config_1_1_settings_a9b748884aa9c58f45c42070556e0bc93} 
+str app.\+config.\+Settings.\+SECRET\+\_\+\+KEY = "{}your-\/secret-\/key-\/for-\/jwt-\/token"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+认证相关设置 
+
+JWT令牌的密钥（生产环境中应使用安全密钥） 
+
+在文件 \mbox{\hyperlink{config_8py_source}{config.\+py}} 第 \mbox{\hyperlink{config_8py_source_l00030}{30}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+app/\mbox{\hyperlink{config_8py}{config.\+py}}\end{DoxyCompactItemize}

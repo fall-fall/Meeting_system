@@ -1,0 +1,167 @@
+\doxysection{app.\+database.\+User类 参考}
+\hypertarget{classapp_1_1database_1_1_user}{}\label{classapp_1_1database_1_1_user}\index{app.database.User@{app.database.User}}
+
+
+用户数据库模型  
+
+
+类 app.\+database.\+User 继承关系图\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classapp_1_1database_1_1_user}
+\end{center}
+\end{figure}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_a99ed5fd431ac8962353e0d049c27553c}{id}} = Column(Integer, primary\+\_\+key=True, index=True)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_a737702f5af39800ef5ca9857bc9c611e}{username}} = Column(String, unique=True, index=True)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_a893c6acb02e6c54b984983b3a15050c1}{email}} = Column(String, unique=True, index=True)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_ac6fbbf9d94c2ae8103ac925a0cde8898}{hashed\+\_\+password}} = Column(String)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_adbfca082a1b241dc642c54a3b3a15263}{is\+\_\+admin}} = Column(Boolean, default=False)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_a18e17253d4b84dc32217ee9bef789807}{created\+\_\+at}} = Column(Date\+Time, default=datetime.\+utcnow)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_ae4f5e2133e35399171a7088c70642026}{conferences}} = relationship("{}Conference"{}, back\+\_\+populates="{}creator"{})
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_a4a66c709dd2eefabfc5ae148ed5d32b9}{registrations}} = relationship("{}Registration"{}, back\+\_\+populates="{}user"{})
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_a533ea7b2516f3b15b3240bcb964de6e4}{sent\+\_\+friendships}} = relationship("{}Friendship"{}, foreign\+\_\+keys="{}Friendship.\+user\+\_\+id"{}, back\+\_\+populates="{}user"{})
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_ac2d1b529c84b4fb83ae0c1380c89abad}{received\+\_\+friendships}} = relationship("{}Friendship"{}, foreign\+\_\+keys="{}Friendship.\+friend\+\_\+id"{}, back\+\_\+populates="{}friend"{})
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_user_a0e8be18939dc57e9716ebf85a13aeb78}{notifications}} = relationship("{}Notification"{}, foreign\+\_\+keys="{}Notification.\+user\+\_\+id"{}, back\+\_\+populates="{}user"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+用户数据库模型 
+
+存储用户的基本信息，包括认证信息和权限设置 
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00056}{56}} 行定义.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classapp_1_1database_1_1_user_doc-variable-members}
+\doxysubsection{类成员变量说明}
+\Hypertarget{classapp_1_1database_1_1_user_ae4f5e2133e35399171a7088c70642026}\index{app.database.User@{app.database.User}!conferences@{conferences}}
+\index{conferences@{conferences}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{conferences}{conferences}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_ae4f5e2133e35399171a7088c70642026} 
+app.\+database.\+User.\+conferences = relationship("{}Conference"{}, back\+\_\+populates="{}creator"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00068}{68}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_user_a18e17253d4b84dc32217ee9bef789807}\index{app.database.User@{app.database.User}!created\_at@{created\_at}}
+\index{created\_at@{created\_at}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{created\_at}{created\_at}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_a18e17253d4b84dc32217ee9bef789807} 
+app.\+database.\+User.\+created\+\_\+at = Column(Date\+Time, default=datetime.\+utcnow)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00065}{65}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_user_a893c6acb02e6c54b984983b3a15050c1}\index{app.database.User@{app.database.User}!email@{email}}
+\index{email@{email}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{email}{email}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_a893c6acb02e6c54b984983b3a15050c1} 
+app.\+database.\+User.\+email = Column(String, unique=True, index=True)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00062}{62}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_user_ac6fbbf9d94c2ae8103ac925a0cde8898}\index{app.database.User@{app.database.User}!hashed\_password@{hashed\_password}}
+\index{hashed\_password@{hashed\_password}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{hashed\_password}{hashed\_password}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_ac6fbbf9d94c2ae8103ac925a0cde8898} 
+app.\+database.\+User.\+hashed\+\_\+password = Column(String)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00063}{63}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_user_a99ed5fd431ac8962353e0d049c27553c}\index{app.database.User@{app.database.User}!id@{id}}
+\index{id@{id}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_a99ed5fd431ac8962353e0d049c27553c} 
+app.\+database.\+User.\+id = Column(Integer, primary\+\_\+key=True, index=True)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00060}{60}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_user_adbfca082a1b241dc642c54a3b3a15263}\index{app.database.User@{app.database.User}!is\_admin@{is\_admin}}
+\index{is\_admin@{is\_admin}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{is\_admin}{is\_admin}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_adbfca082a1b241dc642c54a3b3a15263} 
+app.\+database.\+User.\+is\+\_\+admin = Column(Boolean, default=False)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00064}{64}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_user_a0e8be18939dc57e9716ebf85a13aeb78}\index{app.database.User@{app.database.User}!notifications@{notifications}}
+\index{notifications@{notifications}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{notifications}{notifications}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_a0e8be18939dc57e9716ebf85a13aeb78} 
+app.\+database.\+User.\+notifications = relationship("{}Notification"{}, foreign\+\_\+keys="{}Notification.\+user\+\_\+id"{}, back\+\_\+populates="{}user"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00072}{72}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_user_ac2d1b529c84b4fb83ae0c1380c89abad}\index{app.database.User@{app.database.User}!received\_friendships@{received\_friendships}}
+\index{received\_friendships@{received\_friendships}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{received\_friendships}{received\_friendships}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_ac2d1b529c84b4fb83ae0c1380c89abad} 
+app.\+database.\+User.\+received\+\_\+friendships = relationship("{}Friendship"{}, foreign\+\_\+keys="{}Friendship.\+friend\+\_\+id"{}, back\+\_\+populates="{}friend"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00071}{71}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_user_a4a66c709dd2eefabfc5ae148ed5d32b9}\index{app.database.User@{app.database.User}!registrations@{registrations}}
+\index{registrations@{registrations}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{registrations}{registrations}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_a4a66c709dd2eefabfc5ae148ed5d32b9} 
+app.\+database.\+User.\+registrations = relationship("{}Registration"{}, back\+\_\+populates="{}user"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00069}{69}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_user_a533ea7b2516f3b15b3240bcb964de6e4}\index{app.database.User@{app.database.User}!sent\_friendships@{sent\_friendships}}
+\index{sent\_friendships@{sent\_friendships}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{sent\_friendships}{sent\_friendships}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_a533ea7b2516f3b15b3240bcb964de6e4} 
+app.\+database.\+User.\+sent\+\_\+friendships = relationship("{}Friendship"{}, foreign\+\_\+keys="{}Friendship.\+user\+\_\+id"{}, back\+\_\+populates="{}user"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00070}{70}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_user_a737702f5af39800ef5ca9857bc9c611e}\index{app.database.User@{app.database.User}!username@{username}}
+\index{username@{username}!app.database.User@{app.database.User}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_user_a737702f5af39800ef5ca9857bc9c611e} 
+app.\+database.\+User.\+username = Column(String, unique=True, index=True)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00061}{61}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+app/\mbox{\hyperlink{database_8py}{database.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,210 @@
+\doxysection{friendship.\+py}
+\hypertarget{crud_2friendship_8py_source}{}\label{crud_2friendship_8py_source}\index{app/crud/friendship.py@{app/crud/friendship.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00001}\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship}{00001}}\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00002}00002\ \textcolor{stringliteral}{好友关系数据库操作模块}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00003}00003\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00004}00004\ \textcolor{stringliteral}{本模块提供好友关系相关的数据库CRUD操作函数}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00005}00005\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00007}00007\ \textcolor{keyword}{from}\ sqlalchemy.orm\ \textcolor{keyword}{import}\ Session}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00008}00008\ \textcolor{keyword}{from}\ sqlalchemy\ \textcolor{keyword}{import}\ or\_,\ and\_}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00010}00010\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1database}{app.database}}\ \textcolor{keyword}{import}\ User,\ Friendship,\ FriendshipStatus}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00013}\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_acef68670d9425ca3afefff58d2dbff63}{00013}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_acef68670d9425ca3afefff58d2dbff63}{get\_friendship}}(db:\ Session,\ friendship\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00014}00014\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}根据ID获取好友关系}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00015}00015\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00018}00018\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ friendship\_id:\ 好友关系ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00019}00019\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00020}00020\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00021}00021\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Friendship:\ 好友关系对象，如果不存在则返回None}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00022}00022\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{return}\ db.query(Friendship).filter(Friendship.id\ ==\ friendship\_id).first()}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00026}\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a2b8cd4fb3bcd59ff88270c64e1507fc1}{00026}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a2b8cd4fb3bcd59ff88270c64e1507fc1}{get\_friendship\_by\_users}}(db:\ Session,\ user\_id:\ int,\ friend\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00027}00027\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}获取两个用户之间的好友关系}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00028}00028\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00029}00029\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00030}00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00031}00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ user\_id:\ 用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00032}00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ friend\_id:\ 好友ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00033}00033\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00034}00034\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00035}00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Friendship:\ 好友关系对象，如果不存在则返回None}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00036}00036\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00037}00037\ \textcolor{stringliteral}{\ \ \ \ Note:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00038}00038\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ 此函数会查找两个用户之间的好友关系，无论谁是发起者}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00039}00039\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{return}\ (}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ db.query(Friendship)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ .filter(}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ or\_(}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 用户是发起者，好友是接收者}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\_(Friendship.user\_id\ ==\ user\_id,\ Friendship.friend\_id\ ==\ friend\_id),}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 好友是发起者，用户是接收者}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\_(Friendship.user\_id\ ==\ friend\_id,\ Friendship.friend\_id\ ==\ user\_id),}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ .first()}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00051}00051\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00054}\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a8cdf22a94668df2675d72be9170afa42}{00054}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a8cdf22a94668df2675d72be9170afa42}{get\_friendships\_by\_user}}(db:\ Session,\ user\_id:\ int,\ status:\ FriendshipStatus\ =\ \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00055}00055\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}获取用户的所有好友关系}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00056}00056\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00057}00057\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00058}00058\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00059}00059\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ user\_id:\ 用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00060}00060\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ status:\ 好友关系状态（可选）}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00061}00061\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00062}00062\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00063}00063\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ List[Friendship]:\ 好友关系对象列表}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00064}00064\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00065}00065\ \ \ \ \ \textcolor{comment}{\#\ 查询用户参与的所有好友关系（作为发起者或接收者）}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00066}00066\ \ \ \ \ query\ =\ db.query(Friendship).filter(}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ or\_(Friendship.user\_id\ ==\ user\_id,\ Friendship.friend\_id\ ==\ user\_id)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00068}00068\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00070}00070\ \ \ \ \ \textcolor{comment}{\#\ 如果指定了状态，则进一步筛选}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{if}\ status:}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ query\ =\ query.filter(Friendship.status\ ==\ status)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{return}\ query.all()}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00077}\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a5702721bd79372a8cc7d2239ca542abc}{00077}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a5702721bd79372a8cc7d2239ca542abc}{get\_friends}}(db:\ Session,\ user\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00078}00078\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}获取用户的所有好友}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00079}00079\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00080}00080\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00081}00081\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00082}00082\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ user\_id:\ 用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00083}00083\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00084}00084\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00085}00085\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ List[User]:\ 好友用户对象列表}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00086}00086\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00087}00087\ \ \ \ \ \textcolor{comment}{\#\ 获取用户发起的已接受的好友关系}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00088}00088\ \ \ \ \ sent\_friendships\ =\ (}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ db.query(Friendship)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ .filter(}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ Friendship.user\_id\ ==\ user\_id,\ \ \textcolor{comment}{\#\ 用户是发起者}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ Friendship.status\ ==\ FriendshipStatus.ACCEPTED\ \ \textcolor{comment}{\#\ 状态为已接受}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ .all()}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00095}00095\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00097}00097\ \ \ \ \ \textcolor{comment}{\#\ 获取用户接收的已接受的好友关系}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00098}00098\ \ \ \ \ received\_friendships\ =\ (}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00099}00099\ \ \ \ \ \ \ \ \ db.query(Friendship)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00100}00100\ \ \ \ \ \ \ \ \ .filter(}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ Friendship.friend\_id\ ==\ user\_id,\ \ \textcolor{comment}{\#\ 用户是接收者}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ Friendship.status\ ==\ FriendshipStatus.ACCEPTED\ \ \textcolor{comment}{\#\ 状态为已接受}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00103}00103\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00104}00104\ \ \ \ \ \ \ \ \ .all()}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00105}00105\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00107}00107\ \ \ \ \ \textcolor{comment}{\#\ 提取好友ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00108}00108\ \ \ \ \ friend\_ids\ =\ [f.friend\_id\ \textcolor{keywordflow}{for}\ f\ \textcolor{keywordflow}{in}\ sent\_friendships]\ +\ [f.user\_id\ \textcolor{keywordflow}{for}\ f\ \textcolor{keywordflow}{in}\ received\_friendships]}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00110}00110\ \ \ \ \ \textcolor{comment}{\#\ 获取好友用户对象}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{return}\ db.query(User).filter(User.id.in\_(friend\_ids)).all()}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00114}\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_aded65d272569b05221b0c0e953a5dcd7}{00114}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_aded65d272569b05221b0c0e953a5dcd7}{get\_pending\_friend\_requests}}(db:\ Session,\ user\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00115}00115\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}获取用户收到的待处理好友请求}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00116}00116\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00117}00117\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00118}00118\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00119}00119\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ user\_id:\ 用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00120}00120\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00121}00121\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00122}00122\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ List[Friendship]:\ 待处理好友请求列表}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00123}00123\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{return}\ (}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00125}00125\ \ \ \ \ \ \ \ \ db.query(Friendship)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ .filter(}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ Friendship.friend\_id\ ==\ user\_id,\ \ \textcolor{comment}{\#\ 用户是接收者}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ Friendship.status\ ==\ FriendshipStatus.PENDING\ \ \textcolor{comment}{\#\ 状态为待处理}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ .all()}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00131}00131\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00134}\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_af9a1e1cc4050d08de99d2450ffaa52f4}{00134}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_af9a1e1cc4050d08de99d2450ffaa52f4}{create\_friendship}}(db:\ Session,\ user\_id:\ int,\ friend\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00135}00135\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}创建好友关系}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00136}00136\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00137}00137\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00138}00138\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00139}00139\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ user\_id:\ 发起者用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00140}00140\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ friend\_id:\ 接收者用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00141}00141\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00142}00142\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00143}00143\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Friendship:\ 创建或已存在的好友关系对象}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00144}00144\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00145}00145\ \ \ \ \ \textcolor{comment}{\#\ 检查是否已存在好友关系}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00146}00146\ \ \ \ \ existing\_friendship\ =\ \mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a2b8cd4fb3bcd59ff88270c64e1507fc1}{get\_friendship\_by\_users}}(db,\ user\_id,\ friend\_id)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{if}\ existing\_friendship:}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ existing\_friendship\ \ \textcolor{comment}{\#\ 如果已存在，直接返回}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00150}00150\ \ \ \ \ \textcolor{comment}{\#\ 创建新的好友关系}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00151}00151\ \ \ \ \ db\_friendship\ =\ \mbox{\hyperlink{classapp_1_1database_1_1_friendship}{Friendship}}(}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00152}00152\ \ \ \ \ \ \ \ \ user\_id=user\_id,\ \ \textcolor{comment}{\#\ 发起者ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00153}00153\ \ \ \ \ \ \ \ \ friend\_id=friend\_id,\ \ \textcolor{comment}{\#\ 接收者ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00154}00154\ \ \ \ \ \ \ \ \ status=FriendshipStatus.PENDING\ \ \textcolor{comment}{\#\ 初始状态为待处理}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00155}00155\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00157}00157\ \ \ \ \ \textcolor{comment}{\#\ 添加到数据库并提交}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00158}00158\ \ \ \ \ db.add(db\_friendship)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00159}00159\ \ \ \ \ db.commit()}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00160}00160\ \ \ \ \ db.refresh(db\_friendship)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00162}00162\ \ \ \ \ \textcolor{keywordflow}{return}\ db\_friendship}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00165}\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a24da2bc223a62c78cd67018e2f687e88}{00165}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a24da2bc223a62c78cd67018e2f687e88}{update\_friendship\_status}}(db:\ Session,\ friendship\_id:\ int,\ status:\ FriendshipStatus):}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00166}00166\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}更新好友关系状态}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00167}00167\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00168}00168\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00169}00169\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00170}00170\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ friendship\_id:\ 好友关系ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00171}00171\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ status:\ 新的状态}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00172}00172\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00173}00173\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00174}00174\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Friendship:\ 更新后的好友关系对象，如果不存在则返回None}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00175}00175\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00176}00176\ \ \ \ \ \textcolor{comment}{\#\ 获取好友关系对象}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00177}00177\ \ \ \ \ db\_friendship\ =\ \mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_acef68670d9425ca3afefff58d2dbff63}{get\_friendship}}(db,\ friendship\_id)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00178}00178\ \ \ \ \ \textcolor{keywordflow}{if}\ db\_friendship:}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 更新状态}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00180}00180\ \ \ \ \ \ \ \ \ db\_friendship.status\ =\ status}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00181}00181\ \ \ \ \ \ \ \ \ db.commit()}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00182}00182\ \ \ \ \ \ \ \ \ db.refresh(db\_friendship)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00184}00184\ \ \ \ \ \textcolor{keywordflow}{return}\ db\_friendship}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00187}\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a0f72a1e212471d19cf6830c8a16e5cce}{00187}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_a0f72a1e212471d19cf6830c8a16e5cce}{delete\_friendship}}(db:\ Session,\ friendship\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00188}00188\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}删除好友关系}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00189}00189\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00190}00190\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00191}00191\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00192}00192\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ friendship\_id:\ 好友关系ID}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00193}00193\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00194}00194\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00195}00195\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Friendship:\ 被删除的好友关系对象，如果不存在则返回None}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00196}00196\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00197}00197\ \ \ \ \ \textcolor{comment}{\#\ 获取好友关系对象}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00198}00198\ \ \ \ \ db\_friendship\ =\ \mbox{\hyperlink{namespaceapp_1_1crud_1_1friendship_acef68670d9425ca3afefff58d2dbff63}{get\_friendship}}(db,\ friendship\_id)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00199}00199\ \ \ \ \ \textcolor{keywordflow}{if}\ db\_friendship:}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 删除好友关系}}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00201}00201\ \ \ \ \ \ \ \ \ db.delete(db\_friendship)}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00202}00202\ \ \ \ \ \ \ \ \ db.commit()}
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{crud_2friendship_8py_source_l00204}00204\ \ \ \ \ \textcolor{keywordflow}{return}\ db\_friendship}
+
+\end{DoxyCode}

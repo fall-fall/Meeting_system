@@ -1,0 +1,164 @@
+\doxysection{database.\+py}
+\hypertarget{database_8py_source}{}\label{database_8py_source}\index{app/database.py@{app/database.py}}
+\mbox{\hyperlink{database_8py}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00010}00010\ \textcolor{keyword}{from}\ sqlalchemy\ \textcolor{keyword}{import}\ create\_engine,\ Column,\ Integer,\ String,\ Boolean,\ DateTime,\ ForeignKey,\ Text,\ Enum}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00011}00011\ \textcolor{keyword}{from}\ sqlalchemy.ext.declarative\ \textcolor{keyword}{import}\ declarative\_base}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00012}00012\ \textcolor{keyword}{from}\ sqlalchemy.orm\ \textcolor{keyword}{import}\ sessionmaker,\ relationship}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00013}00013\ \textcolor{keyword}{from}\ datetime\ \textcolor{keyword}{import}\ datetime}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00014}00014\ \textcolor{keyword}{from}\ enum\ \textcolor{keyword}{import}\ Enum\ \textcolor{keyword}{as}\ PyEnum}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00016}00016\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1config}{app.config}}\ \textcolor{keyword}{import}\ settings}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00022}00022\ engine\ =\ create\_engine(}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00023}00023\ \ \ \ \ settings.DATABASE\_URL,\ connect\_args=\{\textcolor{stringliteral}{"{}check\_same\_thread"{}}:\ \textcolor{keyword}{False}\}\ \ \textcolor{comment}{\#\ SQLite特有的参数，允许多线程访问}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00024}00024\ )}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00030}00030\ SessionLocal\ =\ sessionmaker(autocommit=\textcolor{keyword}{False},\ autoflush=\textcolor{keyword}{False},\ bind=engine)}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00036}00036\ Base\ =\ declarative\_base()}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00043}00043\ \textcolor{keyword}{def\ }get\_db():}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00044}00044\ \ \ \ \ db\ =\ SessionLocal()}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ db\ \ \textcolor{comment}{\#\ 返回数据库会话}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{finally}:}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ db.close()\ \ \textcolor{comment}{\#\ 确保会话被关闭}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00056}\mbox{\hyperlink{classapp_1_1database_1_1_user}{00056}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1database_1_1_user}{User}}(Base):}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00057}00057\ \ \ \ \ \_\_tablename\_\_\ =\ \textcolor{stringliteral}{"{}users"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00059}00059\ \ \ \ \ \textcolor{comment}{\#\ 基本字段}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00060}00060\ \ \ \ \ id\ =\ Column(Integer,\ primary\_key=\textcolor{keyword}{True},\ index=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 用户ID，主键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00061}00061\ \ \ \ \ username\ =\ Column(String,\ unique=\textcolor{keyword}{True},\ index=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 用户名，唯一}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00062}00062\ \ \ \ \ email\ =\ Column(String,\ unique=\textcolor{keyword}{True},\ index=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 电子邮箱，唯一}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00063}00063\ \ \ \ \ hashed\_password\ =\ Column(String)\ \ \textcolor{comment}{\#\ 哈希后的密码}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00064}00064\ \ \ \ \ is\_admin\ =\ Column(Boolean,\ default=\textcolor{keyword}{False})\ \ \textcolor{comment}{\#\ 是否为管理员}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00065}00065\ \ \ \ \ created\_at\ =\ Column(DateTime,\ default=datetime.utcnow)\ \ \textcolor{comment}{\#\ 创建时间}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00067}00067\ \ \ \ \ \textcolor{comment}{\#\ 关系定义}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00068}00068\ \ \ \ \ conferences\ =\ relationship(\textcolor{stringliteral}{"{}Conference"{}},\ back\_populates=\textcolor{stringliteral}{"{}creator"{}})\ \ \textcolor{comment}{\#\ 用户创建的会议}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00069}00069\ \ \ \ \ registrations\ =\ relationship(\textcolor{stringliteral}{"{}Registration"{}},\ back\_populates=\textcolor{stringliteral}{"{}user"{}})\ \ \textcolor{comment}{\#\ 用户参加的会议}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00070}00070\ \ \ \ \ sent\_friendships\ =\ relationship(\textcolor{stringliteral}{"{}Friendship"{}},\ foreign\_keys=\textcolor{stringliteral}{"{}Friendship.user\_id"{}},\ back\_populates=\textcolor{stringliteral}{"{}user"{}})\ \ \textcolor{comment}{\#\ 发起的好友关系}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00071}00071\ \ \ \ \ received\_friendships\ =\ relationship(\textcolor{stringliteral}{"{}Friendship"{}},\ foreign\_keys=\textcolor{stringliteral}{"{}Friendship.friend\_id"{}},\ back\_populates=\textcolor{stringliteral}{"{}friend"{}})\ \ \textcolor{comment}{\#\ 接收的好友关系}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00072}00072\ \ \ \ \ notifications\ =\ relationship(\textcolor{stringliteral}{"{}Notification"{}},\ foreign\_keys=\textcolor{stringliteral}{"{}Notification.user\_id"{}},\ back\_populates=\textcolor{stringliteral}{"{}user"{}})\ \ \textcolor{comment}{\#\ 用户的通知}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00080}\mbox{\hyperlink{classapp_1_1database_1_1_conference}{00080}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1database_1_1_conference}{Conference}}(Base):}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00081}00081\ \ \ \ \ \_\_tablename\_\_\ =\ \textcolor{stringliteral}{"{}conferences"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00083}00083\ \ \ \ \ \textcolor{comment}{\#\ 基本字段}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00084}00084\ \ \ \ \ id\ =\ Column(Integer,\ primary\_key=\textcolor{keyword}{True},\ index=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 会议ID，主键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00085}00085\ \ \ \ \ title\ =\ Column(String,\ index=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 会议标题}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00086}00086\ \ \ \ \ description\ =\ Column(Text)\ \ \textcolor{comment}{\#\ 会议描述}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00087}00087\ \ \ \ \ date\ =\ Column(DateTime)\ \ \textcolor{comment}{\#\ 会议日期}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00088}00088\ \ \ \ \ location\ =\ Column(String)\ \ \textcolor{comment}{\#\ 会议地点}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00089}00089\ \ \ \ \ created\_at\ =\ Column(DateTime,\ default=datetime.utcnow)\ \ \textcolor{comment}{\#\ 创建时间}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00090}00090\ \ \ \ \ creator\_id\ =\ Column(Integer,\ ForeignKey(\textcolor{stringliteral}{"{}users.id"{}}))\ \ \textcolor{comment}{\#\ 创建者ID，外键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00092}00092\ \ \ \ \ \textcolor{comment}{\#\ 关系定义}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00093}00093\ \ \ \ \ creator\ =\ relationship(\textcolor{stringliteral}{"{}User"{}},\ back\_populates=\textcolor{stringliteral}{"{}conferences"{}})\ \ \textcolor{comment}{\#\ 会议创建者}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00094}00094\ \ \ \ \ agenda\_items\ =\ relationship(\textcolor{stringliteral}{"{}AgendaItem"{}},\ back\_populates=\textcolor{stringliteral}{"{}conference"{}},\ cascade=\textcolor{stringliteral}{"{}all,\ delete-\/orphan"{}})\ \ \textcolor{comment}{\#\ 会议议程项}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00095}00095\ \ \ \ \ registrations\ =\ relationship(\textcolor{stringliteral}{"{}Registration"{}},\ back\_populates=\textcolor{stringliteral}{"{}conference"{}},\ cascade=\textcolor{stringliteral}{"{}all,\ delete-\/orphan"{}})\ \ \textcolor{comment}{\#\ 会议参与者}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00098}\mbox{\hyperlink{classapp_1_1database_1_1_agenda_item}{00098}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1database_1_1_agenda_item}{AgendaItem}}(Base):}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00099}00099\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}会议议程项模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00100}00100\ \ \ \ \ \_\_tablename\_\_\ =\ \textcolor{stringliteral}{"{}agenda\_items"{}}\ \ \textcolor{comment}{\#\ 数据库表名}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00102}00102\ \ \ \ \ \textcolor{comment}{\#\ 基本字段}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00103}00103\ \ \ \ \ id\ =\ Column(Integer,\ primary\_key=\textcolor{keyword}{True},\ index=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 议程项ID，主键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00104}00104\ \ \ \ \ conference\_id\ =\ Column(Integer,\ ForeignKey(\textcolor{stringliteral}{"{}conferences.id"{}}))\ \ \textcolor{comment}{\#\ 所属会议ID，外键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00105}00105\ \ \ \ \ start\_time\ =\ Column(String)\ \ \textcolor{comment}{\#\ 开始时间}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00106}00106\ \ \ \ \ end\_time\ =\ Column(String)\ \ \textcolor{comment}{\#\ 结束时间}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00107}00107\ \ \ \ \ title\ =\ Column(String)\ \ \textcolor{comment}{\#\ 议程标题}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00108}00108\ \ \ \ \ speaker\ =\ Column(String)\ \ \textcolor{comment}{\#\ 演讲者}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00109}00109\ \ \ \ \ created\_at\ =\ Column(DateTime,\ default=datetime.utcnow)\ \ \textcolor{comment}{\#\ 创建时间}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00111}00111\ \ \ \ \ \textcolor{comment}{\#\ 关系定义}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00112}00112\ \ \ \ \ conference\ =\ relationship(\textcolor{stringliteral}{"{}Conference"{}},\ back\_populates=\textcolor{stringliteral}{"{}agenda\_items"{}})\ \ \textcolor{comment}{\#\ 所属会议}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00115}\mbox{\hyperlink{classapp_1_1database_1_1_registration}{00115}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1database_1_1_registration}{Registration}}(Base):}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00116}00116\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}会议注册模型（用户参加会议的记录）"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00117}00117\ \ \ \ \ \_\_tablename\_\_\ =\ \textcolor{stringliteral}{"{}registrations"{}}\ \ \textcolor{comment}{\#\ 数据库表名}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00119}00119\ \ \ \ \ \textcolor{comment}{\#\ 基本字段}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00120}00120\ \ \ \ \ id\ =\ Column(Integer,\ primary\_key=\textcolor{keyword}{True},\ index=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 注册ID，主键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00121}00121\ \ \ \ \ user\_id\ =\ Column(Integer,\ ForeignKey(\textcolor{stringliteral}{"{}users.id"{}}))\ \ \textcolor{comment}{\#\ 用户ID，外键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00122}00122\ \ \ \ \ conference\_id\ =\ Column(Integer,\ ForeignKey(\textcolor{stringliteral}{"{}conferences.id"{}}))\ \ \textcolor{comment}{\#\ 会议ID，外键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00123}00123\ \ \ \ \ registered\_at\ =\ Column(DateTime,\ default=datetime.utcnow)\ \ \textcolor{comment}{\#\ 注册时间}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00125}00125\ \ \ \ \ \textcolor{comment}{\#\ 关系定义}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00126}00126\ \ \ \ \ user\ =\ relationship(\textcolor{stringliteral}{"{}User"{}},\ back\_populates=\textcolor{stringliteral}{"{}registrations"{}})\ \ \textcolor{comment}{\#\ 参会用户}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00127}00127\ \ \ \ \ conference\ =\ relationship(\textcolor{stringliteral}{"{}Conference"{}},\ back\_populates=\textcolor{stringliteral}{"{}registrations"{}})\ \ \textcolor{comment}{\#\ 参加的会议}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00135}\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status}{00135}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status}{FriendshipStatus}}(PyEnum):}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00136}\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status_a87c627095e471324096a89595731426d}{00136}}\ \ \ \ \ PENDING\ =\ \textcolor{stringliteral}{"{}pending"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00137}\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status_a04942b653032c597091b10f6797bf87c}{00137}}\ \ \ \ \ ACCEPTED\ =\ \textcolor{stringliteral}{"{}accepted"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00138}\mbox{\hyperlink{classapp_1_1database_1_1_friendship_status_ab1fd80afb464a34041b5a091960192a3}{00138}}\ \ \ \ \ REJECTED\ =\ \textcolor{stringliteral}{"{}rejected"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00146}\mbox{\hyperlink{classapp_1_1database_1_1_notification_type}{00146}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1database_1_1_notification_type}{NotificationType}}(PyEnum):}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00147}\mbox{\hyperlink{classapp_1_1database_1_1_notification_type_ade818ef934cfa170767d081b9e85bde0}{00147}}\ \ \ \ \ FRIEND\_REQUEST\ =\ \textcolor{stringliteral}{"{}friend\_request"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00148}\mbox{\hyperlink{classapp_1_1database_1_1_notification_type_a30ae7600d2a88d4e3401c8b0f698e443}{00148}}\ \ \ \ \ FRIEND\_ACCEPTED\ =\ \textcolor{stringliteral}{"{}friend\_accepted"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00149}\mbox{\hyperlink{classapp_1_1database_1_1_notification_type_ab4d982dc2bf494df0feb2f40b6fcbc2e}{00149}}\ \ \ \ \ MEETING\_INVITATION\ =\ \textcolor{stringliteral}{"{}meeting\_invitation"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00150}\mbox{\hyperlink{classapp_1_1database_1_1_notification_type_abd4485cccc9954f9e822d7421e4e4da2}{00150}}\ \ \ \ \ MEETING\_JOINED\ =\ \textcolor{stringliteral}{"{}meeting\_joined"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00151}\mbox{\hyperlink{classapp_1_1database_1_1_notification_type_aa5c36c33f9e413133be349f2b4f87a0a}{00151}}\ \ \ \ \ MEETING\_LEFT\ =\ \textcolor{stringliteral}{"{}meeting\_left"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00154}00154\ \textcolor{comment}{\#\ 好友关系模型}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00155}\mbox{\hyperlink{classapp_1_1database_1_1_friendship}{00155}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1database_1_1_friendship}{Friendship}}(Base):}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00156}00156\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}好友关系模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00157}00157\ \ \ \ \ \_\_tablename\_\_\ =\ \textcolor{stringliteral}{"{}friendships"{}}\ \ \textcolor{comment}{\#\ 数据库表名}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00159}00159\ \ \ \ \ \textcolor{comment}{\#\ 基本字段}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00160}00160\ \ \ \ \ id\ =\ Column(Integer,\ primary\_key=\textcolor{keyword}{True},\ index=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 关系ID，主键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00161}00161\ \ \ \ \ user\_id\ =\ Column(Integer,\ ForeignKey(\textcolor{stringliteral}{"{}users.id"{}}))\ \ \textcolor{comment}{\#\ 发起者ID，外键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00162}00162\ \ \ \ \ friend\_id\ =\ Column(Integer,\ ForeignKey(\textcolor{stringliteral}{"{}users.id"{}}))\ \ \textcolor{comment}{\#\ 接收者ID，外键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00163}00163\ \ \ \ \ status\ =\ Column(Enum(FriendshipStatus),\ default=FriendshipStatus.PENDING)\ \ \textcolor{comment}{\#\ 关系状态}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00164}00164\ \ \ \ \ created\_at\ =\ Column(DateTime,\ default=datetime.utcnow)\ \ \textcolor{comment}{\#\ 创建时间}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00165}00165\ \ \ \ \ updated\_at\ =\ Column(DateTime,\ default=datetime.utcnow,\ onupdate=datetime.utcnow)\ \ \textcolor{comment}{\#\ 更新时间}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00167}00167\ \ \ \ \ \textcolor{comment}{\#\ 关系定义}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00168}00168\ \ \ \ \ user\ =\ relationship(\textcolor{stringliteral}{"{}User"{}},\ foreign\_keys=[user\_id],\ back\_populates=\textcolor{stringliteral}{"{}sent\_friendships"{}})\ \ \textcolor{comment}{\#\ 发起者}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00169}00169\ \ \ \ \ friend\ =\ relationship(\textcolor{stringliteral}{"{}User"{}},\ foreign\_keys=[friend\_id],\ back\_populates=\textcolor{stringliteral}{"{}received\_friendships"{}})\ \ \textcolor{comment}{\#\ 接收者}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00172}00172\ \textcolor{comment}{\#\ 通知模型}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00173}\mbox{\hyperlink{classapp_1_1database_1_1_notification}{00173}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1database_1_1_notification}{Notification}}(Base):}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00174}00174\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}通知模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00175}00175\ \ \ \ \ \_\_tablename\_\_\ =\ \textcolor{stringliteral}{"{}notifications"{}}\ \ \textcolor{comment}{\#\ 数据库表名}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00177}00177\ \ \ \ \ \textcolor{comment}{\#\ 基本字段}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00178}00178\ \ \ \ \ id\ =\ Column(Integer,\ primary\_key=\textcolor{keyword}{True},\ index=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 通知ID，主键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00179}00179\ \ \ \ \ user\_id\ =\ Column(Integer,\ ForeignKey(\textcolor{stringliteral}{"{}users.id"{}}))\ \ \textcolor{comment}{\#\ 接收者ID，外键}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00180}00180\ \ \ \ \ sender\_id\ =\ Column(Integer,\ ForeignKey(\textcolor{stringliteral}{"{}users.id"{}}),\ nullable=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 发送者ID，外键，可为空}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00181}00181\ \ \ \ \ type\ =\ Column(Enum(NotificationType))\ \ \textcolor{comment}{\#\ 通知类型}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00182}00182\ \ \ \ \ content\ =\ Column(Text)\ \ \textcolor{comment}{\#\ 通知内容}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00183}00183\ \ \ \ \ is\_read\ =\ Column(Boolean,\ default=\textcolor{keyword}{False})\ \ \textcolor{comment}{\#\ 是否已读}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00184}00184\ \ \ \ \ related\_id\ =\ Column(Integer,\ nullable=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ 相关ID，如会议ID或好友关系ID}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00185}00185\ \ \ \ \ created\_at\ =\ Column(DateTime,\ default=datetime.utcnow)\ \ \textcolor{comment}{\#\ 创建时间}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00187}00187\ \ \ \ \ \textcolor{comment}{\#\ 关系定义}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00188}00188\ \ \ \ \ user\ =\ relationship(\textcolor{stringliteral}{"{}User"{}},\ foreign\_keys=[user\_id],\ back\_populates=\textcolor{stringliteral}{"{}notifications"{}})\ \ \textcolor{comment}{\#\ 接收者}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00189}00189\ \ \ \ \ sender\ =\ relationship(\textcolor{stringliteral}{"{}User"{}},\ foreign\_keys=[sender\_id])\ \ \textcolor{comment}{\#\ 发送者}}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00196}00196\ \textcolor{keyword}{def\ }create\_tables():}
+\DoxyCodeLine{\Hypertarget{database_8py_source_l00197}00197\ \ \ \ \ Base.metadata.create\_all(bind=engine)\ \ \textcolor{comment}{\#\ 使用SQLAlchemy创建所有定义的表}}
+
+\end{DoxyCode}

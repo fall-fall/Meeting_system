@@ -1,0 +1,99 @@
+\doxysection{user.\+py}
+\hypertarget{crud_2user_8py_source}{}\label{crud_2user_8py_source}\index{app/crud/user.py@{app/crud/user.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00001}\mbox{\hyperlink{namespaceapp_1_1crud_1_1user}{00001}}\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00002}00002\ \textcolor{stringliteral}{用户数据库操作模块}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00003}00003\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00004}00004\ \textcolor{stringliteral}{本模块提供用户相关的数据库CRUD操作函数}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00005}00005\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00007}00007\ \textcolor{keyword}{from}\ sqlalchemy.orm\ \textcolor{keyword}{import}\ Session}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00009}00009\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1database}{app.database}}\ \textcolor{keyword}{import}\ User}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00010}00010\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_password\_hash}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00011}00011\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1models_1_1user}{app.models.user}}\ \textcolor{keyword}{import}\ UserCreate}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00014}\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_ab33183c170d7fc7ddb122d800282ae7f}{00014}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_ab33183c170d7fc7ddb122d800282ae7f}{get\_user}}(db:\ Session,\ user\_id:\ int):}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00015}00015\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}根据ID获取用户}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00016}00016\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00018}00018\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00019}00019\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ user\_id:\ 用户ID}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00020}00020\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00021}00021\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00022}00022\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ User:\ 用户对象，如果不存在则返回None}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00023}00023\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{return}\ db.query(User).filter(User.id\ ==\ user\_id).first()}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00027}\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_aefaf67ce3b31acf7f09fc8420761b83c}{00027}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_aefaf67ce3b31acf7f09fc8420761b83c}{get\_user\_by\_username}}(db:\ Session,\ username:\ str):}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00028}00028\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}根据用户名获取用户}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00029}00029\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00030}00030\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00031}00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00032}00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ username:\ 用户名}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00033}00033\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00034}00034\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00035}00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ User:\ 用户对象，如果不存在则返回None}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00036}00036\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ db.query(User).filter(User.username\ ==\ username).first()}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00040}\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_adcce69d5599eedd7a0a4ebe5bc182213}{00040}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_adcce69d5599eedd7a0a4ebe5bc182213}{get\_user\_by\_email}}(db:\ Session,\ email:\ str):}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00041}00041\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}根据电子邮箱获取用户}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00042}00042\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00043}00043\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00044}00044\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00045}00045\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ email:\ 电子邮箱}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00046}00046\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00047}00047\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00048}00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ User:\ 用户对象，如果不存在则返回None}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00049}00049\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{return}\ db.query(User).filter(User.email\ ==\ email).first()}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00053}\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_ab0ca8529244b599738e66a0cf7136e70}{00053}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_ab0ca8529244b599738e66a0cf7136e70}{get\_users}}(db:\ Session,\ skip:\ int\ =\ 0,\ limit:\ int\ =\ 100):}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00054}00054\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}获取所有用户}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00055}00055\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00056}00056\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00057}00057\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00058}00058\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ skip:\ 跳过的记录数}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00059}00059\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ limit:\ 返回的最大记录数}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00060}00060\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00061}00061\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00062}00062\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ List[User]:\ 用户对象列表}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00063}00063\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{return}\ db.query(User).offset(skip).limit(limit).all()}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00067}\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_a77c737f3f48132e1bab1df457d2c84cd}{00067}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_a77c737f3f48132e1bab1df457d2c84cd}{create\_user}}(db:\ Session,\ user:\ UserCreate):}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00068}00068\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}创建新用户}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00069}00069\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00070}00070\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00071}00071\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ db:\ 数据库会话}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00072}00072\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ user:\ 用户创建模型}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00073}00073\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00074}00074\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00075}00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ User:\ 创建的用户对象}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00076}00076\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00077}00077\ \ \ \ \ \textcolor{comment}{\#\ 对密码进行哈希处理}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00078}00078\ \ \ \ \ hashed\_password\ =\ get\_password\_hash(user.password)}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00080}00080\ \ \ \ \ \textcolor{comment}{\#\ 创建用户对象}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00081}00081\ \ \ \ \ db\_user\ =\ \mbox{\hyperlink{classapp_1_1database_1_1_user}{User}}(}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ username=user.username,\ \ \textcolor{comment}{\#\ 用户名}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ email=user.email,\ \ \textcolor{comment}{\#\ 电子邮箱}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ hashed\_password=hashed\_password,\ \ \textcolor{comment}{\#\ 哈希后的密码}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ is\_admin=user.is\_admin,\ \ \textcolor{comment}{\#\ 是否为管理员}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00086}00086\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00088}00088\ \ \ \ \ \textcolor{comment}{\#\ 添加到数据库并提交}}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00089}00089\ \ \ \ \ db.add(db\_user)}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00090}00090\ \ \ \ \ db.commit()}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00091}00091\ \ \ \ \ db.refresh(db\_user)}
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{crud_2user_8py_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{return}\ db\_user}
+
+\end{DoxyCode}

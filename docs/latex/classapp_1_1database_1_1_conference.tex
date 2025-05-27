@@ -1,0 +1,155 @@
+\doxysection{app.\+database.\+Conference类 参考}
+\hypertarget{classapp_1_1database_1_1_conference}{}\label{classapp_1_1database_1_1_conference}\index{app.database.Conference@{app.database.Conference}}
+
+
+会议数据库模型  
+
+
+类 app.\+database.\+Conference 继承关系图\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classapp_1_1database_1_1_conference}
+\end{center}
+\end{figure}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_conference_abb7167aec11cbcd5558efdbc17287666}{id}} = Column(Integer, primary\+\_\+key=True, index=True)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_conference_ac87ce725836f3a6c332f1ff9fa0c4f6d}{title}} = Column(String, index=True)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_conference_a74a8e8464617572fa0c59cf3ccfc9c8f}{description}} = Column(Text)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_conference_abe730ef53712c47ff1858bad451b1ebb}{date}} = Column(Date\+Time)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_conference_a9b2213c46b6c3b03c85d09e671999001}{location}} = Column(String)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_conference_abf390c1eb88f7d5e04a3c1e0eaaa4a20}{created\+\_\+at}} = Column(Date\+Time, default=datetime.\+utcnow)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_conference_a172ae19e5e2f065923176a6f028597d0}{creator\+\_\+id}} = Column(Integer, Foreign\+Key("{}users.\+id"{}))
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_conference_aa8ac188d267516b478efca5f5b1e1e1d}{creator}} = relationship("{}User"{}, back\+\_\+populates="{}conferences"{})
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_conference_a92e3a66644a7c8ffb2fb242a362137d5}{agenda\+\_\+items}} = relationship("{}Agenda\+Item"{}, back\+\_\+populates="{}conference"{}, cascade="{}all, delete-\/orphan"{})
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_conference_ac01bc03ff1efe685140a5c8faf9f4f56}{registrations}} = relationship("{}Registration"{}, back\+\_\+populates="{}conference"{}, cascade="{}all, delete-\/orphan"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+会议数据库模型 
+
+存储会议的基本信息，包括标题、描述、时间和地点 
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00080}{80}} 行定义.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classapp_1_1database_1_1_conference_doc-variable-members}
+\doxysubsection{类成员变量说明}
+\Hypertarget{classapp_1_1database_1_1_conference_a92e3a66644a7c8ffb2fb242a362137d5}\index{app.database.Conference@{app.database.Conference}!agenda\_items@{agenda\_items}}
+\index{agenda\_items@{agenda\_items}!app.database.Conference@{app.database.Conference}}
+\doxysubsubsection{\texorpdfstring{agenda\_items}{agenda\_items}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_conference_a92e3a66644a7c8ffb2fb242a362137d5} 
+app.\+database.\+Conference.\+agenda\+\_\+items = relationship("{}Agenda\+Item"{}, back\+\_\+populates="{}conference"{}, cascade="{}all, delete-\/orphan"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00094}{94}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_conference_abf390c1eb88f7d5e04a3c1e0eaaa4a20}\index{app.database.Conference@{app.database.Conference}!created\_at@{created\_at}}
+\index{created\_at@{created\_at}!app.database.Conference@{app.database.Conference}}
+\doxysubsubsection{\texorpdfstring{created\_at}{created\_at}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_conference_abf390c1eb88f7d5e04a3c1e0eaaa4a20} 
+app.\+database.\+Conference.\+created\+\_\+at = Column(Date\+Time, default=datetime.\+utcnow)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00089}{89}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_conference_aa8ac188d267516b478efca5f5b1e1e1d}\index{app.database.Conference@{app.database.Conference}!creator@{creator}}
+\index{creator@{creator}!app.database.Conference@{app.database.Conference}}
+\doxysubsubsection{\texorpdfstring{creator}{creator}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_conference_aa8ac188d267516b478efca5f5b1e1e1d} 
+app.\+database.\+Conference.\+creator = relationship("{}User"{}, back\+\_\+populates="{}conferences"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00093}{93}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_conference_a172ae19e5e2f065923176a6f028597d0}\index{app.database.Conference@{app.database.Conference}!creator\_id@{creator\_id}}
+\index{creator\_id@{creator\_id}!app.database.Conference@{app.database.Conference}}
+\doxysubsubsection{\texorpdfstring{creator\_id}{creator\_id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_conference_a172ae19e5e2f065923176a6f028597d0} 
+app.\+database.\+Conference.\+creator\+\_\+id = Column(Integer, Foreign\+Key("{}users.\+id"{}))\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00090}{90}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_conference_abe730ef53712c47ff1858bad451b1ebb}\index{app.database.Conference@{app.database.Conference}!date@{date}}
+\index{date@{date}!app.database.Conference@{app.database.Conference}}
+\doxysubsubsection{\texorpdfstring{date}{date}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_conference_abe730ef53712c47ff1858bad451b1ebb} 
+app.\+database.\+Conference.\+date = Column(Date\+Time)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00087}{87}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_conference_a74a8e8464617572fa0c59cf3ccfc9c8f}\index{app.database.Conference@{app.database.Conference}!description@{description}}
+\index{description@{description}!app.database.Conference@{app.database.Conference}}
+\doxysubsubsection{\texorpdfstring{description}{description}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_conference_a74a8e8464617572fa0c59cf3ccfc9c8f} 
+app.\+database.\+Conference.\+description = Column(Text)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00086}{86}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_conference_abb7167aec11cbcd5558efdbc17287666}\index{app.database.Conference@{app.database.Conference}!id@{id}}
+\index{id@{id}!app.database.Conference@{app.database.Conference}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_conference_abb7167aec11cbcd5558efdbc17287666} 
+app.\+database.\+Conference.\+id = Column(Integer, primary\+\_\+key=True, index=True)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00084}{84}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_conference_a9b2213c46b6c3b03c85d09e671999001}\index{app.database.Conference@{app.database.Conference}!location@{location}}
+\index{location@{location}!app.database.Conference@{app.database.Conference}}
+\doxysubsubsection{\texorpdfstring{location}{location}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_conference_a9b2213c46b6c3b03c85d09e671999001} 
+app.\+database.\+Conference.\+location = Column(String)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00088}{88}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_conference_ac01bc03ff1efe685140a5c8faf9f4f56}\index{app.database.Conference@{app.database.Conference}!registrations@{registrations}}
+\index{registrations@{registrations}!app.database.Conference@{app.database.Conference}}
+\doxysubsubsection{\texorpdfstring{registrations}{registrations}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_conference_ac01bc03ff1efe685140a5c8faf9f4f56} 
+app.\+database.\+Conference.\+registrations = relationship("{}Registration"{}, back\+\_\+populates="{}conference"{}, cascade="{}all, delete-\/orphan"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00095}{95}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_conference_ac87ce725836f3a6c332f1ff9fa0c4f6d}\index{app.database.Conference@{app.database.Conference}!title@{title}}
+\index{title@{title}!app.database.Conference@{app.database.Conference}}
+\doxysubsubsection{\texorpdfstring{title}{title}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_conference_ac87ce725836f3a6c332f1ff9fa0c4f6d} 
+app.\+database.\+Conference.\+title = Column(String, index=True)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00085}{85}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+app/\mbox{\hyperlink{database_8py}{database.\+py}}\end{DoxyCompactItemize}

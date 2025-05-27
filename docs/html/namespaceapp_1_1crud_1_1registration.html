@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>会议管理系统: app.crud.registration 命名空间参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">会议管理系统<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">基于FastAPI构建的会议管理系统，提供用户认证、会议管理、好友系统等功能</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('namespaceapp_1_1crud_1_1registration.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">app.crud.registration 命名空间参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>会议注册数据库操作模块  
+<a href="#details">更多...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a16f43f64b5220bd81ff7df2d3fe73b7a" id="r_a16f43f64b5220bd81ff7df2d3fe73b7a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16f43f64b5220bd81ff7df2d3fe73b7a">get_registration</a> (Session db, int registration_id)</td></tr>
+<tr class="memdesc:a16f43f64b5220bd81ff7df2d3fe73b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据ID获取注册记录  <br /></td></tr>
+<tr class="memitem:ab63e8855114d554c10ec29e10cf73f4e" id="r_ab63e8855114d554c10ec29e10cf73f4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab63e8855114d554c10ec29e10cf73f4e">get_registration_by_user_and_conference</a> (Session db, int user_id, int conference_id)</td></tr>
+<tr class="memdesc:ab63e8855114d554c10ec29e10cf73f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据用户ID和会议ID获取注册记录  <br /></td></tr>
+<tr class="memitem:a9c4071c19b46210a3ff0b48c9c3b30f0" id="r_a9c4071c19b46210a3ff0b48c9c3b30f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c4071c19b46210a3ff0b48c9c3b30f0">get_registrations_by_user</a> (Session db, int user_id, int skip=0, int limit=100)</td></tr>
+<tr class="memdesc:a9c4071c19b46210a3ff0b48c9c3b30f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据用户ID获取注册记录列表  <br /></td></tr>
+<tr class="memitem:adeb0bb7dcdfa79f3aa34d6ac56e6a98c" id="r_adeb0bb7dcdfa79f3aa34d6ac56e6a98c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adeb0bb7dcdfa79f3aa34d6ac56e6a98c">get_registrations_by_conference</a> (Session db, int conference_id, int skip=0, int limit=100)</td></tr>
+<tr class="memdesc:adeb0bb7dcdfa79f3aa34d6ac56e6a98c"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据会议ID获取注册记录列表  <br /></td></tr>
+<tr class="memitem:a20733d661f9a082b648c0c6d881ebcbd" id="r_a20733d661f9a082b648c0c6d881ebcbd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20733d661f9a082b648c0c6d881ebcbd">create_registration</a> (Session db, <a class="el" href="classapp_1_1models_1_1registration_1_1_registration_create.html">RegistrationCreate</a> registration, int user_id)</td></tr>
+<tr class="memdesc:a20733d661f9a082b648c0c6d881ebcbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建新的注册记录  <br /></td></tr>
+<tr class="memitem:ab93378fa05b214f93587d122761be3eb" id="r_ab93378fa05b214f93587d122761be3eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab93378fa05b214f93587d122761be3eb">delete_registration</a> (Session db, int registration_id)</td></tr>
+<tr class="memdesc:ab93378fa05b214f93587d122761be3eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除注册记录  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><p>会议注册数据库操作模块 </p>
+<p>本模块提供会议注册相关的数据库CRUD操作函数 </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a20733d661f9a082b648c0c6d881ebcbd" name="a20733d661f9a082b648c0c6d881ebcbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20733d661f9a082b648c0c6d881ebcbd">&#9670;&#160;</a></span>create_registration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app.crud.registration.create_registration </td>
+          <td>(</td>
+          <td class="paramtype">Session</td>          <td class="paramname"><span class="paramname"><em>db</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classapp_1_1models_1_1registration_1_1_registration_create.html">RegistrationCreate</a></td>          <td class="paramname"><span class="paramname"><em>registration</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>user_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>创建新的注册记录 </p>
+<p>Args: db: 数据库会话 registration: 注册记录创建模型 user_id: 用户ID</p>
+<p>Returns: <a class="el" href="classapp_1_1database_1_1_registration.html" title="会议注册模型（用户参加会议的记录）">Registration</a>: 创建的注册记录对象 </p>
+
+<p class="definition">在文件 <a class="el" href="crud_2registration_8py_source.html">registration.py</a> 第 <a class="el" href="crud_2registration_8py_source.html#l00073">73</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ab93378fa05b214f93587d122761be3eb" name="ab93378fa05b214f93587d122761be3eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab93378fa05b214f93587d122761be3eb">&#9670;&#160;</a></span>delete_registration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app.crud.registration.delete_registration </td>
+          <td>(</td>
+          <td class="paramtype">Session</td>          <td class="paramname"><span class="paramname"><em>db</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>registration_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>删除注册记录 </p>
+<p>Args: db: 数据库会话 registration_id: 注册记录ID</p>
+<p>Returns: <a class="el" href="classapp_1_1database_1_1_registration.html" title="会议注册模型（用户参加会议的记录）">Registration</a>: 被删除的注册记录对象，如果不存在则返回None </p>
+
+<p class="definition">在文件 <a class="el" href="crud_2registration_8py_source.html">registration.py</a> 第 <a class="el" href="crud_2registration_8py_source.html#l00098">98</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a16f43f64b5220bd81ff7df2d3fe73b7a" name="a16f43f64b5220bd81ff7df2d3fe73b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16f43f64b5220bd81ff7df2d3fe73b7a">&#9670;&#160;</a></span>get_registration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app.crud.registration.get_registration </td>
+          <td>(</td>
+          <td class="paramtype">Session</td>          <td class="paramname"><span class="paramname"><em>db</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>registration_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据ID获取注册记录 </p>
+<p>Args: db: 数据库会话 registration_id: 注册记录ID</p>
+<p>Returns: <a class="el" href="classapp_1_1database_1_1_registration.html" title="会议注册模型（用户参加会议的记录）">Registration</a>: 注册记录对象，如果不存在则返回None </p>
+
+<p class="definition">在文件 <a class="el" href="crud_2registration_8py_source.html">registration.py</a> 第 <a class="el" href="crud_2registration_8py_source.html#l00013">13</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ab63e8855114d554c10ec29e10cf73f4e" name="ab63e8855114d554c10ec29e10cf73f4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab63e8855114d554c10ec29e10cf73f4e">&#9670;&#160;</a></span>get_registration_by_user_and_conference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app.crud.registration.get_registration_by_user_and_conference </td>
+          <td>(</td>
+          <td class="paramtype">Session</td>          <td class="paramname"><span class="paramname"><em>db</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>user_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>conference_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据用户ID和会议ID获取注册记录 </p>
+<p>Args: db: 数据库会话 user_id: 用户ID conference_id: 会议ID</p>
+<p>Returns: <a class="el" href="classapp_1_1database_1_1_registration.html" title="会议注册模型（用户参加会议的记录）">Registration</a>: 注册记录对象，如果不存在则返回None </p>
+
+<p class="definition">在文件 <a class="el" href="crud_2registration_8py_source.html">registration.py</a> 第 <a class="el" href="crud_2registration_8py_source.html#l00026">26</a> 行定义.</p>
+
+</div>
+</div>
+<a id="adeb0bb7dcdfa79f3aa34d6ac56e6a98c" name="adeb0bb7dcdfa79f3aa34d6ac56e6a98c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeb0bb7dcdfa79f3aa34d6ac56e6a98c">&#9670;&#160;</a></span>get_registrations_by_conference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app.crud.registration.get_registrations_by_conference </td>
+          <td>(</td>
+          <td class="paramtype">Session</td>          <td class="paramname"><span class="paramname"><em>db</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>conference_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>          <td class="paramname"><span class="paramname"><em>skip</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>          <td class="paramname"><span class="paramname"><em>limit</em></span><span class="paramdefsep"> = </span><span class="paramdefval">100</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据会议ID获取注册记录列表 </p>
+<p>Args: db: 数据库会话 conference_id: 会议ID skip: 跳过的记录数 limit: 返回的最大记录数</p>
+<p>Returns: List[<a class="el" href="classapp_1_1database_1_1_registration.html" title="会议注册模型（用户参加会议的记录）">Registration</a>]: 注册记录对象列表 </p>
+
+<p class="definition">在文件 <a class="el" href="crud_2registration_8py_source.html">registration.py</a> 第 <a class="el" href="crud_2registration_8py_source.html#l00058">58</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a9c4071c19b46210a3ff0b48c9c3b30f0" name="a9c4071c19b46210a3ff0b48c9c3b30f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c4071c19b46210a3ff0b48c9c3b30f0">&#9670;&#160;</a></span>get_registrations_by_user()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app.crud.registration.get_registrations_by_user </td>
+          <td>(</td>
+          <td class="paramtype">Session</td>          <td class="paramname"><span class="paramname"><em>db</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>user_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>          <td class="paramname"><span class="paramname"><em>skip</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>          <td class="paramname"><span class="paramname"><em>limit</em></span><span class="paramdefsep"> = </span><span class="paramdefval">100</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据用户ID获取注册记录列表 </p>
+<p>Args: db: 数据库会话 user_id: 用户ID skip: 跳过的记录数 limit: 返回的最大记录数</p>
+<p>Returns: List[<a class="el" href="classapp_1_1database_1_1_registration.html" title="会议注册模型（用户参加会议的记录）">Registration</a>]: 注册记录对象列表 </p>
+
+<p class="definition">在文件 <a class="el" href="crud_2registration_8py_source.html">registration.py</a> 第 <a class="el" href="crud_2registration_8py_source.html#l00043">43</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>app</b></li><li class="navelem"><b>crud</b></li><li class="navelem"><a href="namespaceapp_1_1crud_1_1registration.html">registration</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

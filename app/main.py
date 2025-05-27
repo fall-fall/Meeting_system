@@ -1,3 +1,12 @@
+##
+# @file main.py
+# @brief 会议管理系统主应用程序入口点
+# @details 基于FastAPI构建的会议管理系统，提供用户认证、会议管理、好友系统等功能
+# @author Meeting System Team
+# @date 2024
+# @version 1.0
+##
+
 from fastapi import FastAPI, Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -12,11 +21,17 @@ from app.crud import conference as conference_crud
 from app.crud import notification as notification_crud
 from app.init_db import init_db
 
-# 创建数据库表并初始化数据
+##
+# @brief 应用程序初始化
+# @details 创建数据库表并初始化基础数据
+##
 create_tables()  # 创建所有数据库表
 init_db()  # 初始化基础数据（如管理员账号）
 
-# 创建FastAPI应用实例
+##
+# @brief FastAPI应用实例
+# @details 主应用程序对象，配置了中间件、静态文件和路由
+##
 app = FastAPI(title=settings.APP_NAME)  # 设置应用名称
 
 # 添加会话中间件（用于管理用户会话）
@@ -33,16 +48,25 @@ app.include_router(my_conferences.router, prefix=settings.API_PREFIX)  # 我的�
 app.include_router(friends.router, prefix=settings.API_PREFIX)  # 好友相关路由
 app.include_router(notifications.router, prefix=settings.API_PREFIX)  # 通知相关路由
 
-# 设置模板引擎
+##
+# @brief Jinja2模板引擎
+# @details 用于渲染HTML模板的模板引擎实例
+##
 templates = Jinja2Templates(directory="app/templates")  # 指定模板目录
 
 
+##
+# @brief 首页路由处理函数
+# @details 处理首页请求，显示会议列表和用户信息
+# @param request HTTP请求对象
+# @param db 数据库会话对象
+# @return HTMLResponse 渲染后的首页HTML响应
+##
 @app.get("/", response_class=HTMLResponse)
 async def home(
     request: Request,
     db: Session = Depends(get_db),
 ):
-    """首页路由处理函数"""
     # 获取当前用户（如果已登录）
     current_user = None
     unread_notification_count = 0
@@ -72,10 +96,11 @@ async def home(
     )
 
 
+##
+# @brief 健康检查接口
+# @details 用于监控系统是否正常运行，返回系统状态信息
+# @return dict 包含系统状态和消息的字典
+##
 @app.get("/api/health")
 async def health_check():
-    """健康检查接口
-
-    用于监控系统是否正常运行
-    """
     return {"status": "ok", "message": "系统运行正常"}

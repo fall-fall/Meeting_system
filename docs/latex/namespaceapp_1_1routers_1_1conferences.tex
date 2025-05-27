@@ -1,0 +1,212 @@
+\doxysection{app.\+routers.\+conferences 命名空间参考}
+\hypertarget{namespaceapp_1_1routers_1_1conferences}{}\label{namespaceapp_1_1routers_1_1conferences}\index{app.routers.conferences@{app.routers.conferences}}
+
+
+会议相关的路由处理模块  
+
+
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_a4662b81bd448dff2470ea65049810826}{list\+\_\+conferences}} (Request request, Session db=Depends(get\+\_\+db))
+\begin{DoxyCompactList}\small\item\em 显示所有会议列表 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_af3c6e65e018cf0b26585c8a95dc3268f}{create\+\_\+conference\+\_\+page}} (Request request, \mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} current\+\_\+user=Depends(get\+\_\+current\+\_\+admin\+\_\+user))
+\begin{DoxyCompactList}\small\item\em 渲染创建会议页面 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_a51442c457652be1d0e5c57367ea84d6f}{create\+\_\+conference}} (Request request, str title=Form(...), str description=Form(...), str date=Form(...), str location=Form(...), Session db=Depends(get\+\_\+db), \mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} current\+\_\+user=Depends(get\+\_\+current\+\_\+admin\+\_\+user))
+\begin{DoxyCompactList}\small\item\em 创建新会议 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_ad86297869c180294da4025aa6a4f415d}{admin\+\_\+conferences}} (Request request, Session db=Depends(get\+\_\+db), \mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} current\+\_\+user=Depends(get\+\_\+current\+\_\+admin\+\_\+user))
+\begin{DoxyCompactList}\small\item\em List conferences created by the current admin user. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_a660abe0e42aaab5340d64360ebcca6d0}{conference\+\_\+detail}} (Request request, int conference\+\_\+id, Session db=Depends(get\+\_\+db))
+\begin{DoxyCompactList}\small\item\em Get a conference by ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_a07ec49ad3c6c141a937d4c28085ddc4b}{edit\+\_\+conference\+\_\+page}} (Request request, int conference\+\_\+id, Session db=Depends(get\+\_\+db), \mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} current\+\_\+user=Depends(get\+\_\+current\+\_\+admin\+\_\+user))
+\begin{DoxyCompactList}\small\item\em Render the edit conference page. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_aa61ba1c75992e0557d166ae1980e42ef}{edit\+\_\+conference}} (Request request, int conference\+\_\+id, str title=Form(...), str description=Form(...), str date=Form(...), str location=Form(...), Session db=Depends(get\+\_\+db), \mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} current\+\_\+user=Depends(get\+\_\+current\+\_\+admin\+\_\+user))
+\begin{DoxyCompactList}\small\item\em Edit a conference. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_a9c4e0c10ba5034c47dca387159bb055c}{delete\+\_\+conference}} (int conference\+\_\+id, Session db=Depends(get\+\_\+db), \mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} current\+\_\+user=Depends(get\+\_\+current\+\_\+admin\+\_\+user))
+\begin{DoxyCompactList}\small\item\em Delete a conference. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_aa8a421bdfd74c0844507cad90d12a533}{add\+\_\+agenda\+\_\+item}} (Request request, int conference\+\_\+id, str start\+\_\+time=Form(...), str end\+\_\+time=Form(...), str title=Form(...), str speaker=Form(...), Session db=Depends(get\+\_\+db), \mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} current\+\_\+user=Depends(get\+\_\+current\+\_\+admin\+\_\+user))
+\begin{DoxyCompactList}\small\item\em Add an agenda item to a conference. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_a5499155e445401d8cfe6fd97d6920450}{delete\+\_\+agenda\+\_\+item}} (int conference\+\_\+id, int agenda\+\_\+item\+\_\+id, Session db=Depends(get\+\_\+db), \mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} current\+\_\+user=Depends(get\+\_\+current\+\_\+admin\+\_\+user))
+\begin{DoxyCompactList}\small\item\em Delete an agenda item. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_a70b98c97b0cf60ba43babbe52e337776}{router}} = APIRouter(prefix="{}/conferences"{}, tags=\mbox{[}"{}conferences"{}\mbox{]})
+\item 
+\mbox{\hyperlink{namespaceapp_1_1routers_1_1conferences_a5211cd4b2d37b6e93570fe50538bf99e}{templates}} = Jinja2\+Templates(directory="{}app/templates"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+会议相关的路由处理模块 
+
+包含会议列表、详情、创建、编辑、删除和议程管理等功能 
+
+\label{doc-func-members}
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_aa8a421bdfd74c0844507cad90d12a533}\index{app.routers.conferences@{app.routers.conferences}!add\_agenda\_item@{add\_agenda\_item}}
+\index{add\_agenda\_item@{add\_agenda\_item}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{add\_agenda\_item()}{add\_agenda\_item()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_aa8a421bdfd74c0844507cad90d12a533} 
+app.\+routers.\+conferences.\+add\+\_\+agenda\+\_\+item (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{int}]{conference\+\_\+id}{, }\item[{str }]{start\+\_\+time}{ = {\ttfamily Form(...)}, }\item[{str }]{end\+\_\+time}{ = {\ttfamily Form(...)}, }\item[{str }]{title}{ = {\ttfamily Form(...)}, }\item[{str }]{speaker}{ = {\ttfamily Form(...)}, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}, }\item[{\mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} }]{current\+\_\+user}{ = {\ttfamily Depends(get\+\_\+current\+\_\+admin\+\_\+user)}}\end{DoxyParamCaption})}
+
+
+
+Add an agenda item to a conference. 
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00274}{274}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_ad86297869c180294da4025aa6a4f415d}\index{app.routers.conferences@{app.routers.conferences}!admin\_conferences@{admin\_conferences}}
+\index{admin\_conferences@{admin\_conferences}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{admin\_conferences()}{admin\_conferences()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_ad86297869c180294da4025aa6a4f415d} 
+app.\+routers.\+conferences.\+admin\+\_\+conferences (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}, }\item[{\mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} }]{current\+\_\+user}{ = {\ttfamily Depends(get\+\_\+current\+\_\+admin\+\_\+user)}}\end{DoxyParamCaption})}
+
+
+
+List conferences created by the current admin user. 
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00112}{112}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_a660abe0e42aaab5340d64360ebcca6d0}\index{app.routers.conferences@{app.routers.conferences}!conference\_detail@{conference\_detail}}
+\index{conference\_detail@{conference\_detail}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{conference\_detail()}{conference\_detail()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_a660abe0e42aaab5340d64360ebcca6d0} 
+app.\+routers.\+conferences.\+conference\+\_\+detail (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{int}]{conference\+\_\+id}{, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}}\end{DoxyParamCaption})}
+
+
+
+Get a conference by ID. 
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00126}{126}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_a51442c457652be1d0e5c57367ea84d6f}\index{app.routers.conferences@{app.routers.conferences}!create\_conference@{create\_conference}}
+\index{create\_conference@{create\_conference}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{create\_conference()}{create\_conference()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_a51442c457652be1d0e5c57367ea84d6f} 
+app.\+routers.\+conferences.\+create\+\_\+conference (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{str }]{title}{ = {\ttfamily Form(...)}, }\item[{str }]{description}{ = {\ttfamily Form(...)}, }\item[{str }]{date}{ = {\ttfamily Form(...)}, }\item[{str }]{location}{ = {\ttfamily Form(...)}, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}, }\item[{\mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} }]{current\+\_\+user}{ = {\ttfamily Depends(get\+\_\+current\+\_\+admin\+\_\+user)}}\end{DoxyParamCaption})}
+
+
+
+创建新会议 
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00071}{71}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_af3c6e65e018cf0b26585c8a95dc3268f}\index{app.routers.conferences@{app.routers.conferences}!create\_conference\_page@{create\_conference\_page}}
+\index{create\_conference\_page@{create\_conference\_page}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{create\_conference\_page()}{create\_conference\_page()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_af3c6e65e018cf0b26585c8a95dc3268f} 
+app.\+routers.\+conferences.\+create\+\_\+conference\+\_\+page (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{\mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} }]{current\+\_\+user}{ = {\ttfamily Depends(get\+\_\+current\+\_\+admin\+\_\+user)}}\end{DoxyParamCaption})}
+
+
+
+渲染创建会议页面 
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00059}{59}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_a5499155e445401d8cfe6fd97d6920450}\index{app.routers.conferences@{app.routers.conferences}!delete\_agenda\_item@{delete\_agenda\_item}}
+\index{delete\_agenda\_item@{delete\_agenda\_item}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{delete\_agenda\_item()}{delete\_agenda\_item()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_a5499155e445401d8cfe6fd97d6920450} 
+app.\+routers.\+conferences.\+delete\+\_\+agenda\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{conference\+\_\+id}{, }\item[{int}]{agenda\+\_\+item\+\_\+id}{, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}, }\item[{\mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} }]{current\+\_\+user}{ = {\ttfamily Depends(get\+\_\+current\+\_\+admin\+\_\+user)}}\end{DoxyParamCaption})}
+
+
+
+Delete an agenda item. 
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00307}{307}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_a9c4e0c10ba5034c47dca387159bb055c}\index{app.routers.conferences@{app.routers.conferences}!delete\_conference@{delete\_conference}}
+\index{delete\_conference@{delete\_conference}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{delete\_conference()}{delete\_conference()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_a9c4e0c10ba5034c47dca387159bb055c} 
+app.\+routers.\+conferences.\+delete\+\_\+conference (\begin{DoxyParamCaption}\item[{int}]{conference\+\_\+id}{, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}, }\item[{\mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} }]{current\+\_\+user}{ = {\ttfamily Depends(get\+\_\+current\+\_\+admin\+\_\+user)}}\end{DoxyParamCaption})}
+
+
+
+Delete a conference. 
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00252}{252}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_aa61ba1c75992e0557d166ae1980e42ef}\index{app.routers.conferences@{app.routers.conferences}!edit\_conference@{edit\_conference}}
+\index{edit\_conference@{edit\_conference}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{edit\_conference()}{edit\_conference()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_aa61ba1c75992e0557d166ae1980e42ef} 
+app.\+routers.\+conferences.\+edit\+\_\+conference (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{int}]{conference\+\_\+id}{, }\item[{str }]{title}{ = {\ttfamily Form(...)}, }\item[{str }]{description}{ = {\ttfamily Form(...)}, }\item[{str }]{date}{ = {\ttfamily Form(...)}, }\item[{str }]{location}{ = {\ttfamily Form(...)}, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}, }\item[{\mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} }]{current\+\_\+user}{ = {\ttfamily Depends(get\+\_\+current\+\_\+admin\+\_\+user)}}\end{DoxyParamCaption})}
+
+
+
+Edit a conference. 
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00205}{205}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_a07ec49ad3c6c141a937d4c28085ddc4b}\index{app.routers.conferences@{app.routers.conferences}!edit\_conference\_page@{edit\_conference\_page}}
+\index{edit\_conference\_page@{edit\_conference\_page}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{edit\_conference\_page()}{edit\_conference\_page()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_a07ec49ad3c6c141a937d4c28085ddc4b} 
+app.\+routers.\+conferences.\+edit\+\_\+conference\+\_\+page (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{int}]{conference\+\_\+id}{, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}, }\item[{\mbox{\hyperlink{classapp_1_1database_1_1_user}{User}} }]{current\+\_\+user}{ = {\ttfamily Depends(get\+\_\+current\+\_\+admin\+\_\+user)}}\end{DoxyParamCaption})}
+
+
+
+Render the edit conference page. 
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00175}{175}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_a4662b81bd448dff2470ea65049810826}\index{app.routers.conferences@{app.routers.conferences}!list\_conferences@{list\_conferences}}
+\index{list\_conferences@{list\_conferences}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{list\_conferences()}{list\_conferences()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_a4662b81bd448dff2470ea65049810826} 
+app.\+routers.\+conferences.\+list\+\_\+conferences (\begin{DoxyParamCaption}\item[{Request}]{request}{, }\item[{Session }]{db}{ = {\ttfamily Depends(get\+\_\+db)}}\end{DoxyParamCaption})}
+
+
+
+显示所有会议列表 
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00027}{27}} 行定义.
+
+
+
+\label{doc-var-members}
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_doc-var-members}
+\doxysubsection{变量说明}
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_a70b98c97b0cf60ba43babbe52e337776}\index{app.routers.conferences@{app.routers.conferences}!router@{router}}
+\index{router@{router}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_a70b98c97b0cf60ba43babbe52e337776} 
+app.\+routers.\+conferences.\+router = APIRouter(prefix="{}/conferences"{}, tags=\mbox{[}"{}conferences"{}\mbox{]})}
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00021}{21}} 行定义.
+
+\Hypertarget{namespaceapp_1_1routers_1_1conferences_a5211cd4b2d37b6e93570fe50538bf99e}\index{app.routers.conferences@{app.routers.conferences}!templates@{templates}}
+\index{templates@{templates}!app.routers.conferences@{app.routers.conferences}}
+\doxysubsubsection{\texorpdfstring{templates}{templates}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1routers_1_1conferences_a5211cd4b2d37b6e93570fe50538bf99e} 
+app.\+routers.\+conferences.\+templates = Jinja2\+Templates(directory="{}app/templates"{})}
+
+
+
+在文件 \mbox{\hyperlink{conferences_8py_source}{conferences.\+py}} 第 \mbox{\hyperlink{conferences_8py_source_l00023}{23}} 行定义.
+

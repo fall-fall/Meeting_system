@@ -1,0 +1,200 @@
+\doxysection{app.\+crud.\+conference 命名空间参考}
+\hypertarget{namespaceapp_1_1crud_1_1conference}{}\label{namespaceapp_1_1crud_1_1conference}\index{app.crud.conference@{app.crud.conference}}
+
+
+会议数据库操作模块  
+
+
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1conference_aea884062eeb5cd7d05b02f2a1ca0329b}{get\+\_\+conference}} (Session db, int conference\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 根据\+ID获取会议 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1conference_a7b008e31486fa505559fe1ff5eff165a}{get\+\_\+conferences}} (Session db, int skip=0, int limit=100)
+\begin{DoxyCompactList}\small\item\em 获取所有会议 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1conference_ae104a904decd6c7ddbc876115e0a3090}{get\+\_\+conferences\+\_\+by\+\_\+creator}} (Session db, int creator\+\_\+id, int skip=0, int limit=100)
+\begin{DoxyCompactList}\small\item\em 根据创建者\+ID获取会议 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1conference_a29060124eb2ecfafb657f79d1ebcf6eb}{create\+\_\+conference}} (Session db, \mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_create}{Conference\+Create}} conference, int creator\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 创建新会议 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1conference_acffbc05ae2103ae3c4997ca1d0dedd41}{update\+\_\+conference}} (Session db, int conference\+\_\+id, \mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_update}{Conference\+Update}} conference)
+\begin{DoxyCompactList}\small\item\em 更新会议 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1conference_ae5b06751313084e1fb9a3354d1e9de1d}{delete\+\_\+conference}} (Session db, int conference\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 删除会议 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1conference_a3676c275fd2008435ec100c754e7076e}{create\+\_\+agenda\+\_\+item}} (Session db, \mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_agenda_item_create}{Agenda\+Item\+Create}} agenda\+\_\+item, int conference\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 创建新议程项 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1conference_ab940be8b87bd00804d652a31b5eb1675}{get\+\_\+agenda\+\_\+items}} (Session db, int conference\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 获取会议的议程项 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1conference_a6507ed4cdc1d66a237bc6644533283ea}{delete\+\_\+agenda\+\_\+item}} (Session db, int agenda\+\_\+item\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 删除议程项 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1conference_ac333a986c83db46f58fa3ee9a19e0460}{get\+\_\+upcoming\+\_\+conferences}} (Session db, int skip=0, int limit=100)
+\begin{DoxyCompactList}\small\item\em 获取即将举行的会议 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+会议数据库操作模块 
+
+本模块提供会议和议程项相关的数据库\+CRUD操作函数 
+
+\label{doc-func-members}
+\Hypertarget{namespaceapp_1_1crud_1_1conference_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{namespaceapp_1_1crud_1_1conference_a3676c275fd2008435ec100c754e7076e}\index{app.crud.conference@{app.crud.conference}!create\_agenda\_item@{create\_agenda\_item}}
+\index{create\_agenda\_item@{create\_agenda\_item}!app.crud.conference@{app.crud.conference}}
+\doxysubsubsection{\texorpdfstring{create\_agenda\_item()}{create\_agenda\_item()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1conference_a3676c275fd2008435ec100c754e7076e} 
+app.\+crud.\+conference.\+create\+\_\+agenda\+\_\+item (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_agenda_item_create}{Agenda\+Item\+Create}}}]{agenda\+\_\+item}{, }\item[{int}]{conference\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+创建新议程项 
+
+Args\+: db\+: 数据库会话 agenda\+\_\+item\+: 议程项创建模型 conference\+\_\+id\+: 所属会议\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_agenda_item}{Agenda\+Item}\+: 创建的议程项对象 
+
+在文件 \mbox{\hyperlink{crud_2conference_8py_source}{conference.\+py}} 第 \mbox{\hyperlink{crud_2conference_8py_source_l00136}{136}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1conference_a29060124eb2ecfafb657f79d1ebcf6eb}\index{app.crud.conference@{app.crud.conference}!create\_conference@{create\_conference}}
+\index{create\_conference@{create\_conference}!app.crud.conference@{app.crud.conference}}
+\doxysubsubsection{\texorpdfstring{create\_conference()}{create\_conference()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1conference_a29060124eb2ecfafb657f79d1ebcf6eb} 
+app.\+crud.\+conference.\+create\+\_\+conference (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_create}{Conference\+Create}}}]{conference}{, }\item[{int}]{creator\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+创建新会议 
+
+Args\+: db\+: 数据库会话 conference\+: 会议创建模型 creator\+\_\+id\+: 创建者\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_conference}{Conference}\+: 创建的会议对象 
+
+在文件 \mbox{\hyperlink{crud_2conference_8py_source}{conference.\+py}} 第 \mbox{\hyperlink{crud_2conference_8py_source_l00063}{63}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1conference_a6507ed4cdc1d66a237bc6644533283ea}\index{app.crud.conference@{app.crud.conference}!delete\_agenda\_item@{delete\_agenda\_item}}
+\index{delete\_agenda\_item@{delete\_agenda\_item}!app.crud.conference@{app.crud.conference}}
+\doxysubsubsection{\texorpdfstring{delete\_agenda\_item()}{delete\_agenda\_item()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1conference_a6507ed4cdc1d66a237bc6644533283ea} 
+app.\+crud.\+conference.\+delete\+\_\+agenda\+\_\+item (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{agenda\+\_\+item\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+删除议程项 
+
+Args\+: db\+: 数据库会话 agenda\+\_\+item\+\_\+id\+: 议程项\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_agenda_item}{Agenda\+Item}\+: 被删除的议程项对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2conference_8py_source}{conference.\+py}} 第 \mbox{\hyperlink{crud_2conference_8py_source_l00177}{177}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1conference_ae5b06751313084e1fb9a3354d1e9de1d}\index{app.crud.conference@{app.crud.conference}!delete\_conference@{delete\_conference}}
+\index{delete\_conference@{delete\_conference}!app.crud.conference@{app.crud.conference}}
+\doxysubsubsection{\texorpdfstring{delete\_conference()}{delete\_conference()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1conference_ae5b06751313084e1fb9a3354d1e9de1d} 
+app.\+crud.\+conference.\+delete\+\_\+conference (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{conference\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+删除会议 
+
+Args\+: db\+: 数据库会话 conference\+\_\+id\+: 会议\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_conference}{Conference}\+: 被删除的会议对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2conference_8py_source}{conference.\+py}} 第 \mbox{\hyperlink{crud_2conference_8py_source_l00116}{116}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1conference_ab940be8b87bd00804d652a31b5eb1675}\index{app.crud.conference@{app.crud.conference}!get\_agenda\_items@{get\_agenda\_items}}
+\index{get\_agenda\_items@{get\_agenda\_items}!app.crud.conference@{app.crud.conference}}
+\doxysubsubsection{\texorpdfstring{get\_agenda\_items()}{get\_agenda\_items()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1conference_ab940be8b87bd00804d652a31b5eb1675} 
+app.\+crud.\+conference.\+get\+\_\+agenda\+\_\+items (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{conference\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+获取会议的议程项 
+
+Args\+: db\+: 数据库会话 conference\+\_\+id\+: 会议\+ID
+
+Returns\+: List\mbox{[}\doxylink{classapp_1_1database_1_1_agenda_item}{Agenda\+Item}\mbox{]}\+: 议程项对象列表 
+
+在文件 \mbox{\hyperlink{crud_2conference_8py_source}{conference.\+py}} 第 \mbox{\hyperlink{crud_2conference_8py_source_l00164}{164}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1conference_aea884062eeb5cd7d05b02f2a1ca0329b}\index{app.crud.conference@{app.crud.conference}!get\_conference@{get\_conference}}
+\index{get\_conference@{get\_conference}!app.crud.conference@{app.crud.conference}}
+\doxysubsubsection{\texorpdfstring{get\_conference()}{get\_conference()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1conference_aea884062eeb5cd7d05b02f2a1ca0329b} 
+app.\+crud.\+conference.\+get\+\_\+conference (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{conference\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+根据\+ID获取会议 
+
+Args\+: db\+: 数据库会话 conference\+\_\+id\+: 会议\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_conference}{Conference}\+: 会议对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2conference_8py_source}{conference.\+py}} 第 \mbox{\hyperlink{crud_2conference_8py_source_l00014}{14}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1conference_a7b008e31486fa505559fe1ff5eff165a}\index{app.crud.conference@{app.crud.conference}!get\_conferences@{get\_conferences}}
+\index{get\_conferences@{get\_conferences}!app.crud.conference@{app.crud.conference}}
+\doxysubsubsection{\texorpdfstring{get\_conferences()}{get\_conferences()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1conference_a7b008e31486fa505559fe1ff5eff165a} 
+app.\+crud.\+conference.\+get\+\_\+conferences (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int }]{skip}{ = {\ttfamily 0}, }\item[{int }]{limit}{ = {\ttfamily 100}}\end{DoxyParamCaption})}
+
+
+
+获取所有会议 
+
+Args\+: db\+: 数据库会话 skip\+: 跳过的记录数 limit\+: 返回的最大记录数
+
+Returns\+: List\mbox{[}\doxylink{classapp_1_1database_1_1_conference}{Conference}\mbox{]}\+: 会议对象列表 
+
+在文件 \mbox{\hyperlink{crud_2conference_8py_source}{conference.\+py}} 第 \mbox{\hyperlink{crud_2conference_8py_source_l00027}{27}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1conference_ae104a904decd6c7ddbc876115e0a3090}\index{app.crud.conference@{app.crud.conference}!get\_conferences\_by\_creator@{get\_conferences\_by\_creator}}
+\index{get\_conferences\_by\_creator@{get\_conferences\_by\_creator}!app.crud.conference@{app.crud.conference}}
+\doxysubsubsection{\texorpdfstring{get\_conferences\_by\_creator()}{get\_conferences\_by\_creator()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1conference_ae104a904decd6c7ddbc876115e0a3090} 
+app.\+crud.\+conference.\+get\+\_\+conferences\+\_\+by\+\_\+creator (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{creator\+\_\+id}{, }\item[{int }]{skip}{ = {\ttfamily 0}, }\item[{int }]{limit}{ = {\ttfamily 100}}\end{DoxyParamCaption})}
+
+
+
+根据创建者\+ID获取会议 
+
+Args\+: db\+: 数据库会话 creator\+\_\+id\+: 创建者\+ID skip\+: 跳过的记录数 limit\+: 返回的最大记录数
+
+Returns\+: List\mbox{[}\doxylink{classapp_1_1database_1_1_conference}{Conference}\mbox{]}\+: 会议对象列表，按日期降序排序 
+
+在文件 \mbox{\hyperlink{crud_2conference_8py_source}{conference.\+py}} 第 \mbox{\hyperlink{crud_2conference_8py_source_l00041}{41}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1conference_ac333a986c83db46f58fa3ee9a19e0460}\index{app.crud.conference@{app.crud.conference}!get\_upcoming\_conferences@{get\_upcoming\_conferences}}
+\index{get\_upcoming\_conferences@{get\_upcoming\_conferences}!app.crud.conference@{app.crud.conference}}
+\doxysubsubsection{\texorpdfstring{get\_upcoming\_conferences()}{get\_upcoming\_conferences()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1conference_ac333a986c83db46f58fa3ee9a19e0460} 
+app.\+crud.\+conference.\+get\+\_\+upcoming\+\_\+conferences (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int }]{skip}{ = {\ttfamily 0}, }\item[{int }]{limit}{ = {\ttfamily 100}}\end{DoxyParamCaption})}
+
+
+
+获取即将举行的会议 
+
+Args\+: db\+: 数据库会话 skip\+: 跳过的记录数 limit\+: 返回的最大记录数
+
+Returns\+: List\mbox{[}\doxylink{classapp_1_1database_1_1_conference}{Conference}\mbox{]}\+: 会议对象列表，按日期升序排序 
+
+在文件 \mbox{\hyperlink{crud_2conference_8py_source}{conference.\+py}} 第 \mbox{\hyperlink{crud_2conference_8py_source_l00197}{197}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1conference_acffbc05ae2103ae3c4997ca1d0dedd41}\index{app.crud.conference@{app.crud.conference}!update\_conference@{update\_conference}}
+\index{update\_conference@{update\_conference}!app.crud.conference@{app.crud.conference}}
+\doxysubsubsection{\texorpdfstring{update\_conference()}{update\_conference()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1conference_acffbc05ae2103ae3c4997ca1d0dedd41} 
+app.\+crud.\+conference.\+update\+\_\+conference (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{conference\+\_\+id}{, }\item[{\mbox{\hyperlink{classapp_1_1models_1_1conference_1_1_conference_update}{Conference\+Update}}}]{conference}{}\end{DoxyParamCaption})}
+
+
+
+更新会议 
+
+Args\+: db\+: 数据库会话 conference\+\_\+id\+: 会议\+ID conference\+: 会议更新模型
+
+Returns\+: \doxylink{classapp_1_1database_1_1_conference}{Conference}\+: 更新后的会议对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2conference_8py_source}{conference.\+py}} 第 \mbox{\hyperlink{crud_2conference_8py_source_l00091}{91}} 行定义.
+

@@ -1,0 +1,105 @@
+\doxysection{app.\+database.\+Registration类 参考}
+\hypertarget{classapp_1_1database_1_1_registration}{}\label{classapp_1_1database_1_1_registration}\index{app.database.Registration@{app.database.Registration}}
+
+
+会议注册模型（用户参加会议的记录）  
+
+
+类 app.\+database.\+Registration 继承关系图\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classapp_1_1database_1_1_registration}
+\end{center}
+\end{figure}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_registration_a4d65797b303b9b600c8a28676dd36998}{id}} = Column(Integer, primary\+\_\+key=True, index=True)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_registration_acf012e5cc70ddba08a6aef41219f79c6}{user\+\_\+id}} = Column(Integer, Foreign\+Key("{}users.\+id"{}))
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_registration_ac4ae791ef7103f1e680ce88651238cca}{conference\+\_\+id}} = Column(Integer, Foreign\+Key("{}conferences.\+id"{}))
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_registration_a3395d14914877914c83a3c29fac3dd66}{registered\+\_\+at}} = Column(Date\+Time, default=datetime.\+utcnow)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_registration_ae9d5abc656ffde62ba32693f15ff88b2}{user}} = relationship("{}User"{}, back\+\_\+populates="{}registrations"{})
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_registration_a04e99a8cf5c0423ad611afb232f4c66b}{conference}} = relationship("{}Conference"{}, back\+\_\+populates="{}registrations"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+会议注册模型（用户参加会议的记录） 
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00115}{115}} 行定义.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classapp_1_1database_1_1_registration_doc-variable-members}
+\doxysubsection{类成员变量说明}
+\Hypertarget{classapp_1_1database_1_1_registration_a04e99a8cf5c0423ad611afb232f4c66b}\index{app.database.Registration@{app.database.Registration}!conference@{conference}}
+\index{conference@{conference}!app.database.Registration@{app.database.Registration}}
+\doxysubsubsection{\texorpdfstring{conference}{conference}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_registration_a04e99a8cf5c0423ad611afb232f4c66b} 
+app.\+database.\+Registration.\+conference = relationship("{}Conference"{}, back\+\_\+populates="{}registrations"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00127}{127}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_registration_ac4ae791ef7103f1e680ce88651238cca}\index{app.database.Registration@{app.database.Registration}!conference\_id@{conference\_id}}
+\index{conference\_id@{conference\_id}!app.database.Registration@{app.database.Registration}}
+\doxysubsubsection{\texorpdfstring{conference\_id}{conference\_id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_registration_ac4ae791ef7103f1e680ce88651238cca} 
+app.\+database.\+Registration.\+conference\+\_\+id = Column(Integer, Foreign\+Key("{}conferences.\+id"{}))\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00122}{122}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_registration_a4d65797b303b9b600c8a28676dd36998}\index{app.database.Registration@{app.database.Registration}!id@{id}}
+\index{id@{id}!app.database.Registration@{app.database.Registration}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_registration_a4d65797b303b9b600c8a28676dd36998} 
+app.\+database.\+Registration.\+id = Column(Integer, primary\+\_\+key=True, index=True)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00120}{120}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_registration_a3395d14914877914c83a3c29fac3dd66}\index{app.database.Registration@{app.database.Registration}!registered\_at@{registered\_at}}
+\index{registered\_at@{registered\_at}!app.database.Registration@{app.database.Registration}}
+\doxysubsubsection{\texorpdfstring{registered\_at}{registered\_at}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_registration_a3395d14914877914c83a3c29fac3dd66} 
+app.\+database.\+Registration.\+registered\+\_\+at = Column(Date\+Time, default=datetime.\+utcnow)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00123}{123}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_registration_ae9d5abc656ffde62ba32693f15ff88b2}\index{app.database.Registration@{app.database.Registration}!user@{user}}
+\index{user@{user}!app.database.Registration@{app.database.Registration}}
+\doxysubsubsection{\texorpdfstring{user}{user}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_registration_ae9d5abc656ffde62ba32693f15ff88b2} 
+app.\+database.\+Registration.\+user = relationship("{}User"{}, back\+\_\+populates="{}registrations"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00126}{126}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_registration_acf012e5cc70ddba08a6aef41219f79c6}\index{app.database.Registration@{app.database.Registration}!user\_id@{user\_id}}
+\index{user\_id@{user\_id}!app.database.Registration@{app.database.Registration}}
+\doxysubsubsection{\texorpdfstring{user\_id}{user\_id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_registration_acf012e5cc70ddba08a6aef41219f79c6} 
+app.\+database.\+Registration.\+user\+\_\+id = Column(Integer, Foreign\+Key("{}users.\+id"{}))\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00121}{121}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+app/\mbox{\hyperlink{database_8py}{database.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,150 @@
+\doxysection{app/database.py 文件参考}
+\hypertarget{database_8py}{}\label{database_8py}\index{app/database.py@{app/database.py}}
+
+
+数据库模型和配置模块  
+
+
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classapp_1_1database_1_1_user}{app.\+database.\+User}}
+\begin{DoxyCompactList}\small\item\em 用户数据库模型 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classapp_1_1database_1_1_conference}{app.\+database.\+Conference}}
+\begin{DoxyCompactList}\small\item\em 会议数据库模型 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classapp_1_1database_1_1_agenda_item}{app.\+database.\+Agenda\+Item}}
+\begin{DoxyCompactList}\small\item\em 会议议程项模型 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classapp_1_1database_1_1_registration}{app.\+database.\+Registration}}
+\begin{DoxyCompactList}\small\item\em 会议注册模型（用户参加会议的记录） \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classapp_1_1database_1_1_friendship_status}{app.\+database.\+Friendship\+Status}}
+\item 
+class \mbox{\hyperlink{classapp_1_1database_1_1_notification_type}{app.\+database.\+Notification\+Type}}
+\item 
+class \mbox{\hyperlink{classapp_1_1database_1_1_friendship}{app.\+database.\+Friendship}}
+\begin{DoxyCompactList}\small\item\em 好友关系模型 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classapp_1_1database_1_1_notification}{app.\+database.\+Notification}}
+\begin{DoxyCompactList}\small\item\em 通知模型 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{database_8py_ae6bae1bc6b5767a56b312d1cf37dd1ee}{app.\+database.\+get\+\_\+db}} ()
+\begin{DoxyCompactList}\small\item\em 获取数据库会话的依赖函数 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{database_8py_a21f7b7e2142ce0947cbcaa5b27c7ae55}{app.\+database.\+create\+\_\+tables}} ()
+\begin{DoxyCompactList}\small\item\em 创建数据库表 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{database_8py_a7df7b0e9015e82b998eb8e66ea40003b}{app.\+database.\+engine}}
+\begin{DoxyCompactList}\small\item\em SQLAlchemy数据库引擎 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{database_8py_a3200a4ad394ef1c838162d6e45bbf7b8}{app.\+database.\+Session\+Local}} = sessionmaker(autocommit=False, autoflush=False, bind=\mbox{\hyperlink{database_8py_a7df7b0e9015e82b998eb8e66ea40003b}{engine}})
+\begin{DoxyCompactList}\small\item\em 数据库会话工厂 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{database_8py_af4885de03050bc57ee193712ad123924}{app.\+database.\+Base}} = declarative\+\_\+base()
+\begin{DoxyCompactList}\small\item\em SQLAlchemy模型基类 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+数据库模型和配置模块 
+
+定义了所有数据库模型、枚举类型和数据库连接配置 \begin{DoxyAuthor}{作者}
+Meeting System Team 
+\end{DoxyAuthor}
+\begin{DoxyDate}{日期}
+2024 
+\end{DoxyDate}
+\begin{DoxyVersion}{版本}
+1.\+0 
+\end{DoxyVersion}
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 中定义.
+
+
+
+\label{doc-func-members}
+\Hypertarget{database_8py_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{database_8py_a21f7b7e2142ce0947cbcaa5b27c7ae55}\index{database.py@{database.py}!create\_tables@{create\_tables}}
+\index{create\_tables@{create\_tables}!database.py@{database.py}}
+\doxysubsubsection{\texorpdfstring{create\_tables()}{create\_tables()}}
+{\footnotesize\ttfamily \label{database_8py_a21f7b7e2142ce0947cbcaa5b27c7ae55} 
+app.\+database.\+create\+\_\+tables (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+创建数据库表 
+
+使用\+SQLAlchemy创建所有定义的数据库表 
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00196}{196}} 行定义.
+
+\Hypertarget{database_8py_ae6bae1bc6b5767a56b312d1cf37dd1ee}\index{database.py@{database.py}!get\_db@{get\_db}}
+\index{get\_db@{get\_db}!database.py@{database.py}}
+\doxysubsubsection{\texorpdfstring{get\_db()}{get\_db()}}
+{\footnotesize\ttfamily \label{database_8py_ae6bae1bc6b5767a56b312d1cf37dd1ee} 
+app.\+database.\+get\+\_\+db (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+获取数据库会话的依赖函数 
+
+用于\+Fast\+API依赖注入，创建数据库会话并在请求结束时自动关闭 \begin{DoxyReturn}{返回}
+Generator\mbox{[}数据库会话对象\mbox{]} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00043}{43}} 行定义.
+
+
+
+\label{doc-var-members}
+\Hypertarget{database_8py_doc-var-members}
+\doxysubsection{变量说明}
+\Hypertarget{database_8py_af4885de03050bc57ee193712ad123924}\index{database.py@{database.py}!Base@{Base}}
+\index{Base@{Base}!database.py@{database.py}}
+\doxysubsubsection{\texorpdfstring{Base}{Base}}
+{\footnotesize\ttfamily \label{database_8py_af4885de03050bc57ee193712ad123924} 
+app.\+database.\+Base = declarative\+\_\+base()}
+
+
+
+SQLAlchemy模型基类 
+
+所有数据库模型的基类 
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00036}{36}} 行定义.
+
+\Hypertarget{database_8py_a7df7b0e9015e82b998eb8e66ea40003b}\index{database.py@{database.py}!engine@{engine}}
+\index{engine@{engine}!database.py@{database.py}}
+\doxysubsubsection{\texorpdfstring{engine}{engine}}
+{\footnotesize\ttfamily \label{database_8py_a7df7b0e9015e82b998eb8e66ea40003b} 
+app.\+database.\+engine}
+
+{\bfseries 初始值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ create\_engine(}
+\DoxyCodeLine{00002\ \ \ \ \ settings.DATABASE\_URL,\ connect\_args=\{\textcolor{stringliteral}{"{}check\_same\_thread"{}}:\ \textcolor{keyword}{False}\}\ \ \textcolor{comment}{\#\ SQLite特有的参数，允许多线程访问}}
+\DoxyCodeLine{00003\ )}
+
+\end{DoxyCode}
+
+
+SQLAlchemy数据库引擎 
+
+创建数据库连接引擎，配置了\+SQLite特有参数 
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00022}{22}} 行定义.
+
+\Hypertarget{database_8py_a3200a4ad394ef1c838162d6e45bbf7b8}\index{database.py@{database.py}!SessionLocal@{SessionLocal}}
+\index{SessionLocal@{SessionLocal}!database.py@{database.py}}
+\doxysubsubsection{\texorpdfstring{SessionLocal}{SessionLocal}}
+{\footnotesize\ttfamily \label{database_8py_a3200a4ad394ef1c838162d6e45bbf7b8} 
+app.\+database.\+Session\+Local = sessionmaker(autocommit=False, autoflush=False, bind=engine)}
+
+
+
+数据库会话工厂 
+
+用于创建数据库会话的工厂类 
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00030}{30}} 行定义.
+

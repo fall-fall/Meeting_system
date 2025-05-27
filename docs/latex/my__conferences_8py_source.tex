@@ -1,0 +1,67 @@
+\doxysection{my\+\_\+conferences.\+py}
+\hypertarget{my__conferences_8py_source}{}\label{my__conferences_8py_source}\index{app/routers/my\_conferences.py@{app/routers/my\_conferences.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00001}00001\ \textcolor{keyword}{from}\ fastapi\ \textcolor{keyword}{import}\ APIRouter,\ Depends,\ HTTPException,\ status,\ Request}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00002}00002\ \textcolor{keyword}{from}\ fastapi.responses\ \textcolor{keyword}{import}\ HTMLResponse,\ RedirectResponse}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00003}00003\ \textcolor{keyword}{from}\ fastapi.templating\ \textcolor{keyword}{import}\ Jinja2Templates}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00004}00004\ \textcolor{keyword}{from}\ sqlalchemy.orm\ \textcolor{keyword}{import}\ Session}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00006}00006\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ conference\ \textcolor{keyword}{as}\ conference\_crud}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00007}00007\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ registration\ \textcolor{keyword}{as}\ registration\_crud}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00008}00008\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ notification\ \textcolor{keyword}{as}\ notification\_crud}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00009}00009\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1database}{app.database}}\ \textcolor{keyword}{import}\ get\_db,\ User}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00010}00010\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_active\_user}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00012}00012\ router\ =\ APIRouter(prefix=\textcolor{stringliteral}{"{}/my-\/conferences"{}},\ tags=[\textcolor{stringliteral}{"{}my\_conferences"{}}])}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00013}00013\ templates\ =\ Jinja2Templates(directory=\textcolor{stringliteral}{"{}app/templates"{}})}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00016}00016\ \textcolor{preprocessor}{@router.get("{}/"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00017}00017\ \textcolor{keyword}{async\ def\ }my\_conferences(}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00018}00018\ \ \ \ \ request:\ Request,}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00019}00019\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00020}00020\ ):}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00021}00021\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}显示用户的会议页面，包括参与的会议和创建的会议（如果是管理员）。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00022}00022\ \ \ \ \ \textcolor{comment}{\#\ 获取当前用户}}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00023}00023\ \ \ \ \ current\_user\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00024}00024\ \ \ \ \ token\ =\ request.cookies.get(\textcolor{stringliteral}{"{}access\_token"{}})}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{if}\ token\ \textcolor{keywordflow}{and}\ token.startswith(\textcolor{stringliteral}{"{}Bearer\ "{}}):}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_user}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ current\_user\ =\ await\ get\_current\_user(token.replace(\textcolor{stringliteral}{"{}Bearer\ "{}},\ \textcolor{stringliteral}{"{}"{}}),\ db)}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00036}00036\ \ \ \ \ \textcolor{comment}{\#\ 获取用户参与的会议}}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00037}00037\ \ \ \ \ registrations\ =\ registration\_crud.get\_registrations\_by\_user(db,\ user\_id=current\_user.id)}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00038}00038\ \ \ \ \ registered\_conferences\ =\ []}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{for}\ registration\ \textcolor{keywordflow}{in}\ registrations:}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ conference\ =\ conference\_crud.get\_conference(db,\ conference\_id=registration.conference\_id)}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ conference:}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ registered\_conferences.append(conference)}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00044}00044\ \ \ \ \ \textcolor{comment}{\#\ 如果是管理员，获取创建的会议}}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00045}00045\ \ \ \ \ created\_conferences\ =\ []}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{if}\ current\_user.is\_admin:}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ created\_conferences\ =\ conference\_crud.get\_conferences\_by\_creator(db,\ creator\_id=current\_user.id)}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00049}00049\ \ \ \ \ \textcolor{comment}{\#\ 获取未读通知数量}}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00050}00050\ \ \ \ \ unread\_notification\_count\ =\ notification\_crud.get\_unread\_notification\_count(db,\ current\_user.id)}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{return}\ templates.TemplateResponse(}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}user/my\_conferences.html"{}},}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}request"{}}:\ request,}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}current\_user"{}}:\ current\_user,}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}registered\_conferences"{}}:\ registered\_conferences,}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}created\_conferences"{}}:\ created\_conferences,}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}unread\_notification\_count"{}}:\ unread\_notification\_count,}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{my__conferences_8py_source_l00061}00061\ \ \ \ \ )}
+
+\end{DoxyCode}

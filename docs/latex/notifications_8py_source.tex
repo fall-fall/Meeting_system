@@ -1,0 +1,166 @@
+\doxysection{notifications.\+py}
+\hypertarget{notifications_8py_source}{}\label{notifications_8py_source}\index{app/routers/notifications.py@{app/routers/notifications.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00001}00001\ \textcolor{keyword}{from}\ fastapi\ \textcolor{keyword}{import}\ APIRouter,\ Depends,\ HTTPException,\ status,\ Request}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00002}00002\ \textcolor{keyword}{from}\ fastapi.responses\ \textcolor{keyword}{import}\ HTMLResponse,\ RedirectResponse}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00003}00003\ \textcolor{keyword}{from}\ fastapi.templating\ \textcolor{keyword}{import}\ Jinja2Templates}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00004}00004\ \textcolor{keyword}{from}\ sqlalchemy.orm\ \textcolor{keyword}{import}\ Session}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00006}00006\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ notification\ \textcolor{keyword}{as}\ notification\_crud}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00007}00007\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ user\ \textcolor{keyword}{as}\ user\_crud}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00008}00008\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1database}{app.database}}\ \textcolor{keyword}{import}\ get\_db}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00010}00010\ router\ =\ APIRouter(prefix=\textcolor{stringliteral}{"{}/notifications"{}},\ tags=[\textcolor{stringliteral}{"{}notifications"{}}])}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00011}00011\ templates\ =\ Jinja2Templates(directory=\textcolor{stringliteral}{"{}app/templates"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00014}00014\ \textcolor{preprocessor}{@router.get("{}/"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00015}00015\ \textcolor{keyword}{async\ def\ }list\_notifications(}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00016}00016\ \ \ \ \ request:\ Request,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00017}00017\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00018}00018\ ):}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00019}00019\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}显示通知列表页面。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00020}00020\ \ \ \ \ \textcolor{comment}{\#\ 获取当前用户}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00021}00021\ \ \ \ \ current\_user\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00022}00022\ \ \ \ \ token\ =\ request.cookies.get(\textcolor{stringliteral}{"{}access\_token"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{if}\ token\ \textcolor{keywordflow}{and}\ token.startswith(\textcolor{stringliteral}{"{}Bearer\ "{}}):}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_user}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ current\_user\ =\ await\ get\_current\_user(token.replace(\textcolor{stringliteral}{"{}Bearer\ "{}},\ \textcolor{stringliteral}{"{}"{}}),\ db)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00034}00034\ \ \ \ \ \textcolor{comment}{\#\ 获取通知列表}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00035}00035\ \ \ \ \ notifications\ =\ notification\_crud.get\_notifications\_by\_user(db,\ user\_id=current\_user.id)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00037}00037\ \ \ \ \ \textcolor{comment}{\#\ 加载发送者信息}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{for}\ notification\ \textcolor{keywordflow}{in}\ notifications:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ notification.sender\_id:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ sender\ =\ user\_crud.get\_user(db,\ user\_id=notification.sender\_id)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ sender:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ notification.sender\ =\ sender}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00044}00044\ \ \ \ \ \textcolor{comment}{\#\ 获取未读通知数量}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00045}00045\ \ \ \ \ unread\_notification\_count\ =\ notification\_crud.get\_unread\_notification\_count(db,\ current\_user.id)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00047}00047\ \ \ \ \ \textcolor{comment}{\#\ 检查是否使用测试页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00048}00048\ \ \ \ \ use\_test\_page\ =\ request.query\_params.get(\textcolor{stringliteral}{"{}test"{}})\ ==\ \textcolor{stringliteral}{"{}1"{}}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00049}00049\ \ \ \ \ template\_name\ =\ \textcolor{stringliteral}{"{}test\_notifications.html"{}}\ \textcolor{keywordflow}{if}\ use\_test\_page\ \textcolor{keywordflow}{else}\ \textcolor{stringliteral}{"{}user/notifications.html"{}}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ templates.TemplateResponse(}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ template\_name,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}request"{}}:\ request,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}current\_user"{}}:\ current\_user,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}notifications"{}}:\ notifications,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}unread\_notification\_count"{}}:\ unread\_notification\_count,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00059}00059\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00062}00062\ \textcolor{preprocessor}{@router.get("{}/mark-\/read/\{notification\_id\}"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00063}00063\ \textcolor{keyword}{async\ def\ }mark\_notification\_as\_read(}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00064}00064\ \ \ \ \ request:\ Request,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00065}00065\ \ \ \ \ notification\_id:\ int,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00066}00066\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00067}00067\ ):}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00068}00068\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}将通知标记为已读。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00069}00069\ \ \ \ \ \textcolor{comment}{\#\ 获取当前用户}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00070}00070\ \ \ \ \ current\_user\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00071}00071\ \ \ \ \ token\ =\ request.cookies.get(\textcolor{stringliteral}{"{}access\_token"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{if}\ token\ \textcolor{keywordflow}{and}\ token.startswith(\textcolor{stringliteral}{"{}Bearer\ "{}}):}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_user}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ current\_user\ =\ await\ get\_current\_user(token.replace(\textcolor{stringliteral}{"{}Bearer\ "{}},\ \textcolor{stringliteral}{"{}"{}}),\ db)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00083}00083\ \ \ \ \ \textcolor{comment}{\#\ 获取通知}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00084}00084\ \ \ \ \ notification\ =\ notification\_crud.get\_notification(db,\ notification\_id=notification\_id)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ notification:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=404,\ detail=\textcolor{stringliteral}{"{}通知不存在"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00088}00088\ \ \ \ \ \textcolor{comment}{\#\ 检查是否是通知的接收者}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}\ notification.user\_id\ !=\ current\_user.id:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=403,\ detail=\textcolor{stringliteral}{"{}无权标记此通知"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00092}00092\ \ \ \ \ \textcolor{comment}{\#\ 标记为已读}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00093}00093\ \ \ \ \ notification\_crud.mark\_notification\_as\_read(db,\ notification\_id)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00095}00095\ \ \ \ \ \textcolor{comment}{\#\ 重定向到通知列表页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/notifications/"{}},\ status\_code=status.HTTP\_303\_SEE\_OTHER)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00099}00099\ \textcolor{preprocessor}{@router.get("{}/mark-\/all-\/read"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00100}00100\ \textcolor{keyword}{async\ def\ }mark\_all\_notifications\_as\_read(}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00101}00101\ \ \ \ \ request:\ Request,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00102}00102\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00103}00103\ ):}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00104}00104\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}将所有通知标记为已读。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00105}00105\ \ \ \ \ \textcolor{comment}{\#\ 获取当前用户}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00106}00106\ \ \ \ \ current\_user\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00107}00107\ \ \ \ \ token\ =\ request.cookies.get(\textcolor{stringliteral}{"{}access\_token"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{if}\ token\ \textcolor{keywordflow}{and}\ token.startswith(\textcolor{stringliteral}{"{}Bearer\ "{}}):}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_user}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ current\_user\ =\ await\ get\_current\_user(token.replace(\textcolor{stringliteral}{"{}Bearer\ "{}},\ \textcolor{stringliteral}{"{}"{}}),\ db)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00119}00119\ \ \ \ \ \textcolor{comment}{\#\ 标记所有通知为已读}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00120}00120\ \ \ \ \ notification\_crud.mark\_all\_notifications\_as\_read(db,\ current\_user.id)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00122}00122\ \ \ \ \ \textcolor{comment}{\#\ 重定向到通知列表页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00123}00123\ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/notifications/"{}},\ status\_code=status.HTTP\_303\_SEE\_OTHER)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00126}00126\ \textcolor{preprocessor}{@router.get("{}/delete/\{notification\_id\}"{},\ response\_class=HTMLResponse)}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00127}00127\ \textcolor{keyword}{async\ def\ }delete\_notification(}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00128}00128\ \ \ \ \ request:\ Request,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00129}00129\ \ \ \ \ notification\_id:\ int,}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00130}00130\ \ \ \ \ db:\ Session\ =\ Depends(get\_db),}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00131}00131\ ):}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00132}00132\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}删除通知。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00133}00133\ \ \ \ \ \textcolor{comment}{\#\ 获取当前用户}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00134}00134\ \ \ \ \ current\_user\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00135}00135\ \ \ \ \ token\ =\ request.cookies.get(\textcolor{stringliteral}{"{}access\_token"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{if}\ token\ \textcolor{keywordflow}{and}\ token.startswith(\textcolor{stringliteral}{"{}Bearer\ "{}}):}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1dependencies}{app.dependencies}}\ \textcolor{keyword}{import}\ get\_current\_user}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ current\_user\ =\ await\ get\_current\_user(token.replace(\textcolor{stringliteral}{"{}Bearer\ "{}},\ \textcolor{stringliteral}{"{}"{}}),\ db)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00143}00143\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 未登录，重定向到登录页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/auth/login"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00147}00147\ \ \ \ \ \textcolor{comment}{\#\ 获取通知}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00148}00148\ \ \ \ \ notification\ =\ notification\_crud.get\_notification(db,\ notification\_id=notification\_id)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ notification:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=404,\ detail=\textcolor{stringliteral}{"{}通知不存在"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00152}00152\ \ \ \ \ \textcolor{comment}{\#\ 检查是否是通知的接收者}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00153}00153\ \ \ \ \ \textcolor{keywordflow}{if}\ notification.user\_id\ !=\ current\_user.id:}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ HTTPException(status\_code=403,\ detail=\textcolor{stringliteral}{"{}无权删除此通知"{}})}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00156}00156\ \ \ \ \ \textcolor{comment}{\#\ 删除通知}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00157}00157\ \ \ \ \ notification\_crud.delete\_notification(db,\ notification\_id)}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00159}00159\ \ \ \ \ \textcolor{comment}{\#\ 重定向到通知列表页面}}
+\DoxyCodeLine{\Hypertarget{notifications_8py_source_l00160}00160\ \ \ \ \ \textcolor{keywordflow}{return}\ RedirectResponse(url=\textcolor{stringliteral}{"{}/api/notifications/"{}},\ status\_code=status.HTTP\_303\_SEE\_OTHER)}
+
+\end{DoxyCode}

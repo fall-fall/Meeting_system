@@ -1,0 +1,153 @@
+\doxysection{app.\+database.\+Notification类 参考}
+\hypertarget{classapp_1_1database_1_1_notification}{}\label{classapp_1_1database_1_1_notification}\index{app.database.Notification@{app.database.Notification}}
+
+
+通知模型  
+
+
+类 app.\+database.\+Notification 继承关系图\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classapp_1_1database_1_1_notification}
+\end{center}
+\end{figure}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_notification_aff1f2c8e6b059d3eb71e146d6ea30902}{id}} = Column(Integer, primary\+\_\+key=True, index=True)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_notification_a4c6a22fecf57b9f870cf82f087fe7288}{user\+\_\+id}} = Column(Integer, Foreign\+Key("{}users.\+id"{}))
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_notification_a9fa3b4b96694996cc97210591c8cbb47}{sender\+\_\+id}} = Column(Integer, Foreign\+Key("{}users.\+id"{}), nullable=True)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_notification_abe6ffe350fba1004f80867184145106e}{type}} = Column(Enum(\mbox{\hyperlink{classapp_1_1database_1_1_notification_type}{Notification\+Type}}))
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_notification_a413aeb1d6b00759719d7494ac3744f35}{content}} = Column(Text)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_notification_a0c5739127827c0c7d393a8d93a1bcf62}{is\+\_\+read}} = Column(Boolean, default=False)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_notification_ad1a55f5253e927db258f45d6d5e86736}{related\+\_\+id}} = Column(Integer, nullable=True)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_notification_af7c13ab1285bf1a99835d41966524595}{created\+\_\+at}} = Column(Date\+Time, default=datetime.\+utcnow)
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_notification_a64c6ced124479122c013a05a9573be45}{user}} = relationship("{}User"{}, foreign\+\_\+keys=\mbox{[}user\+\_\+id\mbox{]}, back\+\_\+populates="{}notifications"{})
+\item 
+\mbox{\hyperlink{classapp_1_1database_1_1_notification_a9816a2c9bd0e663c8ade840c4e594bd2}{sender}} = relationship("{}User"{}, foreign\+\_\+keys=\mbox{[}sender\+\_\+id\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+通知模型 
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00173}{173}} 行定义.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classapp_1_1database_1_1_notification_doc-variable-members}
+\doxysubsection{类成员变量说明}
+\Hypertarget{classapp_1_1database_1_1_notification_a413aeb1d6b00759719d7494ac3744f35}\index{app.database.Notification@{app.database.Notification}!content@{content}}
+\index{content@{content}!app.database.Notification@{app.database.Notification}}
+\doxysubsubsection{\texorpdfstring{content}{content}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_notification_a413aeb1d6b00759719d7494ac3744f35} 
+app.\+database.\+Notification.\+content = Column(Text)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00182}{182}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_notification_af7c13ab1285bf1a99835d41966524595}\index{app.database.Notification@{app.database.Notification}!created\_at@{created\_at}}
+\index{created\_at@{created\_at}!app.database.Notification@{app.database.Notification}}
+\doxysubsubsection{\texorpdfstring{created\_at}{created\_at}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_notification_af7c13ab1285bf1a99835d41966524595} 
+app.\+database.\+Notification.\+created\+\_\+at = Column(Date\+Time, default=datetime.\+utcnow)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00185}{185}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_notification_aff1f2c8e6b059d3eb71e146d6ea30902}\index{app.database.Notification@{app.database.Notification}!id@{id}}
+\index{id@{id}!app.database.Notification@{app.database.Notification}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_notification_aff1f2c8e6b059d3eb71e146d6ea30902} 
+app.\+database.\+Notification.\+id = Column(Integer, primary\+\_\+key=True, index=True)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00178}{178}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_notification_a0c5739127827c0c7d393a8d93a1bcf62}\index{app.database.Notification@{app.database.Notification}!is\_read@{is\_read}}
+\index{is\_read@{is\_read}!app.database.Notification@{app.database.Notification}}
+\doxysubsubsection{\texorpdfstring{is\_read}{is\_read}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_notification_a0c5739127827c0c7d393a8d93a1bcf62} 
+app.\+database.\+Notification.\+is\+\_\+read = Column(Boolean, default=False)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00183}{183}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_notification_ad1a55f5253e927db258f45d6d5e86736}\index{app.database.Notification@{app.database.Notification}!related\_id@{related\_id}}
+\index{related\_id@{related\_id}!app.database.Notification@{app.database.Notification}}
+\doxysubsubsection{\texorpdfstring{related\_id}{related\_id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_notification_ad1a55f5253e927db258f45d6d5e86736} 
+app.\+database.\+Notification.\+related\+\_\+id = Column(Integer, nullable=True)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00184}{184}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_notification_a9816a2c9bd0e663c8ade840c4e594bd2}\index{app.database.Notification@{app.database.Notification}!sender@{sender}}
+\index{sender@{sender}!app.database.Notification@{app.database.Notification}}
+\doxysubsubsection{\texorpdfstring{sender}{sender}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_notification_a9816a2c9bd0e663c8ade840c4e594bd2} 
+app.\+database.\+Notification.\+sender = relationship("{}User"{}, foreign\+\_\+keys=\mbox{[}sender\+\_\+id\mbox{]})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00189}{189}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_notification_a9fa3b4b96694996cc97210591c8cbb47}\index{app.database.Notification@{app.database.Notification}!sender\_id@{sender\_id}}
+\index{sender\_id@{sender\_id}!app.database.Notification@{app.database.Notification}}
+\doxysubsubsection{\texorpdfstring{sender\_id}{sender\_id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_notification_a9fa3b4b96694996cc97210591c8cbb47} 
+app.\+database.\+Notification.\+sender\+\_\+id = Column(Integer, Foreign\+Key("{}users.\+id"{}), nullable=True)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00180}{180}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_notification_abe6ffe350fba1004f80867184145106e}\index{app.database.Notification@{app.database.Notification}!type@{type}}
+\index{type@{type}!app.database.Notification@{app.database.Notification}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_notification_abe6ffe350fba1004f80867184145106e} 
+app.\+database.\+Notification.\+type = Column(Enum(\mbox{\hyperlink{classapp_1_1database_1_1_notification_type}{Notification\+Type}}))\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00181}{181}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_notification_a64c6ced124479122c013a05a9573be45}\index{app.database.Notification@{app.database.Notification}!user@{user}}
+\index{user@{user}!app.database.Notification@{app.database.Notification}}
+\doxysubsubsection{\texorpdfstring{user}{user}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_notification_a64c6ced124479122c013a05a9573be45} 
+app.\+database.\+Notification.\+user = relationship("{}User"{}, foreign\+\_\+keys=\mbox{[}user\+\_\+id\mbox{]}, back\+\_\+populates="{}notifications"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00188}{188}} 行定义.
+
+\Hypertarget{classapp_1_1database_1_1_notification_a4c6a22fecf57b9f870cf82f087fe7288}\index{app.database.Notification@{app.database.Notification}!user\_id@{user\_id}}
+\index{user\_id@{user\_id}!app.database.Notification@{app.database.Notification}}
+\doxysubsubsection{\texorpdfstring{user\_id}{user\_id}}
+{\footnotesize\ttfamily \label{classapp_1_1database_1_1_notification_a4c6a22fecf57b9f870cf82f087fe7288} 
+app.\+database.\+Notification.\+user\+\_\+id = Column(Integer, Foreign\+Key("{}users.\+id"{}))\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{database_8py_source}{database.\+py}} 第 \mbox{\hyperlink{database_8py_source_l00179}{179}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+app/\mbox{\hyperlink{database_8py}{database.\+py}}\end{DoxyCompactItemize}

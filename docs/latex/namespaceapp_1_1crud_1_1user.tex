@@ -1,0 +1,110 @@
+\doxysection{app.\+crud.\+user 命名空间参考}
+\hypertarget{namespaceapp_1_1crud_1_1user}{}\label{namespaceapp_1_1crud_1_1user}\index{app.crud.user@{app.crud.user}}
+
+
+用户数据库操作模块  
+
+
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_ab33183c170d7fc7ddb122d800282ae7f}{get\+\_\+user}} (Session db, int user\+\_\+id)
+\begin{DoxyCompactList}\small\item\em 根据\+ID获取用户 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_aefaf67ce3b31acf7f09fc8420761b83c}{get\+\_\+user\+\_\+by\+\_\+username}} (Session db, str username)
+\begin{DoxyCompactList}\small\item\em 根据用户名获取用户 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_adcce69d5599eedd7a0a4ebe5bc182213}{get\+\_\+user\+\_\+by\+\_\+email}} (Session db, str email)
+\begin{DoxyCompactList}\small\item\em 根据电子邮箱获取用户 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_ab0ca8529244b599738e66a0cf7136e70}{get\+\_\+users}} (Session db, int skip=0, int limit=100)
+\begin{DoxyCompactList}\small\item\em 获取所有用户 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1crud_1_1user_a77c737f3f48132e1bab1df457d2c84cd}{create\+\_\+user}} (Session db, \mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_create}{User\+Create}} user)
+\begin{DoxyCompactList}\small\item\em 创建新用户 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+用户数据库操作模块 
+
+本模块提供用户相关的数据库\+CRUD操作函数 
+
+\label{doc-func-members}
+\Hypertarget{namespaceapp_1_1crud_1_1user_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{namespaceapp_1_1crud_1_1user_a77c737f3f48132e1bab1df457d2c84cd}\index{app.crud.user@{app.crud.user}!create\_user@{create\_user}}
+\index{create\_user@{create\_user}!app.crud.user@{app.crud.user}}
+\doxysubsubsection{\texorpdfstring{create\_user()}{create\_user()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1user_a77c737f3f48132e1bab1df457d2c84cd} 
+app.\+crud.\+user.\+create\+\_\+user (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{\mbox{\hyperlink{classapp_1_1models_1_1user_1_1_user_create}{User\+Create}}}]{user}{}\end{DoxyParamCaption})}
+
+
+
+创建新用户 
+
+Args\+: db\+: 数据库会话 user\+: 用户创建模型
+
+Returns\+: \doxylink{classapp_1_1database_1_1_user}{User}\+: 创建的用户对象 
+
+在文件 \mbox{\hyperlink{crud_2user_8py_source}{user.\+py}} 第 \mbox{\hyperlink{crud_2user_8py_source_l00067}{67}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1user_ab33183c170d7fc7ddb122d800282ae7f}\index{app.crud.user@{app.crud.user}!get\_user@{get\_user}}
+\index{get\_user@{get\_user}!app.crud.user@{app.crud.user}}
+\doxysubsubsection{\texorpdfstring{get\_user()}{get\_user()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1user_ab33183c170d7fc7ddb122d800282ae7f} 
+app.\+crud.\+user.\+get\+\_\+user (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int}]{user\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+根据\+ID获取用户 
+
+Args\+: db\+: 数据库会话 user\+\_\+id\+: 用户\+ID
+
+Returns\+: \doxylink{classapp_1_1database_1_1_user}{User}\+: 用户对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2user_8py_source}{user.\+py}} 第 \mbox{\hyperlink{crud_2user_8py_source_l00014}{14}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1user_adcce69d5599eedd7a0a4ebe5bc182213}\index{app.crud.user@{app.crud.user}!get\_user\_by\_email@{get\_user\_by\_email}}
+\index{get\_user\_by\_email@{get\_user\_by\_email}!app.crud.user@{app.crud.user}}
+\doxysubsubsection{\texorpdfstring{get\_user\_by\_email()}{get\_user\_by\_email()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1user_adcce69d5599eedd7a0a4ebe5bc182213} 
+app.\+crud.\+user.\+get\+\_\+user\+\_\+by\+\_\+email (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{str}]{email}{}\end{DoxyParamCaption})}
+
+
+
+根据电子邮箱获取用户 
+
+Args\+: db\+: 数据库会话 email\+: 电子邮箱
+
+Returns\+: \doxylink{classapp_1_1database_1_1_user}{User}\+: 用户对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2user_8py_source}{user.\+py}} 第 \mbox{\hyperlink{crud_2user_8py_source_l00040}{40}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1user_aefaf67ce3b31acf7f09fc8420761b83c}\index{app.crud.user@{app.crud.user}!get\_user\_by\_username@{get\_user\_by\_username}}
+\index{get\_user\_by\_username@{get\_user\_by\_username}!app.crud.user@{app.crud.user}}
+\doxysubsubsection{\texorpdfstring{get\_user\_by\_username()}{get\_user\_by\_username()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1user_aefaf67ce3b31acf7f09fc8420761b83c} 
+app.\+crud.\+user.\+get\+\_\+user\+\_\+by\+\_\+username (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{str}]{username}{}\end{DoxyParamCaption})}
+
+
+
+根据用户名获取用户 
+
+Args\+: db\+: 数据库会话 username\+: 用户名
+
+Returns\+: \doxylink{classapp_1_1database_1_1_user}{User}\+: 用户对象，如果不存在则返回\+None 
+
+在文件 \mbox{\hyperlink{crud_2user_8py_source}{user.\+py}} 第 \mbox{\hyperlink{crud_2user_8py_source_l00027}{27}} 行定义.
+
+\Hypertarget{namespaceapp_1_1crud_1_1user_ab0ca8529244b599738e66a0cf7136e70}\index{app.crud.user@{app.crud.user}!get\_users@{get\_users}}
+\index{get\_users@{get\_users}!app.crud.user@{app.crud.user}}
+\doxysubsubsection{\texorpdfstring{get\_users()}{get\_users()}}
+{\footnotesize\ttfamily \label{namespaceapp_1_1crud_1_1user_ab0ca8529244b599738e66a0cf7136e70} 
+app.\+crud.\+user.\+get\+\_\+users (\begin{DoxyParamCaption}\item[{Session}]{db}{, }\item[{int }]{skip}{ = {\ttfamily 0}, }\item[{int }]{limit}{ = {\ttfamily 100}}\end{DoxyParamCaption})}
+
+
+
+获取所有用户 
+
+Args\+: db\+: 数据库会话 skip\+: 跳过的记录数 limit\+: 返回的最大记录数
+
+Returns\+: List\mbox{[}\doxylink{classapp_1_1database_1_1_user}{User}\mbox{]}\+: 用户对象列表 
+
+在文件 \mbox{\hyperlink{crud_2user_8py_source}{user.\+py}} 第 \mbox{\hyperlink{crud_2user_8py_source_l00053}{53}} 行定义.
+

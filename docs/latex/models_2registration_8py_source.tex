@@ -1,0 +1,47 @@
+\doxysection{registration.\+py}
+\hypertarget{models_2registration_8py_source}{}\label{models_2registration_8py_source}\index{app/models/registration.py@{app/models/registration.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00001}\mbox{\hyperlink{namespaceapp_1_1models_1_1registration}{00001}}\ \textcolor{stringliteral}{"{}"{}"{}会议注册相关的数据模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00003}00003\ \textcolor{keyword}{from}\ datetime\ \textcolor{keyword}{import}\ datetime}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00004}00004\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00006}00006\ \textcolor{keyword}{from}\ pydantic\ \textcolor{keyword}{import}\ BaseModel}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00008}00008\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1models_1_1conference}{app.models.conference}}\ \textcolor{keyword}{import}\ ConferenceResponse}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00009}00009\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1models_1_1user}{app.models.user}}\ \textcolor{keyword}{import}\ UserResponse}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00012}\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_base}{00012}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_base}{RegistrationBase}}(BaseModel):}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00013}00013\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}注册基础模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00014}00014\ \ \ \ \ conference\_id:\ int\ \ \textcolor{comment}{\#\ 会议ID}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00017}\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_create}{00017}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_create}{RegistrationCreate}}(\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_base}{RegistrationBase}}):}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00018}00018\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}注册创建模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00022}\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_response}{00022}}\ \textcolor{keyword}{class\ }RegistrationResponse(RegistrationBase):}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00023}00023\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}注册响应模型"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00024}00024\ \ \ \ \ id:\ int\ \ \textcolor{comment}{\#\ 注册ID}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00025}00025\ \ \ \ \ user\_id:\ int\ \ \textcolor{comment}{\#\ 用户ID}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00026}00026\ \ \ \ \ registered\_at:\ datetime\ \ \textcolor{comment}{\#\ 注册时间}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00027}00027\ \ \ \ \ conference:\ Optional[ConferenceResponse]\ =\ \textcolor{keywordtype}{None}\ \ \textcolor{comment}{\#\ 会议信息}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00029}\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_response_1_1_config}{00029}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_registration_response_1_1_config}{Config}}:}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ orm\_mode\ =\ \textcolor{keyword}{True}\ \ \textcolor{comment}{\#\ 启用ORM模式}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00033}\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_user_registration_response}{00033}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_user_registration_response}{UserRegistrationResponse}}(BaseModel):}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00034}00034\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}用户注册响应模型，包含用户和会议信息"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00035}00035\ \ \ \ \ id:\ int\ \ \textcolor{comment}{\#\ 注册ID}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00036}00036\ \ \ \ \ user:\ UserResponse\ \ \textcolor{comment}{\#\ 用户信息}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00037}00037\ \ \ \ \ conference:\ ConferenceResponse\ \ \textcolor{comment}{\#\ 会议信息}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00038}00038\ \ \ \ \ registered\_at:\ datetime\ \ \textcolor{comment}{\#\ 注册时间}}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00040}\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_user_registration_response_1_1_config}{00040}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapp_1_1models_1_1registration_1_1_user_registration_response_1_1_config}{Config}}:}
+\DoxyCodeLine{\Hypertarget{models_2registration_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ orm\_mode\ =\ \textcolor{keyword}{True}\ \ \textcolor{comment}{\#\ 启用ORM模式}}
+
+\end{DoxyCode}

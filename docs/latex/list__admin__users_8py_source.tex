@@ -1,0 +1,56 @@
+\doxysection{list\+\_\+admin\+\_\+users.\+py}
+\hypertarget{list__admin__users_8py_source}{}\label{list__admin__users_8py_source}\index{app/scripts/list\_admin\_users.py@{app/scripts/list\_admin\_users.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00001}\mbox{\hyperlink{namespacelist__admin__users}{00001}}\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00002}00002\ \textcolor{stringliteral}{列出所有用户及其管理员状态的脚本。}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00003}00003\ \textcolor{stringliteral}{运行方式：python\ -\/m\ app.scripts.list\_admin\_users}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00004}00004\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00006}00006\ \textcolor{keyword}{from}\ sqlalchemy.orm\ \textcolor{keyword}{import}\ Session}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00008}00008\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1database}{app.database}}\ \textcolor{keyword}{import}\ SessionLocal,\ create\_tables}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00009}00009\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ user\ \textcolor{keyword}{as}\ user\_crud}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00012}\mbox{\hyperlink{namespacelist__admin__users_abb39cb0ff4e1399072161b918bb16122}{00012}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacelist__admin__users_abb39cb0ff4e1399072161b918bb16122}{list\_admin\_users}}():}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00013}00013\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}列出所有用户及其管理员状态。"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00014}00014\ \ \ \ \ \textcolor{comment}{\#\ 创建数据库会话}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00015}00015\ \ \ \ \ db\ =\ SessionLocal()}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00016}00016\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 获取所有用户}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00019}00019\ \ \ \ \ \ \ \ \ users\ =\ user\_crud.get\_users(db)}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00020}00020\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 打印表头}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00022}00022\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)n\{:<5\}\ \{:<20\}\ \{:<30\}\ \{:<10\}"{}}.format(\textcolor{stringliteral}{"{}ID"{}},\ \textcolor{stringliteral}{"{}用户名"{}},\ \textcolor{stringliteral}{"{}电子邮箱"{}},\ \textcolor{stringliteral}{"{}管理员"{}}))}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00023}00023\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}-\/"{}}\ *\ 70)}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00024}00024\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 打印用户信息}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ admin\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ user\ \textcolor{keywordflow}{in}\ users:}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ is\_admin\ =\ \textcolor{stringliteral}{"{}是"{}}\ \textcolor{keywordflow}{if}\ user.is\_admin\ \textcolor{keywordflow}{else}\ \textcolor{stringliteral}{"{}否"{}}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ user.is\_admin:}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ admin\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\{:<5\}\ \{:<20\}\ \{:<30\}\ \{:<10\}"{}}.format(}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ user.id,\ user.username,\ user.email,\ is\_admin}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ ))}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00034}00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 打印统计信息}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}-\/"{}}\ *\ 70)}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}总用户数:\ \{len(users)\}"{}})}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}管理员用户数:\ \{admin\_count\}"{}})}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}普通用户数:\ \{len(users)\ -\/\ admin\_count\}"{}})}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00040}00040\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{finally}:}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ db.close()}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00045}00045\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00046}00046\ \ \ \ \ \textcolor{comment}{\#\ 确保数据库表已创建}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00047}00047\ \ \ \ \ create\_tables()}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00048}00048\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00049}00049\ \ \ \ \ \textcolor{comment}{\#\ 列出管理员用户}}
+\DoxyCodeLine{\Hypertarget{list__admin__users_8py_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{namespacelist__admin__users}{list\_admin\_users}}()}
+
+\end{DoxyCode}

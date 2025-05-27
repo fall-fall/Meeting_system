@@ -1,0 +1,47 @@
+\doxysection{init\+\_\+db.\+py}
+\hypertarget{init__db_8py_source}{}\label{init__db_8py_source}\index{app/init\_db.py@{app/init\_db.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00001}00001\ \textcolor{comment}{\#\ 数据库初始化脚本}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00003}00003\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1database}{app.database}}\ \textcolor{keyword}{import}\ SessionLocal,\ create\_tables}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00004}00004\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1crud}{app.crud}}\ \textcolor{keyword}{import}\ user\ \textcolor{keyword}{as}\ user\_crud}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00005}00005\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceapp_1_1models_1_1user}{app.models.user}}\ \textcolor{keyword}{import}\ UserCreate}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00008}00008\ \textcolor{keyword}{def\ }init\_db():}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00009}00009\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}初始化数据库}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00010}00010\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00011}00011\ \textcolor{stringliteral}{\ \ \ \ 创建数据库表并添加默认数据（如管理员账号）}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00012}00012\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00013}00013\ \ \ \ \ \textcolor{comment}{\#\ 创建数据库表}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00014}00014\ \ \ \ \ create\_tables()}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00016}00016\ \ \ \ \ \textcolor{comment}{\#\ 创建数据库会话}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00017}00017\ \ \ \ \ db\ =\ SessionLocal()}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 检查管理员用户是否存在}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00021}00021\ \ \ \ \ \ \ \ \ admin\_user\ =\ user\_crud.get\_user\_by\_username(db,\ username=\textcolor{stringliteral}{"{}admin"{}})}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ admin\_user:}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 创建管理员用户}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ admin\ =\ UserCreate(}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ username=\textcolor{stringliteral}{"{}admin"{}},\ \ \textcolor{comment}{\#\ 用户名}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ email=\textcolor{stringliteral}{"{}admin@example.com"{}},\ \ \textcolor{comment}{\#\ 电子邮箱}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ password=\textcolor{stringliteral}{"{}admin123"{}},\ \ \textcolor{comment}{\#\ 密码}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\_admin=\textcolor{keyword}{True},\ \ \textcolor{comment}{\#\ 管理员权限}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ user\_crud.create\_user(db=db,\ user=admin)}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}管理员用户创建成功。"{}})}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}管理员用户已存在。"{}})}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{finally}:}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ 确保会话被关闭}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ db.close()}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00039}00039\ \textcolor{comment}{\#\ 如果直接运行此脚本，则执行初始化}}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00040}00040\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{\Hypertarget{init__db_8py_source_l00041}00041\ \ \ \ \ init\_db()}
+
+\end{DoxyCode}

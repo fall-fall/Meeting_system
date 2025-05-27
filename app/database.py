@@ -1,3 +1,12 @@
+##
+# @file database.py
+# @brief 数据库模型和配置模块
+# @details 定义了所有数据库模型、枚举类型和数据库连接配置
+# @author Meeting System Team
+# @date 2024
+# @version 1.0
+##
+
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime, ForeignKey, Text, Enum
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
@@ -6,20 +15,32 @@ from enum import Enum as PyEnum
 
 from app.config import settings
 
-# 创建SQLAlchemy引擎
+##
+# @brief SQLAlchemy数据库引擎
+# @details 创建数据库连接引擎，配置了SQLite特有参数
+##
 engine = create_engine(
     settings.DATABASE_URL, connect_args={"check_same_thread": False}  # SQLite特有的参数，允许多线程访问
 )
 
-# 创建会话工厂
+##
+# @brief 数据库会话工厂
+# @details 用于创建数据库会话的工厂类
+##
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# 创建模型基类
+##
+# @brief SQLAlchemy模型基类
+# @details 所有数据库模型的基类
+##
 Base = declarative_base()
 
-# 获取数据库会话的依赖函数（用于FastAPI依赖注入）
+##
+# @brief 获取数据库会话的依赖函数
+# @details 用于FastAPI依赖注入，创建数据库会话并在请求结束时自动关闭
+# @return Generator[数据库会话对象]
+##
 def get_db():
-    """创建数据库会话并在请求结束时关闭"""
     db = SessionLocal()
     try:
         yield db  # 返回数据库会话
@@ -27,10 +48,13 @@ def get_db():
         db.close()  # 确保会话被关闭
 
 
-# 数据库模型定义
+##
+# @class User
+# @brief 用户数据库模型
+# @details 存储用户的基本信息，包括认证信息和权限设置
+##
 class User(Base):
-    """用户模型"""
-    __tablename__ = "users"  # 数据库表名
+    __tablename__ = "users"  ##< 数据库表名
 
     # 基本字段
     id = Column(Integer, primary_key=True, index=True)  # 用户ID，主键
@@ -48,9 +72,13 @@ class User(Base):
     notifications = relationship("Notification", foreign_keys="Notification.user_id", back_populates="user")  # 用户的通知
 
 
+##
+# @class Conference
+# @brief 会议数据库模型
+# @details 存储会议的基本信息，包括标题、描述、时间和地点
+##
 class Conference(Base):
-    """会议模型"""
-    __tablename__ = "conferences"  # 数据库表名
+    __tablename__ = "conferences"  ##< 数据库表名
 
     # 基本字段
     id = Column(Integer, primary_key=True, index=True)  # 会议ID，主键
@@ -99,22 +127,28 @@ class Registration(Base):
     conference = relationship("Conference", back_populates="registrations")  # 参加的会议
 
 
-# 好友关系状态枚举
+##
+# @enum FriendshipStatus
+# @brief 好友关系状态枚举
+# @details 定义好友关系的各种状态
+##
 class FriendshipStatus(PyEnum):
-    """好友关系状态枚举类"""
-    PENDING = "pending"  # 等待接受
-    ACCEPTED = "accepted"  # 已接受
-    REJECTED = "rejected"  # 已拒绝
+    PENDING = "pending"  ##< 等待接受
+    ACCEPTED = "accepted"  ##< 已接受
+    REJECTED = "rejected"  ##< 已拒绝
 
 
-# 通知类型枚举
+##
+# @enum NotificationType
+# @brief 通知类型枚举
+# @details 定义系统中各种通知类型
+##
 class NotificationType(PyEnum):
-    """通知类型枚举类"""
-    FRIEND_REQUEST = "friend_request"  # 好友请求
-    FRIEND_ACCEPTED = "friend_accepted"  # 好友请求已接受
-    MEETING_INVITATION = "meeting_invitation"  # 会议邀请
-    MEETING_JOINED = "meeting_joined"  # 已加入会议
-    MEETING_LEFT = "meeting_left"  # 已退出会议
+    FRIEND_REQUEST = "friend_request"  ##< 好友请求
+    FRIEND_ACCEPTED = "friend_accepted"  ##< 好友请求已接受
+    MEETING_INVITATION = "meeting_invitation"  ##< 会议邀请
+    MEETING_JOINED = "meeting_joined"  ##< 已加入会议
+    MEETING_LEFT = "meeting_left"  ##< 已退出会议
 
 
 # 好友关系模型
@@ -155,7 +189,9 @@ class Notification(Base):
     sender = relationship("User", foreign_keys=[sender_id])  # 发送者
 
 
-# 创建数据库表
+##
+# @brief 创建数据库表
+# @details 使用SQLAlchemy创建所有定义的数据库表
+##
 def create_tables():
-    """创建所有数据库表"""
     Base.metadata.create_all(bind=engine)  # 使用SQLAlchemy创建所有定义的表
