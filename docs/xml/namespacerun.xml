@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespacerun" kind="namespace" language="Python">
+    <compoundname>run</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="run_8py_1af7767eb404b922097d7206695c016bad" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>run.host</definition>
+        <argsstring></argsstring>
+        <name>host</name>
+        <qualifiedname>run.host</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="run.py" line="17" column="1" bodyfile="run.py" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="run_8py_1a7a6a5c33b9e900b36c2b941d5212210e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>run.port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <qualifiedname>run.port</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="run.py" line="17" column="1" bodyfile="run.py" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="run_8py_1aaefea49f3930fe5b602f83528102d2f0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>run.reload</definition>
+        <argsstring></argsstring>
+        <name>reload</name>
+        <qualifiedname>run.reload</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="run.py" line="17" column="1" bodyfile="run.py" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="run.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

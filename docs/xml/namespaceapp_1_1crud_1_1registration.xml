@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1crud_1_1registration" kind="namespace" language="Python">
+    <compoundname>app::crud::registration</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1registration_1a16f43f64b5220bd81ff7df2d3fe73b7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.registration.get_registration</definition>
+        <argsstring>(Session db, int registration_id)</argsstring>
+        <name>get_registration</name>
+        <qualifiedname>app.crud.registration.get_registration</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>registration_id</declname>
+        </param>
+        <briefdescription>
+<para>根据ID获取注册记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 registration_id: 注册记录ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_registration" kindref="compound">Registration</ref>: 注册记录对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/registration.py" line="13" column="1" bodyfile="app/crud/registration.py" bodystart="13" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1registration_1ab63e8855114d554c10ec29e10cf73f4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.registration.get_registration_by_user_and_conference</definition>
+        <argsstring>(Session db, int user_id, int conference_id)</argsstring>
+        <name>get_registration_by_user_and_conference</name>
+        <qualifiedname>app.crud.registration.get_registration_by_user_and_conference</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <briefdescription>
+<para>根据用户ID和会议ID获取注册记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 user_id: 用户ID conference_id: 会议ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_registration" kindref="compound">Registration</ref>: 注册记录对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/registration.py" line="26" column="1" bodyfile="app/crud/registration.py" bodystart="26" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1registration_1a9c4071c19b46210a3ff0b48c9c3b30f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.registration.get_registrations_by_user</definition>
+        <argsstring>(Session db, int user_id, int skip=0, int limit=100)</argsstring>
+        <name>get_registrations_by_user</name>
+        <qualifiedname>app.crud.registration.get_registrations_by_user</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>skip</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+<para>根据用户ID获取注册记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 user_id: 用户ID skip: 跳过的记录数 limit: 返回的最大记录数</para>
+<para>Returns: List[<ref refid="classapp_1_1database_1_1_registration" kindref="compound">Registration</ref>]: 注册记录对象列表 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/registration.py" line="43" column="1" bodyfile="app/crud/registration.py" bodystart="43" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1registration_1adeb0bb7dcdfa79f3aa34d6ac56e6a98c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.registration.get_registrations_by_conference</definition>
+        <argsstring>(Session db, int conference_id, int skip=0, int limit=100)</argsstring>
+        <name>get_registrations_by_conference</name>
+        <qualifiedname>app.crud.registration.get_registrations_by_conference</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>skip</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+<para>根据会议ID获取注册记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 conference_id: 会议ID skip: 跳过的记录数 limit: 返回的最大记录数</para>
+<para>Returns: List[<ref refid="classapp_1_1database_1_1_registration" kindref="compound">Registration</ref>]: 注册记录对象列表 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/registration.py" line="58" column="1" bodyfile="app/crud/registration.py" bodystart="58" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1registration_1a20733d661f9a082b648c0c6d881ebcbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.registration.create_registration</definition>
+        <argsstring>(Session db, RegistrationCreate registration, int user_id)</argsstring>
+        <name>create_registration</name>
+        <qualifiedname>app.crud.registration.create_registration</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1models_1_1registration_1_1_registration_create" kindref="compound">RegistrationCreate</ref></type>
+          <declname>registration</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <briefdescription>
+<para>创建新的注册记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 registration: 注册记录创建模型 user_id: 用户ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_registration" kindref="compound">Registration</ref>: 创建的注册记录对象 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/registration.py" line="73" column="1" bodyfile="app/crud/registration.py" bodystart="73" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1registration_1ab93378fa05b214f93587d122761be3eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.registration.delete_registration</definition>
+        <argsstring>(Session db, int registration_id)</argsstring>
+        <name>delete_registration</name>
+        <qualifiedname>app.crud.registration.delete_registration</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>registration_id</declname>
+        </param>
+        <briefdescription>
+<para>删除注册记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 registration_id: 注册记录ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_registration" kindref="compound">Registration</ref>: 被删除的注册记录对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/registration.py" line="98" column="1" bodyfile="app/crud/registration.py" bodystart="98" bodyend="116"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>会议注册数据库操作模块 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>本模块提供会议注册相关的数据库CRUD操作函数 </para>
+    </detaileddescription>
+    <location file="app/crud/registration.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

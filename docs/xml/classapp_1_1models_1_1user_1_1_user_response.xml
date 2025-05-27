@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1user_1_1_user_response" kind="class" language="Python" prot="public">
+    <compoundname>app::models::user::UserResponse</compoundname>
+    <basecompoundref refid="classapp_1_1models_1_1user_1_1_user_base" prot="public" virt="non-virtual">app.models.user.UserBase</basecompoundref>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_user_response_1_1_config" prot="public">app::models::user::UserResponse::Config</innerclass>
+    <briefdescription>
+<para>用户响应模型 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>用于返回用户信息，不包含敏感数据 </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.user.UserResponse</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_response"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.user.UserBase</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.user.UserResponse</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_response"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.user.UserBase</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/models/user.py" line="51" column="1" bodyfile="app/models/user.py" bodystart="51" bodyend="59"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

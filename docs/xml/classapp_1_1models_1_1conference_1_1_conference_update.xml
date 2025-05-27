@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1conference_1_1_conference_update" kind="class" language="Python" prot="public">
+    <compoundname>app::models::conference::ConferenceUpdate</compoundname>
+    <basecompoundref refid="classapp_1_1models_1_1conference_1_1_conference_base" prot="public" virt="non-virtual">app.models.conference.ConferenceBase</basecompoundref>
+    <briefdescription>
+<para>会议更新模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.conference.ConferenceUpdate</label>
+        <link refid="classapp_1_1models_1_1conference_1_1_conference_update"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.conference.ConferenceBase</label>
+        <link refid="classapp_1_1models_1_1conference_1_1_conference_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.conference.ConferenceUpdate</label>
+        <link refid="classapp_1_1models_1_1conference_1_1_conference_update"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.conference.ConferenceBase</label>
+        <link refid="classapp_1_1models_1_1conference_1_1_conference_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/models/conference.py" line="45" column="1" bodyfile="app/models/conference.py" bodystart="45" bodyend="49"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

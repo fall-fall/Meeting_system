@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1user_1_1_user_create" kind="class" language="Python" prot="public">
+    <compoundname>app::models::user::UserCreate</compoundname>
+    <basecompoundref refid="classapp_1_1models_1_1user_1_1_user_base" prot="public" virt="non-virtual">app.models.user.UserBase</basecompoundref>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1models_1_1user_1_1_user_create_1af12fcc9f337d4a292a02d0df483d4b66" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool app.models.user.UserCreate::is_admin</definition>
+        <argsstring></argsstring>
+        <name>is_admin</name>
+        <qualifiedname>app.models.user.UserCreate.is_admin</qualifiedname>
+        <initializer>=  False</initializer>
+        <briefdescription>
+<para>密码 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>是否为管理员 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/models/user.py" line="33" column="1" bodyfile="app/models/user.py" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>用户创建模型 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>用于注册新用户，包含密码和管理员权限 </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.user.UserCreate</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_create"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.user.UserBase</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.user.UserCreate</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_create"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.user.UserBase</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/models/user.py" line="31" column="1" bodyfile="app/models/user.py" bodystart="31" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classapp_1_1models_1_1user_1_1_user_create_1af12fcc9f337d4a292a02d0df483d4b66" prot="public" virt="non-virtual"><scope>app::models::user::UserCreate</scope><name>is_admin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

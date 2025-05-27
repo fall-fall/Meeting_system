@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="dir_4f4ffbccf11cbca500168186def350d4" kind="dir">
+    <compoundname>app/crud</compoundname>
+    <innerfile refid="crud_2____init_____8py">__init__.py</innerfile>
+    <innerfile refid="crud_2conference_8py">conference.py</innerfile>
+    <innerfile refid="crud_2friendship_8py">friendship.py</innerfile>
+    <innerfile refid="crud_2notification_8py">notification.py</innerfile>
+    <innerfile refid="crud_2registration_8py">registration.py</innerfile>
+    <innerfile refid="crud_2user_8py">user.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/crud/"/>
+  </compounddef>
+</doxygen>

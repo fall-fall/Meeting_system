@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="models_2user_8py" kind="file" language="Python">
+    <compoundname>user.py</compoundname>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_user_base" prot="public">app::models::user::UserBase</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_user_create" prot="public">app::models::user::UserCreate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_user_login" prot="public">app::models::user::UserLogin</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_user_response" prot="public">app::models::user::UserResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_user_response_1_1_config" prot="public">app::models::user::UserResponse::Config</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_token" prot="public">app::models::user::Token</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_token_data" prot="public">app::models::user::TokenData</innerclass>
+    <innernamespace refid="namespaceapp">app</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models">app::models</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models_1_1user">app::models::user</innernamespace>
+    <briefdescription>
+<para>用户相关的数据模型 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>定义了用户的各种数据模型，包括创建、登录、响应和令牌模型 <simplesect kind="author"><para>Meeting System Team </para>
+</simplesect>
+<simplesect kind="date"><para>2024 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>datetime<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>datetime</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>typing<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Optional</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>pydantic<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>BaseModel</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classapp_1_1models_1_1user_1_1_user_base" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1user_1_1_user_base" kindref="compound">UserBase</ref>(BaseModel):</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>username:<sp/>str<sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>email:<sp/>str<sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="classapp_1_1models_1_1user_1_1_user_create" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1user_1_1_user_create" kindref="compound">UserCreate</ref>(<ref refid="classapp_1_1models_1_1user_1_1_user_base" kindref="compound">UserBase</ref>):</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>password:<sp/>str<sp/><sp/></highlight></codeline>
+<codeline lineno="33" refid="classapp_1_1models_1_1user_1_1_user_create_1af12fcc9f337d4a292a02d0df483d4b66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>is_admin:<sp/>bool<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="classapp_1_1models_1_1user_1_1_user_login" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1user_1_1_user_login" kindref="compound">UserLogin</ref>(BaseModel):</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>username:<sp/>str<sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>password:<sp/>str<sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="classapp_1_1models_1_1user_1_1_user_response" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1user_1_1_user_response" kindref="compound">UserResponse</ref>(<ref refid="classapp_1_1models_1_1user_1_1_user_base" kindref="compound">UserBase</ref>):</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>int<sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>is_admin:<sp/>bool<sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>created_at:<sp/>datetime<sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classapp_1_1models_1_1user_1_1_user_response_1_1_config" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1user_1_1_user_response_1_1_config" kindref="compound">Config</ref>:</highlight></codeline>
+<codeline lineno="57" refid="classapp_1_1models_1_1user_1_1_user_response_1_1_config_1aa0fdcbfb7f21d0fce2188b837151e18a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>orm_mode<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="classapp_1_1models_1_1user_1_1_token" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1user_1_1_token" kindref="compound">Token</ref>(BaseModel):</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>access_token:<sp/>str<sp/><sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>token_type:<sp/>str<sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="classapp_1_1models_1_1user_1_1_token_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1user_1_1_token_data" kindref="compound">TokenData</ref>(BaseModel):</highlight></codeline>
+<codeline lineno="76" refid="classapp_1_1models_1_1user_1_1_token_data_1a7cd618b298d8fdc8adf8e7e24f1edec4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>username:<sp/>Optional[str]<sp/>=<sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+    </programlisting>
+    <location file="app/models/user.py"/>
+  </compounddef>
+</doxygen>

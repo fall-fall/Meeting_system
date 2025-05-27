@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1database_1_1_friendship_status" kind="class" language="Python" prot="public">
+    <compoundname>app::database::FriendshipStatus</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">PyEnum</basecompoundref>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_status_1a87c627095e471324096a89595731426d" prot="public" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.FriendshipStatus::PENDING</definition>
+        <argsstring></argsstring>
+        <name>PENDING</name>
+        <qualifiedname>app.database.FriendshipStatus.PENDING</qualifiedname>
+        <initializer>=  &quot;pending&quot;</initializer>
+        <briefdescription>
+<para>等待接受 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="136" column="1" bodyfile="app/database.py" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_status_1a04942b653032c597091b10f6797bf87c" prot="public" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.FriendshipStatus::ACCEPTED</definition>
+        <argsstring></argsstring>
+        <name>ACCEPTED</name>
+        <qualifiedname>app.database.FriendshipStatus.ACCEPTED</qualifiedname>
+        <initializer>=  &quot;accepted&quot;</initializer>
+        <briefdescription>
+<para>已接受 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="137" column="1" bodyfile="app/database.py" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_status_1ab1fd80afb464a34041b5a091960192a3" prot="public" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.FriendshipStatus::REJECTED</definition>
+        <argsstring></argsstring>
+        <name>REJECTED</name>
+        <qualifiedname>app.database.FriendshipStatus.REJECTED</qualifiedname>
+        <initializer>=  &quot;rejected&quot;</initializer>
+        <briefdescription>
+<para>已拒绝 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="138" column="1" bodyfile="app/database.py" bodystart="138" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PyEnum</label>
+      </node>
+      <node id="1">
+        <label>app.database.FriendshipStatus</label>
+        <link refid="classapp_1_1database_1_1_friendship_status"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>PyEnum</label>
+      </node>
+      <node id="1">
+        <label>app.database.FriendshipStatus</label>
+        <link refid="classapp_1_1database_1_1_friendship_status"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/database.py" line="135" column="1" bodyfile="app/database.py" bodystart="135" bodyend="140"/>
+    <listofallmembers>
+      <member refid="classapp_1_1database_1_1_friendship_status_1a04942b653032c597091b10f6797bf87c" prot="public" virt="non-virtual"><scope>app::database::FriendshipStatus</scope><name>ACCEPTED</name></member>
+      <member refid="classapp_1_1database_1_1_friendship_status_1a87c627095e471324096a89595731426d" prot="public" virt="non-virtual"><scope>app::database::FriendshipStatus</scope><name>PENDING</name></member>
+      <member refid="classapp_1_1database_1_1_friendship_status_1ab1fd80afb464a34041b5a091960192a3" prot="public" virt="non-virtual"><scope>app::database::FriendshipStatus</scope><name>REJECTED</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

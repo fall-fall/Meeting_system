@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1user_1_1_token" kind="class" language="Python" prot="public">
+    <compoundname>app::models::user::Token</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BaseModel</basecompoundref>
+    <briefdescription>
+<para>令牌模型 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>用于JWT认证的令牌信息 </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.user.Token</label>
+        <link refid="classapp_1_1models_1_1user_1_1_token"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.user.Token</label>
+        <link refid="classapp_1_1models_1_1user_1_1_token"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/models/user.py" line="65" column="1" bodyfile="app/models/user.py" bodystart="65" bodyend="69"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

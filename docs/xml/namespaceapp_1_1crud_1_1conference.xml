@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1crud_1_1conference" kind="namespace" language="Python">
+    <compoundname>app::crud::conference</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1conference_1aea884062eeb5cd7d05b02f2a1ca0329b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.conference.get_conference</definition>
+        <argsstring>(Session db, int conference_id)</argsstring>
+        <name>get_conference</name>
+        <qualifiedname>app.crud.conference.get_conference</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <briefdescription>
+<para>根据ID获取会议 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 conference_id: 会议ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_conference" kindref="compound">Conference</ref>: 会议对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/conference.py" line="14" column="1" bodyfile="app/crud/conference.py" bodystart="14" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1conference_1a7b008e31486fa505559fe1ff5eff165a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.conference.get_conferences</definition>
+        <argsstring>(Session db, int skip=0, int limit=100)</argsstring>
+        <name>get_conferences</name>
+        <qualifiedname>app.crud.conference.get_conferences</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>skip</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+<para>获取所有会议 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 skip: 跳过的记录数 limit: 返回的最大记录数</para>
+<para>Returns: List[<ref refid="classapp_1_1database_1_1_conference" kindref="compound">Conference</ref>]: 会议对象列表 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/conference.py" line="27" column="1" bodyfile="app/crud/conference.py" bodystart="27" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1conference_1ae104a904decd6c7ddbc876115e0a3090" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.conference.get_conferences_by_creator</definition>
+        <argsstring>(Session db, int creator_id, int skip=0, int limit=100)</argsstring>
+        <name>get_conferences_by_creator</name>
+        <qualifiedname>app.crud.conference.get_conferences_by_creator</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>creator_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>skip</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+<para>根据创建者ID获取会议 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 creator_id: 创建者ID skip: 跳过的记录数 limit: 返回的最大记录数</para>
+<para>Returns: List[<ref refid="classapp_1_1database_1_1_conference" kindref="compound">Conference</ref>]: 会议对象列表，按日期降序排序 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/conference.py" line="41" column="1" bodyfile="app/crud/conference.py" bodystart="41" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1conference_1a29060124eb2ecfafb657f79d1ebcf6eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.conference.create_conference</definition>
+        <argsstring>(Session db, ConferenceCreate conference, int creator_id)</argsstring>
+        <name>create_conference</name>
+        <qualifiedname>app.crud.conference.create_conference</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1models_1_1conference_1_1_conference_create" kindref="compound">ConferenceCreate</ref></type>
+          <declname>conference</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>creator_id</declname>
+        </param>
+        <briefdescription>
+<para>创建新会议 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 conference: 会议创建模型 creator_id: 创建者ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_conference" kindref="compound">Conference</ref>: 创建的会议对象 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/conference.py" line="63" column="1" bodyfile="app/crud/conference.py" bodystart="63" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1conference_1acffbc05ae2103ae3c4997ca1d0dedd41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.conference.update_conference</definition>
+        <argsstring>(Session db, int conference_id, ConferenceUpdate conference)</argsstring>
+        <name>update_conference</name>
+        <qualifiedname>app.crud.conference.update_conference</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1models_1_1conference_1_1_conference_update" kindref="compound">ConferenceUpdate</ref></type>
+          <declname>conference</declname>
+        </param>
+        <briefdescription>
+<para>更新会议 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 conference_id: 会议ID conference: 会议更新模型</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_conference" kindref="compound">Conference</ref>: 更新后的会议对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/conference.py" line="91" column="1" bodyfile="app/crud/conference.py" bodystart="91" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1conference_1ae5b06751313084e1fb9a3354d1e9de1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.conference.delete_conference</definition>
+        <argsstring>(Session db, int conference_id)</argsstring>
+        <name>delete_conference</name>
+        <qualifiedname>app.crud.conference.delete_conference</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <briefdescription>
+<para>删除会议 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 conference_id: 会议ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_conference" kindref="compound">Conference</ref>: 被删除的会议对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/conference.py" line="116" column="1" bodyfile="app/crud/conference.py" bodystart="116" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1conference_1a3676c275fd2008435ec100c754e7076e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.conference.create_agenda_item</definition>
+        <argsstring>(Session db, AgendaItemCreate agenda_item, int conference_id)</argsstring>
+        <name>create_agenda_item</name>
+        <qualifiedname>app.crud.conference.create_agenda_item</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1models_1_1conference_1_1_agenda_item_create" kindref="compound">AgendaItemCreate</ref></type>
+          <declname>agenda_item</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <briefdescription>
+<para>创建新议程项 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 agenda_item: 议程项创建模型 conference_id: 所属会议ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_agenda_item" kindref="compound">AgendaItem</ref>: 创建的议程项对象 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/conference.py" line="136" column="1" bodyfile="app/crud/conference.py" bodystart="136" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1conference_1ab940be8b87bd00804d652a31b5eb1675" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.conference.get_agenda_items</definition>
+        <argsstring>(Session db, int conference_id)</argsstring>
+        <name>get_agenda_items</name>
+        <qualifiedname>app.crud.conference.get_agenda_items</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <briefdescription>
+<para>获取会议的议程项 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 conference_id: 会议ID</para>
+<para>Returns: List[<ref refid="classapp_1_1database_1_1_agenda_item" kindref="compound">AgendaItem</ref>]: 议程项对象列表 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/conference.py" line="164" column="1" bodyfile="app/crud/conference.py" bodystart="164" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1conference_1a6507ed4cdc1d66a237bc6644533283ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.conference.delete_agenda_item</definition>
+        <argsstring>(Session db, int agenda_item_id)</argsstring>
+        <name>delete_agenda_item</name>
+        <qualifiedname>app.crud.conference.delete_agenda_item</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>agenda_item_id</declname>
+        </param>
+        <briefdescription>
+<para>删除议程项 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 agenda_item_id: 议程项ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_agenda_item" kindref="compound">AgendaItem</ref>: 被删除的议程项对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/conference.py" line="177" column="1" bodyfile="app/crud/conference.py" bodystart="177" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1conference_1ac333a986c83db46f58fa3ee9a19e0460" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.conference.get_upcoming_conferences</definition>
+        <argsstring>(Session db, int skip=0, int limit=100)</argsstring>
+        <name>get_upcoming_conferences</name>
+        <qualifiedname>app.crud.conference.get_upcoming_conferences</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>skip</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+<para>获取即将举行的会议 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 skip: 跳过的记录数 limit: 返回的最大记录数</para>
+<para>Returns: List[<ref refid="classapp_1_1database_1_1_conference" kindref="compound">Conference</ref>]: 会议对象列表，按日期升序排序 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/conference.py" line="197" column="1" bodyfile="app/crud/conference.py" bodystart="197" bodyend="220"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>会议数据库操作模块 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>本模块提供会议和议程项相关的数据库CRUD操作函数 </para>
+    </detaileddescription>
+    <location file="app/crud/conference.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

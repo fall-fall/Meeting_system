@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespacegenerate__invitations" kind="namespace" language="Python">
+    <compoundname>generate_invitations</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacegenerate__invitations_1aa9bc41f895a19b8a0aa0c9017538fcaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>generate_invitations.generate_invitations</definition>
+        <argsstring>()</argsstring>
+        <name>generate_invitations</name>
+        <qualifiedname>generate_invitations.generate_invitations</qualifiedname>
+        <briefdescription>
+<para>生成会议邀请通知。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/scripts/generate_invitations.py" line="17" column="1" bodyfile="app/scripts/generate_invitations.py" bodystart="17" bodyend="72"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>生成会议邀请通知的脚本。 运行方式：python -m app.scripts.generate_invitations </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/scripts/generate_invitations.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

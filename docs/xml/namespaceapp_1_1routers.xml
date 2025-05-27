@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1routers" kind="namespace" language="Python">
+    <compoundname>app::routers</compoundname>
+    <innernamespace refid="namespaceapp_1_1routers_1_1auth">app::routers::auth</innernamespace>
+    <innernamespace refid="namespaceapp_1_1routers_1_1conferences">app::routers::conferences</innernamespace>
+    <innernamespace refid="namespaceapp_1_1routers_1_1friends">app::routers::friends</innernamespace>
+    <innernamespace refid="namespaceapp_1_1routers_1_1my__conferences">app::routers::my_conferences</innernamespace>
+    <innernamespace refid="namespaceapp_1_1routers_1_1notifications">app::routers::notifications</innernamespace>
+    <innernamespace refid="namespaceapp_1_1routers_1_1registrations">app::routers::registrations</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/routers/__init__.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1conference_1_1_agenda_item_response_1_1_config" kind="class" language="Python" prot="public">
+    <compoundname>app::models::conference::AgendaItemResponse::Config</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1models_1_1conference_1_1_agenda_item_response_1_1_config_1a93fe9b9bfbc3467f5554769422a46213" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool app.models.conference.AgendaItemResponse.Config::orm_mode</definition>
+        <argsstring></argsstring>
+        <name>orm_mode</name>
+        <qualifiedname>app.models.conference.AgendaItemResponse.Config.orm_mode</qualifiedname>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/models/conference.py" line="29" column="1" bodyfile="app/models/conference.py" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/models/conference.py" line="28" column="1" bodyfile="app/models/conference.py" bodystart="28" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classapp_1_1models_1_1conference_1_1_agenda_item_response_1_1_config_1a93fe9b9bfbc3467f5554769422a46213" prot="public" virt="non-virtual"><scope>app::models::conference::AgendaItemResponse::Config</scope><name>orm_mode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

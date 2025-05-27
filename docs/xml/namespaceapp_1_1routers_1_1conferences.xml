@@ -1,0 +1,402 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1routers_1_1conferences" kind="namespace" language="Python">
+    <compoundname>app::routers::conferences</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceapp_1_1routers_1_1conferences_1a70b98c97b0cf60ba43babbe52e337776" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::routers::conferences.router</definition>
+        <argsstring></argsstring>
+        <name>router</name>
+        <qualifiedname>app.routers.conferences.router</qualifiedname>
+        <initializer>=  APIRouter(prefix=&quot;/conferences&quot;, tags=[&quot;conferences&quot;])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="21" column="1" bodyfile="app/routers/conferences.py" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceapp_1_1routers_1_1conferences_1a5211cd4b2d37b6e93570fe50538bf99e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::routers::conferences.templates</definition>
+        <argsstring></argsstring>
+        <name>templates</name>
+        <qualifiedname>app.routers.conferences.templates</qualifiedname>
+        <initializer>=  Jinja2Templates(directory=&quot;app/templates&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="23" column="1" bodyfile="app/routers/conferences.py" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1conferences_1a4662b81bd448dff2470ea65049810826" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.conferences.list_conferences</definition>
+        <argsstring>(Request request, Session db=Depends(get_db))</argsstring>
+        <name>list_conferences</name>
+        <qualifiedname>app.routers.conferences.list_conferences</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>显示所有会议列表 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="27" column="1" bodyfile="app/routers/conferences.py" bodystart="30" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1conferences_1af3c6e65e018cf0b26585c8a95dc3268f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.conferences.create_conference_page</definition>
+        <argsstring>(Request request, User current_user=Depends(get_current_admin_user))</argsstring>
+        <name>create_conference_page</name>
+        <qualifiedname>app.routers.conferences.create_conference_page</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref></type>
+          <declname>current_user</declname>
+          <defval>Depends(get_current_admin_user)</defval>
+        </param>
+        <briefdescription>
+<para>渲染创建会议页面 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="59" column="1" bodyfile="app/routers/conferences.py" bodystart="62" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1conferences_1a51442c457652be1d0e5c57367ea84d6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.conferences.create_conference</definition>
+        <argsstring>(Request request, str title=Form(...), str description=Form(...), str date=Form(...), str location=Form(...), Session db=Depends(get_db), User current_user=Depends(get_current_admin_user))</argsstring>
+        <name>create_conference</name>
+        <qualifiedname>app.routers.conferences.create_conference</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>title</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>description</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>date</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>location</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref></type>
+          <declname>current_user</declname>
+          <defval>Depends(get_current_admin_user)</defval>
+        </param>
+        <briefdescription>
+<para>创建新会议 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="71" column="1" bodyfile="app/routers/conferences.py" bodystart="79" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1conferences_1ad86297869c180294da4025aa6a4f415d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.conferences.admin_conferences</definition>
+        <argsstring>(Request request, Session db=Depends(get_db), User current_user=Depends(get_current_admin_user))</argsstring>
+        <name>admin_conferences</name>
+        <qualifiedname>app.routers.conferences.admin_conferences</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref></type>
+          <declname>current_user</declname>
+          <defval>Depends(get_current_admin_user)</defval>
+        </param>
+        <briefdescription>
+<para>List conferences created by the current admin user. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="112" column="1" bodyfile="app/routers/conferences.py" bodystart="116" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1conferences_1a660abe0e42aaab5340d64360ebcca6d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.conferences.conference_detail</definition>
+        <argsstring>(Request request, int conference_id, Session db=Depends(get_db))</argsstring>
+        <name>conference_detail</name>
+        <qualifiedname>app.routers.conferences.conference_detail</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>Get a conference by ID. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="126" column="1" bodyfile="app/routers/conferences.py" bodystart="130" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1conferences_1a07ec49ad3c6c141a937d4c28085ddc4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.conferences.edit_conference_page</definition>
+        <argsstring>(Request request, int conference_id, Session db=Depends(get_db), User current_user=Depends(get_current_admin_user))</argsstring>
+        <name>edit_conference_page</name>
+        <qualifiedname>app.routers.conferences.edit_conference_page</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref></type>
+          <declname>current_user</declname>
+          <defval>Depends(get_current_admin_user)</defval>
+        </param>
+        <briefdescription>
+<para>Render the edit conference page. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="175" column="1" bodyfile="app/routers/conferences.py" bodystart="180" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1conferences_1aa61ba1c75992e0557d166ae1980e42ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.conferences.edit_conference</definition>
+        <argsstring>(Request request, int conference_id, str title=Form(...), str description=Form(...), str date=Form(...), str location=Form(...), Session db=Depends(get_db), User current_user=Depends(get_current_admin_user))</argsstring>
+        <name>edit_conference</name>
+        <qualifiedname>app.routers.conferences.edit_conference</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>title</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>description</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>date</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>location</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref></type>
+          <declname>current_user</declname>
+          <defval>Depends(get_current_admin_user)</defval>
+        </param>
+        <briefdescription>
+<para>Edit a conference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="205" column="1" bodyfile="app/routers/conferences.py" bodystart="214" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1conferences_1a9c4e0c10ba5034c47dca387159bb055c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.conferences.delete_conference</definition>
+        <argsstring>(int conference_id, Session db=Depends(get_db), User current_user=Depends(get_current_admin_user))</argsstring>
+        <name>delete_conference</name>
+        <qualifiedname>app.routers.conferences.delete_conference</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref></type>
+          <declname>current_user</declname>
+          <defval>Depends(get_current_admin_user)</defval>
+        </param>
+        <briefdescription>
+<para>Delete a conference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="252" column="1" bodyfile="app/routers/conferences.py" bodystart="256" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1conferences_1aa8a421bdfd74c0844507cad90d12a533" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.conferences.add_agenda_item</definition>
+        <argsstring>(Request request, int conference_id, str start_time=Form(...), str end_time=Form(...), str title=Form(...), str speaker=Form(...), Session db=Depends(get_db), User current_user=Depends(get_current_admin_user))</argsstring>
+        <name>add_agenda_item</name>
+        <qualifiedname>app.routers.conferences.add_agenda_item</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>start_time</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>end_time</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>title</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>speaker</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref></type>
+          <declname>current_user</declname>
+          <defval>Depends(get_current_admin_user)</defval>
+        </param>
+        <briefdescription>
+<para>Add an agenda item to a conference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="274" column="1" bodyfile="app/routers/conferences.py" bodystart="283" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1conferences_1a5499155e445401d8cfe6fd97d6920450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.conferences.delete_agenda_item</definition>
+        <argsstring>(int conference_id, int agenda_item_id, Session db=Depends(get_db), User current_user=Depends(get_current_admin_user))</argsstring>
+        <name>delete_agenda_item</name>
+        <qualifiedname>app.routers.conferences.delete_agenda_item</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>agenda_item_id</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref></type>
+          <declname>current_user</declname>
+          <defval>Depends(get_current_admin_user)</defval>
+        </param>
+        <briefdescription>
+<para>Delete an agenda item. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/conferences.py" line="307" column="1" bodyfile="app/routers/conferences.py" bodystart="312" bodyend="327"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>会议相关的路由处理模块 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>包含会议列表、详情、创建、编辑、删除和议程管理等功能 </para>
+    </detaileddescription>
+    <location file="app/routers/conferences.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

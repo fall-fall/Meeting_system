@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1routers_1_1friends" kind="namespace" language="Python">
+    <compoundname>app::routers::friends</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="friends_8py_1af6b649d84637155e3491faeaa5a21218" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::routers::friends.router</definition>
+        <argsstring></argsstring>
+        <name>router</name>
+        <qualifiedname>app.routers.friends.router</qualifiedname>
+        <initializer>=  APIRouter(prefix=&quot;/friends&quot;, tags=[&quot;friends&quot;])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/friends.py" line="12" column="1" bodyfile="app/routers/friends.py" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="friends_8py_1a04210b7ffe9e06d1b1ae16a5d6957b29" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::routers::friends.templates</definition>
+        <argsstring></argsstring>
+        <name>templates</name>
+        <qualifiedname>app.routers.friends.templates</qualifiedname>
+        <initializer>=  Jinja2Templates(directory=&quot;app/templates&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/friends.py" line="13" column="1" bodyfile="app/routers/friends.py" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="friends_8py_1a3160d83a66d09af493152bd46e1733ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.friends.list_friends</definition>
+        <argsstring>(Request request, Session db=Depends(get_db))</argsstring>
+        <name>list_friends</name>
+        <qualifiedname>app.routers.friends.list_friends</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>显示好友列表页面。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/friends.py" line="17" column="1" bodyfile="app/routers/friends.py" bodystart="20" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="friends_8py_1a19894d69edadea56a32a724477913f65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.friends.add_friend</definition>
+        <argsstring>(Request request, int friend_id=Form(...), Session db=Depends(get_db))</argsstring>
+        <name>add_friend</name>
+        <qualifiedname>app.routers.friends.add_friend</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>friend_id</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>发送好友请求。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/friends.py" line="67" column="1" bodyfile="app/routers/friends.py" bodystart="71" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="friends_8py_1a0687bf5c6e20d75755252820e3095193" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.friends.accept_friend_request</definition>
+        <argsstring>(Request request, int friendship_id, Session db=Depends(get_db))</argsstring>
+        <name>accept_friend_request</name>
+        <qualifiedname>app.routers.friends.accept_friend_request</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>friendship_id</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>接受好友请求。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/friends.py" line="118" column="1" bodyfile="app/routers/friends.py" bodystart="122" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="friends_8py_1a259bbaacd8b607a50713fd33963da107" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.friends.reject_friend_request</definition>
+        <argsstring>(Request request, int friendship_id, Session db=Depends(get_db))</argsstring>
+        <name>reject_friend_request</name>
+        <qualifiedname>app.routers.friends.reject_friend_request</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>friendship_id</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>拒绝好友请求。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/friends.py" line="165" column="1" bodyfile="app/routers/friends.py" bodystart="169" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="friends_8py_1a25f185cb7eba2fc7a7d568d3ddd895fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.friends.delete_friend</definition>
+        <argsstring>(Request request, int friend_id, Session db=Depends(get_db))</argsstring>
+        <name>delete_friend</name>
+        <qualifiedname>app.routers.friends.delete_friend</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>friend_id</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>删除好友。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/friends.py" line="202" column="1" bodyfile="app/routers/friends.py" bodystart="206" bodyend="232"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/routers/friends.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

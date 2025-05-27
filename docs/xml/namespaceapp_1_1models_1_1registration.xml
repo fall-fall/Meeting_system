@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1models_1_1registration" kind="namespace" language="Python">
+    <compoundname>app::models::registration</compoundname>
+    <innerclass refid="classapp_1_1models_1_1registration_1_1_registration_base" prot="public">app::models::registration::RegistrationBase</innerclass>
+    <innerclass refid="classapp_1_1models_1_1registration_1_1_registration_create" prot="public">app::models::registration::RegistrationCreate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1registration_1_1_registration_response" prot="public">app::models::registration::RegistrationResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1registration_1_1_user_registration_response" prot="public">app::models::registration::UserRegistrationResponse</innerclass>
+    <briefdescription>
+<para>会议注册相关的数据模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/models/registration.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

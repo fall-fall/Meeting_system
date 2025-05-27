@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1crud_1_1notification" kind="namespace" language="Python">
+    <compoundname>app::crud::notification</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="crud_2notification_8py_1adb7aee39d3d257e4bef689e61afe0a25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.notification.get_notification</definition>
+        <argsstring>(Session db, int notification_id)</argsstring>
+        <name>get_notification</name>
+        <qualifiedname>app.crud.notification.get_notification</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>notification_id</declname>
+        </param>
+        <briefdescription>
+<para>获取通知。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/notification.py" line="6" column="1" bodyfile="app/crud/notification.py" bodystart="6" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="crud_2notification_8py_1aba34281f840d1c11b151e2242d376b5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.notification.get_notifications_by_user</definition>
+        <argsstring>(Session db, int user_id, int skip=0, int limit=100, bool unread_only=False)</argsstring>
+        <name>get_notifications_by_user</name>
+        <qualifiedname>app.crud.notification.get_notifications_by_user</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>skip</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+          <defval>100</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>unread_only</declname>
+          <defval>False</defval>
+        </param>
+        <briefdescription>
+<para>获取用户的通知。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/notification.py" line="11" column="1" bodyfile="app/crud/notification.py" bodystart="11" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="crud_2notification_8py_1afe46f4a35e67db17e04f4844893e88a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.notification.create_notification</definition>
+        <argsstring>(Session db, int user_id, NotificationType type, str content, int sender_id=None, int related_id=None)</argsstring>
+        <name>create_notification</name>
+        <qualifiedname>app.crud.notification.create_notification</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_notification_type" kindref="compound">NotificationType</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>content</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sender_id</declname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>related_id</declname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+<para>创建通知。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/notification.py" line="21" column="1" bodyfile="app/crud/notification.py" bodystart="28" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="crud_2notification_8py_1aaab0c2fedd977234f7433ca9de4ffd0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.notification.mark_notification_as_read</definition>
+        <argsstring>(Session db, int notification_id)</argsstring>
+        <name>mark_notification_as_read</name>
+        <qualifiedname>app.crud.notification.mark_notification_as_read</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>notification_id</declname>
+        </param>
+        <briefdescription>
+<para>将通知标记为已读。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/notification.py" line="44" column="1" bodyfile="app/crud/notification.py" bodystart="44" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="crud_2notification_8py_1a09d92b03c5fd48d247c64ec941bfa568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.notification.mark_all_notifications_as_read</definition>
+        <argsstring>(Session db, int user_id)</argsstring>
+        <name>mark_all_notifications_as_read</name>
+        <qualifiedname>app.crud.notification.mark_all_notifications_as_read</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <briefdescription>
+<para>将用户的所有通知标记为已读。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/notification.py" line="54" column="1" bodyfile="app/crud/notification.py" bodystart="54" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="crud_2notification_8py_1a319558e8a6165a2d331e053ae8b9bb90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.notification.delete_notification</definition>
+        <argsstring>(Session db, int notification_id)</argsstring>
+        <name>delete_notification</name>
+        <qualifiedname>app.crud.notification.delete_notification</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>notification_id</declname>
+        </param>
+        <briefdescription>
+<para>删除通知。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/notification.py" line="63" column="1" bodyfile="app/crud/notification.py" bodystart="63" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="crud_2notification_8py_1a2812c619781e66a340a88871675fa64e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.notification.get_unread_notification_count</definition>
+        <argsstring>(Session db, int user_id)</argsstring>
+        <name>get_unread_notification_count</name>
+        <qualifiedname>app.crud.notification.get_unread_notification_count</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <briefdescription>
+<para>获取用户未读通知数量。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/notification.py" line="72" column="1" bodyfile="app/crud/notification.py" bodystart="72" bodyend="78"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/crud/notification.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

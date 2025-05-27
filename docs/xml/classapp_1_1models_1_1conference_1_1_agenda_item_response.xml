@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1conference_1_1_agenda_item_response" kind="class" language="Python" prot="public">
+    <compoundname>app::models::conference::AgendaItemResponse</compoundname>
+    <basecompoundref refid="classapp_1_1models_1_1conference_1_1_agenda_item_base" prot="public" virt="non-virtual">app.models.conference.AgendaItemBase</basecompoundref>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_agenda_item_response_1_1_config" prot="public">app::models::conference::AgendaItemResponse::Config</innerclass>
+    <briefdescription>
+<para>议程项响应模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.conference.AgendaItemResponse</label>
+        <link refid="classapp_1_1models_1_1conference_1_1_agenda_item_response"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.conference.AgendaItemBase</label>
+        <link refid="classapp_1_1models_1_1conference_1_1_agenda_item_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.conference.AgendaItemResponse</label>
+        <link refid="classapp_1_1models_1_1conference_1_1_agenda_item_response"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.conference.AgendaItemBase</label>
+        <link refid="classapp_1_1models_1_1conference_1_1_agenda_item_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/models/conference.py" line="22" column="1" bodyfile="app/models/conference.py" bodystart="22" bodyend="31"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

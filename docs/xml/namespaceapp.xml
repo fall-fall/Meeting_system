@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp" kind="namespace" language="Python">
+    <compoundname>app</compoundname>
+    <innernamespace refid="namespaceapp_1_1config">app::config</innernamespace>
+    <innernamespace refid="namespaceapp_1_1crud">app::crud</innernamespace>
+    <innernamespace refid="namespaceapp_1_1database">app::database</innernamespace>
+    <innernamespace refid="namespaceapp_1_1dependencies">app::dependencies</innernamespace>
+    <innernamespace refid="namespaceapp_1_1init__db">app::init_db</innernamespace>
+    <innernamespace refid="namespaceapp_1_1main">app::main</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models">app::models</innernamespace>
+    <innernamespace refid="namespaceapp_1_1routers">app::routers</innernamespace>
+    <innernamespace refid="namespaceapp_1_1schemas">app::schemas</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/__init__.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

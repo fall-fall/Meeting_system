@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>会议管理系统</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md__r_e_a_d_m_e"/></para>
+<para>基于Python和FastAPI构建的简单会议管理系统。</para>
+<sect1 id="index_1autotoc_md1">
+<title>功能特点</title><para><itemizedlist>
+<listitem><para>用户注册和身份验证</para>
+</listitem><listitem><para>基于角色的访问控制（管理员和普通用户）</para>
+</listitem><listitem><para>会议创建和管理</para>
+</listitem><listitem><para>会议议程管理</para>
+</listitem><listitem><para>用户会议注册</para>
+</listitem><listitem><para>使用Jinja2模板的响应式UI</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md2">
+<title>技术栈</title><para><itemizedlist>
+<listitem><para><bold>后端</bold>: Python 3.x + FastAPI</para>
+</listitem><listitem><para><bold>数据库</bold>: SQLite</para>
+</listitem><listitem><para><bold>前端</bold>: Jinja2模板 + 自定义CSS</para>
+</listitem><listitem><para><bold>认证</bold>: JWT令牌</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md3">
+<title>安装说明</title><para><orderedlist>
+<listitem><para>克隆仓库</para>
+</listitem><listitem><para>安装依赖:</para>
+<para><programlisting><codeline><highlight class="normal">pip<sp/>install<sp/>-r<sp/>requirements.txt</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para>运行应用程序:</para>
+<para><programlisting><codeline><highlight class="normal">python<sp/>run.py</highlight></codeline>
+</programlisting></para>
+<para>或者</para>
+<para><programlisting><codeline><highlight class="normal">uvicorn<sp/>app.main:app<sp/>--reload</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para>打开浏览器并访问 <computeroutput><ulink url="http://localhost:8010">http://localhost:8010</ulink></computeroutput></para>
+</listitem></orderedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md4">
+<title>项目结构</title><para><programlisting><codeline><highlight class="normal">meeting/</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>app/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>main.py<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>FastAPI应用程序入口点</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>config.py<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>配置设置</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>database.py<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>数据库连接和模型</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>dependencies.py<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>依赖注入</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>routers/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>API路由</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>models/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Pydantic模型</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>crud/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>数据库操作</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>schemas/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>数据库模式</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>static/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>静态文件(CSS,<sp/>JS)</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>templates/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Jinja2模板</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>requirements.txt<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>项目依赖</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>run.py<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>运行脚本</highlight></codeline>
+<codeline><highlight class="normal">└──<sp/>README.md<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>项目文档</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="index_1autotoc_md5">
+<title>API文档</title><para>应用程序运行后，您可以在以下位置访问API文档:</para>
+<para><itemizedlist>
+<listitem><para>Swagger UI: <computeroutput><ulink url="http://localhost:8000/docs">http://localhost:8000/docs</ulink></computeroutput></para>
+</listitem><listitem><para>ReDoc: <computeroutput><ulink url="http://localhost:8000/redoc">http://localhost:8000/redoc</ulink></computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md6">
+<title>默认管理员账户</title><para><itemizedlist>
+<listitem><para>用户名: admin</para>
+</listitem><listitem><para>密码: admin123 </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

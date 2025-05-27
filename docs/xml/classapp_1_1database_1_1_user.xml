@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1database_1_1_user" kind="class" language="Python" prot="public">
+    <compoundname>app::database::User</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Base</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1a392ce3772739bfb10f2b9a90d61e37c1" prot="private" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.User::__tablename__</definition>
+        <argsstring></argsstring>
+        <name>__tablename__</name>
+        <qualifiedname>app.database.User.__tablename__</qualifiedname>
+        <initializer>=  &quot;users&quot;</initializer>
+        <briefdescription>
+<para>数据库表名 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="57" column="1" bodyfile="app/database.py" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1a99ed5fd431ac8962353e0d049c27553c" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>app.database.User.id</qualifiedname>
+        <initializer>=  Column(Integer, primary_key=True, index=True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="60" column="1" bodyfile="app/database.py" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1a737702f5af39800ef5ca9857bc9c611e" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>app.database.User.username</qualifiedname>
+        <initializer>=  Column(String, unique=True, index=True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="61" column="1" bodyfile="app/database.py" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1a893c6acb02e6c54b984983b3a15050c1" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::email</definition>
+        <argsstring></argsstring>
+        <name>email</name>
+        <qualifiedname>app.database.User.email</qualifiedname>
+        <initializer>=  Column(String, unique=True, index=True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="62" column="1" bodyfile="app/database.py" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1ac6fbbf9d94c2ae8103ac925a0cde8898" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::hashed_password</definition>
+        <argsstring></argsstring>
+        <name>hashed_password</name>
+        <qualifiedname>app.database.User.hashed_password</qualifiedname>
+        <initializer>=  Column(String)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="63" column="1" bodyfile="app/database.py" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1adbfca082a1b241dc642c54a3b3a15263" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::is_admin</definition>
+        <argsstring></argsstring>
+        <name>is_admin</name>
+        <qualifiedname>app.database.User.is_admin</qualifiedname>
+        <initializer>=  Column(Boolean, default=False)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="64" column="1" bodyfile="app/database.py" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1a18e17253d4b84dc32217ee9bef789807" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::created_at</definition>
+        <argsstring></argsstring>
+        <name>created_at</name>
+        <qualifiedname>app.database.User.created_at</qualifiedname>
+        <initializer>=  Column(DateTime, default=datetime.utcnow)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="65" column="1" bodyfile="app/database.py" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1ae4f5e2133e35399171a7088c70642026" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::conferences</definition>
+        <argsstring></argsstring>
+        <name>conferences</name>
+        <qualifiedname>app.database.User.conferences</qualifiedname>
+        <initializer>=  relationship(&quot;Conference&quot;, back_populates=&quot;creator&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="68" column="1" bodyfile="app/database.py" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1a4a66c709dd2eefabfc5ae148ed5d32b9" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::registrations</definition>
+        <argsstring></argsstring>
+        <name>registrations</name>
+        <qualifiedname>app.database.User.registrations</qualifiedname>
+        <initializer>=  relationship(&quot;Registration&quot;, back_populates=&quot;user&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="69" column="1" bodyfile="app/database.py" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1a533ea7b2516f3b15b3240bcb964de6e4" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::sent_friendships</definition>
+        <argsstring></argsstring>
+        <name>sent_friendships</name>
+        <qualifiedname>app.database.User.sent_friendships</qualifiedname>
+        <initializer>=  relationship(&quot;Friendship&quot;, foreign_keys=&quot;Friendship.user_id&quot;, back_populates=&quot;user&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="70" column="1" bodyfile="app/database.py" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1ac2d1b529c84b4fb83ae0c1380c89abad" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::received_friendships</definition>
+        <argsstring></argsstring>
+        <name>received_friendships</name>
+        <qualifiedname>app.database.User.received_friendships</qualifiedname>
+        <initializer>=  relationship(&quot;Friendship&quot;, foreign_keys=&quot;Friendship.friend_id&quot;, back_populates=&quot;friend&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="71" column="1" bodyfile="app/database.py" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_user_1a0e8be18939dc57e9716ebf85a13aeb78" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.User::notifications</definition>
+        <argsstring></argsstring>
+        <name>notifications</name>
+        <qualifiedname>app.database.User.notifications</qualifiedname>
+        <initializer>=  relationship(&quot;Notification&quot;, foreign_keys=&quot;Notification.user_id&quot;, back_populates=&quot;user&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="72" column="1" bodyfile="app/database.py" bodystart="72" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>用户数据库模型 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>存储用户的基本信息，包括认证信息和权限设置 </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Base</label>
+      </node>
+      <node id="1">
+        <label>app.database.User</label>
+        <link refid="classapp_1_1database_1_1_user"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Base</label>
+      </node>
+      <node id="1">
+        <label>app.database.User</label>
+        <link refid="classapp_1_1database_1_1_user"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/database.py" line="56" column="1" bodyfile="app/database.py" bodystart="56" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classapp_1_1database_1_1_user_1a392ce3772739bfb10f2b9a90d61e37c1" prot="private" virt="non-virtual"><scope>app::database::User</scope><name>__tablename__</name></member>
+      <member refid="classapp_1_1database_1_1_user_1ae4f5e2133e35399171a7088c70642026" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>conferences</name></member>
+      <member refid="classapp_1_1database_1_1_user_1a18e17253d4b84dc32217ee9bef789807" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>created_at</name></member>
+      <member refid="classapp_1_1database_1_1_user_1a893c6acb02e6c54b984983b3a15050c1" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>email</name></member>
+      <member refid="classapp_1_1database_1_1_user_1ac6fbbf9d94c2ae8103ac925a0cde8898" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>hashed_password</name></member>
+      <member refid="classapp_1_1database_1_1_user_1a99ed5fd431ac8962353e0d049c27553c" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>id</name></member>
+      <member refid="classapp_1_1database_1_1_user_1adbfca082a1b241dc642c54a3b3a15263" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>is_admin</name></member>
+      <member refid="classapp_1_1database_1_1_user_1a0e8be18939dc57e9716ebf85a13aeb78" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>notifications</name></member>
+      <member refid="classapp_1_1database_1_1_user_1ac2d1b529c84b4fb83ae0c1380c89abad" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>received_friendships</name></member>
+      <member refid="classapp_1_1database_1_1_user_1a4a66c709dd2eefabfc5ae148ed5d32b9" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>registrations</name></member>
+      <member refid="classapp_1_1database_1_1_user_1a533ea7b2516f3b15b3240bcb964de6e4" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>sent_friendships</name></member>
+      <member refid="classapp_1_1database_1_1_user_1a737702f5af39800ef5ca9857bc9c611e" prot="public" virt="non-virtual"><scope>app::database::User</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

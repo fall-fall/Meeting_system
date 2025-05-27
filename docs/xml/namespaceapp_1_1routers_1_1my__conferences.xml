@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1routers_1_1my__conferences" kind="namespace" language="Python">
+    <compoundname>app::routers::my_conferences</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="my__conferences_8py_1a2d12dd41429bf395aeac63914c77b54e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::routers::my_conferences.router</definition>
+        <argsstring></argsstring>
+        <name>router</name>
+        <qualifiedname>app.routers.my_conferences.router</qualifiedname>
+        <initializer>=  APIRouter(prefix=&quot;/my-conferences&quot;, tags=[&quot;my_conferences&quot;])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/my_conferences.py" line="12" column="1" bodyfile="app/routers/my_conferences.py" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="my__conferences_8py_1ae01dbf262b951bf1a1b72f54b8c65f2a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::routers::my_conferences.templates</definition>
+        <argsstring></argsstring>
+        <name>templates</name>
+        <qualifiedname>app.routers.my_conferences.templates</qualifiedname>
+        <initializer>=  Jinja2Templates(directory=&quot;app/templates&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/my_conferences.py" line="13" column="1" bodyfile="app/routers/my_conferences.py" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="my__conferences_8py_1a287235a8f614df789624812ea187644b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.my_conferences.my_conferences</definition>
+        <argsstring>(Request request, Session db=Depends(get_db))</argsstring>
+        <name>my_conferences</name>
+        <qualifiedname>app.routers.my_conferences.my_conferences</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>显示用户的会议页面，包括参与的会议和创建的会议（如果是管理员）。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/my_conferences.py" line="17" column="1" bodyfile="app/routers/my_conferences.py" bodystart="20" bodyend="62"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/routers/my_conferences.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

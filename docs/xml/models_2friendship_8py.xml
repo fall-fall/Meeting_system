@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="models_2friendship_8py" kind="file" language="Python">
+    <compoundname>friendship.py</compoundname>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friendship_base" prot="public">app::models::friendship::FriendshipBase</innerclass>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friendship_create" prot="public">app::models::friendship::FriendshipCreate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friendship_update" prot="public">app::models::friendship::FriendshipUpdate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friendship_response" prot="public">app::models::friendship::FriendshipResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friendship_response_1_1_config" prot="public">app::models::friendship::FriendshipResponse::Config</innerclass>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friend_response" prot="public">app::models::friendship::FriendResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friend_response_1_1_config" prot="public">app::models::friendship::FriendResponse::Config</innerclass>
+    <innernamespace refid="namespaceapp">app</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models">app::models</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models_1_1friendship">app::models::friendship</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespaceapp_1_1models_1_1friendship" refkind="compound"><highlight class="stringliteral">&quot;&quot;&quot;好友关系相关的数据模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>datetime<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>datetime</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>pydantic<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>BaseModel</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespaceapp_1_1database" kindref="compound">app.database</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>FriendshipStatus</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="classapp_1_1models_1_1friendship_1_1_friendship_base" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1friendship_1_1_friendship_base" kindref="compound">FriendshipBase</ref>(BaseModel):</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;好友关系基础模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>user_id:<sp/>int<sp/><sp/></highlight><highlight class="comment">#<sp/>发起者ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>friend_id:<sp/>int<sp/><sp/></highlight><highlight class="comment">#<sp/>接收者ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="classapp_1_1models_1_1friendship_1_1_friendship_create" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1friendship_1_1_friendship_create" kindref="compound">FriendshipCreate</ref>(<ref refid="classapp_1_1models_1_1friendship_1_1_friendship_base" kindref="compound">FriendshipBase</ref>):</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;好友关系创建模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">pass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classapp_1_1models_1_1friendship_1_1_friendship_update" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FriendshipUpdate(BaseModel):</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;好友关系更新模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>status:<sp/>FriendshipStatus<sp/><sp/></highlight><highlight class="comment">#<sp/>关系状态</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="classapp_1_1models_1_1friendship_1_1_friendship_response" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1friendship_1_1_friendship_response" kindref="compound">FriendshipResponse</ref>(<ref refid="classapp_1_1models_1_1friendship_1_1_friendship_base" kindref="compound">FriendshipBase</ref>):</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;好友关系响应模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>int<sp/><sp/></highlight><highlight class="comment">#<sp/>关系ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>status:<sp/>FriendshipStatus<sp/><sp/></highlight><highlight class="comment">#<sp/>关系状态</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>created_at:<sp/>datetime<sp/><sp/></highlight><highlight class="comment">#<sp/>创建时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>updated_at:<sp/>datetime<sp/><sp/></highlight><highlight class="comment">#<sp/>更新时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classapp_1_1models_1_1friendship_1_1_friendship_response_1_1_config" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1friendship_1_1_friendship_response_1_1_config" kindref="compound">Config</ref>:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>from_attributes<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>启用ORM模式</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classapp_1_1models_1_1friendship_1_1_friend_response" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1friendship_1_1_friend_response" kindref="compound">FriendResponse</ref>(BaseModel):</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;好友响应模型，用于返回好友信息&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>int<sp/><sp/></highlight><highlight class="comment">#<sp/>用户ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>username:<sp/>str<sp/><sp/></highlight><highlight class="comment">#<sp/>用户名</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>email:<sp/>str<sp/><sp/></highlight><highlight class="comment">#<sp/>电子邮箱</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>is_admin:<sp/>bool<sp/><sp/></highlight><highlight class="comment">#<sp/>是否为管理员</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classapp_1_1models_1_1friendship_1_1_friend_response_1_1_config" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1friendship_1_1_friend_response_1_1_config" kindref="compound">Config</ref>:</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>from_attributes<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>启用ORM模式</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="app/models/friendship.py"/>
+  </compounddef>
+</doxygen>

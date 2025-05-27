@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>会议管理系统</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">基于Python和FastAPI构建的简单会议管理系统。</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>功能特点</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>用户注册和身份验证</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>基于角色的访问控制（管理员和普通用户）</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>会议创建和管理</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>会议议程管理</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>用户会议注册</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>使用Jinja2模板的响应式UI</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>技术栈</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**后端**:<sp/>Python<sp/>3.x<sp/>+<sp/>FastAPI</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**数据库**:<sp/>SQLite</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**前端**:<sp/>Jinja2模板<sp/>+<sp/>自定义CSS</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**认证**:<sp/>JWT令牌</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>安装说明</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>克隆仓库</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>安装依赖:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>pip<sp/>install<sp/>-r<sp/>requirements.txt</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>运行应用程序:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>python<sp/>run.py</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>或者</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>uvicorn<sp/>app.main:app<sp/>--reload</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>打开浏览器并访问<sp/>`http://localhost:8010`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>项目结构</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">meeting/</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>app/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>main.py<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>FastAPI应用程序入口点</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>config.py<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>配置设置</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>database.py<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>数据库连接和模型</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>dependencies.py<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>依赖注入</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>routers/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>API路由</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>models/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Pydantic模型</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>crud/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>数据库操作</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>schemas/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>数据库模式</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>static/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>静态文件(CSS,<sp/>JS)</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>templates/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Jinja2模板</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>requirements.txt<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>项目依赖</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>run.py<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>运行脚本</highlight></codeline>
+<codeline><highlight class="normal">└──<sp/>README.md<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>项目文档</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>API文档</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">应用程序运行后，您可以在以下位置访问API文档:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Swagger<sp/>UI:<sp/>`http://localhost:8000/docs`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>ReDoc:<sp/>`http://localhost:8000/redoc`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>默认管理员账户</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>用户名:<sp/>admin</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>密码:<sp/>admin123</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

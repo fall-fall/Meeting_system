@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1user_1_1_user_base" kind="class" language="Python" prot="public">
+    <compoundname>app::models::user::UserBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BaseModel</basecompoundref>
+    <derivedcompoundref refid="classapp_1_1models_1_1user_1_1_user_create" prot="public" virt="non-virtual">app.models.user.UserCreate</derivedcompoundref>
+    <derivedcompoundref refid="classapp_1_1models_1_1user_1_1_user_response" prot="public" virt="non-virtual">app.models.user.UserResponse</derivedcompoundref>
+    <briefdescription>
+<para>用户基础模型 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>包含用户名和邮箱的基础信息 </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.user.UserBase</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>app.models.user.UserCreate</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_create"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>app.models.user.UserResponse</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_response"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.user.UserBase</label>
+        <link refid="classapp_1_1models_1_1user_1_1_user_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/models/user.py" line="21" column="1" bodyfile="app/models/user.py" bodystart="21" bodyend="25"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

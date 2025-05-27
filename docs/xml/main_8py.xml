@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="main_8py" kind="file" language="Python">
+    <compoundname>main.py</compoundname>
+    <innernamespace refid="namespaceapp">app</innernamespace>
+    <innernamespace refid="namespaceapp_1_1main">app::main</innernamespace>
+    <briefdescription>
+<para>会议管理系统主应用程序入口点 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>基于FastAPI构建的会议管理系统，提供用户认证、会议管理、好友系统等功能 <simplesect kind="author"><para>Meeting System Team </para>
+</simplesect>
+<simplesect kind="date"><para>2024 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>fastapi<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>FastAPI,<sp/>Request,<sp/>Depends</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>fastapi.responses<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>HTMLResponse</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>fastapi.staticfiles<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>StaticFiles</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>fastapi.templating<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Jinja2Templates</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>sqlalchemy.orm<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Session</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>starlette.middleware.sessions<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>SessionMiddleware</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespaceapp_1_1config" kindref="compound">app.config</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>settings</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespaceapp_1_1database" kindref="compound">app.database</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>get_db,<sp/>create_tables</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespaceapp_1_1routers" kindref="compound">app.routers</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>auth,<sp/>conferences,<sp/>registrations,<sp/>my_conferences,<sp/>friends,<sp/>notifications</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespaceapp_1_1crud" kindref="compound">app.crud</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>conference<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>conference_crud</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespaceapp_1_1crud" kindref="compound">app.crud</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>notification<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>notification_crud</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespaceapp_1_1init__db" kindref="compound">app.init_db</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>init_db</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">create_tables()<sp/><sp/></highlight><highlight class="comment">#<sp/>创建所有数据库表</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">init_db()<sp/><sp/></highlight><highlight class="comment">#<sp/>初始化基础数据（如管理员账号）</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">app<sp/>=<sp/>FastAPI(title=settings.APP_NAME)<sp/><sp/></highlight><highlight class="comment">#<sp/>设置应用名称</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">#<sp/>添加会话中间件（用于管理用户会话）</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">app.add_middleware(SessionMiddleware,<sp/>secret_key=settings.SECRET_KEY)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">#<sp/>挂载静态文件目录（CSS、JavaScript等）</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">app.mount(</highlight><highlight class="stringliteral">&quot;/static&quot;</highlight><highlight class="normal">,<sp/>StaticFiles(directory=</highlight><highlight class="stringliteral">&quot;app/static&quot;</highlight><highlight class="normal">),<sp/>name=</highlight><highlight class="stringliteral">&quot;static&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">#<sp/>包含各个路由模块</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">app.include_router(auth.router,<sp/>prefix=settings.API_PREFIX)<sp/><sp/></highlight><highlight class="comment">#<sp/>认证相关路由</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">app.include_router(conferences.router,<sp/>prefix=settings.API_PREFIX)<sp/><sp/></highlight><highlight class="comment">#<sp/>会议相关路由</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">app.include_router(registrations.router,<sp/>prefix=settings.API_PREFIX)<sp/><sp/></highlight><highlight class="comment">#<sp/>会议注册相关路由</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">app.include_router(my_conferences.router,<sp/>prefix=settings.API_PREFIX)<sp/><sp/></highlight><highlight class="comment">#<sp/>我的会议相关路由</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">app.include_router(friends.router,<sp/>prefix=settings.API_PREFIX)<sp/><sp/></highlight><highlight class="comment">#<sp/>好友相关路由</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">app.include_router(notifications.router,<sp/>prefix=settings.API_PREFIX)<sp/><sp/></highlight><highlight class="comment">#<sp/>通知相关路由</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">templates<sp/>=<sp/>Jinja2Templates(directory=</highlight><highlight class="stringliteral">&quot;app/templates&quot;</highlight><highlight class="normal">)<sp/><sp/></highlight><highlight class="comment">#<sp/>指定模板目录</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">@app.get(&quot;/&quot;,<sp/>response_class=HTMLResponse)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">async<sp/>def<sp/></highlight><highlight class="normal">home(</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>request:<sp/>Request,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>db:<sp/>Session<sp/>=<sp/>Depends(get_db),</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">):</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>获取当前用户（如果已登录）</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>current_user<sp/>=<sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>unread_notification_count<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>token<sp/>=<sp/>request.cookies.get(</highlight><highlight class="stringliteral">&quot;access_token&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>token<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>token.startswith(</highlight><highlight class="stringliteral">&quot;Bearer<sp/>&quot;</highlight><highlight class="normal">):</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespaceapp_1_1dependencies" kindref="compound">app.dependencies</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>get_current_user</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current_user<sp/>=<sp/>await<sp/>get_current_user(token.replace(</highlight><highlight class="stringliteral">&quot;Bearer<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">),<sp/>db)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>获取未读通知数量</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>current_user:</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>unread_notification_count<sp/>=<sp/>notification_crud.get_unread_notification_count(db,<sp/>current_user.id)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">except</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">pass</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>如果获取用户失败，则视为未登录</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>获取所有会议列表</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>conferences<sp/>=<sp/>conference_crud.get_conferences(db)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>返回渲染后的首页模板</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>templates.TemplateResponse(</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;home.html&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;request&quot;</highlight><highlight class="normal">:<sp/>request,<sp/><sp/></highlight><highlight class="comment">#<sp/>请求对象（Jinja2模板需要）</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;conferences&quot;</highlight><highlight class="normal">:<sp/>conferences,<sp/><sp/></highlight><highlight class="comment">#<sp/>会议列表</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;current_user&quot;</highlight><highlight class="normal">:<sp/>current_user,<sp/><sp/></highlight><highlight class="comment">#<sp/>当前用户</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unread_notification_count&quot;</highlight><highlight class="normal">:<sp/>unread_notification_count<sp/><sp/></highlight><highlight class="comment">#<sp/>未读通知数量</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">@app.get(&quot;/api/health&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keyword">async<sp/>def<sp/></highlight><highlight class="normal">health_check():</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{</highlight><highlight class="stringliteral">&quot;status&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;ok&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;message&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;系统运行正常&quot;</highlight><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="app/main.py"/>
+  </compounddef>
+</doxygen>

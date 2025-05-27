@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="models_2conference_8py" kind="file" language="Python">
+    <compoundname>conference.py</compoundname>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_agenda_item_base" prot="public">app::models::conference::AgendaItemBase</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_agenda_item_create" prot="public">app::models::conference::AgendaItemCreate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_agenda_item_response" prot="public">app::models::conference::AgendaItemResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_agenda_item_response_1_1_config" prot="public">app::models::conference::AgendaItemResponse::Config</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_conference_base" prot="public">app::models::conference::ConferenceBase</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_conference_create" prot="public">app::models::conference::ConferenceCreate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_conference_update" prot="public">app::models::conference::ConferenceUpdate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_conference_response" prot="public">app::models::conference::ConferenceResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_conference_response_1_1_config" prot="public">app::models::conference::ConferenceResponse::Config</innerclass>
+    <innernamespace refid="namespaceapp">app</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models">app::models</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models_1_1conference">app::models::conference</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespaceapp_1_1models_1_1conference" refkind="compound"><highlight class="stringliteral">&quot;&quot;&quot;会议和议程项相关的数据模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>datetime<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>datetime</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>typing<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>List</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>pydantic<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>BaseModel</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="classapp_1_1models_1_1conference_1_1_agenda_item_base" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1conference_1_1_agenda_item_base" kindref="compound">AgendaItemBase</ref>(BaseModel):</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;议程项基础模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>start_time:<sp/>str<sp/><sp/></highlight><highlight class="comment">#<sp/>开始时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>end_time:<sp/>str<sp/><sp/></highlight><highlight class="comment">#<sp/>结束时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>title:<sp/>str<sp/><sp/></highlight><highlight class="comment">#<sp/>标题</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>speaker:<sp/>str<sp/><sp/></highlight><highlight class="comment">#<sp/>演讲者</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classapp_1_1models_1_1conference_1_1_agenda_item_create" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1conference_1_1_agenda_item_create" kindref="compound">AgendaItemCreate</ref>(<ref refid="classapp_1_1models_1_1conference_1_1_agenda_item_base" kindref="compound">AgendaItemBase</ref>):</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;议程项创建模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">pass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="classapp_1_1models_1_1conference_1_1_agenda_item_response" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">AgendaItemResponse(AgendaItemBase):</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;议程项响应模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>int<sp/><sp/></highlight><highlight class="comment">#<sp/>议程项ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>conference_id:<sp/>int<sp/><sp/></highlight><highlight class="comment">#<sp/>所属会议ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>created_at:<sp/>datetime<sp/><sp/></highlight><highlight class="comment">#<sp/>创建时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classapp_1_1models_1_1conference_1_1_agenda_item_response_1_1_config" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1conference_1_1_agenda_item_response_1_1_config" kindref="compound">Config</ref>:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>orm_mode<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>启用ORM模式</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classapp_1_1models_1_1conference_1_1_conference_base" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1conference_1_1_conference_base" kindref="compound">ConferenceBase</ref>(BaseModel):</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;会议基础模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>title:<sp/>str<sp/><sp/></highlight><highlight class="comment">#<sp/>会议标题</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>description:<sp/>str<sp/><sp/></highlight><highlight class="comment">#<sp/>会议描述</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>date:<sp/>datetime<sp/><sp/></highlight><highlight class="comment">#<sp/>会议日期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>location:<sp/>str<sp/><sp/></highlight><highlight class="comment">#<sp/>会议地点</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="classapp_1_1models_1_1conference_1_1_conference_create" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1conference_1_1_conference_create" kindref="compound">ConferenceCreate</ref>(<ref refid="classapp_1_1models_1_1conference_1_1_conference_base" kindref="compound">ConferenceBase</ref>):</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;会议创建模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">pass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="classapp_1_1models_1_1conference_1_1_conference_update" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ConferenceUpdate(ConferenceBase):</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;会议更新模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">pass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classapp_1_1models_1_1conference_1_1_conference_response" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1conference_1_1_conference_response" kindref="compound">ConferenceResponse</ref>(<ref refid="classapp_1_1models_1_1conference_1_1_conference_base" kindref="compound">ConferenceBase</ref>):</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;会议响应模型&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>int<sp/><sp/></highlight><highlight class="comment">#<sp/>会议ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>creator_id:<sp/>int<sp/><sp/></highlight><highlight class="comment">#<sp/>创建者ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>created_at:<sp/>datetime<sp/><sp/></highlight><highlight class="comment">#<sp/>创建时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>agenda_items:<sp/>List[AgendaItemResponse]<sp/>=<sp/>[]<sp/><sp/></highlight><highlight class="comment">#<sp/>议程项列表</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="classapp_1_1models_1_1conference_1_1_conference_response_1_1_config" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1models_1_1conference_1_1_conference_response_1_1_config" kindref="compound">Config</ref>:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>orm_mode<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>启用ORM模式</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="app/models/conference.py"/>
+  </compounddef>
+</doxygen>

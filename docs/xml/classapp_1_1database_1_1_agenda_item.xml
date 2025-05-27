@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1database_1_1_agenda_item" kind="class" language="Python" prot="public">
+    <compoundname>app::database::AgendaItem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Base</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_agenda_item_1a9c1a7fe930d987aea2dd439430cb94a5" prot="private" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.AgendaItem::__tablename__</definition>
+        <argsstring></argsstring>
+        <name>__tablename__</name>
+        <qualifiedname>app.database.AgendaItem.__tablename__</qualifiedname>
+        <initializer>=  &quot;agenda_items&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="100" column="1" bodyfile="app/database.py" bodystart="100" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_agenda_item_1abbc9adf74c2a8c634fa4e7deceeea8e8" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.AgendaItem::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>app.database.AgendaItem.id</qualifiedname>
+        <initializer>=  Column(Integer, primary_key=True, index=True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="103" column="1" bodyfile="app/database.py" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_agenda_item_1a04d072f628ccf05e34bf578650afdcfc" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.AgendaItem::conference_id</definition>
+        <argsstring></argsstring>
+        <name>conference_id</name>
+        <qualifiedname>app.database.AgendaItem.conference_id</qualifiedname>
+        <initializer>=  Column(Integer, ForeignKey(&quot;conferences.id&quot;))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="104" column="1" bodyfile="app/database.py" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_agenda_item_1a59225631bbba47e110365dd582873079" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.AgendaItem::start_time</definition>
+        <argsstring></argsstring>
+        <name>start_time</name>
+        <qualifiedname>app.database.AgendaItem.start_time</qualifiedname>
+        <initializer>=  Column(String)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="105" column="1" bodyfile="app/database.py" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_agenda_item_1a51c3eb8c63771f84c8bbe5c157c452e6" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.AgendaItem::end_time</definition>
+        <argsstring></argsstring>
+        <name>end_time</name>
+        <qualifiedname>app.database.AgendaItem.end_time</qualifiedname>
+        <initializer>=  Column(String)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="106" column="1" bodyfile="app/database.py" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_agenda_item_1afae0d1b356feba222902292505cae31d" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.AgendaItem::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>app.database.AgendaItem.title</qualifiedname>
+        <initializer>=  Column(String)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="107" column="1" bodyfile="app/database.py" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_agenda_item_1a4f7627bd8f0d1cc2ff7658a59cd2ca36" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.AgendaItem::speaker</definition>
+        <argsstring></argsstring>
+        <name>speaker</name>
+        <qualifiedname>app.database.AgendaItem.speaker</qualifiedname>
+        <initializer>=  Column(String)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="108" column="1" bodyfile="app/database.py" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_agenda_item_1aeba22a7925ec7598ff222859db895398" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.AgendaItem::created_at</definition>
+        <argsstring></argsstring>
+        <name>created_at</name>
+        <qualifiedname>app.database.AgendaItem.created_at</qualifiedname>
+        <initializer>=  Column(DateTime, default=datetime.utcnow)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="109" column="1" bodyfile="app/database.py" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_agenda_item_1aa79830312033b2603656abf425f0291c" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.AgendaItem::conference</definition>
+        <argsstring></argsstring>
+        <name>conference</name>
+        <qualifiedname>app.database.AgendaItem.conference</qualifiedname>
+        <initializer>=  relationship(&quot;Conference&quot;, back_populates=&quot;agenda_items&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="112" column="1" bodyfile="app/database.py" bodystart="112" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>会议议程项模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Base</label>
+      </node>
+      <node id="1">
+        <label>app.database.AgendaItem</label>
+        <link refid="classapp_1_1database_1_1_agenda_item"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Base</label>
+      </node>
+      <node id="1">
+        <label>app.database.AgendaItem</label>
+        <link refid="classapp_1_1database_1_1_agenda_item"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/database.py" line="98" column="1" bodyfile="app/database.py" bodystart="98" bodyend="114"/>
+    <listofallmembers>
+      <member refid="classapp_1_1database_1_1_agenda_item_1a9c1a7fe930d987aea2dd439430cb94a5" prot="private" virt="non-virtual"><scope>app::database::AgendaItem</scope><name>__tablename__</name></member>
+      <member refid="classapp_1_1database_1_1_agenda_item_1aa79830312033b2603656abf425f0291c" prot="public" virt="non-virtual"><scope>app::database::AgendaItem</scope><name>conference</name></member>
+      <member refid="classapp_1_1database_1_1_agenda_item_1a04d072f628ccf05e34bf578650afdcfc" prot="public" virt="non-virtual"><scope>app::database::AgendaItem</scope><name>conference_id</name></member>
+      <member refid="classapp_1_1database_1_1_agenda_item_1aeba22a7925ec7598ff222859db895398" prot="public" virt="non-virtual"><scope>app::database::AgendaItem</scope><name>created_at</name></member>
+      <member refid="classapp_1_1database_1_1_agenda_item_1a51c3eb8c63771f84c8bbe5c157c452e6" prot="public" virt="non-virtual"><scope>app::database::AgendaItem</scope><name>end_time</name></member>
+      <member refid="classapp_1_1database_1_1_agenda_item_1abbc9adf74c2a8c634fa4e7deceeea8e8" prot="public" virt="non-virtual"><scope>app::database::AgendaItem</scope><name>id</name></member>
+      <member refid="classapp_1_1database_1_1_agenda_item_1a4f7627bd8f0d1cc2ff7658a59cd2ca36" prot="public" virt="non-virtual"><scope>app::database::AgendaItem</scope><name>speaker</name></member>
+      <member refid="classapp_1_1database_1_1_agenda_item_1a59225631bbba47e110365dd582873079" prot="public" virt="non-virtual"><scope>app::database::AgendaItem</scope><name>start_time</name></member>
+      <member refid="classapp_1_1database_1_1_agenda_item_1afae0d1b356feba222902292505cae31d" prot="public" virt="non-virtual"><scope>app::database::AgendaItem</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

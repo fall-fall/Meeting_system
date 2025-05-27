@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1database_1_1_conference" kind="class" language="Python" prot="public">
+    <compoundname>app::database::Conference</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Base</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1afbb5d9fbedb839c49f31340d11e48aa7" prot="private" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.Conference::__tablename__</definition>
+        <argsstring></argsstring>
+        <name>__tablename__</name>
+        <qualifiedname>app.database.Conference.__tablename__</qualifiedname>
+        <initializer>=  &quot;conferences&quot;</initializer>
+        <briefdescription>
+<para>数据库表名 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="81" column="1" bodyfile="app/database.py" bodystart="81" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1abb7167aec11cbcd5558efdbc17287666" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Conference::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>app.database.Conference.id</qualifiedname>
+        <initializer>=  Column(Integer, primary_key=True, index=True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="84" column="1" bodyfile="app/database.py" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1ac87ce725836f3a6c332f1ff9fa0c4f6d" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Conference::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>app.database.Conference.title</qualifiedname>
+        <initializer>=  Column(String, index=True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="85" column="1" bodyfile="app/database.py" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1a74a8e8464617572fa0c59cf3ccfc9c8f" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Conference::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>app.database.Conference.description</qualifiedname>
+        <initializer>=  Column(Text)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="86" column="1" bodyfile="app/database.py" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1abe730ef53712c47ff1858bad451b1ebb" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Conference::date</definition>
+        <argsstring></argsstring>
+        <name>date</name>
+        <qualifiedname>app.database.Conference.date</qualifiedname>
+        <initializer>=  Column(DateTime)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="87" column="1" bodyfile="app/database.py" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1a9b2213c46b6c3b03c85d09e671999001" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Conference::location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <qualifiedname>app.database.Conference.location</qualifiedname>
+        <initializer>=  Column(String)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="88" column="1" bodyfile="app/database.py" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1abf390c1eb88f7d5e04a3c1e0eaaa4a20" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Conference::created_at</definition>
+        <argsstring></argsstring>
+        <name>created_at</name>
+        <qualifiedname>app.database.Conference.created_at</qualifiedname>
+        <initializer>=  Column(DateTime, default=datetime.utcnow)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="89" column="1" bodyfile="app/database.py" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1a172ae19e5e2f065923176a6f028597d0" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Conference::creator_id</definition>
+        <argsstring></argsstring>
+        <name>creator_id</name>
+        <qualifiedname>app.database.Conference.creator_id</qualifiedname>
+        <initializer>=  Column(Integer, ForeignKey(&quot;users.id&quot;))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="90" column="1" bodyfile="app/database.py" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1aa8ac188d267516b478efca5f5b1e1e1d" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Conference::creator</definition>
+        <argsstring></argsstring>
+        <name>creator</name>
+        <qualifiedname>app.database.Conference.creator</qualifiedname>
+        <initializer>=  relationship(&quot;User&quot;, back_populates=&quot;conferences&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="93" column="1" bodyfile="app/database.py" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1a92e3a66644a7c8ffb2fb242a362137d5" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Conference::agenda_items</definition>
+        <argsstring></argsstring>
+        <name>agenda_items</name>
+        <qualifiedname>app.database.Conference.agenda_items</qualifiedname>
+        <initializer>=  relationship(&quot;AgendaItem&quot;, back_populates=&quot;conference&quot;, cascade=&quot;all, delete-orphan&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="94" column="1" bodyfile="app/database.py" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_conference_1ac01bc03ff1efe685140a5c8faf9f4f56" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Conference::registrations</definition>
+        <argsstring></argsstring>
+        <name>registrations</name>
+        <qualifiedname>app.database.Conference.registrations</qualifiedname>
+        <initializer>=  relationship(&quot;Registration&quot;, back_populates=&quot;conference&quot;, cascade=&quot;all, delete-orphan&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="95" column="1" bodyfile="app/database.py" bodystart="95" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>会议数据库模型 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>存储会议的基本信息，包括标题、描述、时间和地点 </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Base</label>
+      </node>
+      <node id="1">
+        <label>app.database.Conference</label>
+        <link refid="classapp_1_1database_1_1_conference"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Base</label>
+      </node>
+      <node id="1">
+        <label>app.database.Conference</label>
+        <link refid="classapp_1_1database_1_1_conference"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/database.py" line="80" column="1" bodyfile="app/database.py" bodystart="80" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classapp_1_1database_1_1_conference_1afbb5d9fbedb839c49f31340d11e48aa7" prot="private" virt="non-virtual"><scope>app::database::Conference</scope><name>__tablename__</name></member>
+      <member refid="classapp_1_1database_1_1_conference_1a92e3a66644a7c8ffb2fb242a362137d5" prot="public" virt="non-virtual"><scope>app::database::Conference</scope><name>agenda_items</name></member>
+      <member refid="classapp_1_1database_1_1_conference_1abf390c1eb88f7d5e04a3c1e0eaaa4a20" prot="public" virt="non-virtual"><scope>app::database::Conference</scope><name>created_at</name></member>
+      <member refid="classapp_1_1database_1_1_conference_1aa8ac188d267516b478efca5f5b1e1e1d" prot="public" virt="non-virtual"><scope>app::database::Conference</scope><name>creator</name></member>
+      <member refid="classapp_1_1database_1_1_conference_1a172ae19e5e2f065923176a6f028597d0" prot="public" virt="non-virtual"><scope>app::database::Conference</scope><name>creator_id</name></member>
+      <member refid="classapp_1_1database_1_1_conference_1abe730ef53712c47ff1858bad451b1ebb" prot="public" virt="non-virtual"><scope>app::database::Conference</scope><name>date</name></member>
+      <member refid="classapp_1_1database_1_1_conference_1a74a8e8464617572fa0c59cf3ccfc9c8f" prot="public" virt="non-virtual"><scope>app::database::Conference</scope><name>description</name></member>
+      <member refid="classapp_1_1database_1_1_conference_1abb7167aec11cbcd5558efdbc17287666" prot="public" virt="non-virtual"><scope>app::database::Conference</scope><name>id</name></member>
+      <member refid="classapp_1_1database_1_1_conference_1a9b2213c46b6c3b03c85d09e671999001" prot="public" virt="non-virtual"><scope>app::database::Conference</scope><name>location</name></member>
+      <member refid="classapp_1_1database_1_1_conference_1ac01bc03ff1efe685140a5c8faf9f4f56" prot="public" virt="non-virtual"><scope>app::database::Conference</scope><name>registrations</name></member>
+      <member refid="classapp_1_1database_1_1_conference_1ac87ce725836f3a6c332f1ff9fa0c4f6d" prot="public" virt="non-virtual"><scope>app::database::Conference</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

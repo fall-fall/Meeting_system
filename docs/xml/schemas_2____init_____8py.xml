@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="schemas_2____init_____8py" kind="file" language="Python">
+    <compoundname>__init__.py</compoundname>
+    <innernamespace refid="namespaceapp">app</innernamespace>
+    <innernamespace refid="namespaceapp_1_1schemas">app::schemas</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">#<sp/>This<sp/>file<sp/>is<sp/>intentionally<sp/>left<sp/>empty<sp/>to<sp/>make<sp/>the<sp/>directory<sp/>a<sp/>Python<sp/>package</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="app/schemas/__init__.py"/>
+  </compounddef>
+</doxygen>

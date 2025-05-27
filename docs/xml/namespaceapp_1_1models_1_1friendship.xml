@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1models_1_1friendship" kind="namespace" language="Python">
+    <compoundname>app::models::friendship</compoundname>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friend_response" prot="public">app::models::friendship::FriendResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friendship_base" prot="public">app::models::friendship::FriendshipBase</innerclass>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friendship_create" prot="public">app::models::friendship::FriendshipCreate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friendship_response" prot="public">app::models::friendship::FriendshipResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1friendship_1_1_friendship_update" prot="public">app::models::friendship::FriendshipUpdate</innerclass>
+    <briefdescription>
+<para>好友关系相关的数据模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/models/friendship.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

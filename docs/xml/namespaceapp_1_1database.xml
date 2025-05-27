@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1database" kind="namespace" language="Python">
+    <compoundname>app::database</compoundname>
+    <innerclass refid="classapp_1_1database_1_1_agenda_item" prot="public">app::database::AgendaItem</innerclass>
+    <innerclass refid="classapp_1_1database_1_1_conference" prot="public">app::database::Conference</innerclass>
+    <innerclass refid="classapp_1_1database_1_1_friendship" prot="public">app::database::Friendship</innerclass>
+    <innerclass refid="classapp_1_1database_1_1_friendship_status" prot="public">app::database::FriendshipStatus</innerclass>
+    <innerclass refid="classapp_1_1database_1_1_notification" prot="public">app::database::Notification</innerclass>
+    <innerclass refid="classapp_1_1database_1_1_notification_type" prot="public">app::database::NotificationType</innerclass>
+    <innerclass refid="classapp_1_1database_1_1_registration" prot="public">app::database::Registration</innerclass>
+    <innerclass refid="classapp_1_1database_1_1_user" prot="public">app::database::User</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="database_8py_1a7df7b0e9015e82b998eb8e66ea40003b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::database.engine</definition>
+        <argsstring></argsstring>
+        <name>engine</name>
+        <qualifiedname>app.database.engine</qualifiedname>
+        <initializer>=  create_engine(
+    settings.DATABASE_URL, connect_args={&quot;check_same_thread&quot;: False}  # SQLite特有的参数，允许多线程访问
+)</initializer>
+        <briefdescription>
+<para>SQLAlchemy数据库引擎 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>创建数据库连接引擎，配置了SQLite特有参数 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="22" column="1" bodyfile="app/database.py" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="database_8py_1a3200a4ad394ef1c838162d6e45bbf7b8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::database.SessionLocal</definition>
+        <argsstring></argsstring>
+        <name>SessionLocal</name>
+        <qualifiedname>app.database.SessionLocal</qualifiedname>
+        <initializer>=  sessionmaker(autocommit=False, autoflush=False, bind=<ref refid="database_8py_1a7df7b0e9015e82b998eb8e66ea40003b" kindref="member">engine</ref>)</initializer>
+        <briefdescription>
+<para>数据库会话工厂 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>用于创建数据库会话的工厂类 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="30" column="1" bodyfile="app/database.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="database_8py_1af4885de03050bc57ee193712ad123924" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::database.Base</definition>
+        <argsstring></argsstring>
+        <name>Base</name>
+        <qualifiedname>app.database.Base</qualifiedname>
+        <initializer>=  declarative_base()</initializer>
+        <briefdescription>
+<para>SQLAlchemy模型基类 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>所有数据库模型的基类 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="36" column="1" bodyfile="app/database.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="database_8py_1ae6bae1bc6b5767a56b312d1cf37dd1ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.database.get_db</definition>
+        <argsstring>()</argsstring>
+        <name>get_db</name>
+        <qualifiedname>app.database.get_db</qualifiedname>
+        <briefdescription>
+<para>获取数据库会话的依赖函数 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>用于FastAPI依赖注入，创建数据库会话并在请求结束时自动关闭 <simplesect kind="return"><para>Generator[数据库会话对象] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="43" column="1" bodyfile="app/database.py" bodystart="43" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="database_8py_1a21f7b7e2142ce0947cbcaa5b27c7ae55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.database.create_tables</definition>
+        <argsstring>()</argsstring>
+        <name>create_tables</name>
+        <qualifiedname>app.database.create_tables</qualifiedname>
+        <briefdescription>
+<para>创建数据库表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>使用SQLAlchemy创建所有定义的数据库表 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="196" column="1" bodyfile="app/database.py" bodystart="196" bodyend="198"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/database.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

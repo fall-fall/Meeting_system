@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1crud_1_1friendship" kind="namespace" language="Python">
+    <compoundname>app::crud::friendship</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1friendship_1acef68670d9425ca3afefff58d2dbff63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.friendship.get_friendship</definition>
+        <argsstring>(Session db, int friendship_id)</argsstring>
+        <name>get_friendship</name>
+        <qualifiedname>app.crud.friendship.get_friendship</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>friendship_id</declname>
+        </param>
+        <briefdescription>
+<para>根据ID获取好友关系 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 friendship_id: 好友关系ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_friendship" kindref="compound">Friendship</ref>: 好友关系对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/friendship.py" line="13" column="1" bodyfile="app/crud/friendship.py" bodystart="13" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1friendship_1a2b8cd4fb3bcd59ff88270c64e1507fc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.friendship.get_friendship_by_users</definition>
+        <argsstring>(Session db, int user_id, int friend_id)</argsstring>
+        <name>get_friendship_by_users</name>
+        <qualifiedname>app.crud.friendship.get_friendship_by_users</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>friend_id</declname>
+        </param>
+        <briefdescription>
+<para>获取两个用户之间的好友关系 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 user_id: 用户ID friend_id: 好友ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_friendship" kindref="compound">Friendship</ref>: 好友关系对象，如果不存在则返回None</para>
+<para>Note: 此函数会查找两个用户之间的好友关系，无论谁是发起者 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/friendship.py" line="26" column="1" bodyfile="app/crud/friendship.py" bodystart="26" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1friendship_1a8cdf22a94668df2675d72be9170afa42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.friendship.get_friendships_by_user</definition>
+        <argsstring>(Session db, int user_id, FriendshipStatus status=None)</argsstring>
+        <name>get_friendships_by_user</name>
+        <qualifiedname>app.crud.friendship.get_friendships_by_user</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_friendship_status" kindref="compound">FriendshipStatus</ref></type>
+          <declname>status</declname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+<para>获取用户的所有好友关系 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 user_id: 用户ID status: 好友关系状态（可选）</para>
+<para>Returns: List[<ref refid="classapp_1_1database_1_1_friendship" kindref="compound">Friendship</ref>]: 好友关系对象列表 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/friendship.py" line="54" column="1" bodyfile="app/crud/friendship.py" bodystart="54" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1friendship_1a5702721bd79372a8cc7d2239ca542abc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.friendship.get_friends</definition>
+        <argsstring>(Session db, int user_id)</argsstring>
+        <name>get_friends</name>
+        <qualifiedname>app.crud.friendship.get_friends</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <briefdescription>
+<para>获取用户的所有好友 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 user_id: 用户ID</para>
+<para>Returns: List[<ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref>]: 好友用户对象列表 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/friendship.py" line="77" column="1" bodyfile="app/crud/friendship.py" bodystart="77" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1friendship_1aded65d272569b05221b0c0e953a5dcd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.friendship.get_pending_friend_requests</definition>
+        <argsstring>(Session db, int user_id)</argsstring>
+        <name>get_pending_friend_requests</name>
+        <qualifiedname>app.crud.friendship.get_pending_friend_requests</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <briefdescription>
+<para>获取用户收到的待处理好友请求 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 user_id: 用户ID</para>
+<para>Returns: List[<ref refid="classapp_1_1database_1_1_friendship" kindref="compound">Friendship</ref>]: 待处理好友请求列表 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/friendship.py" line="114" column="1" bodyfile="app/crud/friendship.py" bodystart="114" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1friendship_1af9a1e1cc4050d08de99d2450ffaa52f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.friendship.create_friendship</definition>
+        <argsstring>(Session db, int user_id, int friend_id)</argsstring>
+        <name>create_friendship</name>
+        <qualifiedname>app.crud.friendship.create_friendship</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>friend_id</declname>
+        </param>
+        <briefdescription>
+<para>创建好友关系 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 user_id: 发起者用户ID friend_id: 接收者用户ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_friendship" kindref="compound">Friendship</ref>: 创建或已存在的好友关系对象 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/friendship.py" line="134" column="1" bodyfile="app/crud/friendship.py" bodystart="134" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1friendship_1a24da2bc223a62c78cd67018e2f687e88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.friendship.update_friendship_status</definition>
+        <argsstring>(Session db, int friendship_id, FriendshipStatus status)</argsstring>
+        <name>update_friendship_status</name>
+        <qualifiedname>app.crud.friendship.update_friendship_status</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>friendship_id</declname>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_friendship_status" kindref="compound">FriendshipStatus</ref></type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>更新好友关系状态 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 friendship_id: 好友关系ID status: 新的状态</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_friendship" kindref="compound">Friendship</ref>: 更新后的好友关系对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/friendship.py" line="165" column="1" bodyfile="app/crud/friendship.py" bodystart="165" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1friendship_1a0f72a1e212471d19cf6830c8a16e5cce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.friendship.delete_friendship</definition>
+        <argsstring>(Session db, int friendship_id)</argsstring>
+        <name>delete_friendship</name>
+        <qualifiedname>app.crud.friendship.delete_friendship</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>friendship_id</declname>
+        </param>
+        <briefdescription>
+<para>删除好友关系 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 friendship_id: 好友关系ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_friendship" kindref="compound">Friendship</ref>: 被删除的好友关系对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/friendship.py" line="187" column="1" bodyfile="app/crud/friendship.py" bodystart="187" bodyend="205"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>好友关系数据库操作模块 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>本模块提供好友关系相关的数据库CRUD操作函数 </para>
+    </detaileddescription>
+    <location file="app/crud/friendship.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

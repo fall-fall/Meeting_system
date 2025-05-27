@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1models" kind="namespace" language="Python">
+    <compoundname>app::models</compoundname>
+    <innernamespace refid="namespaceapp_1_1models_1_1conference">app::models::conference</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models_1_1friendship">app::models::friendship</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models_1_1notification">app::models::notification</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models_1_1registration">app::models::registration</innernamespace>
+    <innernamespace refid="namespaceapp_1_1models_1_1user">app::models::user</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/models/__init__.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

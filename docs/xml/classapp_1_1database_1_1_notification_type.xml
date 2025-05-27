@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1database_1_1_notification_type" kind="class" language="Python" prot="public">
+    <compoundname>app::database::NotificationType</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">PyEnum</basecompoundref>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_type_1ade818ef934cfa170767d081b9e85bde0" prot="public" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.NotificationType::FRIEND_REQUEST</definition>
+        <argsstring></argsstring>
+        <name>FRIEND_REQUEST</name>
+        <qualifiedname>app.database.NotificationType.FRIEND_REQUEST</qualifiedname>
+        <initializer>=  &quot;friend_request&quot;</initializer>
+        <briefdescription>
+<para>好友请求 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="147" column="1" bodyfile="app/database.py" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_type_1a30ae7600d2a88d4e3401c8b0f698e443" prot="public" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.NotificationType::FRIEND_ACCEPTED</definition>
+        <argsstring></argsstring>
+        <name>FRIEND_ACCEPTED</name>
+        <qualifiedname>app.database.NotificationType.FRIEND_ACCEPTED</qualifiedname>
+        <initializer>=  &quot;friend_accepted&quot;</initializer>
+        <briefdescription>
+<para>好友请求已接受 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="148" column="1" bodyfile="app/database.py" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_type_1ab4d982dc2bf494df0feb2f40b6fcbc2e" prot="public" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.NotificationType::MEETING_INVITATION</definition>
+        <argsstring></argsstring>
+        <name>MEETING_INVITATION</name>
+        <qualifiedname>app.database.NotificationType.MEETING_INVITATION</qualifiedname>
+        <initializer>=  &quot;meeting_invitation&quot;</initializer>
+        <briefdescription>
+<para>会议邀请 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="149" column="1" bodyfile="app/database.py" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_type_1abd4485cccc9954f9e822d7421e4e4da2" prot="public" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.NotificationType::MEETING_JOINED</definition>
+        <argsstring></argsstring>
+        <name>MEETING_JOINED</name>
+        <qualifiedname>app.database.NotificationType.MEETING_JOINED</qualifiedname>
+        <initializer>=  &quot;meeting_joined&quot;</initializer>
+        <briefdescription>
+<para>已加入会议 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="150" column="1" bodyfile="app/database.py" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_type_1aa5c36c33f9e413133be349f2b4f87a0a" prot="public" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.NotificationType::MEETING_LEFT</definition>
+        <argsstring></argsstring>
+        <name>MEETING_LEFT</name>
+        <qualifiedname>app.database.NotificationType.MEETING_LEFT</qualifiedname>
+        <initializer>=  &quot;meeting_left&quot;</initializer>
+        <briefdescription>
+<para>已退出会议 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="151" column="1" bodyfile="app/database.py" bodystart="151" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PyEnum</label>
+      </node>
+      <node id="1">
+        <label>app.database.NotificationType</label>
+        <link refid="classapp_1_1database_1_1_notification_type"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>PyEnum</label>
+      </node>
+      <node id="1">
+        <label>app.database.NotificationType</label>
+        <link refid="classapp_1_1database_1_1_notification_type"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/database.py" line="146" column="1" bodyfile="app/database.py" bodystart="146" bodyend="154"/>
+    <listofallmembers>
+      <member refid="classapp_1_1database_1_1_notification_type_1a30ae7600d2a88d4e3401c8b0f698e443" prot="public" virt="non-virtual"><scope>app::database::NotificationType</scope><name>FRIEND_ACCEPTED</name></member>
+      <member refid="classapp_1_1database_1_1_notification_type_1ade818ef934cfa170767d081b9e85bde0" prot="public" virt="non-virtual"><scope>app::database::NotificationType</scope><name>FRIEND_REQUEST</name></member>
+      <member refid="classapp_1_1database_1_1_notification_type_1ab4d982dc2bf494df0feb2f40b6fcbc2e" prot="public" virt="non-virtual"><scope>app::database::NotificationType</scope><name>MEETING_INVITATION</name></member>
+      <member refid="classapp_1_1database_1_1_notification_type_1abd4485cccc9954f9e822d7421e4e4da2" prot="public" virt="non-virtual"><scope>app::database::NotificationType</scope><name>MEETING_JOINED</name></member>
+      <member refid="classapp_1_1database_1_1_notification_type_1aa5c36c33f9e413133be349f2b4f87a0a" prot="public" virt="non-virtual"><scope>app::database::NotificationType</scope><name>MEETING_LEFT</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

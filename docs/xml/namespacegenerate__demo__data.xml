@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespacegenerate__demo__data" kind="namespace" language="Python">
+    <compoundname>generate_demo_data</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacegenerate__demo__data_1a5e6f5619d772403ba84dddae238a106f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>generate_demo_data.generate_demo_data</definition>
+        <argsstring>()</argsstring>
+        <name>generate_demo_data</name>
+        <qualifiedname>generate_demo_data.generate_demo_data</qualifiedname>
+        <briefdescription>
+<para>生成示例数据。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/scripts/generate_demo_data.py" line="21" column="1" bodyfile="app/scripts/generate_demo_data.py" bodystart="21" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegenerate__demo__data_1a229b37410cdac80e6953852f0ac2b804" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>generate_demo_data.create_demo_conferences</definition>
+        <argsstring>(Session db, users)</argsstring>
+        <name>create_demo_conferences</name>
+        <qualifiedname>generate_demo_data.create_demo_conferences</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>users</type>
+          <defname>users</defname>
+        </param>
+        <briefdescription>
+<para>创建示例会议。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/scripts/generate_demo_data.py" line="51" column="1" bodyfile="app/scripts/generate_demo_data.py" bodystart="51" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegenerate__demo__data_1af2381bad1e8169dd02f56879f57edbb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>generate_demo_data.create_demo_friendships</definition>
+        <argsstring>(Session db, users)</argsstring>
+        <name>create_demo_friendships</name>
+        <qualifiedname>generate_demo_data.create_demo_friendships</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>users</type>
+          <defname>users</defname>
+        </param>
+        <briefdescription>
+<para>创建示例好友关系。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/scripts/generate_demo_data.py" line="104" column="1" bodyfile="app/scripts/generate_demo_data.py" bodystart="104" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegenerate__demo__data_1ae0a02e20448c54c7f56b836228483d06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>generate_demo_data.create_demo_registrations</definition>
+        <argsstring>(Session db, users, conferences)</argsstring>
+        <name>create_demo_registrations</name>
+        <qualifiedname>generate_demo_data.create_demo_registrations</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>users</type>
+          <defname>users</defname>
+        </param>
+        <param>
+          <type>conferences</type>
+          <defname>conferences</defname>
+        </param>
+        <briefdescription>
+<para>创建示例会议注册。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/scripts/generate_demo_data.py" line="125" column="1" bodyfile="app/scripts/generate_demo_data.py" bodystart="125" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegenerate__demo__data_1aceeab2a8fb6f9e95c6ed35020c352243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>generate_demo_data.create_demo_notifications</definition>
+        <argsstring>(Session db, users, conferences)</argsstring>
+        <name>create_demo_notifications</name>
+        <qualifiedname>generate_demo_data.create_demo_notifications</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>users</type>
+          <defname>users</defname>
+        </param>
+        <param>
+          <type>conferences</type>
+          <defname>conferences</defname>
+        </param>
+        <briefdescription>
+<para>创建示例通知。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/scripts/generate_demo_data.py" line="144" column="1" bodyfile="app/scripts/generate_demo_data.py" bodystart="144" bodyend="213"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>生成示例数据的脚本，包括会议、好友关系和通知。 运行方式：python -m app.scripts.generate_demo_data </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/scripts/generate_demo_data.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

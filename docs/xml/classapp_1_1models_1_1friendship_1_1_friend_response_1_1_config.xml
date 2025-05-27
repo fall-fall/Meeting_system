@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1friendship_1_1_friend_response_1_1_config" kind="class" language="Python" prot="public">
+    <compoundname>app::models::friendship::FriendResponse::Config</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1models_1_1friendship_1_1_friend_response_1_1_config_1a36f7c2e3cdf0028b46563f552079ff8c" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool app.models.friendship.FriendResponse.Config::from_attributes</definition>
+        <argsstring></argsstring>
+        <name>from_attributes</name>
+        <qualifiedname>app.models.friendship.FriendResponse.Config.from_attributes</qualifiedname>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/models/friendship.py" line="45" column="1" bodyfile="app/models/friendship.py" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/models/friendship.py" line="44" column="1" bodyfile="app/models/friendship.py" bodystart="44" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classapp_1_1models_1_1friendship_1_1_friend_response_1_1_config_1a36f7c2e3cdf0028b46563f552079ff8c" prot="public" virt="non-virtual"><scope>app::models::friendship::FriendResponse::Config</scope><name>from_attributes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

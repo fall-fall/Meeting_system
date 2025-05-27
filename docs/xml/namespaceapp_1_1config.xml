@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1config" kind="namespace" language="Python">
+    <compoundname>app::config</compoundname>
+    <innerclass refid="classapp_1_1config_1_1_settings" prot="public">app::config::Settings</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="config_8py_1a445368302c425714d2433233ed659fd3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::config.settings</definition>
+        <argsstring></argsstring>
+        <name>settings</name>
+        <qualifiedname>app.config.settings</qualifiedname>
+        <initializer>=  <ref refid="classapp_1_1config_1_1_settings" kindref="compound">Settings</ref>()</initializer>
+        <briefdescription>
+<para>全局设置实例 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>应用程序中使用的全局配置对象 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/config.py" line="44" column="1" bodyfile="app/config.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/config.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

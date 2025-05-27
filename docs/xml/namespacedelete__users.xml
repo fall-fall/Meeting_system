@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespacedelete__users" kind="namespace" language="Python">
+    <compoundname>delete_users</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacedelete__users_1ab5a59c3333c090903c658c364010953d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>delete_users.delete_users</definition>
+        <argsstring>()</argsstring>
+        <name>delete_users</name>
+        <qualifiedname>delete_users.delete_users</qualifiedname>
+        <briefdescription>
+<para>删除指定的用户。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/scripts/delete_users.py" line="11" column="1" bodyfile="app/scripts/delete_users.py" bodystart="11" bodyend="39"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>删除指定用户的脚本。 运行方式：python -m app.scripts.delete_users </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/scripts/delete_users.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

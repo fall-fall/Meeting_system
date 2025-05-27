@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1notification_1_1_notification_response" kind="class" language="Python" prot="public">
+    <compoundname>app::models::notification::NotificationResponse</compoundname>
+    <basecompoundref refid="classapp_1_1models_1_1notification_1_1_notification_base" prot="public" virt="non-virtual">app.models.notification.NotificationBase</basecompoundref>
+    <innerclass refid="classapp_1_1models_1_1notification_1_1_notification_response_1_1_config" prot="public">app::models::notification::NotificationResponse::Config</innerclass>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1models_1_1notification_1_1_notification_response_1a0259c5bda9a8a85a07eb851590b37071" prot="public" static="yes" mutable="no">
+        <type>Optional</type>
+        <definition>Optional app.models.notification.NotificationResponse::sender_username</definition>
+        <argsstring></argsstring>
+        <name>sender_username</name>
+        <qualifiedname>app.models.notification.NotificationResponse.sender_username</qualifiedname>
+        <initializer>=  None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/models/notification.py" line="35" column="1" bodyfile="app/models/notification.py" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>通知响应模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.notification.NotificationResponse</label>
+        <link refid="classapp_1_1models_1_1notification_1_1_notification_response"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.notification.NotificationBase</label>
+        <link refid="classapp_1_1models_1_1notification_1_1_notification_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.notification.NotificationResponse</label>
+        <link refid="classapp_1_1models_1_1notification_1_1_notification_response"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.notification.NotificationBase</label>
+        <link refid="classapp_1_1models_1_1notification_1_1_notification_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/models/notification.py" line="30" column="1" bodyfile="app/models/notification.py" bodystart="30" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classapp_1_1models_1_1notification_1_1_notification_base_1a2c1f871df6d705f17c61daba31ceea75" prot="public" virt="non-virtual"><scope>app::models::notification::NotificationResponse</scope><name>related_id</name></member>
+      <member refid="classapp_1_1models_1_1notification_1_1_notification_base_1af4eb809e31a63a6338a6d775f6f3cdf7" prot="public" virt="non-virtual"><scope>app::models::notification::NotificationResponse</scope><name>sender_id</name></member>
+      <member refid="classapp_1_1models_1_1notification_1_1_notification_response_1a0259c5bda9a8a85a07eb851590b37071" prot="public" virt="non-virtual"><scope>app::models::notification::NotificationResponse</scope><name>sender_username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

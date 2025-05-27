@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespacegenerate__demo__users" kind="namespace" language="Python">
+    <compoundname>generate_demo_users</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacegenerate__demo__users_1a3b83c2edc45fd3199c5e0a5c2333b275" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>generate_demo_users.generate_demo_users</definition>
+        <argsstring>()</argsstring>
+        <name>generate_demo_users</name>
+        <qualifiedname>generate_demo_users.generate_demo_users</qualifiedname>
+        <briefdescription>
+<para>生成示例用户。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/scripts/generate_demo_users.py" line="13" column="1" bodyfile="app/scripts/generate_demo_users.py" bodystart="13" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>生成示例用户的脚本。 运行方式：python -m app.scripts.generate_demo_users </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/scripts/generate_demo_users.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

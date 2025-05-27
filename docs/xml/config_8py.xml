@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="config_8py" kind="file" language="Python">
+    <compoundname>config.py</compoundname>
+    <innerclass refid="classapp_1_1config_1_1_settings" prot="public">app::config::Settings</innerclass>
+    <innernamespace refid="namespaceapp">app</innernamespace>
+    <innernamespace refid="namespaceapp_1_1config">app::config</innernamespace>
+    <briefdescription>
+<para>应用程序配置模块 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>定义了应用程序的各项配置参数，包括数据库、认证等设置 <simplesect kind="author"><para>Meeting System Team </para>
+</simplesect>
+<simplesect kind="date"><para>2024 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>pydantic<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>BaseModel</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classapp_1_1config_1_1_settings" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classapp_1_1config_1_1_settings" kindref="compound">Settings</ref>(BaseModel):</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23" refid="classapp_1_1config_1_1_settings_1af0967208e479204f4c8aec63e55d347e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>APP_NAME:<sp/>str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;会议管理系统&quot;</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="24" refid="classapp_1_1config_1_1_settings_1acca3aa9cf3b685bfa339121ceb135990" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>API_PREFIX:<sp/>str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/api&quot;</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="25" refid="classapp_1_1config_1_1_settings_1acbec59ef8a7d10e28d19c669de62ce93" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>DEBUG:<sp/>bool<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30" refid="classapp_1_1config_1_1_settings_1a9b748884aa9c58f45c42070556e0bc93" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>SECRET_KEY:<sp/>str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;your-secret-key-for-jwt-token&quot;</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="31" refid="classapp_1_1config_1_1_settings_1a1c0909d583fc32b48baac038b0cabb5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ALGORITHM:<sp/>str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;HS256&quot;</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="32" refid="classapp_1_1config_1_1_settings_1a53d6a422a800fa9ac288d820018a9592" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ACCESS_TOKEN_EXPIRE_MINUTES:<sp/>int<sp/>=<sp/>60<sp/>*<sp/>24<sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37" refid="classapp_1_1config_1_1_settings_1a7592fb39333aecda6ed79ce1a7ca911a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>DATABASE_URL:<sp/>str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sqlite:///./meeting_management.db&quot;</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">settings<sp/>=<sp/><ref refid="classapp_1_1config_1_1_settings" kindref="compound">Settings</ref>()</highlight></codeline>
+    </programlisting>
+    <location file="app/config.py"/>
+  </compounddef>
+</doxygen>

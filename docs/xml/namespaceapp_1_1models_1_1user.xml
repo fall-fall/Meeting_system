@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1models_1_1user" kind="namespace" language="Python">
+    <compoundname>app::models::user</compoundname>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_token" prot="public">app::models::user::Token</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_token_data" prot="public">app::models::user::TokenData</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_user_base" prot="public">app::models::user::UserBase</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_user_create" prot="public">app::models::user::UserCreate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_user_login" prot="public">app::models::user::UserLogin</innerclass>
+    <innerclass refid="classapp_1_1models_1_1user_1_1_user_response" prot="public">app::models::user::UserResponse</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/models/user.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

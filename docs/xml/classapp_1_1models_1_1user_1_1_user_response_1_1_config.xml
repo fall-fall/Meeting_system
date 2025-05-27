@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1user_1_1_user_response_1_1_config" kind="class" language="Python" prot="public">
+    <compoundname>app::models::user::UserResponse::Config</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1models_1_1user_1_1_user_response_1_1_config_1aa0fdcbfb7f21d0fce2188b837151e18a" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool app.models.user.UserResponse.Config::orm_mode</definition>
+        <argsstring></argsstring>
+        <name>orm_mode</name>
+        <qualifiedname>app.models.user.UserResponse.Config.orm_mode</qualifiedname>
+        <initializer>=  True</initializer>
+        <briefdescription>
+<para>启用ORM模式 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/models/user.py" line="57" column="1" bodyfile="app/models/user.py" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>用户ID </para>
+    </briefdescription>
+    <detaileddescription>
+<para>是否为管理员</para>
+<para>创建时间 </para>
+    </detaileddescription>
+    <location file="app/models/user.py" line="56" column="1" bodyfile="app/models/user.py" bodystart="56" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classapp_1_1models_1_1user_1_1_user_response_1_1_config_1aa0fdcbfb7f21d0fce2188b837151e18a" prot="public" virt="non-virtual"><scope>app::models::user::UserResponse::Config</scope><name>orm_mode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

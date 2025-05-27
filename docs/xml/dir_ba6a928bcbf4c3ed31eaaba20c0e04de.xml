@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="dir_ba6a928bcbf4c3ed31eaaba20c0e04de" kind="dir">
+    <compoundname>app/scripts</compoundname>
+    <innerfile refid="delete__users_8py">delete_users.py</innerfile>
+    <innerfile refid="fix__admin__password_8py">fix_admin_password.py</innerfile>
+    <innerfile refid="generate__demo__data_8py">generate_demo_data.py</innerfile>
+    <innerfile refid="generate__demo__users_8py">generate_demo_users.py</innerfile>
+    <innerfile refid="generate__invitations_8py">generate_invitations.py</innerfile>
+    <innerfile refid="list__admin__users_8py">list_admin_users.py</innerfile>
+    <innerfile refid="update__all__passwords_8py">update_all_passwords.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/scripts/"/>
+  </compounddef>
+</doxygen>

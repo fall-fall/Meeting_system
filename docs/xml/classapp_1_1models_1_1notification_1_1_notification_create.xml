@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1notification_1_1_notification_create" kind="class" language="Python" prot="public">
+    <compoundname>app::models::notification::NotificationCreate</compoundname>
+    <basecompoundref refid="classapp_1_1models_1_1notification_1_1_notification_base" prot="public" virt="non-virtual">app.models.notification.NotificationBase</basecompoundref>
+    <briefdescription>
+<para>通知创建模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.notification.NotificationCreate</label>
+        <link refid="classapp_1_1models_1_1notification_1_1_notification_create"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.notification.NotificationBase</label>
+        <link refid="classapp_1_1models_1_1notification_1_1_notification_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.notification.NotificationCreate</label>
+        <link refid="classapp_1_1models_1_1notification_1_1_notification_create"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>app.models.notification.NotificationBase</label>
+        <link refid="classapp_1_1models_1_1notification_1_1_notification_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/models/notification.py" line="20" column="1" bodyfile="app/models/notification.py" bodystart="20" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classapp_1_1models_1_1notification_1_1_notification_base_1a2c1f871df6d705f17c61daba31ceea75" prot="public" virt="non-virtual"><scope>app::models::notification::NotificationCreate</scope><name>related_id</name></member>
+      <member refid="classapp_1_1models_1_1notification_1_1_notification_base_1af4eb809e31a63a6338a6d775f6f3cdf7" prot="public" virt="non-virtual"><scope>app::models::notification::NotificationCreate</scope><name>sender_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

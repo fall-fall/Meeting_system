@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1dependencies" kind="namespace" language="Python">
+    <compoundname>app::dependencies</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="dependencies_8py_1a8e7f7156bc5c381abe77717fd3b352b4" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::dependencies.pwd_context</definition>
+        <argsstring></argsstring>
+        <name>pwd_context</name>
+        <qualifiedname>app.dependencies.pwd_context</qualifiedname>
+        <initializer>=  CryptContext(schemes=[&quot;bcrypt&quot;], deprecated=&quot;auto&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/dependencies.py" line="15" column="1" bodyfile="app/dependencies.py" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dependencies_8py_1afea90bceb758dc13b7a7d26daeb7bb71" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::dependencies.oauth2_scheme</definition>
+        <argsstring></argsstring>
+        <name>oauth2_scheme</name>
+        <qualifiedname>app.dependencies.oauth2_scheme</qualifiedname>
+        <initializer>=  OAuth2PasswordBearer(tokenUrl=&quot;api/auth/token&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/dependencies.py" line="18" column="1" bodyfile="app/dependencies.py" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="dependencies_8py_1a40731b72ec9914f74ac90918296ab838" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.dependencies.verify_password</definition>
+        <argsstring>(plain_password, hashed_password)</argsstring>
+        <name>verify_password</name>
+        <qualifiedname>app.dependencies.verify_password</qualifiedname>
+        <param>
+          <type>plain_password</type>
+          <defname>plain_password</defname>
+        </param>
+        <param>
+          <type>hashed_password</type>
+          <defname>hashed_password</defname>
+        </param>
+        <briefdescription>
+<para>验证密码 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>比较明文密码与哈希密码是否匹配</para>
+<para>Args: plain_password: 明文密码 hashed_password: 哈希后的密码</para>
+<para>Returns: bool: 密码是否匹配 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/dependencies.py" line="21" column="1" bodyfile="app/dependencies.py" bodystart="21" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="dependencies_8py_1a6291a2bf804959818901fac8f193f49d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.dependencies.get_password_hash</definition>
+        <argsstring>(password)</argsstring>
+        <name>get_password_hash</name>
+        <qualifiedname>app.dependencies.get_password_hash</qualifiedname>
+        <param>
+          <type>password</type>
+          <defname>password</defname>
+        </param>
+        <briefdescription>
+<para>生成密码哈希 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>对明文密码进行哈希处理</para>
+<para>Args: password: 明文密码</para>
+<para>Returns: str: 哈希后的密码 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/dependencies.py" line="36" column="1" bodyfile="app/dependencies.py" bodystart="36" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="dependencies_8py_1a87c80760c9848b70d9bf765ea3ed661e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.dependencies.authenticate_user</definition>
+        <argsstring>(Session db, str username, str password)</argsstring>
+        <name>authenticate_user</name>
+        <qualifiedname>app.dependencies.authenticate_user</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+<para>用户认证 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>验证用户名和密码是否正确</para>
+<para>Args: db: 数据库会话 username: 用户名 password: 明文密码</para>
+<para>Returns: User|False: 认证成功返回用户对象，失败返回False </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/dependencies.py" line="50" column="1" bodyfile="app/dependencies.py" bodystart="50" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="dependencies_8py_1ace20b6d68961f9864435e08f9d25d073" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.dependencies.create_access_token</definition>
+        <argsstring>(dict data, Optional[timedelta] expires_delta=None)</argsstring>
+        <name>create_access_token</name>
+        <qualifiedname>app.dependencies.create_access_token</qualifiedname>
+        <param>
+          <type>dict</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>Optional</type>
+          <declname>expires_delta</declname>
+          <array>[timedelta]</array>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+<para>创建访问令牌 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>生成JWT访问令牌</para>
+<para>Args: data: 要编码到令牌中的数据 expires_delta: 令牌过期时间增量，如果为None则使用默认值</para>
+<para>Returns: str: 编码后的JWT令牌 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/dependencies.py" line="72" column="1" bodyfile="app/dependencies.py" bodystart="72" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="dependencies_8py_1af12093b8dc702010b147eb4aacd9523e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.dependencies.get_current_user</definition>
+        <argsstring>(str token=Depends(oauth2_scheme), Session db=Depends(get_db))</argsstring>
+        <name>get_current_user</name>
+        <qualifiedname>app.dependencies.get_current_user</qualifiedname>
+        <param>
+          <type>str</type>
+          <declname>token</declname>
+          <defval>Depends(oauth2_scheme)</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>获取当前用户 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>从JWT令牌中解析并获取当前用户</para>
+<para>Args: token: JWT令牌 db: 数据库会话</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref>: 当前用户对象</para>
+<para>Raises: HTTPException: 如果令牌无效或用户不存在 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/dependencies.py" line="102" column="1" bodyfile="app/dependencies.py" bodystart="102" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="dependencies_8py_1a8c2684482e270173e2d10aa366a2e8db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.dependencies.get_current_active_user</definition>
+        <argsstring>(Request request=None, Session db=Depends(get_db))</argsstring>
+        <name>get_current_active_user</name>
+        <qualifiedname>app.dependencies.get_current_active_user</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>获取当前活跃用户或重定向到登录页面 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>从请求中获取当前用户，如果未登录则重定向到登录页面</para>
+<para>Args: request: HTTP请求对象 db: 数据库会话</para>
+<para>Returns: User|RedirectResponse: 当前用户对象或重定向响应 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/dependencies.py" line="141" column="1" bodyfile="app/dependencies.py" bodystart="141" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="dependencies_8py_1ab043bf03ce6ed5b3e89a382c98f3c6df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.dependencies.get_current_admin_user</definition>
+        <argsstring>(Request request, Session db=Depends(get_db))</argsstring>
+        <name>get_current_admin_user</name>
+        <qualifiedname>app.dependencies.get_current_admin_user</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>获取当前管理员用户或重定向 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>从请求中获取当前用户，验证是否为管理员，如果不是则重定向</para>
+<para>Args: request: HTTP请求对象 db: 数据库会话</para>
+<para>Returns: User|RedirectResponse: 当前管理员用户对象或重定向响应 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/dependencies.py" line="178" column="1" bodyfile="app/dependencies.py" bodystart="178" bodyend="206"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/dependencies.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

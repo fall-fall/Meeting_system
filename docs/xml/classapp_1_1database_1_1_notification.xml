@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1database_1_1_notification" kind="class" language="Python" prot="public">
+    <compoundname>app::database::Notification</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Base</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1ae17803f71f072a62da5affbc0150c213" prot="private" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.Notification::__tablename__</definition>
+        <argsstring></argsstring>
+        <name>__tablename__</name>
+        <qualifiedname>app.database.Notification.__tablename__</qualifiedname>
+        <initializer>=  &quot;notifications&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="175" column="1" bodyfile="app/database.py" bodystart="175" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1aff1f2c8e6b059d3eb71e146d6ea30902" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Notification::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>app.database.Notification.id</qualifiedname>
+        <initializer>=  Column(Integer, primary_key=True, index=True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="178" column="1" bodyfile="app/database.py" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1a4c6a22fecf57b9f870cf82f087fe7288" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Notification::user_id</definition>
+        <argsstring></argsstring>
+        <name>user_id</name>
+        <qualifiedname>app.database.Notification.user_id</qualifiedname>
+        <initializer>=  Column(Integer, ForeignKey(&quot;users.id&quot;))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="179" column="1" bodyfile="app/database.py" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1a9fa3b4b96694996cc97210591c8cbb47" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Notification::sender_id</definition>
+        <argsstring></argsstring>
+        <name>sender_id</name>
+        <qualifiedname>app.database.Notification.sender_id</qualifiedname>
+        <initializer>=  Column(Integer, ForeignKey(&quot;users.id&quot;), nullable=True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="180" column="1" bodyfile="app/database.py" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1abe6ffe350fba1004f80867184145106e" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Notification::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>app.database.Notification.type</qualifiedname>
+        <initializer>=  Column(Enum(<ref refid="classapp_1_1database_1_1_notification_type" kindref="compound">NotificationType</ref>))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="181" column="1" bodyfile="app/database.py" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1a413aeb1d6b00759719d7494ac3744f35" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Notification::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <qualifiedname>app.database.Notification.content</qualifiedname>
+        <initializer>=  Column(Text)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="182" column="1" bodyfile="app/database.py" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1a0c5739127827c0c7d393a8d93a1bcf62" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Notification::is_read</definition>
+        <argsstring></argsstring>
+        <name>is_read</name>
+        <qualifiedname>app.database.Notification.is_read</qualifiedname>
+        <initializer>=  Column(Boolean, default=False)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="183" column="1" bodyfile="app/database.py" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1ad1a55f5253e927db258f45d6d5e86736" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Notification::related_id</definition>
+        <argsstring></argsstring>
+        <name>related_id</name>
+        <qualifiedname>app.database.Notification.related_id</qualifiedname>
+        <initializer>=  Column(Integer, nullable=True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="184" column="1" bodyfile="app/database.py" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1af7c13ab1285bf1a99835d41966524595" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Notification::created_at</definition>
+        <argsstring></argsstring>
+        <name>created_at</name>
+        <qualifiedname>app.database.Notification.created_at</qualifiedname>
+        <initializer>=  Column(DateTime, default=datetime.utcnow)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="185" column="1" bodyfile="app/database.py" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1a64c6ced124479122c013a05a9573be45" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Notification::user</definition>
+        <argsstring></argsstring>
+        <name>user</name>
+        <qualifiedname>app.database.Notification.user</qualifiedname>
+        <initializer>=  relationship(&quot;User&quot;, foreign_keys=[user_id], back_populates=&quot;notifications&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="188" column="1" bodyfile="app/database.py" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_notification_1a9816a2c9bd0e663c8ade840c4e594bd2" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Notification::sender</definition>
+        <argsstring></argsstring>
+        <name>sender</name>
+        <qualifiedname>app.database.Notification.sender</qualifiedname>
+        <initializer>=  relationship(&quot;User&quot;, foreign_keys=[sender_id])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="189" column="1" bodyfile="app/database.py" bodystart="189" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>通知模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Base</label>
+      </node>
+      <node id="1">
+        <label>app.database.Notification</label>
+        <link refid="classapp_1_1database_1_1_notification"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Base</label>
+      </node>
+      <node id="1">
+        <label>app.database.Notification</label>
+        <link refid="classapp_1_1database_1_1_notification"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/database.py" line="173" column="1" bodyfile="app/database.py" bodystart="173" bodyend="191"/>
+    <listofallmembers>
+      <member refid="classapp_1_1database_1_1_notification_1ae17803f71f072a62da5affbc0150c213" prot="private" virt="non-virtual"><scope>app::database::Notification</scope><name>__tablename__</name></member>
+      <member refid="classapp_1_1database_1_1_notification_1a413aeb1d6b00759719d7494ac3744f35" prot="public" virt="non-virtual"><scope>app::database::Notification</scope><name>content</name></member>
+      <member refid="classapp_1_1database_1_1_notification_1af7c13ab1285bf1a99835d41966524595" prot="public" virt="non-virtual"><scope>app::database::Notification</scope><name>created_at</name></member>
+      <member refid="classapp_1_1database_1_1_notification_1aff1f2c8e6b059d3eb71e146d6ea30902" prot="public" virt="non-virtual"><scope>app::database::Notification</scope><name>id</name></member>
+      <member refid="classapp_1_1database_1_1_notification_1a0c5739127827c0c7d393a8d93a1bcf62" prot="public" virt="non-virtual"><scope>app::database::Notification</scope><name>is_read</name></member>
+      <member refid="classapp_1_1database_1_1_notification_1ad1a55f5253e927db258f45d6d5e86736" prot="public" virt="non-virtual"><scope>app::database::Notification</scope><name>related_id</name></member>
+      <member refid="classapp_1_1database_1_1_notification_1a9816a2c9bd0e663c8ade840c4e594bd2" prot="public" virt="non-virtual"><scope>app::database::Notification</scope><name>sender</name></member>
+      <member refid="classapp_1_1database_1_1_notification_1a9fa3b4b96694996cc97210591c8cbb47" prot="public" virt="non-virtual"><scope>app::database::Notification</scope><name>sender_id</name></member>
+      <member refid="classapp_1_1database_1_1_notification_1abe6ffe350fba1004f80867184145106e" prot="public" virt="non-virtual"><scope>app::database::Notification</scope><name>type</name></member>
+      <member refid="classapp_1_1database_1_1_notification_1a64c6ced124479122c013a05a9573be45" prot="public" virt="non-virtual"><scope>app::database::Notification</scope><name>user</name></member>
+      <member refid="classapp_1_1database_1_1_notification_1a4c6a22fecf57b9f870cf82f087fe7288" prot="public" virt="non-virtual"><scope>app::database::Notification</scope><name>user_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

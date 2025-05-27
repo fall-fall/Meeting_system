@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="run_8py" kind="file" language="Python">
+    <compoundname>run.py</compoundname>
+    <innernamespace refid="namespacerun">run</innernamespace>
+    <briefdescription>
+<para>应用程序启动脚本 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>使用uvicorn启动FastAPI应用程序的入口脚本 <simplesect kind="author"><para>Meeting System Team </para>
+</simplesect>
+<simplesect kind="date"><para>2024 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>uvicorn</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;__main__&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>uvicorn.run(</highlight><highlight class="stringliteral">&quot;app.main:app&quot;</highlight><highlight class="normal">,<sp/>host=</highlight><highlight class="stringliteral">&quot;0.0.0.0&quot;</highlight><highlight class="normal">,<sp/>port=8010,<sp/>reload=</highlight><highlight class="keyword">True</highlight><highlight class="normal">)</highlight></codeline>
+    </programlisting>
+    <location file="run.py"/>
+  </compounddef>
+</doxygen>

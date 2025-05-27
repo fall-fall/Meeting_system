@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1crud_1_1user" kind="namespace" language="Python">
+    <compoundname>app::crud::user</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1user_1ab33183c170d7fc7ddb122d800282ae7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.user.get_user</definition>
+        <argsstring>(Session db, int user_id)</argsstring>
+        <name>get_user</name>
+        <qualifiedname>app.crud.user.get_user</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <briefdescription>
+<para>根据ID获取用户 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 user_id: 用户ID</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref>: 用户对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/user.py" line="14" column="1" bodyfile="app/crud/user.py" bodystart="14" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1user_1aefaf67ce3b31acf7f09fc8420761b83c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.user.get_user_by_username</definition>
+        <argsstring>(Session db, str username)</argsstring>
+        <name>get_user_by_username</name>
+        <qualifiedname>app.crud.user.get_user_by_username</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>根据用户名获取用户 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 username: 用户名</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref>: 用户对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/user.py" line="27" column="1" bodyfile="app/crud/user.py" bodystart="27" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1user_1adcce69d5599eedd7a0a4ebe5bc182213" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.user.get_user_by_email</definition>
+        <argsstring>(Session db, str email)</argsstring>
+        <name>get_user_by_email</name>
+        <qualifiedname>app.crud.user.get_user_by_email</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>email</declname>
+        </param>
+        <briefdescription>
+<para>根据电子邮箱获取用户 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 email: 电子邮箱</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref>: 用户对象，如果不存在则返回None </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/user.py" line="40" column="1" bodyfile="app/crud/user.py" bodystart="40" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1user_1ab0ca8529244b599738e66a0cf7136e70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.user.get_users</definition>
+        <argsstring>(Session db, int skip=0, int limit=100)</argsstring>
+        <name>get_users</name>
+        <qualifiedname>app.crud.user.get_users</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>skip</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+<para>获取所有用户 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 skip: 跳过的记录数 limit: 返回的最大记录数</para>
+<para>Returns: List[<ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref>]: 用户对象列表 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/user.py" line="53" column="1" bodyfile="app/crud/user.py" bodystart="53" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1crud_1_1user_1a77c737f3f48132e1bab1df457d2c84cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.crud.user.create_user</definition>
+        <argsstring>(Session db, UserCreate user)</argsstring>
+        <name>create_user</name>
+        <qualifiedname>app.crud.user.create_user</qualifiedname>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1models_1_1user_1_1_user_create" kindref="compound">UserCreate</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>创建新用户 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Args: db: 数据库会话 user: 用户创建模型</para>
+<para>Returns: <ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref>: 创建的用户对象 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/crud/user.py" line="67" column="1" bodyfile="app/crud/user.py" bodystart="67" bodyend="94"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>用户数据库操作模块 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>本模块提供用户相关的数据库CRUD操作函数 </para>
+    </detaileddescription>
+    <location file="app/crud/user.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

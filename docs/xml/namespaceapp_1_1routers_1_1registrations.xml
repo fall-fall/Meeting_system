@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1routers_1_1registrations" kind="namespace" language="Python">
+    <compoundname>app::routers::registrations</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="registrations_8py_1ae431b81d6b2f425f401304bff7d86a68" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::routers::registrations.router</definition>
+        <argsstring></argsstring>
+        <name>router</name>
+        <qualifiedname>app.routers.registrations.router</qualifiedname>
+        <initializer>=  APIRouter(prefix=&quot;/registrations&quot;, tags=[&quot;registrations&quot;])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/registrations.py" line="15" column="1" bodyfile="app/routers/registrations.py" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="registrations_8py_1ab169cffa60c99e6ac7ddb3a857247c97" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::routers::registrations.templates</definition>
+        <argsstring></argsstring>
+        <name>templates</name>
+        <qualifiedname>app.routers.registrations.templates</qualifiedname>
+        <initializer>=  Jinja2Templates(directory=&quot;app/templates&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/registrations.py" line="16" column="1" bodyfile="app/routers/registrations.py" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="registrations_8py_1aebcbac7d6340a03e227c97e23d729561" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.registrations.my_registrations</definition>
+        <argsstring>(Request request, Session db=Depends(get_db))</argsstring>
+        <name>my_registrations</name>
+        <qualifiedname>app.routers.registrations.my_registrations</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>List registrations for the current user. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/registrations.py" line="20" column="1" bodyfile="app/routers/registrations.py" bodystart="23" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="registrations_8py_1a747713a82795a86ec792bd5cd5c59b4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.registrations.register_for_conference</definition>
+        <argsstring>(int conference_id, Session db=Depends(get_db), User current_user=Depends(get_current_active_user))</argsstring>
+        <name>register_for_conference</name>
+        <qualifiedname>app.routers.registrations.register_for_conference</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref></type>
+          <declname>current_user</declname>
+          <defval>Depends(get_current_active_user)</defval>
+        </param>
+        <briefdescription>
+<para>Register for a conference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/registrations.py" line="47" column="1" bodyfile="app/routers/registrations.py" bodystart="51" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="registrations_8py_1a036f41e8b163e693659c5d19c216cc91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.registrations.unregister_from_conference</definition>
+        <argsstring>(int conference_id, Session db=Depends(get_db), User current_user=Depends(get_current_active_user))</argsstring>
+        <name>unregister_from_conference</name>
+        <qualifiedname>app.routers.registrations.unregister_from_conference</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <param>
+          <type><ref refid="classapp_1_1database_1_1_user" kindref="compound">User</ref></type>
+          <declname>current_user</declname>
+          <defval>Depends(get_current_active_user)</defval>
+        </param>
+        <briefdescription>
+<para>Unregister from a conference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/registrations.py" line="74" column="1" bodyfile="app/routers/registrations.py" bodystart="78" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="registrations_8py_1a1d3af50d73643f9ab61d62f20cef44f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.registrations.conference_attendees</definition>
+        <argsstring>(Request request, int conference_id, Session db=Depends(get_db))</argsstring>
+        <name>conference_attendees</name>
+        <qualifiedname>app.routers.registrations.conference_attendees</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>List attendees for a conference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/registrations.py" line="100" column="1" bodyfile="app/routers/registrations.py" bodystart="104" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="registrations_8py_1af2f519fbae1d70890ab0b8c1755e46bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.registrations.invite_friend</definition>
+        <argsstring>(Request request, int conference_id=Form(...), int friend_id=Form(...), Session db=Depends(get_db))</argsstring>
+        <name>invite_friend</name>
+        <qualifiedname>app.routers.registrations.invite_friend</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>friend_id</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>邀请好友参加会议。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/registrations.py" line="160" column="1" bodyfile="app/routers/registrations.py" bodystart="165" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="registrations_8py_1af840ac5725c69c3c15bcaccedb74a40c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.registrations.accept_invitation</definition>
+        <argsstring>(Request request, int conference_id, bool direct_accept=False, Session db=Depends(get_db))</argsstring>
+        <name>accept_invitation</name>
+        <qualifiedname>app.routers.registrations.accept_invitation</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conference_id</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>direct_accept</declname>
+          <defval>False</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>接受会议邀请。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/registrations.py" line="217" column="1" bodyfile="app/routers/registrations.py" bodystart="222" bodyend="275"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/routers/registrations.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

@@ -66,6 +66,36 @@ meeting/
 - Swagger UI: `http://localhost:8000/docs`
 - ReDoc: `http://localhost:8000/redoc`
 
+## 如何打开使用 doxygen 生成的文档？
+
+# 在 Windows 上
+
+start docs\html\index.html
+
+# 在 macOS 上
+
+open docs/html/index.html
+
+# 在 Linux 上
+
+xdg-open docs/html/index.html
+
+### 📁 文档文件位置：
+原始 moxygen 输出：
+Meeting_system/api-docs.md
+改进版文档：
+Meeting_system/API_Documentation.md
+Doxygen HTML 文档：
+Meeting_system/docs/html/index.html
+Doxygen XML 源文件：
+Meeting_system/docs/xml/
+🔍 文档特点：
+中英文混合: 支持中文注释和说明
+完整的 API 参考: 包含所有函数、类、参数说明
+代码示例: 包含数据模型的代码示例
+交叉引用: 文档内部链接和引用
+结构化组织: 按模块和功能分类
+
 ## 默认管理员账户
 
 - 用户名: admin

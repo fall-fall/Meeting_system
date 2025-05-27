@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1database_1_1_friendship" kind="class" language="Python" prot="public">
+    <compoundname>app::database::Friendship</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Base</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_1a7f98ef587d0ef4dcfa235aa1ea488747" prot="private" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str app.database.Friendship::__tablename__</definition>
+        <argsstring></argsstring>
+        <name>__tablename__</name>
+        <qualifiedname>app.database.Friendship.__tablename__</qualifiedname>
+        <initializer>=  &quot;friendships&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="157" column="1" bodyfile="app/database.py" bodystart="157" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_1a21810d0569f440c39929e1079087fe03" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Friendship::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>app.database.Friendship.id</qualifiedname>
+        <initializer>=  Column(Integer, primary_key=True, index=True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="160" column="1" bodyfile="app/database.py" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_1ab23c4fb48bd4f7cff7fae98e696c8476" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Friendship::user_id</definition>
+        <argsstring></argsstring>
+        <name>user_id</name>
+        <qualifiedname>app.database.Friendship.user_id</qualifiedname>
+        <initializer>=  Column(Integer, ForeignKey(&quot;users.id&quot;))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="161" column="1" bodyfile="app/database.py" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_1a8c1f340e70e855ab3d90a275cecc81fa" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Friendship::friend_id</definition>
+        <argsstring></argsstring>
+        <name>friend_id</name>
+        <qualifiedname>app.database.Friendship.friend_id</qualifiedname>
+        <initializer>=  Column(Integer, ForeignKey(&quot;users.id&quot;))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="162" column="1" bodyfile="app/database.py" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_1a95954d7888682a8b280f9d22afcc84c2" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Friendship::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>app.database.Friendship.status</qualifiedname>
+        <initializer>=  Column(Enum(<ref refid="classapp_1_1database_1_1_friendship_status" kindref="compound">FriendshipStatus</ref>), default=<ref refid="classapp_1_1database_1_1_friendship_status_1a87c627095e471324096a89595731426d" kindref="member">FriendshipStatus.PENDING</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="163" column="1" bodyfile="app/database.py" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_1aa1dd8124cabf10c59987ac7127cbdbe1" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Friendship::created_at</definition>
+        <argsstring></argsstring>
+        <name>created_at</name>
+        <qualifiedname>app.database.Friendship.created_at</qualifiedname>
+        <initializer>=  Column(DateTime, default=datetime.utcnow)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="164" column="1" bodyfile="app/database.py" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_1ac69895c82fa4a5ff094b4fd0816a3e4d" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Friendship::updated_at</definition>
+        <argsstring></argsstring>
+        <name>updated_at</name>
+        <qualifiedname>app.database.Friendship.updated_at</qualifiedname>
+        <initializer>=  Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="165" column="1" bodyfile="app/database.py" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_1a1146e6fcb00ab941c7b7bfd9370448c6" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Friendship::user</definition>
+        <argsstring></argsstring>
+        <name>user</name>
+        <qualifiedname>app.database.Friendship.user</qualifiedname>
+        <initializer>=  relationship(&quot;User&quot;, foreign_keys=[user_id], back_populates=&quot;sent_friendships&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="168" column="1" bodyfile="app/database.py" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classapp_1_1database_1_1_friendship_1a2bb409f1d0054f37771e6961e40abda4" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>app.database.Friendship::friend</definition>
+        <argsstring></argsstring>
+        <name>friend</name>
+        <qualifiedname>app.database.Friendship.friend</qualifiedname>
+        <initializer>=  relationship(&quot;User&quot;, foreign_keys=[friend_id], back_populates=&quot;received_friendships&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/database.py" line="169" column="1" bodyfile="app/database.py" bodystart="169" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>好友关系模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Base</label>
+      </node>
+      <node id="1">
+        <label>app.database.Friendship</label>
+        <link refid="classapp_1_1database_1_1_friendship"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Base</label>
+      </node>
+      <node id="1">
+        <label>app.database.Friendship</label>
+        <link refid="classapp_1_1database_1_1_friendship"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/database.py" line="155" column="1" bodyfile="app/database.py" bodystart="155" bodyend="172"/>
+    <listofallmembers>
+      <member refid="classapp_1_1database_1_1_friendship_1a7f98ef587d0ef4dcfa235aa1ea488747" prot="private" virt="non-virtual"><scope>app::database::Friendship</scope><name>__tablename__</name></member>
+      <member refid="classapp_1_1database_1_1_friendship_1aa1dd8124cabf10c59987ac7127cbdbe1" prot="public" virt="non-virtual"><scope>app::database::Friendship</scope><name>created_at</name></member>
+      <member refid="classapp_1_1database_1_1_friendship_1a2bb409f1d0054f37771e6961e40abda4" prot="public" virt="non-virtual"><scope>app::database::Friendship</scope><name>friend</name></member>
+      <member refid="classapp_1_1database_1_1_friendship_1a8c1f340e70e855ab3d90a275cecc81fa" prot="public" virt="non-virtual"><scope>app::database::Friendship</scope><name>friend_id</name></member>
+      <member refid="classapp_1_1database_1_1_friendship_1a21810d0569f440c39929e1079087fe03" prot="public" virt="non-virtual"><scope>app::database::Friendship</scope><name>id</name></member>
+      <member refid="classapp_1_1database_1_1_friendship_1a95954d7888682a8b280f9d22afcc84c2" prot="public" virt="non-virtual"><scope>app::database::Friendship</scope><name>status</name></member>
+      <member refid="classapp_1_1database_1_1_friendship_1ac69895c82fa4a5ff094b4fd0816a3e4d" prot="public" virt="non-virtual"><scope>app::database::Friendship</scope><name>updated_at</name></member>
+      <member refid="classapp_1_1database_1_1_friendship_1a1146e6fcb00ab941c7b7bfd9370448c6" prot="public" virt="non-virtual"><scope>app::database::Friendship</scope><name>user</name></member>
+      <member refid="classapp_1_1database_1_1_friendship_1ab23c4fb48bd4f7cff7fae98e696c8476" prot="public" virt="non-virtual"><scope>app::database::Friendship</scope><name>user_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

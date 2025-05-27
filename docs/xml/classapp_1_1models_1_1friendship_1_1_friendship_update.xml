@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1friendship_1_1_friendship_update" kind="class" language="Python" prot="public">
+    <compoundname>app::models::friendship::FriendshipUpdate</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BaseModel</basecompoundref>
+    <briefdescription>
+<para>好友关系更新模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.friendship.FriendshipUpdate</label>
+        <link refid="classapp_1_1models_1_1friendship_1_1_friendship_update"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.friendship.FriendshipUpdate</label>
+        <link refid="classapp_1_1models_1_1friendship_1_1_friendship_update"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/models/friendship.py" line="21" column="1" bodyfile="app/models/friendship.py" bodystart="21" bodyend="25"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1init__db" kind="namespace" language="Python">
+    <compoundname>app::init_db</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="init__db_8py_1ad85714b869522050fcc3ed8c9ecf0566" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.init_db.init_db</definition>
+        <argsstring>()</argsstring>
+        <name>init_db</name>
+        <qualifiedname>app.init_db.init_db</qualifiedname>
+        <briefdescription>
+<para>初始化数据库 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>创建数据库表并添加默认数据（如管理员账号） </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/init_db.py" line="8" column="1" bodyfile="app/init_db.py" bodystart="8" bodyend="39"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/init_db.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

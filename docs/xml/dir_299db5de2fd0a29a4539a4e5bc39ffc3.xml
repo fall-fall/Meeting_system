@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="dir_299db5de2fd0a29a4539a4e5bc39ffc3" kind="dir">
+    <compoundname>app/routers</compoundname>
+    <innerfile refid="routers_2____init_____8py">__init__.py</innerfile>
+    <innerfile refid="auth_8py">auth.py</innerfile>
+    <innerfile refid="conferences_8py">conferences.py</innerfile>
+    <innerfile refid="friends_8py">friends.py</innerfile>
+    <innerfile refid="my__conferences_8py">my_conferences.py</innerfile>
+    <innerfile refid="notifications_8py">notifications.py</innerfile>
+    <innerfile refid="registrations_8py">registrations.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/routers/"/>
+  </compounddef>
+</doxygen>

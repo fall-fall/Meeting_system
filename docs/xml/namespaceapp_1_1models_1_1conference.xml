@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1models_1_1conference" kind="namespace" language="Python">
+    <compoundname>app::models::conference</compoundname>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_agenda_item_base" prot="public">app::models::conference::AgendaItemBase</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_agenda_item_create" prot="public">app::models::conference::AgendaItemCreate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_agenda_item_response" prot="public">app::models::conference::AgendaItemResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_conference_base" prot="public">app::models::conference::ConferenceBase</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_conference_create" prot="public">app::models::conference::ConferenceCreate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_conference_response" prot="public">app::models::conference::ConferenceResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1conference_1_1_conference_update" prot="public">app::models::conference::ConferenceUpdate</innerclass>
+    <briefdescription>
+<para>会议和议程项相关的数据模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/models/conference.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

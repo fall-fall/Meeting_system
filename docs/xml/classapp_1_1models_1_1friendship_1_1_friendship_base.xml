@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="classapp_1_1models_1_1friendship_1_1_friendship_base" kind="class" language="Python" prot="public">
+    <compoundname>app::models::friendship::FriendshipBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BaseModel</basecompoundref>
+    <derivedcompoundref refid="classapp_1_1models_1_1friendship_1_1_friendship_create" prot="public" virt="non-virtual">app.models.friendship.FriendshipCreate</derivedcompoundref>
+    <derivedcompoundref refid="classapp_1_1models_1_1friendship_1_1_friendship_response" prot="public" virt="non-virtual">app.models.friendship.FriendshipResponse</derivedcompoundref>
+    <briefdescription>
+<para>好友关系基础模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.friendship.FriendshipBase</label>
+        <link refid="classapp_1_1models_1_1friendship_1_1_friendship_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>app.models.friendship.FriendshipCreate</label>
+        <link refid="classapp_1_1models_1_1friendship_1_1_friendship_create"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>app.models.friendship.FriendshipResponse</label>
+        <link refid="classapp_1_1models_1_1friendship_1_1_friendship_response"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BaseModel</label>
+      </node>
+      <node id="1">
+        <label>app.models.friendship.FriendshipBase</label>
+        <link refid="classapp_1_1models_1_1friendship_1_1_friendship_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="app/models/friendship.py" line="10" column="1" bodyfile="app/models/friendship.py" bodystart="10" bodyend="15"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

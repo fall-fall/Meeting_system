@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1routers_1_1auth" kind="namespace" language="Python">
+    <compoundname>app::routers::auth</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceapp_1_1routers_1_1auth_1a597c021df1116baca9bebc8157ba9adc" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::routers::auth.router</definition>
+        <argsstring></argsstring>
+        <name>router</name>
+        <qualifiedname>app.routers.auth.router</qualifiedname>
+        <initializer>=  APIRouter(prefix=&quot;/auth&quot;, tags=[&quot;auth&quot;])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/auth.py" line="22" column="1" bodyfile="app/routers/auth.py" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceapp_1_1routers_1_1auth_1aec7ed87b51686618a178849c7cfeabb0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>app::routers::auth.templates</definition>
+        <argsstring></argsstring>
+        <name>templates</name>
+        <qualifiedname>app.routers.auth.templates</qualifiedname>
+        <initializer>=  Jinja2Templates(directory=&quot;app/templates&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/auth.py" line="24" column="1" bodyfile="app/routers/auth.py" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1auth_1ac894e794f149ef8279d31da276125353" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.auth.register_page</definition>
+        <argsstring>(Request request)</argsstring>
+        <name>register_page</name>
+        <qualifiedname>app.routers.auth.register_page</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>渲染注册页面 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/auth.py" line="28" column="1" bodyfile="app/routers/auth.py" bodystart="28" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1auth_1a742bca4b190f822d5d48d2417c6ab6a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.auth.register</definition>
+        <argsstring>(Request request, str username=Form(...), str email=Form(...), str password=Form(...), str confirm_password=Form(...), bool is_admin=Form(False), Session db=Depends(get_db))</argsstring>
+        <name>register</name>
+        <qualifiedname>app.routers.auth.register</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>username</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>email</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>password</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>confirm_password</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_admin</declname>
+          <defval>Form(False)</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>注册新用户 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/auth.py" line="34" column="1" bodyfile="app/routers/auth.py" bodystart="42" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1auth_1a74157d17dda3dbf04c1c6b0abc5f532f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.auth.login_page</definition>
+        <argsstring>(Request request)</argsstring>
+        <name>login_page</name>
+        <qualifiedname>app.routers.auth.login_page</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>渲染登录页面 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/auth.py" line="83" column="1" bodyfile="app/routers/auth.py" bodystart="83" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1auth_1ae70c05cf4568b2b3397ccbd8c565d242" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.auth.login</definition>
+        <argsstring>(Request request, str username=Form(...), str password=Form(...), Session db=Depends(get_db))</argsstring>
+        <name>login</name>
+        <qualifiedname>app.routers.auth.login</qualifiedname>
+        <param>
+          <type>Request</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>username</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>password</declname>
+          <defval>Form(...)</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>用户登录 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/auth.py" line="89" column="1" bodyfile="app/routers/auth.py" bodystart="94" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1auth_1aaed036e1d746e7cd6e44aa28ac771d49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.auth.logout</definition>
+        <argsstring>()</argsstring>
+        <name>logout</name>
+        <qualifiedname>app.routers.auth.logout</qualifiedname>
+        <briefdescription>
+<para>用户登出 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/auth.py" line="116" column="1" bodyfile="app/routers/auth.py" bodystart="116" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceapp_1_1routers_1_1auth_1abae6ff81781ab2037df7034581616820" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>app.routers.auth.login_for_access_token</definition>
+        <argsstring>(OAuth2PasswordRequestForm form_data=Depends(), Session db=Depends(get_db))</argsstring>
+        <name>login_for_access_token</name>
+        <qualifiedname>app.routers.auth.login_for_access_token</qualifiedname>
+        <param>
+          <type>OAuth2PasswordRequestForm</type>
+          <declname>form_data</declname>
+          <defval>Depends()</defval>
+        </param>
+        <param>
+          <type>Session</type>
+          <declname>db</declname>
+          <defval>Depends(get_db)</defval>
+        </param>
+        <briefdescription>
+<para>获取访问令牌（用于API认证） </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/routers/auth.py" line="126" column="1" bodyfile="app/routers/auth.py" bodystart="129" bodyend="146"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>认证相关的路由处理模块 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>包含用户注册、登录、登出和令牌获取等功能 </para>
+    </detaileddescription>
+    <location file="app/routers/auth.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespacelist__admin__users" kind="namespace" language="Python">
+    <compoundname>list_admin_users</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacelist__admin__users_1abb39cb0ff4e1399072161b918bb16122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>list_admin_users.list_admin_users</definition>
+        <argsstring>()</argsstring>
+        <name>list_admin_users</name>
+        <qualifiedname>list_admin_users.list_admin_users</qualifiedname>
+        <briefdescription>
+<para>列出所有用户及其管理员状态。 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="app/scripts/list_admin_users.py" line="12" column="1" bodyfile="app/scripts/list_admin_users.py" bodystart="12" bodyend="44"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>列出所有用户及其管理员状态的脚本。 运行方式：python -m app.scripts.list_admin_users </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/scripts/list_admin_users.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

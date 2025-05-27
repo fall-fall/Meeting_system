@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="zh">
+  <compounddef id="namespaceapp_1_1models_1_1notification" kind="namespace" language="Python">
+    <compoundname>app::models::notification</compoundname>
+    <innerclass refid="classapp_1_1models_1_1notification_1_1_notification_base" prot="public">app::models::notification::NotificationBase</innerclass>
+    <innerclass refid="classapp_1_1models_1_1notification_1_1_notification_create" prot="public">app::models::notification::NotificationCreate</innerclass>
+    <innerclass refid="classapp_1_1models_1_1notification_1_1_notification_response" prot="public">app::models::notification::NotificationResponse</innerclass>
+    <innerclass refid="classapp_1_1models_1_1notification_1_1_notification_update" prot="public">app::models::notification::NotificationUpdate</innerclass>
+    <briefdescription>
+<para>通知相关的数据模型 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="app/models/notification.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>
