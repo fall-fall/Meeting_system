@@ -2,7 +2,7 @@
 
 **姓名:** 陈秋雨
 **学号:** 2023302071273
-**日期:** 2025年05月26日
+**日期:** 2025年05月28日
 
 ---
 
@@ -53,7 +53,6 @@
 ### 2.1 make 的工作原理
 
 * **Makefile 文件：** `make` 的核心是 `Makefile`。这个文件包含了一系列的**规则 (rules)**。每条规则通常包含：
-
   * **目标 (Target):** 通常是最终要生成的文件名（如可执行文件或目标文件），也可以是一个抽象的动作名（如 `clean`）。
   * **依赖 (Prerequisites/Dependencies):** 构建目标所需要的文件或其他目标。
   * **命令 (Commands):** 构建目标所需要执行的 Shell 命令（必须以 Tab 键开头）。
@@ -77,14 +76,12 @@
 CMake 的工作过程通常分为两个主要阶段：
 
 1. **配置 (Configure) 阶段：**
-
    * CMake 读取项目根目录下的 `CMakeLists.txt` 文件。
    * 它会检测当前的操作系统、编译器类型和版本等系统环境。
    * 处理 `CMakeLists.txt` 中的指令，例如查找库、设置编译选项等。
    * 根据检测到的环境和 `CMakeLists.txt` 的内容，生成本地构建系统所需的配置文件（例如 Makefiles 或 Visual Studio solution files）。这些文件会被放置在构建目录中。
    * 此阶段还会生成一个 `CMakeCache.txt` 文件，用于存储配置选项和检测结果，以便后续运行 CMake 时可以更快地加载配置。
 2. **生成 (Generate) / 构建 (Build) 阶段：**
-
    * **生成阶段**是配置阶段的最终产物，即本地构建文件的创建。
    * **构建阶段**则是用户使用上一步生成的本地构建工具（如 `make`, `ninja`, Visual Studio IDE, Xcode）来实际编译和链接项目。CMake 本身也可以通过 `cmake --build .` 命令来自动调用底层的构建工具。
 
@@ -156,21 +153,127 @@ project(MyAwesomeProject LANGUAGES CXX) # 可以指定语言，如 C CXX
 # add_executable(<目标名> <源文件1> [源文件2 ...])
 add_executable(my_app main.cpp utils.cpp)
 
-# (可选) 添加库目标
-# add_library(my_lib STATIC utils.cpp) # STATIC, SHARED, MODULE
+# (可选) 添加库目标 (如果您的项目包含库)
+# add_library(my_lib STATIC utils_lib.cpp) # 创建一个名为 my_lib 的静态库
+# add_library(my_shared_lib SHARED shared_utils.cpp) # 创建一个共享库
 
 # 4. (可选) 设置头文件包含目录
 # target_include_directories(<目标名> PUBLIC|PRIVATE|INTERFACE <目录1> [目录2 ...])
 target_include_directories(my_app PUBLIC "<span class="math-inline">\{CMAKE\_CURRENT\_SOURCE\_DIR\}/include"\)
-\# 5\. \(可选\) 链接库
-\# target\_link\_libraries\(<目标名\> PUBLIC\|PRIVATE\|INTERFACE <库名1\> \[库名2 \.\.\.\]\)
-\# target\_link\_libraries\(my\_app PRIVATE my\_lib\) \# 如果 my\_lib 是本项目定义的库
-\# target\_link\_libraries\(my\_app PRIVATE some\_external\_lib\) \# 链接外部库
-\# 6\. \(可选\) 设置编译选项
-\# target\_compile\_features\(my\_app PUBLIC cxx\_std\_17\) \# 要求 C\+\+17
-\# set\(CMAKE\_CXX\_FLAGS "</span>{CMAKE_CXX_FLAGS} -Wall") # 添加编译警告
+\# 如果定义了 my\_lib，可能也需要为它指定头文件目录或让 my\_app 继承
+\# if\(TARGET my\_lib\)
+\#   target\_include\_directories\(my\_lib INTERFACE "</span>{CMAKE_CURRENT_SOURCE_DIR}/include")
+# endif()
 
-# (可选) 安装规则
-# install(TARGETS my_app DESTINATION bin)
-# install(FILES myheader.h DESTINATION include)
+# 5. (可选) 链接库
+# target_link_libraries(<目标名> PUBLIC|PRIVATE|INTERFACE <库名1> [库名2 ...])
+# # 示例: 链接本项目定义的 my_lib (需先用 add_library 定义)
+# # if(TARGET my_lib)
+# #   target_link_libraries(my_app PRIVATE my_lib)
+# # endif()
+# # 示例: 链接外部库 (例如 POSIX Threads 和 数学库 m)
+# # find_package(Threads REQUIRED) # 查找 Threads 包
+# # target_link_libraries(my_app PRIVATE Threads::Threads m)
+
+# 6. (可选) 设置编译选项或特性
+# # 要求 C++17 标准
+# set(CMAKE_CXX_STANDARD 17)
+# set(CMAKE_CXX_STANDARD_REQUIRED True)
+# # 或者使用 target_compile_features (更现代的方式)
+# # target_compile_features(my_app PUBLIC cxx_std_17)
+#
+# # 添加通用编译警告
+# set(CMAKE_CXX_FLAGS "<span class="math-inline">\{CMAKE\_CXX\_FLAGS\} \-Wall \-Wextra \-pedantic"\)
+\# \# 或者针对特定目标添加
+\# \# target\_compile\_options\(my\_app PRIVATE \-Wall \-Wextra\)
+\# \(可选\) 安装规则
+\# install\(TARGETS my\_app DESTINATION bin\) \# 安装可执行文件到 <prefix\>/bin 目录
+\# install\(FILES "</span>{CMAKE_CURRENT_SOURCE_DIR}/include/utils.h" DESTINATION include) # 安装头文件到 <prefix>/include 目录
+# # 如果定义了库 my_lib, 也为其添加安装规则
+# # if(TARGET my_lib)
+# #   install(TARGETS my_lib
+# #     ARCHIVE DESTINATION lib  # for static libraries
+# #     LIBRARY DESTINATION lib  # for shared libraries on UNIX-like systems
+# #     RUNTIME DESTINATION bin  # for shared libraries on Windows (DLLs)
+# #   )
+# # endif()
 ```
+
+#### 运行 CMake (推荐核外构建 Out-of-Source Build)
+
+核外构建可以保持源代码目录的整洁。
+
+1. **创建构建目录并进入**：
+   在项目根目录（包含 `CMakeLists.txt` 的目录）下执行：
+
+   ```bash
+   mkdir build
+   cd build
+   ```
+2. **运行 CMake 配置和生成**：
+   在 `build` 目录中执行：
+
+   ```bash
+   cmake ..
+   ```
+
+   * `..` 指向上一级目录，即 `CMakeLists.txt` 所在的目录。
+   * CMake 会在此 `build` 目录中生成构建系统文件（例如 Makefiles）。
+   * **常用 CMake 配置选项**：
+     * `-DCMAKE_BUILD_TYPE=Debug` 或 `-DCMAKE_BUILD_TYPE=Release`：指定构建类型。Debug 版本通常包含调试信息，不做过多优化；Release 版本通常进行优化。
+     * `-G "<生成器名称>"`：指定生成器。例如，在 Windows 上如果你想生成 Visual Studio 2019 的项目文件，可以使用 `-G "Visual Studio 16 2019"`。在 Linux 上，默认通常是 "Unix Makefiles"。其他常用生成器有 "Ninja"。
+     * 示例：`cmake -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ..`
+3. **执行构建**：
+   CMake 配置完成后，在 `build` 目录中执行实际的构建命令：
+
+   * 如果生成的是 Makefiles（Unix/Linux/macOS 默认）：
+
+     ```bash
+     make
+     ```
+
+     或者并行构建以加快速度（例如使用4个核心）：
+     ```bash
+     make -j4
+     ```
+   * 或者使用 CMake 的通用构建命令（推荐，因为它与所选生成器无关）：
+
+     ```bash
+     cmake --build .
+     ```
+
+     也可以指定构建配置（对于多配置生成器如 Visual Studio）：
+     ```bash
+     cmake --build . --config Release
+     ```
+
+     并行构建：
+     ```bash
+     cmake --build . --parallel 4
+     ```
+
+#### 清理构建文件
+
+* 如果使用的是 Makefiles，并且 `Makefile` 中定义了 `clean` 目标（CMake 通常会自动生成），可以在 `build` 目录中运行：
+  ```bash
+  make clean
+  ```
+* 最简单和彻底的方法是直接删除整个 `build` 目录，然后重新创建并运行 `cmake ..`：
+  ```bash
+  cd .. # 回到项目根目录
+  rm -rf build
+  ```
+
+---
+
+## 4. 学习总结
+
+通过本次对 `make` 和 `cmake` 的学习，我对这两个在软件开发中至关重要的构建工具有了更深入的理解。
+
+`make` 是一个历史悠久且强大的工具，它通过 `Makefile` 文件中定义的规则和依赖关系来自动化编译过程。其核心优势在于能够进行增量编译，只重新构建已更改的部分，从而节省了大量的编译时间。对于结构相对简单、平台单一的项目，或者需要精细控制构建步骤的场景，`make` 仍然是一个非常有效的选择。
+
+然而，随着项目规模的扩大和跨平台需求的增加，直接手写和维护 `Makefile` 会变得非常复杂和繁琐。这时，`CMake` 的优势就显现出来了。`CMake` 作为一个构建系统生成器，允许开发者通过更高级、更易于管理的 `CMakeLists.txt` 文件来描述项目的构建逻辑。它能够根据当前的操作系统和编译器环境，自动生成相应平台的本地构建文件（如 Makefiles、Visual Studio 项目等）。这极大地增强了项目的可移植性，并简化了复杂项目的依赖管理和配置。`CMake` 的核外构建特性也使得源代码目录能保持整洁。
+
+我理解到，`CMake` 并非要取代 `make`（或其他本地构建工具如 Ninja），而是与它们协同工作。`CMake` 负责处理构建过程中的“配置”和“生成”阶段，而 `make` 等工具则负责实际的“构建”（编译和链接）阶段。
+
+在未来的实践中，对于小型或特定平台的简单项目，我可能会继续使用 `make`。但对于任何有跨平台需求、或者结构较为复杂的 C/C++ 项目，我会优先考虑使用 `CMake` 来管理构建过程。我会进一步熟悉 `CMakeLists.txt` 的常用命令和模块，学习如何更好地组织项目结构、查找和链接第三方库，以及如何利用 `CMake` 的测试和打包功能，从而全面提升项目构建的自动化水平和开发效率。
