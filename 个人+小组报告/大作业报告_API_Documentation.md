@@ -1,6 +1,6 @@
 # 会议管理系统 API 文档
 
-## 📋 目录
+## 目录
 
 - [项目概述](#项目概述)
 - [系统架构](#系统架构)
@@ -20,12 +20,12 @@
 
 **会议管理系统**是一个基于 FastAPI 构建的现代化 Web 应用程序，提供完整的会议管理功能，包括：
 
-- 🔐 用户认证与权限管理
-- 📅 会议创建与管理
-- 👥 用户好友系统
-- 📝 会议注册与参与
-- 🔔 实时通知系统
-- 📋 会议议程管理
+- 用户认证与权限管理
+- 会议创建与管理
+- 用户好友系统
+- 会议注册与参与
+- 实时通知系统
+- 会议议程管理
 
 ### 技术栈
 
@@ -75,17 +75,18 @@ class Settings(BaseModel):
     APP_NAME: str = "会议管理系统"
     API_PREFIX: str = "/api"
     DEBUG: bool = True
-    
+  
     # 认证相关设置
     SECRET_KEY: str = "your-secret-key-for-jwt-token"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24
-    
+  
     # 数据库设置
     DATABASE_URL: str = "sqlite:///./meeting_management.db"
 ```
 
 **主要配置项：**
+
 - `APP_NAME`: 应用程序名称
 - `API_PREFIX`: API 路由前缀
 - `SECRET_KEY`: JWT 令牌加密密钥
@@ -98,21 +99,24 @@ class Settings(BaseModel):
 #### 核心函数
 
 ##### `get_db()`
+
 - **功能**: 获取数据库会话的依赖函数
 - **用途**: FastAPI 依赖注入，自动管理数据库连接
 - **返回**: 数据库会话对象
 
 ##### `create_tables()`
+
 - **功能**: 创建所有数据库表
 - **用途**: 应用程序初始化时创建数据库结构
 
 #### 数据库模型
 
 ##### User (用户模型)
+
 ```python
 class User(Base):
     __tablename__ = "users"
-    
+  
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
@@ -122,10 +126,11 @@ class User(Base):
 ```
 
 ##### Conference (会议模型)
+
 ```python
 class Conference(Base):
     __tablename__ = "conferences"
-    
+  
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     description = Column(Text)
@@ -136,10 +141,11 @@ class Conference(Base):
 ```
 
 ##### AgendaItem (议程项模型)
+
 ```python
 class AgendaItem(Base):
     __tablename__ = "agenda_items"
-    
+  
     id = Column(Integer, primary_key=True, index=True)
     conference_id = Column(Integer, ForeignKey("conferences.id"))
     start_time = Column(String)
@@ -150,10 +156,11 @@ class AgendaItem(Base):
 ```
 
 ##### Registration (注册模型)
+
 ```python
 class Registration(Base):
     __tablename__ = "registrations"
-    
+  
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     conference_id = Column(Integer, ForeignKey("conferences.id"))
@@ -161,10 +168,11 @@ class Registration(Base):
 ```
 
 ##### Friendship (好友关系模型)
+
 ```python
 class Friendship(Base):
     __tablename__ = "friendships"
-    
+  
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     friend_id = Column(Integer, ForeignKey("users.id"))
@@ -174,10 +182,11 @@ class Friendship(Base):
 ```
 
 ##### Notification (通知模型)
+
 ```python
 class Notification(Base):
     __tablename__ = "notifications"
-    
+  
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     sender_id = Column(Integer, ForeignKey("users.id"))
@@ -191,11 +200,13 @@ class Notification(Base):
 #### 枚举类型
 
 ##### FriendshipStatus (好友关系状态)
+
 - `PENDING`: 等待接受
 - `ACCEPTED`: 已接受
 - `REJECTED`: 已拒绝
 
 ##### NotificationType (通知类型)
+
 - `FRIEND_REQUEST`: 好友请求
 - `FRIEND_ACCEPTED`: 好友请求已接受
 - `MEETING_INVITATION`: 会议邀请
@@ -209,6 +220,7 @@ class Notification(Base):
 #### 用户相关模型
 
 ##### UserBase
+
 ```python
 class UserBase(BaseModel):
     username: str  # 用户名
@@ -216,6 +228,7 @@ class UserBase(BaseModel):
 ```
 
 ##### UserCreate
+
 ```python
 class UserCreate(UserBase):
     password: str           # 密码
@@ -223,6 +236,7 @@ class UserCreate(UserBase):
 ```
 
 ##### UserLogin
+
 ```python
 class UserLogin(BaseModel):
     username: str  # 用户名
@@ -230,17 +244,19 @@ class UserLogin(BaseModel):
 ```
 
 ##### UserResponse
+
 ```python
 class UserResponse(UserBase):
     id: int                    # 用户ID
     is_admin: bool            # 是否为管理员
     created_at: datetime      # 创建时间
-    
+  
     class Config:
         orm_mode = True
 ```
 
 ##### Token
+
 ```python
 class Token(BaseModel):
     access_token: str  # 访问令牌
@@ -250,6 +266,7 @@ class Token(BaseModel):
 #### 会议相关模型
 
 ##### ConferenceBase
+
 ```python
 class ConferenceBase(BaseModel):
     title: str              # 会议标题
@@ -259,19 +276,21 @@ class ConferenceBase(BaseModel):
 ```
 
 ##### ConferenceCreate
+
 ```python
 class ConferenceCreate(ConferenceBase):
     pass
 ```
 
 ##### ConferenceResponse
+
 ```python
 class ConferenceResponse(ConferenceBase):
     id: int                           # 会议ID
     creator_id: int                   # 创建者ID
     created_at: datetime             # 创建时间
     agenda_items: List[AgendaItemResponse] = []  # 议程项列表
-    
+  
     class Config:
         orm_mode = True
 ```
@@ -350,6 +369,7 @@ class ConferenceResponse(ConferenceBase):
 **功能**: 处理用户认证相关的请求
 
 **主要端点**:
+
 - `POST /api/register`: 用户注册
 - `POST /api/login`: 用户登录
 - `GET /api/logout`: 用户登出
@@ -360,6 +380,7 @@ class ConferenceResponse(ConferenceBase):
 **功能**: 处理会议管理相关的请求
 
 **主要端点**:
+
 - `GET /api/conferences`: 获取会议列表
 - `POST /api/conferences`: 创建新会议
 - `GET /api/conferences/{conference_id}`: 获取会议详情
@@ -373,6 +394,7 @@ class ConferenceResponse(ConferenceBase):
 **功能**: 处理会议注册相关的请求
 
 **主要端点**:
+
 - `POST /api/conferences/{conference_id}/register`: 注册参加会议
 - `DELETE /api/registrations/{registration_id}`: 取消注册
 - `GET /api/conferences/{conference_id}/participants`: 获取会议参与者
@@ -382,6 +404,7 @@ class ConferenceResponse(ConferenceBase):
 **功能**: 处理好友关系相关的请求
 
 **主要端点**:
+
 - `GET /api/friends`: 获取好友列表
 - `POST /api/friends/request`: 发送好友请求
 - `PUT /api/friends/{friendship_id}/accept`: 接受好友请求
@@ -393,6 +416,7 @@ class ConferenceResponse(ConferenceBase):
 **功能**: 处理通知相关的请求
 
 **主要端点**:
+
 - `GET /api/notifications`: 获取通知列表
 - `PUT /api/notifications/{notification_id}/read`: 标记通知为已读
 - `PUT /api/notifications/read-all`: 标记所有通知为已读
@@ -407,32 +431,39 @@ class ConferenceResponse(ConferenceBase):
 ### 用户管理脚本
 
 #### `delete_users.py`
+
 - **功能**: 删除指定用户
 - **运行方式**: `python -m app.scripts.delete_users`
 
 #### `fix_admin_password.py`
+
 - **功能**: 重置admin用户密码为admin123
 - **运行方式**: `python -m app.scripts.fix_admin_password`
 
 #### `list_admin_users.py`
+
 - **功能**: 列出所有用户及其管理员状态
 - **运行方式**: `python -m app.scripts.list_admin_users`
 
 #### `update_all_passwords.py`
+
 - **功能**: 更新所有用户密码
 - **运行方式**: `python -m app.scripts.update_all_passwords`
 
 ### 数据生成脚本
 
 #### `generate_demo_users.py`
+
 - **功能**: 生成示例用户数据
 - **运行方式**: `python -m app.scripts.generate_demo_users`
 
 #### `generate_demo_data.py`
+
 - **功能**: 生成示例数据（会议、好友关系、通知）
 - **运行方式**: `python -m app.scripts.generate_demo_data`
 
 #### `generate_invitations.py`
+
 - **功能**: 生成会议邀请通知
 - **运行方式**: `python -m app.scripts.generate_invitations`
 
@@ -506,4 +537,4 @@ class ConferenceResponse(ConferenceBase):
 
 ---
 
-*本文档由 Doxygen 和 moxygen 自动生成，最后更新时间: 2024年5月27日*
+*本文档由 Doxygen 和 moxygen 自动生成，最后更新时间: 2024年5月29日*

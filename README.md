@@ -63,8 +63,8 @@ meeting/
 
 应用程序运行后，您可以在以下位置访问API文档:
 
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
+- Swagger UI: `http://localhost:8010/docs`
+- ReDoc: `http://localhost:8010/redoc`
 
 ## 如何打开使用 doxygen 生成的文档？
 
@@ -80,7 +80,8 @@ open docs/html/index.html
 
 xdg-open docs/html/index.html
 
-### 📁 文档文件位置：
+### 文档文件位置：
+
 原始 moxygen 输出：
 Meeting_system/api-docs.md
 改进版文档：
@@ -89,7 +90,9 @@ Doxygen HTML 文档：
 Meeting_system/docs/html/index.html
 Doxygen XML 源文件：
 Meeting_system/docs/xml/
-🔍 文档特点：
+
+
+文档特点：
 中英文混合: 支持中文注释和说明
 完整的 API 参考: 包含所有函数、类、参数说明
 代码示例: 包含数据模型的代码示例
